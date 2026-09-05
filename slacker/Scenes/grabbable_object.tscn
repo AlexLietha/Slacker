@@ -12,6 +12,7 @@ radius = 0.1
 albedo_color = Color(1, 0, 0, 1)
 
 [node name="grabbableObject" type="RigidBody3D" unique_id=844689755 node_paths=PackedStringArray("interactableComponent", "grabbableComponent")]
+collision_layer = 3
 script = ExtResource("1_g5dvv")
 interactableComponent = NodePath("InteractableComponent")
 grabbableComponent = NodePath("GrabbableComponent")

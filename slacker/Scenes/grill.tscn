@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://csl4s4fsyxjxk"]
+
+[ext_resource type="Script" uid="uid://8hid0kygyi71" path="res://Scripts/interactible_component.gd" id="1_2s3s1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qc4db"]
+albedo_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7jh4o"]
+size = Vector3(1, 0.5, 1)
+
+[node name="Grill" type="StaticBody3D" unique_id=1864087979]
+collision_layer = 3
+
+[node name="InteractableComponent" type="Node" parent="." unique_id=1108265130]
+script = ExtResource("1_2s3s1")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1183098024]
+size = Vector3(1, 0.5, 1)
+material = SubResource("StandardMaterial3D_qc4db")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=646002620]
+shape = SubResource("BoxShape3D_7jh4o")

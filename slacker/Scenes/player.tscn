@@ -16,6 +16,7 @@ current = true
 [node name="Interaction Range" type="RayCast3D" parent="Camera3D" unique_id=1386856921]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.09092179)
 target_position = Vector3(0, 0, -3)
+collision_mask = 2
 script = ExtResource("1_3vyb7")
 
 [node name="Body" type="Node3D" parent="." unique_id=975716534]
@@ -38,4 +39,4 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GrabbedObjectPosition" type="Node3D" parent="." unique_id=1229670346]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5835149, -0.43490535)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5223994, -0.27243695)

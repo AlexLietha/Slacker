@@ -1,7 +1,7 @@
 extends Node
 class_name InteractableComponent
 
-@export var Interactible = false
+@export var Interactable = true
 signal interacted(interactor : CharacterBody3D)
 
 func Interact(interactor : CharacterBody3D):
@@ -9,7 +9,7 @@ func Interact(interactor : CharacterBody3D):
 	print("interacted with")
 	
 func SetInteractible(con : bool) -> void:
-	Interactible = con
+	Interactable = con
 	
 func GetSignal() -> Signal:
 	return interacted

@@ -15,5 +15,12 @@ func Grab(grabber : CharacterBody3D):
 	self.reparent(grabber.get_child(4))
 	self.position = Vector3.ZERO
 	self.freeze = true
-	grabber.get_child(0).get_child(0).canInteract = false
-	# Interactor will grab the object
+	#grabber.get_child(0).get_child(0).canInteract = false
+	set_collision_layer_value(2, false)
+
+	
+
+func drop():
+	self.position = Vector3.ZERO
+	self.freeze = true
+	set_collision_layer_value(2, true)

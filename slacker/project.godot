@@ -53,6 +53,11 @@ interact={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="normal"
+3d_physics/layer_2="player raycast"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
