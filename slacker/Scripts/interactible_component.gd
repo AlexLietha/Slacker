@@ -1,4 +1,5 @@
 extends Node
+class_name InteractableComponent
 
 @export var Interactible = false
 signal interacted(interactor : CharacterBody3D)

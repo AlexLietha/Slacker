@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c2dsntpomcf6p"]
 
 [ext_resource type="PackedScene" uid="uid://w1hcy6j1i0vj" path="res://Scenes/player.tscn" id="1_lc1oi"]
+[ext_resource type="PackedScene" uid="uid://be2lpldotxs4g" path="res://Scenes/grabbable_object.tscn" id="2_8od7v"]
 
 [sub_resource type="Environment" id="Environment_7jh4o"]
 ambient_light_color = Color(1, 1, 1, 1)
@@ -21,3 +22,6 @@ transform = Transform3D(1, 0, 0, 0, -0.4942699, 0.8693086, 0, -0.8693086, -0.494
 light_energy = 16.0
 area_range = 30.0
 area_size = Vector2(10, 10)
+
+[node name="grabbableObject" parent="." unique_id=446894522 instance=ExtResource("2_8od7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1460023, 0.66756153, -1.23946)
