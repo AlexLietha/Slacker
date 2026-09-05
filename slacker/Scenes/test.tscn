@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c2dsntpomcf6p"]
+
+[ext_resource type="PackedScene" uid="uid://w1hcy6j1i0vj" path="res://Scenes/player.tscn" id="1_lc1oi"]
+
+[sub_resource type="Environment" id="Environment_7jh4o"]
+ambient_light_color = Color(1, 1, 1, 1)
+
+[node name="Node3D" type="Node3D" unique_id=464850409]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1246626760]
+use_collision = true
+size = Vector3(20, 0.2, 20)
+
+[node name="Player" parent="." unique_id=1090027167 instance=ExtResource("1_lc1oi")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1428211414]
+environment = SubResource("Environment_7jh4o")
+
+[node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=723669126]
+transform = Transform3D(1, 0, 0, 0, -0.4942699, 0.8693086, 0, -0.8693086, -0.4942699, 0, 4.6637616, -4.4582157)
+light_energy = 16.0
+area_range = 30.0
+area_size = Vector2(10, 10)

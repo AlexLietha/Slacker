@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://w1hcy6j1i0vj"]
+
+[ext_resource type="Script" uid="uid://j5kxh4tou35y" path="res://scripts/interaction.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://dqpaw7ty68pbe" path="res://scripts/playerMovement.gd" id="1_g2els"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7jh4o"]
+size = Vector3(0.6, 1, 0.15)
+
+[node name="Player" type="CharacterBody3D" unique_id=1090027167]
+script = ExtResource("1_g2els")
+
+[node name="Interaction Range" type="RayCast3D" parent="." unique_id=1386856921]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+target_position = Vector3(0, 0, -1)
+script = ExtResource("1_3vyb7")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1067204491]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+current = true
+
+[node name="Body" type="Node3D" parent="." unique_id=975716534]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Body" unique_id=1251306329]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.76318574, 0)
+radius = 0.1
+height = 0.15
+sides = 16
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Body" unique_id=682115544]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.34376913, 0)
+radius = 0.3
+height = 0.15
+sides = 16
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Body/CSGCylinder3D2" unique_id=946722839]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.019384764, 0.25)
+operation = 2
+size = Vector3(0.615, 0.5, 0.18876953)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Body" unique_id=1349500003]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+size = Vector3(0.25, 0.5, 0.15)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=312660711]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_7jh4o")
