@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ddlch850wo3no" path="res://Scripts/grabbable_object.gd" id="1_g5dvv"]
 [ext_resource type="Script" uid="uid://8hid0kygyi71" path="res://Scripts/interactible_component.gd" id="2_74iel"]
 [ext_resource type="Script" uid="uid://6fa7wffcrtgs" path="res://Scripts/grabbable_component.gd" id="3_3vkii"]
+[ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Scenes/IDComponent.gd" id="4_74iel"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7jh4o"]
 height = 0.03
@@ -11,11 +12,12 @@ radius = 0.1
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7jh4o"]
 albedo_color = Color(1, 0, 0, 1)
 
-[node name="grabbableObject" type="RigidBody3D" unique_id=844689755 node_paths=PackedStringArray("interactableComponent", "grabbableComponent")]
+[node name="grabbableObject" type="RigidBody3D" unique_id=844689755 node_paths=PackedStringArray("interactableComponent", "grabbableComponent", "idComponent")]
 collision_layer = 3
 script = ExtResource("1_g5dvv")
 interactableComponent = NodePath("InteractableComponent")
 grabbableComponent = NodePath("GrabbableComponent")
+idComponent = NodePath("IDComponent")
 
 [node name="InteractableComponent" type="Node" parent="." unique_id=56224242]
 script = ExtResource("2_74iel")
@@ -30,3 +32,7 @@ shape = SubResource("CylinderShape3D_7jh4o")
 radius = 0.1
 height = 0.03
 material = SubResource("StandardMaterial3D_7jh4o")
+
+[node name="IDComponent" type="Node" parent="." unique_id=1670629019]
+script = ExtResource("4_74iel")
+item_quest_id = "rawBurgerPatty"

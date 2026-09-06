@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TaskStep" format=3 uid="uid://d2sj0d04ixhwg"]
+
+[ext_resource type="Script" uid="uid://dpgnkwpxdfj0e" path="res://Scripts/Orders/TasksSteps.gd" id="1_kon5p"]
+
+[resource]
+script = ExtResource("1_kon5p")
+description = "Deliver cooked burger to waitress"
+target_id = "waitress"
+metadata/_custom_type_script = "uid://dpgnkwpxdfj0e"

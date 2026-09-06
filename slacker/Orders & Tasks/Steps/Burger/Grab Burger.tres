@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="TaskStep" format=3 uid="uid://ca82serf05jjd"]
+
+[ext_resource type="Script" uid="uid://dpgnkwpxdfj0e" path="res://Scripts/Orders/TasksSteps.gd" id="1_a127b"]
+
+[resource]
+script = ExtResource("1_a127b")
+description = "Grab a burger patty"
+type = 2
+target_id = "rawBurgerPatty"
+metadata/_custom_type_script = "uid://dpgnkwpxdfj0e"

@@ -14,6 +14,11 @@ config/name="Slacker"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+OrderManager="*uid://cpir08gy7664s"
+OrderSpawner="*uid://bw2xmgt2xt2a2"
+
 [display]
 
 window/stretch/mode="canvas_items"
