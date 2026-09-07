@@ -6,6 +6,7 @@ func _process(_delta: float) -> void:
 	var collider = get_collider()
 
 	if Input.is_action_just_pressed("interact") and canInteract:
+		
 		if collider:
 			var interactable = collider.get_node_or_null("InteractableComponent")
 

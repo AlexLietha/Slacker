@@ -12,12 +12,13 @@ radius = 0.1
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7jh4o"]
 albedo_color = Color(1, 0, 0, 1)
 
-[node name="grabbableObject" type="RigidBody3D" unique_id=844689755 node_paths=PackedStringArray("interactableComponent", "grabbableComponent", "idComponent")]
+[node name="grabbableObject" type="RigidBody3D" unique_id=844689755 node_paths=PackedStringArray("interactableComponent", "grabbableComponent", "idComponent", "model")]
 collision_layer = 3
 script = ExtResource("1_g5dvv")
 interactableComponent = NodePath("InteractableComponent")
 grabbableComponent = NodePath("GrabbableComponent")
 idComponent = NodePath("IDComponent")
+model = NodePath("CSGCylinder3D")
 
 [node name="InteractableComponent" type="Node" parent="." unique_id=56224242]
 script = ExtResource("2_74iel")

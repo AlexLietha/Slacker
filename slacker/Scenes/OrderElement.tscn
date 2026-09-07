@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bf44617ntag05" path="res://Scripts/Orders/UI/order_ui.gd" id="1_6oaq1"]
 
 [node name="Control" type="RichTextLabel" unique_id=1026540578]
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2

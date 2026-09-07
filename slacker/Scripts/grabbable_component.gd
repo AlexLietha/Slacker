@@ -1,4 +1,4 @@
 extends Node
 class_name GrabbableComponent
 
-@export var Grabbable = false
+@export var Grabbable = true

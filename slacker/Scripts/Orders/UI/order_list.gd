@@ -10,7 +10,7 @@ func AddOrder(order: Order) -> void:
 	add_child(label)
 	label.order = order
 	label.fit_content = true
-	label.text = order.get_current_step().description
+	label.text = "ORDER \n---------\n" + order.get_current_step().description + "\n---------"
 
 func UpdateOrder(order: Order) -> void:
 	print("Updating Order UI")
@@ -19,7 +19,7 @@ func UpdateOrder(order: Order) -> void:
 			return
 		
 		if child.order == order:
-			child.text = order.get_current_step().description
+			child.text = "ORDER \n------\n" + order.get_current_step().description + "------"
 	pass
 
 func DeleteOrder(order: Order) -> void:

@@ -5,6 +5,3 @@ class_name OrderElement
 
 func _ready() -> void:
 	pass
-
-func UpdateText():
-	text = order.get_current_step().description

@@ -57,10 +57,12 @@ func report_event(event_type: String, target_id: String, amount: int = 1) -> voi
 			)
 
 			order.check_progress()
-			AdvancedOrder.emit(order)
+			
 			if order.completed:
 				complete_order(order)
 				CompletedOrder.emit(order)
+			else:
+				AdvancedOrder.emit(order)
 		return
 
 

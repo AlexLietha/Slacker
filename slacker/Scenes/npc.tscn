@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://ddnsnlj6myhdd"]
+
+[ext_resource type="Script" uid="uid://cjkny77v8xyu0" path="res://Scripts/Waitress.gd" id="1_g6unj"]
+[ext_resource type="Script" uid="uid://8hid0kygyi71" path="res://Scripts/interactible_component.gd" id="1_nh2m4"]
+[ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Scenes/IDComponent.gd" id="3_h1ryf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tcuxl"]
+size = Vector3(0.6, 1, 0.15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7jh4o"]
+
+[node name="NPC1" type="StaticBody3D" unique_id=190551831 node_paths=PackedStringArray("interactableComponent")]
+collision_layer = 3
+script = ExtResource("1_g6unj")
+interactableComponent = NodePath("InteractableComponent")
+
+[node name="InteractableComponent" type="Node" parent="." unique_id=872500535]
+script = ExtResource("1_nh2m4")
+
+[node name="IDComponent" type="Node" parent="." unique_id=658960265]
+script = ExtResource("3_h1ryf")
+item_quest_id = "rawBurgerPatty"
+
+[node name="Colis" type="CollisionShape3D" parent="." unique_id=1485652563]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_tcuxl")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Colis" unique_id=1785237974]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.26318574, 0)
+radius = 0.1
+height = 0.15
+sides = 16
+material = SubResource("StandardMaterial3D_7jh4o")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Colis" unique_id=250669825]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.15623087, 0)
+radius = 0.3
+height = 0.15
+sides = 16
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Colis/CSGCylinder3D2" unique_id=668866594]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 2.2935052e-09, -0.006849878, 0.25)
+operation = 2
+size = Vector3(0.615, 0.5, 0.18876953)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Colis" unique_id=376912221]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+size = Vector3(0.25, 0.5, 0.15)

@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://w1hcy6j1i0vj" path="res://Scenes/player.tscn" id="1_lc1oi"]
 [ext_resource type="PackedScene" uid="uid://be2lpldotxs4g" path="res://Scenes/grabbable_object.tscn" id="2_8od7v"]
 [ext_resource type="PackedScene" uid="uid://csl4s4fsyxjxk" path="res://Scenes/grill.tscn" id="3_qc4db"]
+[ext_resource type="PackedScene" uid="uid://ddnsnlj6myhdd" path="res://Scenes/npc.tscn" id="4_ys1qc"]
+[ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Scenes/IDComponent.gd" id="5_35xla"]
 
 [sub_resource type="Environment" id="Environment_7jh4o"]
 ambient_light_color = Color(1, 1, 1, 1)
@@ -30,3 +32,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1460023, 0.0686754, -1.239
 
 [node name="Grill" parent="." unique_id=2077506183 instance=ExtResource("3_qc4db")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.25, -3.264)
+
+[node name="NPC1" parent="." unique_id=209910386 instance=ExtResource("4_ys1qc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.620558, -0.012005806, -5.164071)
+
+[node name="IDComponent2" type="Node" parent="NPC1" unique_id=951819349]
+script = ExtResource("5_35xla")
+item_quest_id = "rawBurgerPatty"
+
+[node name="grabbableObject2" parent="." unique_id=844689755 instance=ExtResource("2_8od7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.57573974, 0.0686754, -1.23946)
+
+[node name="grabbableObject3" parent="." unique_id=729585394 instance=ExtResource("2_8od7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1460023, 0.0686754, -0.989035)
+
+[node name="grabbableObject4" parent="." unique_id=1516432677 instance=ExtResource("2_8od7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.57573974, 0.0686754, -0.989035)

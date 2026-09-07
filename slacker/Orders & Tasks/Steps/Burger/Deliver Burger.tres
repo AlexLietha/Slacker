@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_kon5p")
-description = "Deliver cooked burger to waitress"
+description = "1 Hamburger"
 target_id = "waitress"
 metadata/_custom_type_script = "uid://dpgnkwpxdfj0e"
