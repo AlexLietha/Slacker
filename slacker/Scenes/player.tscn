@@ -7,6 +7,11 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_7jh4o"]
 size = Vector3(0.6, 1, 0.15)
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_6t5aa"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
 [node name="Player" type="CharacterBody3D" unique_id=1090027167]
 script = ExtResource("1_g2els")
 
@@ -49,3 +54,6 @@ script = ExtResource("3_6t5aa")
 
 [node name="GrabbedObjectPosition" type="Node3D" parent="." unique_id=1229670346]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5223994, -0.27243695)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1784047294]
+replication_config = SubResource("SceneReplicationConfig_6t5aa")
