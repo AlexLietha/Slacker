@@ -4,19 +4,29 @@
 [ext_resource type="Script" uid="uid://8hid0kygyi71" path="res://Scripts/interactible_component.gd" id="2_74iel"]
 [ext_resource type="Script" uid="uid://6fa7wffcrtgs" path="res://Scripts/grabbable_component.gd" id="3_3vkii"]
 [ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Scenes/IDComponent.gd" id="4_74iel"]
+[ext_resource type="Shader" uid="uid://b6n4gbowvtsg7" path="res://Shaders/Outline.gdshader" id="4_757ny"]
+[ext_resource type="Script" uid="uid://dakevjuf8svg" path="res://Scripts/HighlightComponent.gd" id="5_3vkii"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7jh4o"]
 height = 0.03
 radius = 0.1
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_35xla"]
+render_priority = 0
+shader = ExtResource("4_757ny")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/thickness = 0.0030000001425
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7jh4o"]
+next_pass = SubResource("ShaderMaterial_35xla")
 albedo_color = Color(1, 0, 0, 1)
 
-[node name="grabbableObject" type="RigidBody3D" unique_id=844689755 node_paths=PackedStringArray("interactableComponent", "grabbableComponent", "idComponent", "model")]
+[node name="grabbableObject" type="RigidBody3D" unique_id=844689755 node_paths=PackedStringArray("interactableComponent", "grabbableComponent", "highlightComponent", "idComponent", "model")]
 collision_layer = 3
 script = ExtResource("1_g5dvv")
 interactableComponent = NodePath("InteractableComponent")
 grabbableComponent = NodePath("GrabbableComponent")
+highlightComponent = NodePath("HighlightComponent")
 idComponent = NodePath("IDComponent")
 model = NodePath("CSGCylinder3D")
 
@@ -36,4 +46,7 @@ material = SubResource("StandardMaterial3D_7jh4o")
 
 [node name="IDComponent" type="Node" parent="." unique_id=1670629019]
 script = ExtResource("4_74iel")
-item_quest_id = "rawBurgerPatty"
+ID = "rawBurgerPatty"
+
+[node name="HighlightComponent" type="Node" parent="." unique_id=698930704]
+script = ExtResource("5_3vkii")

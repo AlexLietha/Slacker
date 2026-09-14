@@ -2,7 +2,6 @@ extends VBoxContainer
 
 func _ready() -> void:
 	OrderManager.StartedOrder.connect(AddOrder)
-	OrderManager.AdvancedOrder.connect(UpdateOrder)
 	OrderManager.CompletedOrder.connect(DeleteOrder)
 
 func AddOrder(order: Order) -> void:

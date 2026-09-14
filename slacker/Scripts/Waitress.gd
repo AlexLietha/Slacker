@@ -14,4 +14,4 @@ func GiveFood(player: CharacterBody3D):
 	
 	if item is GrabbableObject:
 		player.get_child(4).remove_child(item)
-		OrderManager.report_event("Deliver", "waitress", 1)
+		OrderManager.ReportEvent("Deliver", "waitress", 1)

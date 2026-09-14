@@ -1,10 +1,14 @@
 extends CharacterBody3D
+class_name Player
 
 @export var speed := 5.0
 @export var jumpVelocity := 5
 @export var mouseSensitivity := 0.004
 
 @onready var camera = $Camera3D
+
+@export var interactionRayCast : RayCast3D
+@export var grabbedItem : Node3D
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -42,3 +46,17 @@ func _input(event):
 		
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
+		
+	if Input.is_action_just_pressed("drop"):
+		if HasGrabbedItem():
+			getGrabbedItem().drop()
+		pass
+
+func getGrabbedItem() -> GrabbableObject:
+	if not HasGrabbedItem():
+		return null
+	return grabbedItem.get_child(0)
+	
+func HasGrabbedItem() -> bool:
+	return grabbedItem.get_child_count() == 1
+		

@@ -35,20 +35,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.620558, -0.012005806, -5.16
 
 [node name="IDComponent2" type="Node" parent="NPC1" unique_id=951819349]
 script = ExtResource("5_35xla")
-item_quest_id = "rawBurgerPatty"
 
 [node name="grabbableObject2" parent="." unique_id=844689755 instance=ExtResource("2_8od7v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.57573974, 0.0686754, -1.23946)
-
-[node name="grabbableObject3" parent="." unique_id=729585394 instance=ExtResource("2_8od7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1460023, 0.0686754, -0.989035)
-
-[node name="grabbableObject4" parent="." unique_id=1516432677 instance=ExtResource("2_8od7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.57573974, 0.0686754, -0.989035)
-
-[node name="grabbableObject" parent="." unique_id=446894522 instance=ExtResource("2_8od7v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1460023, 0.0686754, -1.23946)
-
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=147329692]
-spawn_path = NodePath("../Player")
-spawn_limit = 4
