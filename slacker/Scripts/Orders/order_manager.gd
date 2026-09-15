@@ -1,8 +1,8 @@
 extends Node
 
 
-var activeOrders: Dictionary = {}
-var completedOrders: Dictionary = {}
+var activeOrders: Array[Order] = []
+var completedOrders: Array[Order] = []
 
 signal StartedOrder(order: Order)
 signal CompletedOrder(order: Order)
@@ -11,17 +11,15 @@ var orderInt := 0
 
 func _ready() -> void:
 	OrderSpawner.GetNewOrderSignal().connect(StartOrder)
-	#OrderSpawner.StartSpawningOrder()
+	OrderSpawner.StartSpawningOrder()
 	
 func StartOrder(order: Order) -> Order:
 	orderInt += 1
-	var newOrder: Order = order.duplicate(true)
 	
-	newOrder.orderID = orderInt
-	activeOrders[newOrder.orderID] = newOrder
+	order.SetOrderID(orderInt)
+	activeOrders.append(order)
 	
 	StartedOrder.emit(order)
-	print("Started order: ", order.title)
 
 
 	return order
@@ -29,12 +27,14 @@ func StartOrder(order: Order) -> Order:
 
 
 
-func GetOrder(instance_id: String) -> Order:
-	return activeOrders.get(instance_id)
-
+func GetOrder(id: int) -> Order:
+	for order : Order in activeOrders:
+		if order.GetOrderID() == id:
+			return order
+	return null
 
 func GetActiveOrders() -> Array:
-	return activeOrders.values()
+	return activeOrders
 
 #func FindClosestOrder(plate: Plate) -> Order:
 	#for order in activeOrders:
@@ -42,10 +42,16 @@ func GetActiveOrders() -> Array:
 	#pass
 
 
-func CompleteOrder(order: Order) -> void:
-	activeOrders.erase(order.instance_id)
-
-	completedOrders[order.instance_id] = order
+func CompleteOrder(plate : Plate) -> bool:
+	var plateEntree = plate.GetItem()
 	
-	CompletedOrder.emit(order)
-	print("Order completed: ", order.title)
+	for order : Order in activeOrders:
+		if order.GetEntree().GetName() == plateEntree.GetName():
+			print("Completed Order")
+			CompletedOrder.emit(order)
+			
+			activeOrders.erase(order)
+			completedOrders.append(order)
+			return true
+	return false
+	pass

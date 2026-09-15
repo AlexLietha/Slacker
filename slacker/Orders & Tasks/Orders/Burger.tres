@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="entree" format=3 uid="uid://bbio8i71walkb"]
+[gd_resource type="Resource" script_class="Entree" format=3 uid="uid://djbrti3q0enq"]
 
 [ext_resource type="Script" uid="uid://cxfkcjplx3xal" path="res://Scripts/Orders/entrée.gd" id="2_ncbr0"]
 
 [resource]
 script = ExtResource("2_ncbr0")
-ingredients = Array[String](["CBP"])
+ingredients = "CBP"
 metadata/_custom_type_script = "uid://cxfkcjplx3xal"
