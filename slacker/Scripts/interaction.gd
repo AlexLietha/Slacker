@@ -1,14 +1,31 @@
 extends RayCast3D
 
 var canInteract = true
+var lastHovered = null
+var interactor: Player
 
+func _ready() -> void:
+	interactor = get_parent().get_parent()
+	
+	
 func _process(_delta: float) -> void:
-	var collider = get_collider()
-
-	if Input.is_action_just_pressed("interact") and canInteract:
+	if lastHovered:
+		lastHovered.Hover(interactor, false)
 		
-		if collider:
-			var interactable = collider.get_node_or_null("InteractableComponent")
+	var collider = get_collider()
+	
+	if not collider:
+		return
+	
+	var interactable = collider.get_node_or_null("InteractableComponent")
+	
+	if not interactable:
+		return
+		
+	if not interactable.isHovered:
+		lastHovered = interactable
+		interactable.Hover(interactor, true)
+		#print("Highlighted")
 
-			if interactable and interactable.Interactable:
-				interactable.Interact(self.get_parent().get_parent())
+	if Input.is_action_just_pressed("interact") and canInteract and interactable.Interactable:
+			interactable.Interact(interactor)

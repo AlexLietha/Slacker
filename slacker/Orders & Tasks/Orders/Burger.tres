@@ -1,13 +1,8 @@
-[gd_resource type="Resource" script_class="Order" format=3 uid="uid://bbio8i71walkb"]
+[gd_resource type="Resource" script_class="entree" format=3 uid="uid://bbio8i71walkb"]
 
-[ext_resource type="Script" uid="uid://cl0p37mk4yal2" path="res://Scripts/Orders/Order.gd" id="1_8i4oq"]
-[ext_resource type="Script" uid="uid://dpgnkwpxdfj0e" path="res://Scripts/Orders/TasksSteps.gd" id="2_drrk0"]
-[ext_resource type="Resource" uid="uid://d2sj0d04ixhwg" path="res://Orders & Tasks/Steps/Burger/Deliver Burger.tres" id="3_drrk0"]
+[ext_resource type="Script" uid="uid://cxfkcjplx3xal" path="res://Scripts/Orders/entrée.gd" id="2_ncbr0"]
 
 [resource]
-script = ExtResource("1_8i4oq")
-order_id = "burger"
-title = "1 Burger"
-description = "A customer wants a hamburger."
-steps = Array[ExtResource("2_drrk0")]([ExtResource("3_drrk0")])
-metadata/_custom_type_script = "uid://cl0p37mk4yal2"
+script = ExtResource("2_ncbr0")
+ingredients = Array[String](["CBP"])
+metadata/_custom_type_script = "uid://cxfkcjplx3xal"

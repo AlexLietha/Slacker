@@ -1,25 +1,35 @@
 extends Node
 
-
-var all_orders : Array[Order] = [preload("res://Orders & Tasks/Orders/Burger.tres")]
-var canSpawn = true
-
-
-func _ready() -> void:
-	StartSpawningOrder()
-
-func NewOrder():
-	var new_order = all_orders.pick_random()
-	OrderManager.start_order(new_order)
 	
-func StartSpawningOrder():
-	canSpawn = true
-	while canSpawn:
-		
-		await get_tree().create_timer(5).timeout
-		NewOrder()
-		
+var timeTilNextOrder = 10.0
+#var listOfEntres : Array[Order] = [preload("res://Orders & Tasks/Orders/Burger.tres")]
+var canSpawnNextOrder = true
+signal NewOrder(order: Order)
+var rng = RandomNumberGenerator.new()
+
+
+func CreateOrder():
+	#var newOrder = listOfEntres.pick_random()
+	#NewOrder.emit(newOrder)
+	
+	#OrderManager.start_order(new_order)
+	pass
+func GetNewOrderSignal() -> Signal:
+	return NewOrder
+	
+func SpawnOrders():
+	await get_tree().create_timer(timeTilNextOrder).timeout
+	timeTilNextOrder = rng.randf_range(7.5, 20.0)
+	
+	if canSpawnNextOrder:
+		CreateOrder()
+		SpawnOrders()
 		
 func StopSpawningOrder():
-	canSpawn = false
+	canSpawnNextOrder = false
 	
+func StartSpawningOrder():
+	canSpawnNextOrder = true
+	SpawnOrders()
+		
+		
