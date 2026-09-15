@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://bo5noycjqc8v0"]
+
+[ext_resource type="PackedScene" uid="uid://bkd67mh0rdghl" path="res://demo_player.tscn" id="1_jlmwd"]
+[ext_resource type="PackedScene" uid="uid://cvpyrpe15q2qy" path="res://player.tscn" id="2_qoeas"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jlmwd"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_qoeas"]
+sky_material = SubResource("ProceduralSkyMaterial_jlmwd")
+
+[sub_resource type="Environment" id="Environment_bc52l"]
+background_mode = 2
+sky = SubResource("Sky_qoeas")
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_cx7oh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cx7oh"]
+
+[node name="LobbyArea" type="Node3D" unique_id=432399948]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1421213944]
+environment = SubResource("Environment_bc52l")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1475515994]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=319909369]
+transform = Transform3D(12.5, 0, 0, 0, 0.5, 0, 0, 0, 12.5, 0, 0, 0)
+mesh = SubResource("BoxMesh_cx7oh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=2112781695]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=2114230958]
+shape = SubResource("BoxShape3D_cx7oh")
+
+[node name="CharacterBody3D" parent="." unique_id=351433074 instance=ExtResource("1_jlmwd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.366405, 0.24999952, 3.7779393)
+
+[node name="Players" type="Node" parent="." unique_id=1901309178]
+
+[node name="Player" parent="Players" unique_id=1194345959 instance=ExtResource("2_qoeas")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5294867, 0.25, -2.5693521)
+
+[node name="Player2" parent="Players" unique_id=1597356447 instance=ExtResource("2_qoeas")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7883921, 0.25, -2.5693521)
+
+[node name="Player3" parent="Players" unique_id=249940479 instance=ExtResource("2_qoeas")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015427828, 0.25, -2.5693521)
+
+[node name="Player4" parent="Players" unique_id=1218661980 instance=ExtResource("2_qoeas")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5733874, 0.25, -2.5693521)
+
+[node name="Player5" parent="Players" unique_id=827255548 instance=ExtResource("2_qoeas")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1314423, 0.25, -2.5693521)
+
+[node name="Player6" parent="Players" unique_id=122886037 instance=ExtResource("2_qoeas")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.476483, 0.25, -2.5693521)
