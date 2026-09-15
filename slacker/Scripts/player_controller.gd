@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 	if role == "Cook":
 		hat.hide()
 		var material = StandardMaterial3D.new()
-		material.albedo_color = Color.WHITE
+		material.albedo_color = Color.BLUE
 		player_mesh.material_override = material
 		
 	if role == "Slacker":

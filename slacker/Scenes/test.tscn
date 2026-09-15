@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://2riwns1moyus" path="res://Scenes/Grabbable Objects/burger_patty.tscn" id="6_5wyu1"]
 [ext_resource type="PackedScene" uid="uid://betf2qehtbsgn" path="res://Scenes/box.tscn" id="6_i3aeo"]
 [ext_resource type="PackedScene" uid="uid://bgu1pls1ejp2t" path="res://Scenes/Grabbable Objects/plate.tscn" id="7_5wyu1"]
+[ext_resource type="PackedScene" uid="uid://cvpyrpe15q2qy" path="res://Scenes/cook.tscn" id="8_0c07c"]
+[ext_resource type="PackedScene" uid="uid://dk6cu2cs85urb" path="res://Scenes/Grabbable Objects/broom.tscn" id="9_2cgwh"]
 
 [sub_resource type="Environment" id="Environment_7jh4o"]
 ambient_light_color = Color(1, 1, 1, 1)
@@ -45,3 +47,26 @@ item = ExtResource("6_5wyu1")
 [node name="Box2" parent="." unique_id=421201296 instance=ExtResource("6_i3aeo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1216536, 0.2187069, -4.579122)
 item = ExtResource("7_5wyu1")
+
+[node name="Players" type="Node" parent="." unique_id=929891748]
+
+[node name="Player" parent="Players" unique_id=1194345959 instance=ExtResource("8_0c07c")]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 9.979236, 0.34267235, -7.483194)
+
+[node name="Player2" parent="Players" unique_id=1302192116 instance=ExtResource("8_0c07c")]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 8.238141, 0.34267235, -7.4831934)
+
+[node name="Player3" parent="Players" unique_id=59517641 instance=ExtResource("8_0c07c")]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 6.4343214, 0.34267235, -7.4831934)
+
+[node name="Player4" parent="Players" unique_id=581875996 instance=ExtResource("8_0c07c")]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 4.876362, 0.34267235, -7.4831934)
+
+[node name="Player5" parent="Players" unique_id=1795255485 instance=ExtResource("8_0c07c")]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 3.318307, 0.34267235, -7.4831934)
+
+[node name="Player6" parent="Players" unique_id=1385507306 instance=ExtResource("8_0c07c")]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 1.9732661, 0.34267235, -7.483193)
+
+[node name="Broom2" parent="." unique_id=1768105010 instance=ExtResource("9_2cgwh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0911354, 0, -1.0531983)
