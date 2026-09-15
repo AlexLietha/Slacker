@@ -1,75 +1,57 @@
 extends Node
 
 
-var active_orders: Dictionary = {}
-var completed_orders: Dictionary = {}
+var activeOrders: Array[Order] = []
+var completedOrders: Array[Order] = []
 
 signal StartedOrder(order: Order)
-signal AdvancedOrder(order: Order)
 signal CompletedOrder(order: Order)
 
+var orderInt := 0
 
-func start_order(order_template: Order) -> Order:
-	var order: Order = order_template.duplicate(true)
-
-	order.instance_id = generate_instance_id(order.order_id)
-	active_orders[order.instance_id] = order
+func _ready() -> void:
+	OrderSpawner.GetNewOrderSignal().connect(StartOrder)
+	OrderSpawner.StartSpawningOrder()
+	
+func StartOrder(order: Order) -> Order:
+	orderInt += 1
+	
+	order.SetOrderID(orderInt)
+	activeOrders.append(order)
 	
 	StartedOrder.emit(order)
-	print("Started order: ", order.title)
-	print("Instance ID: ", order.instance_id)
-	#print("active orders:", active_orders)
+
 
 	return order
 
 
-func generate_instance_id(order_id: String) -> String:
-	return order_id + "_" + str(Time.get_ticks_usec())
 
 
-func get_order(instance_id: String) -> Order:
-	return active_orders.get(instance_id)
+func GetOrder(id: int) -> Order:
+	for order : Order in activeOrders:
+		if order.GetOrderID() == id:
+			return order
+	return null
+
+func GetActiveOrders() -> Array:
+	return activeOrders
+
+#func FindClosestOrder(plate: Plate) -> Order:
+	#for order in activeOrders:
+		#pass
+	#pass
 
 
-func get_active_orders() -> Array:
-	return active_orders.values()
-
-
-func report_event(event_type: String, target_id: String, amount: int = 1) -> void:
-
-	for order in active_orders.values():
-		var step: TaskStep = order.get_current_step()
-
-		if step == null:
-			continue
-
-		if step.matches_event(event_type, target_id):
-			step.progress(amount)
-			
-			print(
-				order.title,
-				": ",
-				step.description,
-				" ",
-				step.current_amount,
-				"/",
-				step.required_amount
-			)
-
-			order.check_progress()
-			
-			if order.completed:
-				complete_order(order)
-				CompletedOrder.emit(order)
-			else:
-				AdvancedOrder.emit(order)
-		return
-
-
-func complete_order(order: Order) -> void:
-	active_orders.erase(order.instance_id)
-
-	completed_orders[order.instance_id] = order
+func CompleteOrder(plate : Plate) -> bool:
+	var plateEntree = plate.GetItem()
 	
-	CompletedOrder.emit(order)
-	print("Order completed: ", order.title)
+	for order : Order in activeOrders:
+		if order.GetEntree().GetName() == plateEntree.GetName():
+			print("Completed Order")
+			CompletedOrder.emit(order)
+			
+			activeOrders.erase(order)
+			completedOrders.append(order)
+			return true
+	return false
+	pass

@@ -1,18 +1,41 @@
 extends StaticBody3D
 
 @export var interactableComponent: InteractableComponent
+@export var highlightComponent: HighlightComponent
 @export var idComponent: IDComponent
+
+@export var model: CSGBox3D
+
+@export var itemName := "RBP"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	interactableComponent.interacted.connect(GrillItem)
+	interactableComponent.GetInteractSignal().connect(GrillItem)
+	interactableComponent.GetHoveredSignal().connect(highlight)
 	
+	if highlightComponent:
+		highlightComponent.SetShader(model.material.next_pass)
 	
-func GrillItem(player : CharacterBody3D):
-	if player.get_child(4).get_child_count() == 0:
+func GrillItem(player : Player):
+	var item = player.getGrabbedItem()
+	if not item:
+		return
+	if item.GetName() != itemName:
 		return
 	
-	var item : GrabbableObject = player.get_child(4).get_child(0)
+	item.Place(self)
 	
-	if item is GrabbableObject:
-		item.cook()
+	item.cooking = true
+	item.cook()
+
+		
+		
+func highlight(interactor: Player, highlighted: bool):
+	if not interactor.HasGrabbedItem(): 
+		highlightComponent.highlight(interactor, false)
+		return
+	if interactor.getGrabbedItem().GetName() == itemName:
+		highlightComponent.highlight(interactor, highlighted)
+	else:
+		highlightComponent.highlight(interactor, false)
+	

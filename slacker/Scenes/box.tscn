@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://betf2qehtbsgn"]
+
+[ext_resource type="Script" uid="uid://dw7axy87lfuon" path="res://Scripts/box.gd" id="1_2jyye"]
+[ext_resource type="Script" uid="uid://8hid0kygyi71" path="res://Scripts/interactible_component.gd" id="2_y6vpp"]
+[ext_resource type="PackedScene" uid="uid://be2lpldotxs4g" path="res://Scenes/grabbable_object.tscn" id="2_y7274"]
+[ext_resource type="Shader" uid="uid://b6n4gbowvtsg7" path="res://Shaders/Outline.gdshader" id="3_4pvdy"]
+[ext_resource type="Script" uid="uid://dakevjuf8svg" path="res://Scripts/HighlightComponent.gd" id="3_y7274"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y6vpp"]
+render_priority = 0
+shader = ExtResource("3_4pvdy")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/thickness = 0.010000000475
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ikeu"]
+next_pass = SubResource("ShaderMaterial_y6vpp")
+albedo_color = Color(0.55141854, 0.28809875, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4pvdy"]
+size = Vector3(0.78, 0.465, 1)
+
+[node name="Box" type="StaticBody3D" unique_id=421201296 node_paths=PackedStringArray("interactableComponent", "highlightComponent", "model", "icon")]
+collision_layer = 3
+script = ExtResource("1_2jyye")
+interactableComponent = NodePath("InteractableComponent")
+highlightComponent = NodePath("HighlightComponent")
+model = NodePath("CSGBox3D")
+icon = NodePath("Icon")
+item = ExtResource("2_y7274")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1254407638]
+size = Vector3(0.73, 0.395, 1)
+material = SubResource("StandardMaterial3D_6ikeu")
+
+[node name="InteractableComponent" type="Node" parent="." unique_id=987664818]
+script = ExtResource("2_y6vpp")
+metadata/_custom_type_script = "uid://8hid0kygyi71"
+
+[node name="HighlightComponent" type="Node" parent="." unique_id=792822360]
+script = ExtResource("3_y7274")
+metadata/_custom_type_script = "uid://dakevjuf8svg"
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=2114515019]
+shape = SubResource("BoxShape3D_4pvdy")
+
+[node name="Icon" type="Node3D" parent="." unique_id=1074943053]
