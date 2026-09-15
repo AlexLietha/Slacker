@@ -6,12 +6,10 @@ extends StaticBody3D
 func _ready() -> void:
 	interactableComponent.interacted.connect(GiveFood)
 
-func GiveFood(player: CharacterBody3D):
-	if player.get_child(4).get_child_count() == 0:
+func GiveFood(player: Player):
+	if not player.HasGrabbedItem():
 		return
 	
-	var item : GrabbableObject = player.get_child(4).get_child(0)
-	
-	if item is GrabbableObject:
-		player.get_child(4).remove_child(item)
-		OrderManager.ReportEvent("Deliver", "waitress", 1)
+	OrderManager
+	player.getGrabbedItem().queue_free()
+		#OrderManager.ReportEvent("Deliver", "waitress", 1)

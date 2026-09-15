@@ -6,11 +6,15 @@ signal interacted(interactor : Player)
 signal hovered(interactor : Player, isHovered : bool)
 
 var isHovered = false
+@export var canHighlight = true
 
 func Interact(interactor : Player):
 	interacted.emit(interactor)
 	
 func Hover(interactor : Player, hovering: bool):
+	if not canHighlight:
+		return
+		
 	hovered.emit(interactor, hovering)
 	isHovered = hovering
 	

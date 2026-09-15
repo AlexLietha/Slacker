@@ -1,11 +1,14 @@
 extends RigidBody3D
 class_name GrabbableObject
+
 @export var interactableComponent: InteractableComponent
 @export var grabbableComponent: GrabbableComponent
 @export var highlightComponent: HighlightComponent
 @export var idComponent: IDComponent
+
 @export var model: CSGCylinder3D
 
+var plate : Plate
 
 
 func _ready() -> void:
@@ -17,21 +20,35 @@ func _ready() -> void:
 
 
 func Grab(grabber : Player):
-	
+	print("1")
 	if not grabbableComponent.Grabbable:
 		return
 		
+	if grabber.HasGrabbedItem():
+		
+		return
+	if plate:
+		plate.RemoveItem(self)
+		plate = null
+	
+	
+		
 	print(grabber)
 
-	self.reparent(grabber.get_child(4))
-	self.position = Vector3.ZERO
-	self.freeze = true
+	reparent(grabber.grabbedItem)
+	position = Vector3.ZERO
+	freeze = true
+	#cooking = false
 	#OrderManager.ReportEvent("Retrieve", idComponent.GetID(), 1)
 	#grabber.get_child(0).get_child(0).canInteract = false
 	set_collision_layer_value(2, false)
 
+func Place(newPosition: Node3D):
+	self.reparent(newPosition)
+	self.position = Vector3(0, .01, 0)
+	self.freeze = true
+	set_collision_layer_value(2, true)
 	
-
 func drop():
 	self.reparent(get_tree().root)
 	#self.position = Vector3.ZERO
@@ -39,13 +56,17 @@ func drop():
 	set_collision_layer_value(2, true)
 	
 	
-func cook():
-	model.material.albedo_color = Color(0.293, 0.18, 0.146, 1.0)
-	SetName("cookedBurgerPatty")
+
 	
 func GetName() -> String:
 	return idComponent.GetID()
 	
 func SetName(id: String) -> void:
 	idComponent.SetID(id)
+	
+#func AddItem(item: GrabbableObject) -> void:
+	#item.Place(stackPos)
+	
+func GetHeight() -> float:
+	return model.height
 	

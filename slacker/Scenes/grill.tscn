@@ -1,10 +1,7 @@
 [gd_scene format=3 uid="uid://csl4s4fsyxjxk"]
 
-[ext_resource type="Script" uid="uid://8hid0kygyi71" path="res://Scripts/interactible_component.gd" id="1_2s3s1"]
-[ext_resource type="Script" uid="uid://dk1q06f52xa35" path="res://Scripts/grill.gd" id="1_84nkv"]
-[ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Scenes/IDComponent.gd" id="3_aj0s0"]
 [ext_resource type="Shader" uid="uid://b6n4gbowvtsg7" path="res://Shaders/Outline.gdshader" id="4_aj0s0"]
-[ext_resource type="Script" uid="uid://dakevjuf8svg" path="res://Scripts/HighlightComponent.gd" id="5_r3mxa"]
+[ext_resource type="PackedScene" uid="uid://iy0vehi8gfol" path="res://Scenes/grill_spot.tscn" id="5_q1ihl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0c07c"]
 render_priority = 0
@@ -17,22 +14,9 @@ next_pass = SubResource("ShaderMaterial_0c07c")
 albedo_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7jh4o"]
-size = Vector3(1, 0.5, 1)
+size = Vector3(1, 0.435, 1)
 
-[node name="Grill" type="StaticBody3D" unique_id=1864087979 node_paths=PackedStringArray("interactableComponent", "highlightComponent", "idComponent", "model")]
-collision_layer = 3
-script = ExtResource("1_84nkv")
-interactableComponent = NodePath("InteractableComponent")
-highlightComponent = NodePath("HighlightComponent")
-idComponent = NodePath("IDComponent")
-model = NodePath("CSGBox3D")
-
-[node name="InteractableComponent" type="Node" parent="." unique_id=1108265130]
-script = ExtResource("1_2s3s1")
-
-[node name="IDComponent" type="Node" parent="." unique_id=443511248]
-script = ExtResource("3_aj0s0")
-item_quest_id = "grill"
+[node name="Grill" type="StaticBody3D" unique_id=1864087979]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1183098024]
 size = Vector3(1, 0.5, 1)
@@ -41,6 +25,53 @@ material = SubResource("StandardMaterial3D_qc4db")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=646002620]
 shape = SubResource("BoxShape3D_7jh4o")
 
-[node name="HighlightComponent" type="Node" parent="." unique_id=2133390740]
-script = ExtResource("5_r3mxa")
-metadata/_custom_type_script = "uid://dakevjuf8svg"
+[node name="Grill Spots" type="Node3D" parent="." unique_id=1575851905]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014632255, -1.1920929e-07, -0.02772832)
+
+[node name="Grill Spot" parent="Grill Spots" unique_id=30975667 instance=ExtResource("5_q1ihl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.25, 0.4)
+
+[node name="Grill Spot2" parent="Grill Spots" unique_id=1412676737 instance=ExtResource("5_q1ihl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.25, 0.1514596)
+
+[node name="Grill Spot3" parent="Grill Spots" unique_id=1455293951 instance=ExtResource("5_q1ihl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.25, -0.10214731)
+
+[node name="Grill Spot4" parent="Grill Spots" unique_id=1110392410 instance=ExtResource("5_q1ihl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.25, -0.3506877)
+
+[node name="Grill Spot5" parent="Grill Spots" unique_id=905512351 instance=ExtResource("5_q1ihl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15213254, 0.25, 0.4050103)
+
+[node name="Grill Spot6" parent="Grill Spots" unique_id=1154736797 instance=ExtResource("5_q1ihl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15213254, 0.25, 0.15646991)
+
+[node name="Grill Spot7" parent="Grill Spots" unique_id=32415503 instance=ExtResource("5_q1ihl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15213254, 0.25, -0.097137004)
+
+[node name="Grill Spot8" parent="Grill Spots" unique_id=1933355375 instance=ExtResource("5_q1ihl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15213254, 0.25, -0.3456774)
+
+[node name="Grill Spot9" parent="Grill Spots" unique_id=129562130 instance=ExtResource("5_q1ihl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.098469466, 0.25, 0.4)
+
+[node name="Grill Spot10" parent="Grill Spots" unique_id=114564002 instance=ExtResource("5_q1ihl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.098469466, 0.25, 0.1514596)
+
+[node name="Grill Spot11" parent="Grill Spots" unique_id=2093049538 instance=ExtResource("5_q1ihl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.098469466, 0.25, -0.10214731)
+
+[node name="Grill Spot12" parent="Grill Spots" unique_id=1118060555 instance=ExtResource("5_q1ihl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.098469466, 0.25, -0.3506877)
+
+[node name="Grill Spot13" parent="Grill Spots" unique_id=2067233199 instance=ExtResource("5_q1ihl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34633693, 0.25, 0.4050103)
+
+[node name="Grill Spot14" parent="Grill Spots" unique_id=1829481742 instance=ExtResource("5_q1ihl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34633693, 0.25, 0.15646991)
+
+[node name="Grill Spot15" parent="Grill Spots" unique_id=1725127408 instance=ExtResource("5_q1ihl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34633693, 0.25, -0.097137004)
+
+[node name="Grill Spot16" parent="Grill Spots" unique_id=1135141579 instance=ExtResource("5_q1ihl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34633693, 0.25, -0.3456774)
