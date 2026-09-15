@@ -16,6 +16,7 @@ func assign_roles():
 			players[i].role = player_roles[i] # assigns slacker and manager
 		else:
 			players[i].role = player_roles[2] # assigns cooks
-
+	
+	print("Roles assigned")
 	for player in players:
 		print(player.name + " is a " + player.role)

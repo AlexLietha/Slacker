@@ -18,22 +18,27 @@ var rotation_y := 0.0
 func _ready() -> void:
 	add_to_group("players")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	
-	await get_tree().process_frame # wait for game manager to assign roles
-	
-	if role != "Manager":
+
+func _physics_process(delta: float) -> void:
+	if role == "Manager":
+		hat.show()
+		var material = StandardMaterial3D.new()
+		material.albedo_color = Color.WHITE
+		player_mesh.material_override = material
+		
+	if role == "Cook":
 		hat.hide()
+		var material = StandardMaterial3D.new()
+		material.albedo_color = Color.WHITE
+		player_mesh.material_override = material
 		
 	if role == "Slacker":
+		hat.hide()
 		var material = StandardMaterial3D.new()
 		material.albedo_color = Color.RED
 		
 		player_mesh.material_override = material
 		
-		print("slacker color changed")
-
-func _physics_process(delta: float) -> void:
-	pass
 	# Add the gravity.
 	#if not is_on_floor():
 		#velocity += get_gravity() * delta
