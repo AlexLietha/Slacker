@@ -1,5 +1,8 @@
 extends VBoxContainer
 
+@export var OrderBoard: Node3D
+
+
 func _ready() -> void:
 	OrderManager.StartedOrder.connect(AddOrder)
 	OrderManager.AdvancedOrder.connect(UpdateOrder)
@@ -7,10 +10,13 @@ func _ready() -> void:
 
 func AddOrder(order: Order) -> void:
 	var label = OrderElement.new()
+	var Ticket = OrderTicket.new()
 	add_child(label)
 	label.order = order
 	label.fit_content = true
 	label.text = "ORDER \n---------\n" + order.get_current_step().description + "\n---------"
+#	OrderBoard._spawnticket()
+	#Ticket.Set_Text(label.text)
 
 func UpdateOrder(order: Order) -> void:
 	print("Updating Order UI")

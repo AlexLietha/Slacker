@@ -3,7 +3,7 @@ class_name GrabbableObject
 @export var interactableComponent: InteractableComponent
 @export var grabbableComponent: GrabbableComponent
 @export var idComponent: IDComponent
-@export var model: CSGCylinder3D
+@export var model: CSGPrimitive3D
 
 func _ready() -> void:
 	interactableComponent.GetSignal().connect(Grab)
