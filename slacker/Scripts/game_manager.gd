@@ -6,6 +6,7 @@ var players = []
 func _ready() -> void:
 	await get_tree().process_frame
 	players = get_tree().get_nodes_in_group("players")
+	round_timer("Prep", 120)
 	assign_roles()
 
 func assign_roles():
@@ -20,3 +21,6 @@ func assign_roles():
 	print("Roles assigned")
 	for player in players:
 		print(player.name + " is a " + player.role)
+
+func round_timer(message, time):
+	pass
