@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c8kapetowafxw"]
+
+[ext_resource type="PackedScene" uid="uid://cink8pjx5i317" path="res://models/environment assets/EggCarton_BenMusser_V1.fbx" id="1_kygrs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_015li"]
+albedo_color = Color(0.55, 0.3886667, 0.308, 1)
+
+[node name="EggCarton_BenMusser_V1" unique_id=251986961 instance=ExtResource("1_kygrs")]
+
+[node name="eggs" parent="." index="0" unique_id=698861954]
+material_override = SubResource("StandardMaterial3D_015li")

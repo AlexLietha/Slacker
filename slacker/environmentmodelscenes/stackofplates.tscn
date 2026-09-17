@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cxmigh00e0xws"]
+
+[ext_resource type="PackedScene" uid="uid://bw3aw3uf81v5d" path="res://models/environment assets/stackofplates.fbx" id="1_dt275"]
+[ext_resource type="Material" uid="uid://b4lk6dw40se6f" path="res://Scenes/environmentmodelscenes/basewhite.tres" id="2_l22va"]
+
+[node name="stackofplates" unique_id=334221210 instance=ExtResource("1_dt275")]
+
+[node name="Cylinder_022" parent="." index="0" unique_id=143660735]
+material_override = ExtResource("2_l22va")

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b6tfnde32xqur"]
+
+[ext_resource type="PackedScene" uid="uid://b7yx8ls713m67" path="res://models/environment assets/pancakes_BenMusser_V1.fbx" id="1_wmy6k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_odkdx"]
+albedo_color = Color(0.933555, 0.8160027, 0.68687373, 1)
+
+[node name="pancakes_BenMusser_V1" unique_id=2036693793 instance=ExtResource("1_wmy6k")]
+
+[node name="pancakes" parent="." index="0" unique_id=551590461]
+material_override = SubResource("StandardMaterial3D_odkdx")

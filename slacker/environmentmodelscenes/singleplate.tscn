@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cyrikhmp5xc1g"]
+
+[ext_resource type="PackedScene" uid="uid://dukvowtrkd6el" path="res://models/environment assets/singleplate.fbx" id="1_c0edb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_843un"]
+cull_mode = 2
+albedo_color = Color(1, 0.9140152, 0.8992892, 1)
+
+[node name="singleplate" unique_id=610114698 instance=ExtResource("1_c0edb")]
+
+[node name="Cylinder_020" parent="." index="0" unique_id=371514238]
+material_override = SubResource("StandardMaterial3D_843un")

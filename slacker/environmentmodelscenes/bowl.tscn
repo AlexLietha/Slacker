@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cf37ilrn8pexl"]
+
+[ext_resource type="PackedScene" uid="uid://h2dvqypij643" path="res://models/environment assets/Bowl_BenMusser_V1.fbx" id="1_knyj5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8pala"]
+albedo_color = Color(0.4455164, 0.48288602, 0.5296854, 1)
+
+[node name="Bowl_BenMusser_V1" unique_id=82048025 instance=ExtResource("1_knyj5")]
+
+[node name="bowl" parent="." index="0" unique_id=895779869]
+material_override = SubResource("StandardMaterial3D_8pala")

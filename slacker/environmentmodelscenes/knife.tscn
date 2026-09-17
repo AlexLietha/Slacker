@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cqu4s7gp7ge71"]
+
+[ext_resource type="PackedScene" uid="uid://6p7x3bic48sm" path="res://models/environment assets/Knife_BenMusser_V1.fbx" id="1_q6qha"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ui2j4"]
+albedo_color = Color(0.68266994, 0.7006874, 0.7083867, 1)
+
+[node name="Knife_BenMusser_V1" unique_id=747387775 instance=ExtResource("1_q6qha")]
+
+[node name="Knife2" parent="." index="0" unique_id=534132696]
+material_override = SubResource("StandardMaterial3D_ui2j4")

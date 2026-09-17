@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bwbxe6tcv6484"]
+
+[ext_resource type="PackedScene" uid="uid://cpaygq0tggpvh" path="res://models/environment assets/TrashCan_BenMusser_V1.fbx" id="1_c7xpm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i4bwu"]
+albedo_color = Color(0.2506686, 0.2684571, 0.32659313, 1)
+
+[node name="TrashCan_BenMusser_V1" unique_id=1930141632 instance=ExtResource("1_c7xpm")]
+
+[node name="trash_can" parent="." index="0" unique_id=767933556]
+material_override = SubResource("StandardMaterial3D_i4bwu")
