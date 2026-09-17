@@ -1,5 +1,9 @@
 extends Node
 
+# Dear future Aidan, or future programmer,
+#		Please do a state machine for the rounds instead
+#		- xoxo pookie bear aidan
+
 @onready var clock = $"../Clock"
 @onready var round_title = $"../Round Title"
 @onready var timer = $"."
@@ -21,9 +25,14 @@ func remaining_time():
 func set_round_name(name):
 	round_title.text = name
 	
+func get_round_name():
+	return round_title.text
+	
 func set_next_round():
 	set_round_name(round_name[round_num])
 	timer.start(round_time[round_num])
+	if round_num == 1:
+		OrderSpawner.StartSpawningOrder()
 	round_num += 1
 
 func _process(delta):

@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://bo5noycjqc8v0"]
 
-[ext_resource type="PackedScene" uid="uid://cvpyrpe15q2qy" path="res://Scenes/cook.tscn" id="2_qoeas"]
 [ext_resource type="PackedScene" uid="uid://w1hcy6j1i0vj" path="res://Scenes/player.tscn" id="3_ioqnf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jlmwd"]
@@ -39,23 +38,20 @@ shape = SubResource("BoxShape3D_cx7oh")
 
 [node name="Players" type="Node" parent="." unique_id=1901309178]
 
-[node name="Player" parent="Players" unique_id=1194345959 instance=ExtResource("2_qoeas")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5294867, 0.25, -2.5693521)
+[node name="Player2" parent="Players" unique_id=1090027167 instance=ExtResource("3_ioqnf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 4)
 
-[node name="Player2" parent="Players" unique_id=1597356447 instance=ExtResource("2_qoeas")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7883921, 0.25, -2.5693521)
+[node name="Player3" parent="Players" unique_id=610971361 instance=ExtResource("3_ioqnf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.25, 4)
 
-[node name="Player3" parent="Players" unique_id=249940479 instance=ExtResource("2_qoeas")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015427828, 0.25, -2.5693521)
+[node name="Player4" parent="Players" unique_id=466042631 instance=ExtResource("3_ioqnf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.25, 4)
 
-[node name="Player4" parent="Players" unique_id=1218661980 instance=ExtResource("2_qoeas")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5733874, 0.25, -2.5693521)
+[node name="Player5" parent="Players" unique_id=114169812 instance=ExtResource("3_ioqnf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.25, 4)
 
-[node name="Player5" parent="Players" unique_id=827255548 instance=ExtResource("2_qoeas")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1314423, 0.25, -2.5693521)
+[node name="Player6" parent="Players" unique_id=124597235 instance=ExtResource("3_ioqnf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.25, 4)
 
-[node name="Player6" parent="Players" unique_id=122886037 instance=ExtResource("2_qoeas")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.476483, 0.25, -2.5693521)
-
-[node name="Player" parent="." unique_id=1090027167 instance=ExtResource("3_ioqnf")]
+[node name="Player" parent="." unique_id=1982631418 instance=ExtResource("3_ioqnf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4306643, 0.24999976, 3.5432072)
