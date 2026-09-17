@@ -9,7 +9,7 @@ extends Node
 @onready var timer = $"."
 
 @export var round_name = ["Prep Time!", "Get to Work!"]
-@export var round_time = [120,480]
+@export var round_time = [10,480]
 
 var round_num = 0
 
