@@ -9,11 +9,6 @@ var cooking = false
 
 func GetQuality() -> float:
 	return quality
-	
-func GetName() -> String:
-	return ingredientName
-func SetName(name : String) -> void:
-	ingredientName = name
 
 func Grab(grabber : Player):
 	super(grabber)

@@ -1,10 +1,8 @@
 extends Resource
-class_name Entree
+class_name entree
 
-@export var ingredients : String
+@export var ingredients : Array[String]
 
-func GetName()->String:
-	return ingredients
 #func GetQuality() -> float:
 	#var qualityTotal = 0
 	#for ingredient in ingredients:

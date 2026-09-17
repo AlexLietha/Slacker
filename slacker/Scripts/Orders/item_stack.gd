@@ -1,11 +1,11 @@
 extends Node3D
 class_name ItemStack
 
-var ingredient : Ingredient
+var ingredients : Array[Ingredient] = []
 var nextItemHeight = 0
 
 func AddItem(item : Ingredient):
-	ingredient = item
+	ingredients.append(item)
 	
 	item.Place(self)
 	item.position.y = nextItemHeight
@@ -14,14 +14,11 @@ func AddItem(item : Ingredient):
 	PrintIngredients()
 	
 func RemoveItem(item : GrabbableObject):
-	ingredient = null
+	ingredients.erase(item)
 	nextItemHeight -= item.GetHeight()
 	PrintIngredients()
 	
 	
 func PrintIngredients() -> void:
-	if ingredient:
-		print(ingredient.GetName())
-
-func HasIngredient() -> bool:
-	return ingredient != null
+	for ingre in ingredients:
+		print(ingre.GetName())
