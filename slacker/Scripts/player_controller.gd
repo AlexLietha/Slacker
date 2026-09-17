@@ -1,3 +1,5 @@
+# OUTDATED - DO NOT USE
+
 extends Node3D
 
 const SPEED = 5.0
