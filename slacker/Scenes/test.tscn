@@ -35,7 +35,7 @@ area_range = 30.0
 area_size = Vector2(10, 10)
 
 [node name="Grill" parent="." unique_id=2077506183 instance=ExtResource("3_qc4db")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.25, -3.264)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1, -1.2410836, -3.264)
 
 [node name="NPC1" parent="." unique_id=209910386 instance=ExtResource("4_ys1qc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.620558, -0.012005806, -8.33332)

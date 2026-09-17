@@ -254,3 +254,6 @@ transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 7.556755, 3.01517
 
 [node name="PlasticCrate_BenMusser_V3" parent="." unique_id=1469490303 instance=ExtResource("18_v7v86")]
 transform = Transform3D(0.024055472, 0, -0.1226635, 0, 0.125, 0, 0.1226635, 0, 0.024055472, 6.4715986, 2.1438136, -17.007969)
+
+[node name="Player2" parent="." unique_id=951845157 instance=ExtResource("1_7u47w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5817242, 3.7783532, 1.0572677)
