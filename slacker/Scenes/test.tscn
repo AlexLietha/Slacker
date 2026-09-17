@@ -19,7 +19,7 @@ ambient_light_color = Color(1, 1, 1, 1)
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="TimerUI" parent="." unique_id=1773043747 instance=ExtResource("1_iaow0")]
+[node name="TimerUI" parent="." unique_id=1227973388 instance=ExtResource("1_iaow0")]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1246626760]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
