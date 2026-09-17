@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b8yaq7jij8yxt"]
+
+[ext_resource type="PackedScene" uid="uid://wt71gr6cep6k" path="res://Scenes/MultiplayerScenes/main_menu.tscn" id="1_jjgbg"]
+
+[node name="Main" type="Node" unique_id=907600119]
+
+[node name="MainMenu" parent="." unique_id=1602906196 instance=ExtResource("1_jjgbg")]
+script = null

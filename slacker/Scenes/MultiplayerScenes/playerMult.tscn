@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://bsfetotgxde5a"]
+
+[ext_resource type="Script" uid="uid://bokl08iqhb3mm" path="res://Scenes/Player/player.gd" id="1_a3d8c"]
+[ext_resource type="Texture2D" uid="uid://b1ll5t72ga6pn" path="res://Assets/kenney_prototype-textures/PNG/Green/texture_09.png" id="1_uvnfx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nmmjn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lcii7"]
+albedo_texture = ExtResource("1_uvnfx")
+uv1_triplanar = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_n2nfj"]
+material = SubResource("StandardMaterial3D_lcii7")
+
+[sub_resource type="PrismMesh" id="PrismMesh_05s5o"]
+size = Vector3(0.5, 0.5, 0.3)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_a3d8c"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("Head:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="Player" type="CharacterBody3D" unique_id=1614355042]
+script = ExtResource("1_a3d8c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=286998875]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_nmmjn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1179546108]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_n2nfj")
+
+[node name="Head" type="Node3D" parent="." unique_id=585618102]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head" unique_id=755745116]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.0555917, -0.31105137)
+mesh = SubResource("PrismMesh_05s5o")
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=1629444667]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6778786, -0.05025968)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1879563550]
+replication_config = SubResource("SceneReplicationConfig_a3d8c")
+
+[node name="NamePlate" type="Label3D" parent="." unique_id=1616571771]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.308035, 0)
+billboard = 2
+fixed_size = true
+text = "Peer ID
+"
+font_size = 24
+outline_size = 8
