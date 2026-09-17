@@ -48,6 +48,7 @@ item = ExtResource("7_5wyu1")
 <<<<<<< HEAD
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1217867662]
 transform = Transform3D(1, 0, 0, 0, 0.94310766, 0.33248755, 0, -0.33248755, 0.94310766, 0, 1.0623933, 1.2587135)
+=======
 [node name="Players" type="Node" parent="." unique_id=929891748]
 
 [node name="Player" parent="Players" unique_id=1194345959 instance=ExtResource("8_0c07c")]
