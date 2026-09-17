@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://bsfetotgxde5a"]
+
+[ext_resource type="Texture2D" uid="uid://b1ll5t72ga6pn" path="res://Assets/kenney_prototype-textures/PNG/Green/texture_09.png" id="1_uvnfx"]
+
+[sub_resource type="GDScript" id="GDScript_uvnfx"]
+script/source = "extends CharacterBody3D
+
+const SPEED = 5.0
+const JUMP_VELOCITY = 4.5
+@onready var camera_3d: Camera3D = %Camera3D
+@onready var head: Node3D = $Head
+@onready var nameplate: Label3D = $NamePlate
+@export var sensitivity: float = 0.002
+
+func _enter_tree() -> void:
+	set_multiplayer_authority(int(name))
+
+func _ready() -> void:
+	add_to_group(\"Players\")
+	nameplate.text = name
+	
+	if is_multiplayer_authority():
+		camera_3d.current = true
+
+func _unhandled_input(event: InputEvent) -> void:
+	if not is_multiplayer_authority():
+		return
+	
+	if event is InputEventMouseMotion:
+		head.rotate_y(-event.relative.x * sensitivity)
+		camera_3d.rotate_x(-event.relative.y * sensitivity)
+		camera_3d.rotation.x = clamp(camera_3d.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+	
+	# Handle jump.
+	if Input.is_action_just_pressed(\"jump\") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+	
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var input_dir := Input.get_vector(\"left\", \"right\", \"forward\", \"backward\")
+	var direction := (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if direction:
+		velocity.x = direction.x * SPEED
+		velocity.z = direction.z * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+
+	move_and_slide()
+"
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nmmjn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lcii7"]
+albedo_texture = ExtResource("1_uvnfx")
+uv1_triplanar = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_n2nfj"]
+material = SubResource("StandardMaterial3D_lcii7")
+
+[sub_resource type="PrismMesh" id="PrismMesh_05s5o"]
+size = Vector3(0.5, 0.5, 0.3)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_a3d8c"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("Head:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="Player" type="CharacterBody3D" unique_id=1614355042]
+script = SubResource("GDScript_uvnfx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=286998875]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_nmmjn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1179546108]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_n2nfj")
+
+[node name="Head" type="Node3D" parent="." unique_id=585618102]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head" unique_id=755745116]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.0555917, -0.31105137)
+mesh = SubResource("PrismMesh_05s5o")
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=1629444667]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6778786, -0.05025968)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1879563550]
+replication_config = SubResource("SceneReplicationConfig_a3d8c")
+
+[node name="NamePlate" type="Label3D" parent="." unique_id=1616571771]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.308035, 0)
+billboard = 2
+fixed_size = true
+text = "Peer ID
+"
+font_size = 24
+outline_size = 8
