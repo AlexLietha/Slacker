@@ -19,7 +19,7 @@ func _ready() -> void:
 	add_to_group("players")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if role == "Manager":
 		hat.show()
 		var material = StandardMaterial3D.new()

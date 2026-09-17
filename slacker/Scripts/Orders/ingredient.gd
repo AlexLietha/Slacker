@@ -5,6 +5,8 @@ class_name Ingredient
 var quality := 100
 @export var ingredientName : String = "Ingredient"
 
+var cooked : bool = false
+
 var cooking = false
 
 func GetQuality() -> float:
@@ -12,8 +14,9 @@ func GetQuality() -> float:
 	
 func GetName() -> String:
 	return ingredientName
-func SetName(name : String) -> void:
-	ingredientName = name
+	
+func SetName(_name : String) -> void:
+	ingredientName = _name
 
 func Grab(grabber : Player):
 	super(grabber)
@@ -25,7 +28,7 @@ func cook():
 		await get_tree().create_timer(10).timeout
 		if cooking:
 			model.material.albedo_color = Color(0.293, 0.18, 0.146, 1.0)
-			SetName("CBP")
+			cooked = true
 		else:
 			return
 		

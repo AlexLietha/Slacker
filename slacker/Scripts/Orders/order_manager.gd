@@ -47,6 +47,8 @@ func CompleteOrder(plate : Plate) -> bool:
 	
 	for order : Order in activeOrders:
 		if order.GetEntree().GetName() == plateEntree.GetName():
+			if plateEntree.cooked:
+				order.SetScore(100)
 			print("Completed Order")
 			CompletedOrder.emit(order)
 			
@@ -54,4 +56,4 @@ func CompleteOrder(plate : Plate) -> bool:
 			completedOrders.append(order)
 			return true
 	return false
-	pass
+	

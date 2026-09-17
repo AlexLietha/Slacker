@@ -20,6 +20,7 @@ OrderManager="*uid://cpir08gy7664s"
 OrderSpawner="*uid://bw2xmgt2xt2a2"
 Lobby="*uid://ds1bxgm00myy7"
 GameManager="*uid://dku586hv4gr23"
+CustomerSatisfactionManager="*uid://dpeslsidvkfva"
 
 [display]
 

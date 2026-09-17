@@ -37,7 +37,7 @@ albedo_color = Color(1, 0, 0, 1)
 
 [node name="BurgerPatty" unique_id=844689755 node_paths=PackedStringArray("model") instance=ExtResource("1_1adxn")]
 script = ExtResource("2_uqmxb")
-ingredientName = "RBP"
+ingredientName = "Burger"
 model = NodePath("CSGCylinder3D")
 
 [node name="IDComponent" parent="." index="2" unique_id=1670629019]
