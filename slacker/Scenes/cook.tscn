@@ -9,24 +9,26 @@
 [sub_resource type="CylinderMesh" id="CylinderMesh_cx7oh"]
 height = 1.5333862
 
-[node name="Player" type="Node3D" unique_id=1194345959]
+[node name="Player" type="Node3D" unique_id=1194345959 node_paths=PackedStringArray("camera")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.47461867, 0)
 script = ExtResource("1_4flbx")
+camera = NodePath("Camera3D")
 
 [node name="PlayerMesh" type="MeshInstance3D" parent="." unique_id=1610241444]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(0.7, 0, 0, 0, 0.5, 0, 0, 0, 0.7, 0, 1, 0)
 layers = 3
 mesh = SubResource("CapsuleMesh_4flbx")
 
-[node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=1799967937]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+[node name="PlayerCollision" type="CollisionShape3D" parent="PlayerMesh" unique_id=1799967937]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_4flbx")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1778209858]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.610853, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3023819, 0)
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=2080041079]
 transform = Transform3D(0.94137865, 0.14354563, -0.11844573, -0.11269762, 0.0001914248, -0.99866796, -0.09062845, 1.4908035, 0.011533069, 0, 0, 0)
 
 [node name="Hat" type="MeshInstance3D" parent="Camera3D" unique_id=491779082]
-transform = Transform3D(0.8, 0, 0, 0, 0.6, 0, 0, 0, 0.8, 0, 0.6668856, 0)
+transform = Transform3D(0.56, 0, 0, 0, 0.36, 0, 0, 0, 0.56, 0, 0.3407539, 0)
 mesh = SubResource("CylinderMesh_cx7oh")
