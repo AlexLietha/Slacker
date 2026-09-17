@@ -20,22 +20,28 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	
 	if role == "Manager":
-		hat.show()
+		if hat != null:
+			hat.show()
 		var material = StandardMaterial3D.new()
 		material.albedo_color = Color.WHITE
-		player_mesh.material_override = material
+		if player_mesh != null:
+			player_mesh.material_override = material
 		
 	if role == "Cook":
-		hat.hide()
+		if hat != null:
+			hat.hide()
 		var material = StandardMaterial3D.new()
 		material.albedo_color = Color.BLUE
-		player_mesh.material_override = material
+		if player_mesh != null:
+			player_mesh.material_override = material
 		
 	if role == "Slacker":
-		hat.hide()
+		if hat != null:
+			hat.hide()
 		var material = StandardMaterial3D.new()
 		material.albedo_color = Color.RED
-		player_mesh.material_override = material
+		if player_mesh != null:
+			player_mesh.material_override = material
 	
 	# Add the gravity.
 	if not is_on_floor():
