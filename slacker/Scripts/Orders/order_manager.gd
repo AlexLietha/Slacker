@@ -11,7 +11,6 @@ var orderInt := 0
 
 func _ready() -> void:
 	OrderSpawner.GetNewOrderSignal().connect(StartOrder)
-	OrderSpawner.StartSpawningOrder()
 	
 func StartOrder(order: Order) -> Order:
 	orderInt += 1

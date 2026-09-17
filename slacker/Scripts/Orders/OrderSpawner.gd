@@ -37,5 +37,3 @@ func StopSpawningOrder():
 func StartSpawningOrder():
 	canSpawnNextOrder = true
 	SpawnOrders()
-		
-		
