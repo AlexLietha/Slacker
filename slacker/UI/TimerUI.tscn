@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://d22fn703npu4r"]
 
-[node name="Control" type="Control" unique_id=1773043747]
+[ext_resource type="Script" uid="uid://cw0gg0ysw8vax" path="res://Scripts/round_timer.gd" id="1_e887x"]
+
+[node name="TimerUI" type="Control" unique_id=1773043747]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -8,7 +10,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="." unique_id=513478503]
+[node name="Timer" type="Timer" parent="." unique_id=1553168828]
+script = ExtResource("1_e887x")
+
+[node name="Round Title" type="Label" parent="." unique_id=513478503]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -20,7 +25,7 @@ grow_horizontal = 2
 text = "Round Name"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="." unique_id=791024713]
+[node name="Clock" type="Label" parent="." unique_id=791024713]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
