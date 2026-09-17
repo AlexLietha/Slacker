@@ -7,7 +7,7 @@ class_name Player
 @export var role = "Cook"
 
 @onready var camera = $Camera3D
-@onready var hat := $Camera3D/Hat
+@onready var hat := $Hat
 @onready var player_mesh := $PlayerMesh
 
 @export var interactionRayCast : RayCast3D
@@ -20,24 +20,21 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	
 	if role == "Manager":
-		if hat != null:
-			hat.show()
+		hat.show()
 		var material = StandardMaterial3D.new()
 		material.albedo_color = Color.WHITE
 		if player_mesh != null:
 			player_mesh.material_override = material
 		
 	if role == "Cook":
-		if hat != null:
-			hat.hide()
+		hat.hide()
 		var material = StandardMaterial3D.new()
 		material.albedo_color = Color.BLUE
 		if player_mesh != null:
 			player_mesh.material_override = material
 		
 	if role == "Slacker":
-		if hat != null:
-			hat.hide()
+		hat.hide()
 		var material = StandardMaterial3D.new()
 		material.albedo_color = Color.RED
 		if player_mesh != null:
