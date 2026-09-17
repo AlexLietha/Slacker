@@ -6,6 +6,9 @@ class_name OrderTicket
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Set_Text("Press E To Start")
+	position = Vector3(1,1,1)
+	print(position)
+	#OrderList.AddOrder()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

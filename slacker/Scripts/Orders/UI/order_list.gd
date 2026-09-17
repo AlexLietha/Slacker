@@ -1,15 +1,16 @@
 extends VBoxContainer
+class_name OrderList
+
+#signal makeTicket
 
 func _ready() -> void:
 	OrderManager.StartedOrder.connect(AddOrder)
 	OrderManager.CompletedOrder.connect(DeleteOrder)
 
 func AddOrder(order: Order) -> void:
-	var label = OrderElement.new()
-	add_child(label)
-	label.order = order
-	label.fit_content = true
-	label.text = "ORDER \n---------\n" + order.GetEntree().GetName() + "\n---------"
+	var label: String
+	var board = Order_Board.new()
+	label = "ORDER \n---------\n" + order.GetEntree().GetName() + "\n---------"
 
 func UpdateOrder(order: Order) -> void:
 	print("Updating Order UI")

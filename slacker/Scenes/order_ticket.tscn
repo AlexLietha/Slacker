@@ -6,6 +6,7 @@
 size = Vector3(0.002, 0.75, 0.5)
 
 [node name="OrderTicket" type="Area3D" unique_id=978316633 node_paths=PackedStringArray("label3d")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 script = ExtResource("1_w36pu")
 label3d = NodePath("OrderText")
 
