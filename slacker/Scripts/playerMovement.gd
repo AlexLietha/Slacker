@@ -4,16 +4,39 @@ class_name Player
 @export var speed := 5.0
 @export var jumpVelocity := 5
 @export var mouseSensitivity := 0.004
+@export var role = "Cook"
 
 @onready var camera = $Camera3D
+@onready var hat := $Camera3D/Hat
+@onready var player_mesh := $PlayerMesh
 
 @export var interactionRayCast : RayCast3D
 @export var grabbedItem : Node3D
 
 func _ready() -> void:
+	add_to_group("players")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta: float) -> void:
+	
+	if role == "Manager":
+		hat.show()
+		var material = StandardMaterial3D.new()
+		material.albedo_color = Color.WHITE
+		player_mesh.material_override = material
+		
+	if role == "Cook":
+		hat.hide()
+		var material = StandardMaterial3D.new()
+		material.albedo_color = Color.BLUE
+		player_mesh.material_override = material
+		
+	if role == "Slacker":
+		hat.hide()
+		var material = StandardMaterial3D.new()
+		material.albedo_color = Color.RED
+		player_mesh.material_override = material
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
