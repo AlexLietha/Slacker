@@ -33,7 +33,11 @@ func _input(event: InputEvent):
 		rotate_y(-event.relative.x * mouseSensitivity)
 		camera.rotate_x(-event.relative.y * mouseSensitivity)
 		camera.rotation.x = clamp(camera.rotation.x,deg_to_rad(-89),deg_to_rad(89))
-		
+	
+	if Input.is_action_just_pressed("reassignRoles"):
+		print("reassignRoles called")
+		GameManager.assign_roles()
+	
 	if Input.is_action_just_pressed("quit"):
 		Network.leave_server()
 		
