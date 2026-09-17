@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://desibxehcwrhm"]
 
 [ext_resource type="PackedScene" uid="uid://w1hcy6j1i0vj" path="res://Scenes/player.tscn" id="1_8o0il"]
+[ext_resource type="PackedScene" uid="uid://d22fn703npu4r" path="res://UI/TimerUI.tscn" id="1_nycbd"]
 [ext_resource type="PackedScene" uid="uid://ti5pak1fauih" path="res://environmentmodelscenes/bigworktable.tscn" id="1_u3ovo"]
 [ext_resource type="PackedScene" uid="uid://mrbh1vscglx7" path="res://environmentmodelscenes/shelf.tscn" id="3_wl1ng"]
 [ext_resource type="PackedScene" uid="uid://cxmigh00e0xws" path="res://environmentmodelscenes/stackofplates.tscn" id="4_6cgg5"]
@@ -43,6 +44,8 @@ albedo_color = Color(0.8313384, 0.77674156, 0.7195819, 1)
 uv1_triplanar_sharpness = 0.9659363
 
 [node name="Kitchen" type="Node3D" unique_id=615167998]
+
+[node name="TimerUI" parent="." unique_id=1773043747 instance=ExtResource("1_nycbd")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1340738998]
 environment = SubResource("Environment_oyfun")
