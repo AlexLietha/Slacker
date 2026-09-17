@@ -1,12 +1,9 @@
 [gd_scene format=3 uid="uid://desibxehcwrhm"]
 
-[ext_resource type="Script" uid="uid://dqpaw7ty68pbe" path="res://Scripts/playerMovement.gd" id="1_8o0il"]
+[ext_resource type="PackedScene" uid="uid://w1hcy6j1i0vj" path="res://Scenes/player.tscn" id="1_8o0il"]
 [ext_resource type="PackedScene" uid="uid://ti5pak1fauih" path="res://environmentmodelscenes/bigworktable.tscn" id="1_u3ovo"]
-[ext_resource type="Script" uid="uid://j5kxh4tou35y" path="res://Scripts/interaction.gd" id="2_nycbd"]
-[ext_resource type="Script" uid="uid://3i2b3c7mfewl" path="res://Scripts/Orders/UI/order_list.gd" id="3_cakj8"]
 [ext_resource type="PackedScene" uid="uid://mrbh1vscglx7" path="res://environmentmodelscenes/shelf.tscn" id="3_wl1ng"]
 [ext_resource type="PackedScene" uid="uid://cxmigh00e0xws" path="res://environmentmodelscenes/stackofplates.tscn" id="4_6cgg5"]
-[ext_resource type="Script" uid="uid://dxlxaqlecxydr" path="res://Scripts/Orders/UI/CustomerSatisfactionUI.gd" id="4_kssx3"]
 [ext_resource type="PackedScene" uid="uid://csl4s4fsyxjxk" path="res://Scenes/grill.tscn" id="4_r2utj"]
 [ext_resource type="PackedScene" uid="uid://betf2qehtbsgn" path="res://Scenes/box.tscn" id="4_wl1ng"]
 [ext_resource type="PackedScene" uid="uid://2riwns1moyus" path="res://Scenes/Grabbable Objects/burger_patty.tscn" id="5_wl1ng"]
@@ -38,9 +35,6 @@ sky_material = SubResource("ProceduralSkyMaterial_vg308")
 background_mode = 2
 sky = SubResource("Sky_qh5db")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_7jh4o"]
-size = Vector3(0.6, 1, 0.15)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pb1w8"]
 albedo_color = Color(0.71, 0.6792333, 0.63899994, 1)
 
@@ -61,61 +55,8 @@ light_energy = 2.626
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1804830780]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.349741, 4.04204, -2.8010726)
 
-[node name="Player2" type="CharacterBody3D" parent="." unique_id=951845157 node_paths=PackedStringArray("interactionRayCast", "grabbedItem")]
-transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 2.0470052, 2.4111023, -5.4306087)
-script = ExtResource("1_8o0il")
-interactionRayCast = NodePath("Camera3D/Interaction Range")
-grabbedItem = NodePath("GrabbedObjectPosition")
-
-[node name="Camera3D" type="Camera3D" parent="Player2" unique_id=1067204491]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
-current = true
-
-[node name="Interaction Range" type="RayCast3D" parent="Player2/Camera3D" unique_id=1386856921]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.09092179)
-target_position = Vector3(0, 0, -3)
-collision_mask = 2
-script = ExtResource("2_nycbd")
-
-[node name="Body" type="Node3D" parent="Player2" unique_id=975716534]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player2" unique_id=312660711]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("BoxShape3D_7jh4o")
-
-[node name="UI" type="CanvasLayer" parent="Player2" unique_id=762339402]
-
-[node name="CrossHair" type="Label" parent="Player2/UI" unique_id=1229928161]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-text = "."
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Order List" type="VBoxContainer" parent="Player2/UI" unique_id=871812656]
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 165.0
-grow_vertical = 2
-size_flags_horizontal = 3
-script = ExtResource("3_cakj8")
-
-[node name="Label" type="Label" parent="Player2/UI" unique_id=1266910109]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
-grow_horizontal = 0
-text = "Rating: 0"
-script = ExtResource("4_kssx3")
-
-[node name="GrabbedObjectPosition" type="Node3D" parent="Player2" unique_id=1229670346]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63908243, -0.24077016)
+[node name="Player" parent="." unique_id=1090027167 instance=ExtResource("1_8o0il")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0, 2.5748045)
 
 [node name="Walls" type="Node3D" parent="." unique_id=131895973]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6749945, 1.8434739, -4.420146)
