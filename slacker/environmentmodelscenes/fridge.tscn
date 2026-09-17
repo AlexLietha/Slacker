@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://db6apnfy65ake"]
+
+[ext_resource type="PackedScene" uid="uid://djs26j3a3v08t" path="res://models/environment assets/fridge.fbx" id="1_xc0pi"]
+[ext_resource type="Material" uid="uid://7g1p7xighxpe" path="res://Scenes/environmentmodelscenes/worktablebasematerial.tres" id="2_n31jh"]
+
+[node name="fridge" unique_id=53605826 instance=ExtResource("1_xc0pi")]
+
+[node name="pCube23" parent="fridge" parent_id_path=PackedInt32Array(200754554) index="2" unique_id=2025356196]
+material_override = ExtResource("2_n31jh")

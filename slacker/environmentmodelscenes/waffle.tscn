@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bg8qlsnubpuc6"]
+
+[ext_resource type="PackedScene" uid="uid://d4cdxx0tsmy4f" path="res://models/environment assets/Waffles_BenMusser_V1.fbx" id="1_2kvjj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8esgr"]
+albedo_color = Color(0.922885, 0.73484087, 0.4968161, 1)
+
+[node name="Waffles_BenMusser_V1" unique_id=1290582602 instance=ExtResource("1_2kvjj")]
+
+[node name="waffles" parent="." index="0" unique_id=185008761]
+material_override = SubResource("StandardMaterial3D_8esgr")

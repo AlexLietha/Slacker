@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b0p2q7144nn4s"]
+
+[ext_resource type="PackedScene" uid="uid://c2rqaw86mogsi" path="res://models/environment assets/CuttingBoard_BenMusser_V1.fbx" id="1_015li"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_da4pv"]
+albedo_color = Color(0.4585942, 0.4530114, 0.46505868, 1)
+
+[node name="CuttingBoard_BenMusser_V1" unique_id=1588534611 instance=ExtResource("1_015li")]
+
+[node name="cutting_board" parent="." index="0" unique_id=1284478926]
+material_override = SubResource("StandardMaterial3D_da4pv")

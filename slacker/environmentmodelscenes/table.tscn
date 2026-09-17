@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dg5uqe6etd04k"]
+
+[ext_resource type="PackedScene" uid="uid://d3y3krjm7c4y1" path="res://models/environment assets/table_a.fbx" id="1_qyqer"]
+[ext_resource type="Material" uid="uid://b4lk6dw40se6f" path="res://Scenes/environmentmodelscenes/basewhite.tres" id="2_yycbk"]
+
+[node name="table_a" unique_id=1696944234 instance=ExtResource("1_qyqer")]
+
+[node name="table_001" parent="." index="0" unique_id=1130434878]
+material_override = ExtResource("2_yycbk")
+
+[node name="Cube_002" parent="table_001" index="0" unique_id=1991916080]
+material_override = ExtResource("2_yycbk")

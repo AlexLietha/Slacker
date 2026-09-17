@@ -6,7 +6,6 @@ var players = []
 func _ready() -> void:
 	await get_tree().process_frame
 	players = get_tree().get_nodes_in_group("players")
-	assign_roles()
 
 func assign_roles():
 	players.shuffle()

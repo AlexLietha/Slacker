@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cpnky28pa0wvk"]
+
+[ext_resource type="PackedScene" uid="uid://bwelaj4bo4vme" path="res://models/environment assets/stove_a.fbx" id="1_3uy6h"]
+[ext_resource type="Material" uid="uid://7g1p7xighxpe" path="res://Scenes/environmentmodelscenes/worktablebasematerial.tres" id="2_vpdgu"]
+
+[node name="stove_a" unique_id=705825056 instance=ExtResource("1_3uy6h")]
+
+[node name="stove_001" parent="stove" parent_id_path=PackedInt32Array(817051600) index="0" unique_id=1379237514]
+material_override = ExtResource("2_vpdgu")

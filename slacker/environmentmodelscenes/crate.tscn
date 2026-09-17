@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://pebcxe6mpbhm"]
+
+[ext_resource type="PackedScene" uid="uid://qcff523hpii5" path="res://models/environment assets/PlasticCrate_BenMusser_V1.fbx" id="1_ffagw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jexcv"]
+albedo_color = Color(0.77675503, 0.44847035, 0.41248167, 1)
+
+[node name="PlasticCrate_BenMusser_V1" unique_id=1335992761 instance=ExtResource("1_ffagw")]
+
+[node name="pCube1" parent="." index="0" unique_id=579821738]
+material_override = SubResource("StandardMaterial3D_jexcv")
