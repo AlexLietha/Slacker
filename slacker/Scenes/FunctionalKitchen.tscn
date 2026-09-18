@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://pebcxe6mpbhm" path="res://environmentmodelscenes/crate.tscn" id="18_1jni8"]
 [ext_resource type="PackedScene" uid="uid://cf37ilrn8pexl" path="res://environmentmodelscenes/bowl.tscn" id="19_resm5"]
 [ext_resource type="PackedScene" uid="uid://5l0uutfybxou" path="res://environmentmodelscenes/pan.tscn" id="20_mdggh"]
+[ext_resource type="PackedScene" uid="uid://c6wolbp1jdqht" path="res://Scenes/order_board.tscn" id="27_cakj8"]
 [ext_resource type="PackedScene" uid="uid://ddnsnlj6myhdd" path="res://Scenes/npc.tscn" id="27_kssx3"]
 [ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Scenes/IDComponent.gd" id="28_wur46"]
 
@@ -63,7 +64,6 @@ transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0, 2.5748045)
 
 [node name="Walls" type="Node3D" parent="." unique_id=131895973]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6749945, 1.8434739, -4.420146)
-visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Walls" unique_id=939446901]
 transform = Transform3D(105.20344, 0, 0, 0, 0.04943044, 0, 0, 0, 101.18373, 2.6662724, -1.8377213, 2.495718)
@@ -285,3 +285,6 @@ transform = Transform3D(2.4372742, 0, 2.5119107, 0, 3.5, 0, -2.5119107, 0, 2.437
 
 [node name="IDComponent2" type="Node" parent="NPC1" unique_id=944265514]
 script = ExtResource("28_wur46")
+
+[node name="OrderBoard" parent="." unique_id=598548473 instance=ExtResource("27_cakj8")]
+transform = Transform3D(-0.99998885, 0, 0.0047176583, 0, 1, 0, -0.0047176583, 0, -0.99998885, 10.263956, 0.6108203, -1.4797425)
