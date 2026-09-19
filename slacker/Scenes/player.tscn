@@ -7,6 +7,8 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_7jh4o"]
 size = Vector3(0.6, 1, 0.15)
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_n2nfj"]
+
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_6t5aa"]
 properties/0/path = NodePath(".:position")
 properties/0/spawn = true
@@ -14,27 +16,34 @@ properties/0/replication_mode = 1
 properties/1/path = NodePath("GrabbedObjectPosition:position")
 properties/1/spawn = true
 properties/1/replication_mode = 1
+properties/2/path = NodePath(".:rotation")
+properties/2/spawn = true
+properties/2/replication_mode = 1
 
 [node name="Player" type="CharacterBody3D" unique_id=1090027167 node_paths=PackedStringArray("interactionRayCast", "grabbedItem")]
 script = ExtResource("1_g2els")
-interactionRayCast = NodePath("Camera3D/Interaction Range")
+interactionRayCast = NodePath("Cam/Interaction Range")
 grabbedItem = NodePath("GrabbedObjectPosition")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1067204491]
+[node name="Cam" type="Camera3D" parent="." unique_id=1067204491]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 current = true
 
-[node name="Interaction Range" type="RayCast3D" parent="Camera3D" unique_id=1386856921]
+[node name="Interaction Range" type="RayCast3D" parent="Cam" unique_id=1386856921]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.09092179)
 target_position = Vector3(0, 0, -3)
 collision_mask = 2
 script = ExtResource("1_3vyb7")
 
-[node name="Body" type="Node3D" parent="." unique_id=975716534]
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=312660711]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_7jh4o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1756595547]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.6002773, 0)
+mesh = SubResource("CapsuleMesh_n2nfj")
+
+[node name="Body" type="Node3D" parent="." unique_id=975716534]
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=762339402]
 

@@ -5,27 +5,36 @@ class_name Player
 @export var jumpVelocity := 5
 @export var mouseSensitivity := 0.004
 
-@onready var camera = $Camera3D
+@onready var camera: Camera3D = $Cam
 @onready var nameplate: Label3D = $Nameplate
 
 @export var interactionRayCast : RayCast3D
 @export var grabbedItem : Node3D
 
+@export var clientNo: int
+
 func _enter_tree() -> void:
-	set_multiplayer_authority(int(name))
-	print(name)
+	print("Player enter tree " + name)
+	print("Authroity: " + str(get_multiplayer_authority()))
 
 func _ready() -> void:
 	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	add_to_group("Players")
 	nameplate.text = name
 	
-	if is_multiplayer_authority():
-		camera.current = true
-		print("Player Auth = true")
+	print("Player Auth: " + str(get_multiplayer_authority()))
+	
+	if !is_multiplayer_authority():
+		set_process(false)
+		set_physics_process(false)
+		return
+	
+	camera.current = true
+	print("Player Auth: " + str(get_multiplayer_authority()))
+	print("Player clientNo: " + str(clientNo))
 
 func _input(event: InputEvent):
-	if not is_multiplayer_authority():
+	if !is_multiplayer_authority():
 		return
 	
 	# Camera Controls
@@ -34,8 +43,8 @@ func _input(event: InputEvent):
 		camera.rotate_x(-event.relative.y * mouseSensitivity)
 		camera.rotation.x = clamp(camera.rotation.x,deg_to_rad(-89),deg_to_rad(89))
 		
-	if Input.is_action_just_pressed("quit"):
-		Network.leave_server()
+	#if Input.is_action_just_pressed("quit"):
+		#Network.leave_server()
 		
 	if Input.is_action_just_pressed("drop"):
 		if HasGrabbedItem():
@@ -43,6 +52,9 @@ func _input(event: InputEvent):
 		pass
 
 func _physics_process(delta: float) -> void:
+	if !is_multiplayer_authority():
+		return
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta

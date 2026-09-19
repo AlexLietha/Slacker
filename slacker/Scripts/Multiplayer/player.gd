@@ -2,20 +2,26 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-@onready var camera_3d: Camera3D = %Camera3D
+@onready var camera_3d: Camera3D = %Cam
 @onready var head: Node3D = $Head
 @onready var nameplate: Label3D = $NamePlate
 @export var sensitivity: float = 0.002
 
 func _enter_tree() -> void:
 	set_multiplayer_authority(int(name))
+	print("Player authority set to: " + name)
 
 func _ready() -> void:
 	add_to_group("Players")
 	nameplate.text = name
 	
 	if is_multiplayer_authority():
-		camera_3d.current = true
+		set_process(false)
+		set_physics_process(false)
+		return
+	
+	camera_3d.current = true
+	
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not is_multiplayer_authority():

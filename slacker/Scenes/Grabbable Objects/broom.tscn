@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dk6cu2cs85urb"]
+
+[ext_resource type="Script" uid="uid://8hid0kygyi71" path="res://Scripts/interactible_component.gd" id="1_1u1jf"]
+[ext_resource type="Script" uid="uid://6fa7wffcrtgs" path="res://Scripts/grabbable_component.gd" id="2_7ybyt"]
+[ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Scenes/IDComponent.gd" id="3_8hjgy"]
+[ext_resource type="Script" uid="uid://dakevjuf8svg" path="res://Scripts/HighlightComponent.gd" id="4_tkjt1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_spkg8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c5n3c"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wotmb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nky1f"]
+albedo_color = Color(0.49101734, 0.21463042, 0.14752123, 1)
+
+[node name="Broom2" type="RigidBody3D" unique_id=1768105010]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1212269279]
+transform = Transform3D(0.5088354, 0, 0, 0, 0.32188588, 0, 0, 0, 0.022432882, 0, 0.16393557, 0)
+mesh = SubResource("BoxMesh_spkg8")
+surface_material_override/0 = SubResource("StandardMaterial3D_c5n3c")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=88484579]
+transform = Transform3D(-2.303107e-09, -0.26602212, 0, 0.052688945, -1.1628194e-08, 0, 0, 0, 0.050244164, 0, 0.3272374, 0)
+mesh = SubResource("CylinderMesh_wotmb")
+surface_material_override/0 = SubResource("StandardMaterial3D_nky1f")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1285345500]
+transform = Transform3D(-0.052688945, 4.8625697e-08, 0, -4.606214e-09, -0.5562132, 0, 0, 0, 0.050244164, 0, 0.87251484, 0)
+mesh = SubResource("CylinderMesh_wotmb")
+surface_material_override/0 = SubResource("StandardMaterial3D_nky1f")
+
+[node name="InteractableComponent" type="Node" parent="." unique_id=1137662575]
+script = ExtResource("1_1u1jf")
+
+[node name="GrabbableComponent" type="Node" parent="." unique_id=2042955910]
+script = ExtResource("2_7ybyt")
+
+[node name="IDComponent" type="Node" parent="." unique_id=853458740]
+script = ExtResource("3_8hjgy")
+ID = "RBP"
+
+[node name="HighlightComponent" type="Node" parent="." unique_id=1627251443]
+script = ExtResource("4_tkjt1")
