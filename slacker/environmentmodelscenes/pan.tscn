@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://5l0uutfybxou"]
+
+[ext_resource type="PackedScene" uid="uid://6ofqp5hauofu" path="res://models/environment assets/Pan_BenMusser_V1.fbx" id="1_v41mw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_snq7h"]
+albedo_color = Color(0.34273732, 0.36650887, 0.4866222, 1)
+
+[node name="Pan_BenMusser_V1" unique_id=1577090424 instance=ExtResource("1_v41mw")]
+
+[node name="pan1" parent="." index="0" unique_id=173250940]
+material_override = SubResource("StandardMaterial3D_snq7h")

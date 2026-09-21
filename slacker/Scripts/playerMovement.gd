@@ -4,8 +4,11 @@ class_name Player
 @export var speed := 5.0
 @export var jumpVelocity := 5
 @export var mouseSensitivity := 0.004
+@export var role = "Cook"
 
-@onready var camera: Camera3D = $Cam
+@onready var camera = $Camera3D
+@onready var hat := $Camera3D/Hat
+@onready var player_mesh := $PlayerMesh
 @onready var nameplate: Label3D = $Nameplate
 
 @export var interactionRayCast : RayCast3D
@@ -55,6 +58,30 @@ func _input(event: InputEvent):
 func _physics_process(delta: float) -> void:
 	if !is_multiplayer_authority():
 		return
+	
+	if role == "Manager":
+		if hat != null:
+			hat.show()
+		var material = StandardMaterial3D.new()
+		material.albedo_color = Color.WHITE
+		if player_mesh != null:
+			player_mesh.material_override = material
+		
+	if role == "Cook":
+		if hat != null:
+			hat.hide()
+		var material = StandardMaterial3D.new()
+		material.albedo_color = Color.BLUE
+		if player_mesh != null:
+			player_mesh.material_override = material
+		
+	if role == "Slacker":
+		if hat != null:
+			hat.hide()
+		var material = StandardMaterial3D.new()
+		material.albedo_color = Color.RED
+		if player_mesh != null:
+			player_mesh.material_override = material
 	
 	# Add the gravity.
 	if not is_on_floor():

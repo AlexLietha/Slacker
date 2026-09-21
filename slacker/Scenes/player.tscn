@@ -3,27 +3,32 @@
 [ext_resource type="Script" uid="uid://j5kxh4tou35y" path="res://Scripts/interaction.gd" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://dqpaw7ty68pbe" path="res://Scripts/playerMovement.gd" id="1_g2els"]
 [ext_resource type="Script" uid="uid://3i2b3c7mfewl" path="res://Scripts/Orders/UI/order_list.gd" id="3_6t5aa"]
+[ext_resource type="Script" uid="uid://dxlxaqlecxydr" path="res://Scripts/Orders/UI/CustomerSatisfactionUI.gd" id="4_vgqql"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_7jh4o"]
-size = Vector3(0.6, 1, 0.15)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vgqql"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_n2nfj"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6t5aa"]
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_6t5aa"]
-properties/0/path = NodePath(".:position")
-properties/0/spawn = true
-properties/0/replication_mode = 1
-properties/1/path = NodePath("GrabbedObjectPosition:position")
-properties/1/spawn = true
-properties/1/replication_mode = 1
-properties/2/path = NodePath(".:rotation")
-properties/2/spawn = true
-properties/2/replication_mode = 1
+[sub_resource type="CylinderMesh" id="CylinderMesh_fkybt"]
+height = 1.5333862
 
 [node name="Player" type="CharacterBody3D" unique_id=1090027167 node_paths=PackedStringArray("interactionRayCast", "grabbedItem")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0, 0)
 script = ExtResource("1_g2els")
 interactionRayCast = NodePath("Cam/Interaction Range")
 grabbedItem = NodePath("GrabbedObjectPosition")
+
+[node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=2098379967]
+transform = Transform3D(0.633, 0, 0, 0, 0.633, 0, 0, 0, 0.633, 0, 0.50020564, 0)
+shape = SubResource("CapsuleShape3D_vgqql")
+
+[node name="PlayerMesh" type="MeshInstance3D" parent="." unique_id=1047470937]
+transform = Transform3D(0.633, 0, 0, 0, 0.633, 0, 0, 0, 0.633, 0, 0.50020564, 0)
+mesh = SubResource("CapsuleMesh_6t5aa")
+
+[node name="Hat" type="MeshInstance3D" parent="." unique_id=913713231]
+transform = Transform3D(0.5, 0, 0, 0, 0.32300007, 0, 0, 0, 0.5, 0, 1.2604185, 0)
+mesh = SubResource("CylinderMesh_fkybt")
 
 [node name="Cam" type="Camera3D" parent="." unique_id=1067204491]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
@@ -34,16 +39,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.09092179)
 target_position = Vector3(0, 0, -3)
 collision_mask = 2
 script = ExtResource("1_3vyb7")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=312660711]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("BoxShape3D_7jh4o")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1756595547]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.6002773, 0)
-mesh = SubResource("CapsuleMesh_n2nfj")
-
-[node name="Body" type="Node3D" parent="." unique_id=975716534]
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=762339402]
 
@@ -65,6 +60,16 @@ offset_right = 165.0
 grow_vertical = 2
 size_flags_horizontal = 3
 script = ExtResource("3_6t5aa")
+
+[node name="Label" type="Label" parent="UI" unique_id=1266910109]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Rating: 0"
+script = ExtResource("4_vgqql")
 
 [node name="GrabbedObjectPosition" type="Node3D" parent="." unique_id=1229670346]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46514714, -0.45139253)

@@ -11,7 +11,6 @@ var orderInt := 0
 
 func _ready() -> void:
 	OrderSpawner.GetNewOrderSignal().connect(StartOrder)
-	#OrderSpawner.StartSpawningOrder()
 	
 func StartOrder(order: Order) -> Order:
 	orderInt += 1
@@ -42,10 +41,18 @@ func GetActiveOrders() -> Array:
 	#pass
 
 
-func CompleteOrder(order: Order) -> void:
-	activeOrders.erase(order.instance_id)
-
-	completedOrders[order.instance_id] = order
+func CompleteOrder(plate : Plate) -> bool:
+	var plateEntree = plate.GetItem()
 	
-	CompletedOrder.emit(order)
-	print("Order completed: ", order.title)
+	for order : Order in activeOrders:
+		if order.GetEntree().GetName() == plateEntree.GetName():
+			if plateEntree.cooked:
+				order.SetScore(100)
+			print("Completed Order")
+			CompletedOrder.emit(order)
+			
+			activeOrders.erase(order)
+			completedOrders.append(order)
+			return true
+	return false
+	

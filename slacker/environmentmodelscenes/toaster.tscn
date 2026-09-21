@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dtljkiukx76jj"]
+
+[ext_resource type="PackedScene" uid="uid://cknc7kwtkbww8" path="res://models/environment assets/toaster.fbx" id="1_shd8t"]
+[ext_resource type="Material" uid="uid://7g1p7xighxpe" path="res://Scenes/environmentmodelscenes/worktablebasematerial.tres" id="2_ctvg0"]
+[ext_resource type="Material" uid="uid://b4lk6dw40se6f" path="res://Scenes/environmentmodelscenes/basewhite.tres" id="3_yim1h"]
+
+[node name="toaster" unique_id=1852043225 instance=ExtResource("1_shd8t")]
+
+[node name="toaster" parent="." index="0" unique_id=543028836]
+material_override = ExtResource("2_ctvg0")
+
+[node name="Cube_019" parent="toaster" index="0" unique_id=508471971]
+material_override = ExtResource("3_yim1h")
+
+[node name="Cube_025" parent="toaster" index="1" unique_id=2075476020]
+material_override = ExtResource("3_yim1h")
+
+[node name="Cylinder_024" parent="toaster" index="2" unique_id=459983275]
+material_override = ExtResource("3_yim1h")
+
+[node name="Cylinder_025" parent="toaster" index="3" unique_id=1945544307]
+material_override = ExtResource("3_yim1h")

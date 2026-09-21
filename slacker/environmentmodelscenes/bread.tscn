@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dmh7nnfrnbb7v"]
+
+[ext_resource type="PackedScene" uid="uid://3bm12ocje04j" path="res://models/environment assets/bread.fbx" id="1_o3i5h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ol02"]
+cull_mode = 2
+albedo_color = Color(0.60725147, 0.3732691, 0.12549636, 1)
+
+[node name="bread" unique_id=1836239676 instance=ExtResource("1_o3i5h")]
+
+[node name="Cube_026" parent="." index="0" unique_id=820511545]
+material_override = SubResource("StandardMaterial3D_8ol02")

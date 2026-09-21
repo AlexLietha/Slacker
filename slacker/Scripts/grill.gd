@@ -6,7 +6,7 @@ extends StaticBody3D
 
 @export var model: CSGBox3D
 
-@export var itemName := "RBP"
+@export var itemName := "Burger"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
