@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dv3flcatigubx"]
+
+[ext_resource type="Script" uid="uid://02d7qk2jlvn8" path="res://Scripts/order_ticket.gd" id="1_w36pu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s2dbp"]
+size = Vector3(0.002, 0.75, 0.5)
+
+[node name="OrderTicket" type="Area3D" unique_id=978316633 node_paths=PackedStringArray("label3d")]
+script = ExtResource("1_w36pu")
+label3d = NodePath("OrderText")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2009664942]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4995, 0)
+shape = SubResource("BoxShape3D_s2dbp")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1113468314]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4987793, 0)
+size = Vector3(0.002, 0.75, 0.5)
+
+[node name="OrderText" type="Label3D" parent="." unique_id=198296233]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.01, -0.497, 0)
+text = " Order #1:
+One Burger with fries "
+font_size = 20
+outline_size = 10
+autowrap_mode = 3
+width = 100.0
