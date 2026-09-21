@@ -287,4 +287,4 @@ transform = Transform3D(2.4372742, 0, 2.5119107, 0, 3.5, 0, -2.5119107, 0, 2.437
 script = ExtResource("28_wur46")
 
 [node name="OrderBoard" parent="." unique_id=598548473 instance=ExtResource("27_cakj8")]
-transform = Transform3D(-0.99998885, 0, 0.0047176583, 0, 1, 0, -0.0047176583, 0, -0.99998885, 10.263956, 0.6108203, -1.4797425)
+transform = Transform3D(-1.4999833, 0, 0.007076583, 0, 1.5, 0, -0.007076583, 0, -1.4999833, 10.257169, 0.92690086, -0.0410856)
