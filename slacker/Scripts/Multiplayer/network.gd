@@ -50,8 +50,12 @@ func add_player(peer_id: int) -> void:
 			spawn_player.rpc_id(peer_id, existing_id)
 
 
-@rpc("authority", "reliable")
+@rpc("authority", "call_local", "reliable")
 func spawn_player(peer_id: int) -> void:
+	if get_tree().current_scene.has_node(str(peer_id)):
+		print("Player already exists")
+		return
+	
 	var new_player = PLAYER.instantiate()
 	new_player.name = str(peer_id)
 	new_player.set_multiplayer_authority(peer_id)

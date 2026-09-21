@@ -61,9 +61,6 @@ mesh = SubResource("CylinderMesh_n2nfj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pole2" unique_id=659229003]
 shape = SubResource("CylinderShape3D_n2nfj")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1618758213]
-transform = Transform3D(1, 0, 0, 0, 0.8852323, 0.46514916, 0, -0.46514916, 0.8852323, 0, 3.1994176, 8.01521)
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1263570662]
 environment = SubResource("Environment_n2nfj")
 

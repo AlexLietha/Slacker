@@ -27,6 +27,7 @@ func _ready() -> void:
 	if !is_multiplayer_authority():
 		set_process(false)
 		set_physics_process(false)
+		camera.current = false
 		return
 	
 	camera.current = true
