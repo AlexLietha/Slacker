@@ -17,20 +17,23 @@ func _ready() -> void:
 	Update(null)
 	
 func Update(_order : Order) -> void:
-	var score = int(CustomerSatisfactionManager.GetScore())
-	var currentSize = int(CustomerSatisfactionManager.GetScore() * sizeScale)
+	var score = CustomerSatisfactionManager.GetScore()
+	var barSize = score * sizeScale
 	
 	create_tween().tween_property(
 		self,
 		"size",
-		Vector2(currentSize, size.y),
+		Vector2(barSize, size.y),
 		0.5
 	)
+	
+	print(score)
+	print(gradient.sample(score/100))
 	
 	create_tween().tween_property(
 		self,
 		"color",
-		gradient.sample(score),
+		gradient.sample(score/100),
 		0.5
 	)
 	
