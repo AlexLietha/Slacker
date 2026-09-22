@@ -63,6 +63,7 @@ vertical_alignment = 1
 [node name="Order List" type="VBoxContainer" parent="UI" unique_id=871812656]
 anchors_preset = 9
 anchor_bottom = 1.0
+offset_top = 149.0
 offset_right = 165.0
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -73,17 +74,17 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="EmptyBarV1" type="Sprite2D" parent="UI" unique_id=577593943]
-position = Vector2(917, 86)
+position = Vector2(210, 75.5)
 texture = ExtResource("4_fkybt")
 
 [node name="ColorRect" type="ColorRect" parent="UI" unique_id=1444698482 node_paths=PackedStringArray("barSprite")]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -305.0
-offset_top = 62.0
-offset_right = -49.0
-offset_bottom = 117.0
+offset_left = -1012.0
+offset_top = 51.5
+offset_right = -756.0
+offset_bottom = 106.5
 grow_horizontal = 0
 script = ExtResource("4_vgqql")
 gradient = SubResource("Gradient_fkybt")
