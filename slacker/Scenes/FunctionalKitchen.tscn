@@ -36,9 +36,6 @@ sky_material = SubResource("ProceduralSkyMaterial_vg308")
 [sub_resource type="Environment" id="Environment_oyfun"]
 background_mode = 2
 sky = SubResource("Sky_qh5db")
-glow_levels/1 = 4.61
-fog_light_color = Color(0.9252527, 0.5229615, 0.38584632, 1)
-volumetric_fog_albedo = Color(0.9999997, 0.17045578, 0.15860352, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pb1w8"]
 albedo_color = Color(0.71, 0.6792333, 0.63899994, 1)
@@ -63,7 +60,7 @@ light_energy = 2.626
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.349741, 4.04204, -2.8010726)
 
 [node name="Player" parent="." unique_id=1090027167 instance=ExtResource("1_8o0il")]
-transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0, 2.5748045)
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0.5726423, 2.5748045)
 
 [node name="Walls" type="Node3D" parent="." unique_id=131895973]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6749945, 1.8434739, -4.420146)
@@ -284,7 +281,7 @@ transform = Transform3D(-2.535396e-08, -0.58003104, -0.47546187, 0.75, -3.278354
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.058153, -8.817998)
 
 [node name="NPC1" parent="." unique_id=190551831 instance=ExtResource("27_kssx3")]
-transform = Transform3D(2.4372742, 0, 2.5119107, 0, 3.5, 0, -2.5119107, 0, 2.4372742, 9.403318, -0.012005806, 5.2171884)
+transform = Transform3D(2.4372742, 0, 2.5119107, 0, 3.5, 0, -2.5119107, 0, 2.4372742, 10.243175, -0.012005806, 5.419688)
 
 [node name="IDComponent2" type="Node" parent="NPC1" unique_id=944265514]
 script = ExtResource("28_wur46")
