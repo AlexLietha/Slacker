@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://w0g2043ktub6"]
+
+[ext_resource type="Script" uid="uid://c0ev0xxgy87r5" path="res://Scripts/ReportPlayer.gd" id="1_b6aji"]
+[ext_resource type="Script" uid="uid://8hid0kygyi71" path="res://Scripts/interactible_component.gd" id="1_k06tl"]
+[ext_resource type="Script" uid="uid://dakevjuf8svg" path="res://Scripts/HighlightComponent.gd" id="3_r507p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h0q4h"]
+albedo_color = Color(1, 0.16078432, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nbe6a"]
+material = SubResource("StandardMaterial3D_h0q4h")
+size = Vector3(1, 0.68652344, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_prwft"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nbe6a"]
+material = SubResource("StandardMaterial3D_prwft")
+size = Vector2(0.25, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nbe6a"]
+size = Vector3(1, 0.68078613, 1)
+
+[node name="StaticBody3D" type="StaticBody3D" unique_id=1958575001 node_paths=PackedStringArray("interactableComponent", "highlightComponent", "model")]
+script = ExtResource("1_b6aji")
+interactableComponent = NodePath("InteractableComponent")
+highlightComponent = NodePath("HighlightComponent")
+model = NodePath("CSGBox3D")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=122005518]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.012036115, 0.13969776, 0.013671875)
+size = Vector3(0.90000004, 0.001, 0.9394531)
+
+[node name="box" type="MeshInstance3D" parent="." unique_id=1804333608]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15673828, 0)
+mesh = SubResource("BoxMesh_nbe6a")
+
+[node name="Slit" type="MeshInstance3D" parent="." unique_id=350196690]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19033393, 0)
+mesh = SubResource("PlaneMesh_nbe6a")
+
+[node name="InteractableComponent" type="Node" parent="." unique_id=610096994]
+script = ExtResource("1_k06tl")
+metadata/_custom_type_script = "uid://8hid0kygyi71"
+
+[node name="Label3D" type="Label3D" parent="." unique_id=2088420147]
+transform = Transform3D(-1, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, -1, -2.7967388e-09, -0.13146323, -0.50615704)
+text = "Report"
+font_size = 50
+
+[node name="Label3D2" type="Label3D" parent="." unique_id=160781390]
+transform = Transform3D(1.3909066e-08, 0, -1, 0, 1, 0, 1, 0, 1.3909066e-08, -0.50633, -0.13146323, -0.0061570406)
+text = "Report"
+font_size = 50
+
+[node name="Label3D3" type="Label3D" parent="." unique_id=522213400]
+transform = Transform3D(0.99999994, 0, 1.3909068e-08, 0, 1, 0, -1.3909068e-08, 0, 0.99999994, -0.00038003922, -0.119061664, 0.50160956)
+text = "Report"
+font_size = 50
+
+[node name="Label3D4" type="Label3D" parent="." unique_id=618948341]
+transform = Transform3D(1.5893256e-08, 0, 1, 0, 1, 0, -1, 0, 1.5893256e-08, 0.505777, -0.12060596, -0.0061570425)
+text = "Report"
+font_size = 50
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1706996616]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15960693, 0)
+shape = SubResource("BoxShape3D_nbe6a")
+
+[node name="HighlightComponent" type="Node" parent="." unique_id=344132689]
+script = ExtResource("3_r507p")
+metadata/_custom_type_script = "uid://dakevjuf8svg"
