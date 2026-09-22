@@ -1,8 +1,8 @@
 extends Node
 
 
-var activeOrders: Dictionary = {}
-var completedOrders: Dictionary = {}
+var activeOrders: Array[Order] = []
+var completedOrders: Array[Order] = []
 
 signal StartedOrder(order: Order)
 signal CompletedOrder(order: Order)
@@ -14,13 +14,11 @@ func _ready() -> void:
 	
 func StartOrder(order: Order) -> Order:
 	orderInt += 1
-	var newOrder: Order = order.duplicate(true)
 	
-	newOrder.orderID = orderInt
-	activeOrders[newOrder.orderID] = newOrder
+	order.SetOrderID(orderInt)
+	activeOrders.append(order)
 	
 	StartedOrder.emit(order)
-	print("Started order: ", order.title)
 
 
 	return order
@@ -28,12 +26,14 @@ func StartOrder(order: Order) -> Order:
 
 
 
-func GetOrder(instance_id: String) -> Order:
-	return activeOrders.get(instance_id)
-
+func GetOrder(id: int) -> Order:
+	for order : Order in activeOrders:
+		if order.GetOrderID() == id:
+			return order
+	return null
 
 func GetActiveOrders() -> Array:
-	return activeOrders.values()
+	return activeOrders
 
 #func FindClosestOrder(plate: Plate) -> Order:
 	#for order in activeOrders:

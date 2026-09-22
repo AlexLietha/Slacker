@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://desibxehcwrhm"]
 
-[ext_resource type="PackedScene" uid="uid://w1hcy6j1i0vj" path="res://Scenes/player.tscn" id="1_8o0il"]
 [ext_resource type="PackedScene" uid="uid://d22fn703npu4r" path="res://UI/TimerUI.tscn" id="1_nycbd"]
 [ext_resource type="PackedScene" uid="uid://ti5pak1fauih" path="res://environmentmodelscenes/bigworktable.tscn" id="1_u3ovo"]
 [ext_resource type="PackedScene" uid="uid://mrbh1vscglx7" path="res://environmentmodelscenes/shelf.tscn" id="3_wl1ng"]
@@ -58,9 +57,6 @@ light_energy = 2.626
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1804830780]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.349741, 4.04204, -2.8010726)
-
-[node name="Player" parent="." unique_id=1090027167 instance=ExtResource("1_8o0il")]
-transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0, 2.5748045)
 
 [node name="Walls" type="Node3D" parent="." unique_id=131895973]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6749945, 1.8434739, -4.420146)
@@ -288,3 +284,6 @@ script = ExtResource("28_wur46")
 
 [node name="OrderBoard" parent="." unique_id=598548473 instance=ExtResource("27_cakj8")]
 transform = Transform3D(-0.99998885, 0, 0.0047176583, 0, 1, 0, -0.0047176583, 0, -0.99998885, 10.263956, 0.6108203, -1.4797425)
+
+[node name="SpawnPoint" type="Node3D" parent="." unique_id=1229745557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05650711, 3.315446)

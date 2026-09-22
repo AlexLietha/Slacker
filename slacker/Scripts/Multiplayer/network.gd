@@ -63,7 +63,6 @@ func spawn_player(peer_id: int) -> void:
 	get_tree().current_scene.add_child(new_player, true)
 	print("=== PLAYER SPAWNED ===")
 	print("Player ID: " + str(peer_id))
-	print("My Peer ID: " + str(multiplayer.get_unique_id()))
 	print("Authority: " + str(new_player.get_multiplayer_authority()))
 
 

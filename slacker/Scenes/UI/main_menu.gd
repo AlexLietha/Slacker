@@ -2,7 +2,7 @@ extends CanvasLayer
 
 @onready var button_join: Button = %ButtonJoin
 @onready var button_quit: Button = %ButtonQuit
-const WORLD = preload("res://Scenes/test.tscn")
+const WORLD = preload("res://Scenes/FunctionalKitchen.tscn")
 const PLAYER = preload("res://Scenes/player.tscn")
 
 func _ready() -> void:

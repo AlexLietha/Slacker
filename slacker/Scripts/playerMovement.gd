@@ -9,7 +9,7 @@ class_name Player
 @onready var camera = $Camera3D
 @onready var hat := $Camera3D/Hat
 @onready var player_mesh := $PlayerMesh
-@onready var nameplate: Label3D = $Nameplate
+#@onready var nameplate: Label3D = $Nameplate
 
 @export var interactionRayCast : RayCast3D
 @export var grabbedItem : Node3D
@@ -23,7 +23,7 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	add_to_group("Players")
-	nameplate.text = name
+	#nameplate.text = name
 	
 	print("Player Auth: " + str(get_multiplayer_authority()))
 	

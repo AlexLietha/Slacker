@@ -9,7 +9,7 @@ extends Node
 @onready var timer = $"."
 
 @export var round_name = ["Prep Time!", "Get to Work!"]
-@export var round_time = [10,480]
+@export var round_time = [30,480]
 
 var round_num = 0
 
@@ -39,5 +39,5 @@ func _process(delta):
 	clock.text = "%02d:%02d" % remaining_time()
 	if remaining_time() == [0.0, 00]:
 		timer.stop()
-		GameManager.assign_roles()
+		#GameManager.assign_roles()
 		set_next_round()
