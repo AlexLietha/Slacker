@@ -1,34 +1,34 @@
 [gd_scene format=3 uid="uid://mrbh1vscglx7"]
 
 [ext_resource type="PackedScene" uid="uid://dj300s48akkxb" path="res://models/environment assets/shelf_a.fbx" id="1_pj5l3"]
-[ext_resource type="Material" uid="uid://7g1p7xighxpe" path="res://Scenes/environmentmodelscenes/worktablebasematerial.tres" id="2_6rx2y"]
-[ext_resource type="Material" uid="uid://b4lk6dw40se6f" path="res://Scenes/environmentmodelscenes/basewhite.tres" id="3_kp0jx"]
+[ext_resource type="Material" uid="uid://7g1p7xighxpe" path="res://environmentmodelscenes/worktablebasematerial.tres" id="2_6rx2y"]
+[ext_resource type="Material" uid="uid://b4lk6dw40se6f" path="res://environmentmodelscenes/basewhite.tres" id="3_kp0jx"]
 
 [node name="shelf_a" unique_id=249047160 instance=ExtResource("1_pj5l3")]
 
-[node name="storage shelf" parent="." index="0" unique_id=919655987]
+[node name="storage shelf" parent="." index="0" unique_id=1538180288]
 material_override = ExtResource("2_6rx2y")
 
-[node name="Cube_009" parent="storage shelf" index="0" unique_id=814207470]
+[node name="Cube_009" parent="storage shelf" index="0" unique_id=950209892]
 material_override = ExtResource("2_6rx2y")
 
-[node name="Cube_010" parent="storage shelf" index="1" unique_id=712546340]
+[node name="Cube_010" parent="storage shelf" index="1" unique_id=453254956]
 material_override = ExtResource("2_6rx2y")
 
-[node name="Cube_011" parent="storage shelf" index="2" unique_id=166250327]
+[node name="Cube_011" parent="storage shelf" index="2" unique_id=673670072]
 material_override = ExtResource("2_6rx2y")
 
-[node name="Cube_012" parent="storage shelf" index="3" unique_id=874789088]
+[node name="Cube_012" parent="storage shelf" index="3" unique_id=1062866673]
 material_override = ExtResource("2_6rx2y")
 
-[node name="Cylinder_008" parent="storage shelf" index="4" unique_id=1547287512]
+[node name="Cylinder_008" parent="storage shelf" index="4" unique_id=1338606378]
 material_override = ExtResource("3_kp0jx")
 
-[node name="Cylinder_009" parent="storage shelf" index="5" unique_id=75499602]
+[node name="Cylinder_009" parent="storage shelf" index="5" unique_id=1387234692]
 material_override = ExtResource("3_kp0jx")
 
-[node name="Cylinder_010" parent="storage shelf" index="6" unique_id=1402380398]
+[node name="Cylinder_010" parent="storage shelf" index="6" unique_id=1447087113]
 material_override = ExtResource("3_kp0jx")
 
-[node name="Cylinder_011" parent="storage shelf" index="7" unique_id=1608834909]
+[node name="Cylinder_011" parent="storage shelf" index="7" unique_id=537851068]
 material_override = ExtResource("3_kp0jx")
