@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://j5kxh4tou35y" path="res://Scripts/interaction.gd" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://dqpaw7ty68pbe" path="res://Scripts/playerMovement.gd" id="1_g2els"]
 [ext_resource type="Script" uid="uid://3i2b3c7mfewl" path="res://Scripts/Orders/UI/order_list.gd" id="3_6t5aa"]
-[ext_resource type="Texture2D" uid="uid://cjg13nwx8uky3" path="res://UI/Satisfaction Rating/happy_bar_v1.png" id="4_fkybt"]
+[ext_resource type="Texture2D" uid="uid://dwexlgu75s2hg" path="res://UI/Satisfaction Rating/sad_bar_v1.png" id="4_fkybt"]
 [ext_resource type="Script" uid="uid://dxlxaqlecxydr" path="res://Scripts/Orders/UI/CustomerSatisfactionUI.gd" id="4_vgqql"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vgqql"]
@@ -14,7 +14,8 @@
 height = 1.5333862
 
 [sub_resource type="Gradient" id="Gradient_fkybt"]
-colors = PackedColorArray(1, 0, 0, 1, 0, 1, 0, 1)
+offsets = PackedFloat32Array(0, 0.3, 0.8, 1)
+colors = PackedColorArray(0.80784315, 0.45490196, 0.14117648, 1, 0.80784315, 0.45490196, 0.14117648, 1, 0.39215687, 0.6862745, 0.43137255, 1, 0.39215687, 0.6862745, 0.43137255, 1)
 metadata/_snap_enabled = true
 metadata/_snap_count = 100
 
