@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bwbxe6tcv6484" path="res://environmentmodelscenes/trashcan.tscn" id="11_g0k8k"]
 [ext_resource type="PackedScene" uid="uid://clkyi1xaaf5mp" path="res://environmentmodelscenes/spatula.tscn" id="12_sn54c"]
 [ext_resource type="PackedScene" uid="uid://b6tfnde32xqur" path="res://environmentmodelscenes/pancakestack.tscn" id="13_d3bkb"]
+[ext_resource type="PackedScene" uid="uid://w0g2043ktub6" path="res://Scenes/report_box.tscn" id="14_kssx3"]
 [ext_resource type="PackedScene" uid="uid://bg8qlsnubpuc6" path="res://environmentmodelscenes/waffle.tscn" id="14_ku32c"]
 [ext_resource type="PackedScene" uid="uid://bgu1pls1ejp2t" path="res://Scenes/Grabbable Objects/plate.tscn" id="14_nycbd"]
 [ext_resource type="PackedScene" uid="uid://cqu4s7gp7ge71" path="res://environmentmodelscenes/knife.tscn" id="15_87vul"]
@@ -35,6 +36,7 @@ sky_material = SubResource("ProceduralSkyMaterial_vg308")
 [sub_resource type="Environment" id="Environment_oyfun"]
 background_mode = 2
 sky = SubResource("Sky_qh5db")
+fog_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pb1w8"]
 albedo_color = Color(0.71, 0.6792333, 0.63899994, 1)
@@ -57,6 +59,9 @@ light_energy = 2.626
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1804830780]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.349741, 4.04204, -2.8010726)
+
+[node name="Player" parent="." unique_id=1090027167 instance=ExtResource("1_8o0il")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0.5726423, 2.5748045)
 
 [node name="Walls" type="Node3D" parent="." unique_id=131895973]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6749945, 1.8434739, -4.420146)
@@ -226,7 +231,6 @@ item = ExtResource("14_nycbd")
 [node name="stackofplates" parent="Furnature/Box2" unique_id=334221210 instance=ExtResource("4_6cgg5")]
 
 [node name="Misc" type="Node3D" parent="." unique_id=2039875476]
-visible = false
 
 [node name="Spatula_BenMusser_V1" parent="Misc" unique_id=35149750 instance=ExtResource("12_sn54c")]
 transform = Transform3D(0.08814636, 0, -0.08862968, 0, 0.125, 0, 0.08862968, 0, 0.08814636, 3.515165, 1.8393247, -8.317997)
@@ -277,13 +281,13 @@ transform = Transform3D(-2.535396e-08, -0.58003104, -0.47546187, 0.75, -3.278354
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.058153, -8.817998)
 
 [node name="NPC1" parent="." unique_id=190551831 instance=ExtResource("27_kssx3")]
-transform = Transform3D(2.4372742, 0, 2.5119107, 0, 3.5, 0, -2.5119107, 0, 2.4372742, 11.181117, -0.012005806, 4.5602317)
+transform = Transform3D(2.4372742, 0, 2.5119107, 0, 3.5, 0, -2.5119107, 0, 2.4372742, 10.243175, -0.012005806, 5.419688)
 
 [node name="IDComponent2" type="Node" parent="NPC1" unique_id=944265514]
 script = ExtResource("28_wur46")
 
 [node name="OrderBoard" parent="." unique_id=598548473 instance=ExtResource("27_cakj8")]
-transform = Transform3D(-0.99998885, 0, 0.0047176583, 0, 1, 0, -0.0047176583, 0, -0.99998885, 10.263956, 0.6108203, -1.4797425)
+transform = Transform3D(-1.4999833, 0, 0.007076583, 0, 1.5, 0, -0.007076583, 0, -1.4999833, 10.257169, 0.92690086, -0.0410856)
 
-[node name="SpawnPoint" type="Node3D" parent="." unique_id=1229745557]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05650711, 3.315446)
+[node name="StaticBody3D" parent="." unique_id=1958575001 instance=ExtResource("14_kssx3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0681834, 2.1542432, -8.6701765)

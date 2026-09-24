@@ -25,7 +25,7 @@ func Grab(grabber : Player):
 	
 func cook():
 	while true:
-		await get_tree().create_timer(10).timeout
+		await get_tree().create_timer(3).timeout
 		if cooking:
 			model.material.albedo_color = Color(0.293, 0.18, 0.146, 1.0)
 			cooked = true

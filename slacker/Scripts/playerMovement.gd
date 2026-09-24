@@ -7,12 +7,19 @@ class_name Player
 @export var role = "Cook"
 
 @onready var camera = $Camera3D
-@onready var hat := $Camera3D/Hat
+@onready var hat := $Hat
 @onready var player_mesh := $PlayerMesh
+@onready var vote_UI := $VotingBoard
 #@onready var nameplate: Label3D = $Nameplate
 
 @export var interactionRayCast : RayCast3D
 @export var grabbedItem : Node3D
+
+@export var clientNo: int
+
+func _enter_tree() -> void:
+	print("Player enter tree " + name)
+	print("Authroity: " + str(get_multiplayer_authority()))
 
 @export var clientNo: int
 
@@ -60,24 +67,21 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	if role == "Manager":
-		if hat != null:
-			hat.show()
+		hat.show()
 		var material = StandardMaterial3D.new()
 		material.albedo_color = Color.WHITE
 		if player_mesh != null:
 			player_mesh.material_override = material
 		
 	if role == "Cook":
-		if hat != null:
-			hat.hide()
+		hat.hide()
 		var material = StandardMaterial3D.new()
 		material.albedo_color = Color.BLUE
 		if player_mesh != null:
 			player_mesh.material_override = material
 		
 	if role == "Slacker":
-		if hat != null:
-			hat.hide()
+		hat.hide()
 		var material = StandardMaterial3D.new()
 		material.albedo_color = Color.RED
 		if player_mesh != null:
@@ -99,7 +103,14 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
-	
+
+	if(Input.is_action_just_pressed("Click e")&&counter%2==0):
+		ShowUI()
+		counter = counter +1
+	elif(Input.is_action_just_pressed("Click e")&&counter%2==1):
+		HideUI()
+		counter= counter + 1
+
 	move_and_slide()
 
 func getGrabbedItem() -> GrabbableObject:
@@ -109,3 +120,13 @@ func getGrabbedItem() -> GrabbableObject:
 
 func HasGrabbedItem() -> bool:
 	return grabbedItem.get_child_count() == 1
+	
+func ShowUI() -> void:
+	vote_UI.visible = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+func HideUI() -> void:
+	vote_UI.visible = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)	
+
+		
