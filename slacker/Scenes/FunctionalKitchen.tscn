@@ -60,9 +60,6 @@ light_energy = 2.626
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1804830780]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.349741, 4.04204, -2.8010726)
 
-[node name="Player" parent="." unique_id=1090027167 instance=ExtResource("1_8o0il")]
-transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0.5726423, 2.5748045)
-
 [node name="Walls" type="Node3D" parent="." unique_id=131895973]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6749945, 1.8434739, -4.420146)
 

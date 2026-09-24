@@ -3,7 +3,7 @@ class_name Plate
 @export var itemStack : ItemStack
 
 
-func Grab(grabber : Player):
+func Grab(grabber : Player) -> void:
 	
 	if itemStack and grabber.HasGrabbedItem():
 		grabber.getGrabbedItem().plate = self

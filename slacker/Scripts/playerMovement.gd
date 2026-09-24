@@ -21,12 +21,6 @@ func _enter_tree() -> void:
 	print("Player enter tree " + name)
 	print("Authroity: " + str(get_multiplayer_authority()))
 
-@export var clientNo: int
-
-func _enter_tree() -> void:
-	print("Player enter tree " + name)
-	print("Authroity: " + str(get_multiplayer_authority()))
-
 func _ready() -> void:
 	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	add_to_group("Players")
@@ -104,12 +98,12 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
 
-	if(Input.is_action_just_pressed("Click e")&&counter%2==0):
-		ShowUI()
-		counter = counter +1
-	elif(Input.is_action_just_pressed("Click e")&&counter%2==1):
-		HideUI()
-		counter= counter + 1
+	#if(Input.is_action_just_pressed("Click e")&&counter%2==0):
+		#ShowUI()
+		#counter = counter +1
+	#elif(Input.is_action_just_pressed("Click e")&&counter%2==1):
+		#HideUI()
+		#counter= counter + 1
 
 	move_and_slide()
 
