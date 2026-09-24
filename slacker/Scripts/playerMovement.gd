@@ -1,6 +1,6 @@
 extends CharacterBody3D
 class_name Player
-
+# added random comment to fix Riley's bad push to main 💢
 @export var speed := 5.0
 @export var jumpVelocity := 5
 @export var mouseSensitivity := 0.004
