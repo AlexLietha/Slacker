@@ -37,7 +37,6 @@ sky_material = SubResource("ProceduralSkyMaterial_vg308")
 [sub_resource type="Environment" id="Environment_oyfun"]
 background_mode = 2
 sky = SubResource("Sky_qh5db")
-fog_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pb1w8"]
 albedo_color = Color(0.71, 0.6792333, 0.63899994, 1)
@@ -232,6 +231,7 @@ item = ExtResource("14_nycbd")
 [node name="stackofplates" parent="Furnature/Box2" unique_id=334221210 instance=ExtResource("4_6cgg5")]
 
 [node name="Misc" type="Node3D" parent="." unique_id=2039875476]
+visible = false
 
 [node name="Spatula_BenMusser_V1" parent="Misc" unique_id=35149750 instance=ExtResource("12_sn54c")]
 transform = Transform3D(0.08814636, 0, -0.08862968, 0, 0.125, 0, 0.08862968, 0, 0.08814636, 3.515165, 1.8393247, -8.317997)
