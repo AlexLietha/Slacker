@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dwexlgu75s2hg" path="res://UI/Satisfaction Rating/sad_bar_v1.png" id="4_fkybt"]
 [ext_resource type="Script" uid="uid://dxlxaqlecxydr" path="res://Scripts/Orders/UI/CustomerSatisfactionUI.gd" id="4_vgqql"]
 [ext_resource type="PackedScene" uid="uid://nsk45ymwt1wc" path="res://UI/VotingUI.tscn" id="5_fkybt"]
+[ext_resource type="Gradient" uid="uid://by4yofdsthluw" path="res://UI/RatingBarGradient.tres" id="6_3smsa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vgqql"]
 
@@ -81,7 +82,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(938, 78.5)
 texture = ExtResource("4_fkybt")
 
-[node name="ColorRect" type="ColorRect" parent="UI" unique_id=1595570702]
+[node name="ColorRect" type="ColorRect" parent="UI" unique_id=1595570702 node_paths=PackedStringArray("barSprite")]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -91,6 +92,8 @@ offset_right = -23.0
 offset_bottom = 109.0
 grow_horizontal = 0
 script = ExtResource("4_vgqql")
+gradient = ExtResource("6_3smsa")
+barSprite = NodePath("../EmptyBarV1")
 metadata/_edit_use_anchors_ = true
 
 [node name="GrabbedObjectPosition" type="Node3D" parent="." unique_id=1229670346]
