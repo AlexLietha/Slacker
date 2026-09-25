@@ -9,16 +9,22 @@ class_name Player
 @onready var camera = $Camera3D
 @onready var hat := $Hat
 @onready var player_mesh := $PlayerMesh
+@onready var vote_UI := $VotingBoard
 
 @export var interactionRayCast : RayCast3D
 @export var grabbedItem : Node3D
+var counter: int = 0;
 
 func _ready() -> void:
 	add_to_group("players")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	vote_UI.visible = false
+	
+	
 
 func _physics_process(delta: float) -> void:
 	
+		
 	if role == "Manager":
 		hat.show()
 		var material = StandardMaterial3D.new()
@@ -60,6 +66,13 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
 
+	if(Input.is_action_just_pressed("Click e")&&counter%2==0):
+		ShowUI()
+		counter = counter +1
+	elif(Input.is_action_just_pressed("Click e")&&counter%2==1):
+		HideUI()
+		counter= counter + 1
+
 	move_and_slide()
 
 
@@ -89,4 +102,13 @@ func getGrabbedItem() -> GrabbableObject:
 	
 func HasGrabbedItem() -> bool:
 	return grabbedItem.get_child_count() == 1
+	
+func ShowUI() -> void:
+	vote_UI.visible = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+func HideUI() -> void:
+	vote_UI.visible = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)	
+
 		
