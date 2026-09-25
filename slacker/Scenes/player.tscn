@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dwexlgu75s2hg" path="res://UI/Satisfaction Rating/sad_bar_v1.png" id="4_fkybt"]
 [ext_resource type="Script" uid="uid://dxlxaqlecxydr" path="res://Scripts/Orders/UI/CustomerSatisfactionUI.gd" id="4_vgqql"]
 [ext_resource type="PackedScene" uid="uid://nsk45ymwt1wc" path="res://UI/VotingUI.tscn" id="5_fkybt"]
+[ext_resource type="Gradient" uid="uid://by4yofdsthluw" path="res://UI/RatingBarGradient.tres" id="6_3smsa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vgqql"]
 
@@ -13,12 +14,6 @@
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_fkybt"]
 height = 1.5333862
-
-[sub_resource type="Gradient" id="Gradient_fkybt"]
-offsets = PackedFloat32Array(0, 0.3, 0.8, 1)
-colors = PackedColorArray(0.80784315, 0.45490196, 0.14117648, 1, 0.80784315, 0.45490196, 0.14117648, 1, 0.39215687, 0.6862745, 0.43137255, 1, 0.39215687, 0.6862745, 0.43137255, 1)
-metadata/_snap_enabled = true
-metadata/_snap_count = 100
 
 [node name="Player" type="CharacterBody3D" unique_id=1090027167 node_paths=PackedStringArray("interactionRayCast", "grabbedItem")]
 transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0, 0)
@@ -97,7 +92,7 @@ offset_right = -23.0
 offset_bottom = 109.0
 grow_horizontal = 0
 script = ExtResource("4_vgqql")
-gradient = SubResource("Gradient_fkybt")
+gradient = ExtResource("6_3smsa")
 barSprite = NodePath("../EmptyBarV1")
 metadata/_edit_use_anchors_ = true
 
