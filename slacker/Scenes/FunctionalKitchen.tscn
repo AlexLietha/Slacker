@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://bwbxe6tcv6484" path="res://environmentmodelscenes/trashcan.tscn" id="11_g0k8k"]
 [ext_resource type="PackedScene" uid="uid://clkyi1xaaf5mp" path="res://environmentmodelscenes/spatula.tscn" id="12_sn54c"]
 [ext_resource type="PackedScene" uid="uid://b6tfnde32xqur" path="res://environmentmodelscenes/pancakestack.tscn" id="13_d3bkb"]
-[ext_resource type="PackedScene" uid="uid://w0g2043ktub6" path="res://Scenes/report_box.tscn" id="14_kssx3"]
 [ext_resource type="PackedScene" uid="uid://bg8qlsnubpuc6" path="res://environmentmodelscenes/waffle.tscn" id="14_ku32c"]
 [ext_resource type="PackedScene" uid="uid://bgu1pls1ejp2t" path="res://Scenes/Grabbable Objects/plate.tscn" id="14_nycbd"]
 [ext_resource type="PackedScene" uid="uid://cqu4s7gp7ge71" path="res://environmentmodelscenes/knife.tscn" id="15_87vul"]
@@ -288,7 +287,4 @@ transform = Transform3D(2.4372742, 0, 2.5119107, 0, 3.5, 0, -2.5119107, 0, 2.437
 script = ExtResource("28_wur46")
 
 [node name="OrderBoard" parent="." unique_id=598548473 instance=ExtResource("27_cakj8")]
-transform = Transform3D(-1.4999833, 0, 0.007076583, 0, 1.5, 0, -0.007076583, 0, -1.4999833, 10.257169, 0.92690086, -0.0410856)
-
-[node name="StaticBody3D" parent="." unique_id=1958575001 instance=ExtResource("14_kssx3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0681834, 2.1542432, -8.6701765)
+transform = Transform3D(-0.99998885, 0, 0.0047176583, 0, 1, 0, -0.0047176583, 0, -0.99998885, 10.263956, 0.6108203, -1.4797425)
