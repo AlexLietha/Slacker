@@ -65,6 +65,7 @@ size_flags_horizontal = 3
 script = ExtResource("3_6t5aa")
 
 [node name="Label" type="Label" parent="UI" unique_id=1266910109]
+visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -86,11 +87,12 @@ texture = ExtResource("4_fkybt")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -279.0
-offset_top = 54.0
-offset_right = -23.0
-offset_bottom = 109.0
+offset_left = -282.00006
+offset_top = 53.0
+offset_right = -26.0
+offset_bottom = 108.0
 grow_horizontal = 0
+scale = Vector2(0.9911316, 1.0214492)
 script = ExtResource("4_vgqql")
 gradient = ExtResource("6_3smsa")
 barSprite = NodePath("../EmptyBarV1")
