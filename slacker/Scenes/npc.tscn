@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cjkny77v8xyu0" path="res://Scripts/Waitress.gd" id="1_g6unj"]
 [ext_resource type="Script" uid="uid://8hid0kygyi71" path="res://Scripts/interactible_component.gd" id="1_nh2m4"]
-[ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Scenes/IDComponent.gd" id="3_h1ryf"]
+[ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Scripts/IDComponent.gd" id="3_h1ryf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tcuxl"]
 size = Vector3(0.6, 1, 0.15)

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://w1hcy6j1i0vj" path="res://Scenes/player.tscn" id="1_lc1oi"]
 [ext_resource type="PackedScene" uid="uid://csl4s4fsyxjxk" path="res://Scenes/grill.tscn" id="3_qc4db"]
 [ext_resource type="PackedScene" uid="uid://ddnsnlj6myhdd" path="res://Scenes/npc.tscn" id="4_ys1qc"]
-[ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Scenes/IDComponent.gd" id="5_35xla"]
+[ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Scripts/IDComponent.gd" id="5_35xla"]
 [ext_resource type="PackedScene" uid="uid://2riwns1moyus" path="res://Scenes/Grabbable Objects/burger_patty.tscn" id="6_5wyu1"]
 [ext_resource type="PackedScene" uid="uid://betf2qehtbsgn" path="res://Scenes/box.tscn" id="6_i3aeo"]
 [ext_resource type="PackedScene" uid="uid://bgu1pls1ejp2t" path="res://Scenes/Grabbable Objects/plate.tscn" id="7_5wyu1"]

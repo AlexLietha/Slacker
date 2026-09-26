@@ -15,6 +15,14 @@
 [sub_resource type="CylinderMesh" id="CylinderMesh_fkybt"]
 height = 1.5333862
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_3smsa"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
 [node name="Player" type="CharacterBody3D" unique_id=1090027167 node_paths=PackedStringArray("interactionRayCast", "grabbedItem")]
 transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0, 0)
 script = ExtResource("1_g2els")
@@ -102,3 +110,6 @@ metadata/_edit_use_anchors_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46514714, -0.45139253)
 
 [node name="VotingBoard" parent="." unique_id=1031466018 instance=ExtResource("5_fkybt")]
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1713669159]
+replication_config = SubResource("SceneReplicationConfig_3smsa")

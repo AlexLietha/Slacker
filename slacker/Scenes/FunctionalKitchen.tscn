@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://5l0uutfybxou" path="res://environmentmodelscenes/pan.tscn" id="20_mdggh"]
 [ext_resource type="PackedScene" uid="uid://c6wolbp1jdqht" path="res://Scenes/order_board.tscn" id="27_cakj8"]
 [ext_resource type="PackedScene" uid="uid://ddnsnlj6myhdd" path="res://Scenes/npc.tscn" id="27_kssx3"]
-[ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Scenes/IDComponent.gd" id="28_wur46"]
+[ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Scripts/IDComponent.gd" id="28_wur46"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vg308"]
 
