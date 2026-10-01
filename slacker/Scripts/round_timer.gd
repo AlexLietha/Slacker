@@ -39,7 +39,7 @@ func set_next_round():
 		open_sign.show()
 	round_num += 1
 
-func _process(delta):
+func _process(_delta):
 	clock.text = "%02d:%02d" % remaining_time()
 	if remaining_time() == [0.0, 00]:
 		timer.stop()

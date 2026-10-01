@@ -8,9 +8,9 @@ func _ready() -> void:
 	OrderManager.CompletedOrder.connect(DeleteOrder)
 
 func AddOrder(order: Order) -> void:
-	var label: String
-	var board = Order_Board.new()
-	label = "ORDER \n---------\n" + order.GetEntree().GetName() + "\n---------"
+	var _label: String
+	var _board = Order_Board.new()
+	_label = "ORDER \n---------\n" + order.GetEntree().GetName() + "\n---------"
 
 func UpdateOrder(order: Order) -> void:
 	print("Updating Order UI")

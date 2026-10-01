@@ -6,6 +6,11 @@ class_name Player
 @export var mouseSensitivity := 0.004
 @export var role = "Cook"
 
+@export var player_color := Color.BLUE:
+	set(value):
+		player_color = value
+		updateMaterialColor(value)
+
 @onready var camera = $Camera3D
 @onready var hat := $Hat
 @onready var player_mesh := $PlayerMesh
@@ -69,17 +74,18 @@ func _physics_process(delta: float) -> void:
 		
 	if role == "Cook":
 		hat.hide()
-		var material = StandardMaterial3D.new()
-		material.albedo_color = Color.BLUE
+		#var material = StandardMaterial3D.new()
+		#material.albedo_color = Color.BLUE
 		if player_mesh != null:
-			player_mesh.material_override = material
+			#player_mesh.material_override = material
+			updateMaterialColor(Color.BLUE)
 		
 	if role == "Slacker":
 		hat.hide()
-		var material = StandardMaterial3D.new()
-		material.albedo_color = Color.RED
+		#var material = StandardMaterial3D.new()
+		#material.albedo_color = Color.RED
 		if player_mesh != null:
-			player_mesh.material_override = material
+			updateMaterialColor(Color.RED)
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -114,13 +120,20 @@ func getGrabbedItem() -> GrabbableObject:
 
 func HasGrabbedItem() -> bool:
 	return grabbedItem.get_child_count() == 1
-	
+
 func ShowUI() -> void:
 	vote_UI.visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
+
 func HideUI() -> void:
 	vote_UI.visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)	
 
-		
+func updateMaterialColor(col: Color) -> void:
+	var color_mesh = find_child("PlayerMesh") as MeshInstance3D
+	if not color_mesh: return
+	
+	var dupe_mat = color_mesh.get_active_material(0).duplicate()
+	dupe_mat.albedo_color = col
+	
+	color_mesh.material_override = dupe_mat
