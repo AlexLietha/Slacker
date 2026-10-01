@@ -3,6 +3,9 @@ extends Node
 # Dear future Aidan, or future programmer,
 #		Please do a state machine for the rounds instead
 #		- xoxo pookie bear aidan
+#		
+#		We also should be starting the timer on the server then it gets pushed to clients
+#		-Zeon
 
 @onready var clock = $"../ClockUI/Clock"
 @onready var round_title = $"../Round Title"
@@ -26,7 +29,7 @@ func remaining_time():
 
 #func set_round_name(name):
 	#round_title.text = name
-	
+
 func get_round_name():
 	return round_title.text
 	

@@ -35,6 +35,14 @@ resource_local_to_scene = true
 next_pass = SubResource("ShaderMaterial_757ny")
 albedo_color = Color(1, 0, 0, 1)
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_uqmxb"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("CSGCylinder3D:visible")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
 [node name="BurgerPatty" unique_id=844689755 node_paths=PackedStringArray("model") instance=ExtResource("1_1adxn")]
 script = ExtResource("2_uqmxb")
 ingredientName = "Burger"
@@ -53,3 +61,6 @@ material = SubResource("StandardMaterial3D_1adxn")
 
 [node name="Item Stack" type="Node3D" parent="." index="6" unique_id=1600989860]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.031581223, 0)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." index="7" unique_id=317261814]
+replication_config = SubResource("SceneReplicationConfig_uqmxb")

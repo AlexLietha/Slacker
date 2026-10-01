@@ -44,3 +44,7 @@ metadata/_custom_type_script = "uid://dakevjuf8svg"
 shape = SubResource("BoxShape3D_4pvdy")
 
 [node name="Icon" type="Node3D" parent="." unique_id=1074943053]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=443313503]
+_spawnable_scenes = PackedStringArray("uid://2riwns1moyus")
+spawn_path = NodePath("..")
