@@ -2,7 +2,8 @@ extends Node
 
 	
 var timeTilNextOrder = 1.0
-var listOfEntres : Array[Entree] = [preload("res://Orders & Tasks/Orders/Burger.tres")]
+var listOfEntres : Array[Entree] = [preload("res://Orders & Tasks/Orders/Burger.tres"),
+preload("res://Orders & Tasks/Orders/Eggs.tres")]
 var canSpawnNextOrder = true
 signal NewOrder(order: Order)
 var rng = RandomNumberGenerator.new()

@@ -9,8 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://betf2qehtbsgn" path="res://Scenes/box.tscn" id="4_wl1ng"]
 [ext_resource type="PackedScene" uid="uid://2riwns1moyus" path="res://Scenes/Grabbable Objects/burger_patty.tscn" id="5_wl1ng"]
 [ext_resource type="PackedScene" uid="uid://dg5uqe6etd04k" path="res://environmentmodelscenes/table.tscn" id="6_8o0il"]
+[ext_resource type="PackedScene" uid="uid://dvg8umbahgjmn" path="res://Scenes/Grabbable Objects/uncracked_egg.tscn" id="7_kssx3"]
 [ext_resource type="PackedScene" uid="uid://b1eaqrt0hvugc" path="res://models/environment assets/oven vent.fbx" id="7_nycbd"]
 [ext_resource type="PackedScene" uid="uid://dtljkiukx76jj" path="res://environmentmodelscenes/toaster.tscn" id="8_cakj8"]
+[ext_resource type="PackedScene" uid="uid://cwnq4obn0uleg" path="res://Scenes/Grabbable Objects/cracked_egg.tscn" id="8_wur46"]
 [ext_resource type="PackedScene" uid="uid://dmh7nnfrnbb7v" path="res://environmentmodelscenes/bread.tscn" id="9_kssx3"]
 [ext_resource type="PackedScene" uid="uid://db6apnfy65ake" path="res://environmentmodelscenes/fridge.tscn" id="10_wur46"]
 [ext_resource type="PackedScene" uid="uid://bwbxe6tcv6484" path="res://environmentmodelscenes/trashcan.tscn" id="11_g0k8k"]
@@ -18,7 +20,6 @@
 [ext_resource type="PackedScene" uid="uid://b6tfnde32xqur" path="res://environmentmodelscenes/pancakestack.tscn" id="13_d3bkb"]
 [ext_resource type="PackedScene" uid="uid://w0g2043ktub6" path="res://Scenes/report_box.tscn" id="14_kssx3"]
 [ext_resource type="PackedScene" uid="uid://bg8qlsnubpuc6" path="res://environmentmodelscenes/waffle.tscn" id="14_ku32c"]
-[ext_resource type="PackedScene" uid="uid://bgu1pls1ejp2t" path="res://Scenes/Grabbable Objects/plate.tscn" id="14_nycbd"]
 [ext_resource type="PackedScene" uid="uid://cqu4s7gp7ge71" path="res://environmentmodelscenes/knife.tscn" id="15_87vul"]
 [ext_resource type="PackedScene" uid="uid://c8kapetowafxw" path="res://environmentmodelscenes/eggcarton.tscn" id="16_b6uk3"]
 [ext_resource type="PackedScene" uid="uid://b0p2q7144nn4s" path="res://environmentmodelscenes/cuttingboard.tscn" id="17_2ymy8"]
@@ -194,8 +195,12 @@ transform = Transform3D(-1.4982167, 0, -0.07311364, 0, 1.7860185, 0, 0.07311364,
 transform = Transform3D(-1.4982167, 0, -0.07311364, 0, 1.7860185, 0, 0.07311364, 0, -1.4982167, 10.190664, 0, -17.315022)
 
 [node name="Box" parent="Furnature" unique_id=421201296 instance=ExtResource("4_wl1ng")]
-transform = Transform3D(-6.556708e-08, 0, 1.4999999, 0, 1.2703583, 0, -1.4999999, 0, -6.556708e-08, -5.350129, 1.3633451, -8.551566)
-item = ExtResource("5_wl1ng")
+transform = Transform3D(-6.556708e-08, 0, 1.4999999, 0, 1.2703583, 0, -1.4999999, 0, -6.556708e-08, -5.3279057, 1.3492169, -8.549469)
+item = Array[PackedScene]([ExtResource("5_wl1ng")])
+
+[node name="Box3" parent="Furnature" unique_id=1075274356 instance=ExtResource("4_wl1ng")]
+transform = Transform3D(-6.556708e-08, 0, 1.4999999, 0, 1.2703583, 0, -1.4999999, 0, -6.556708e-08, 6.5830374, 2.3356636, -10.709944)
+item = Array[PackedScene]([ExtResource("7_kssx3"), ExtResource("8_wur46")])
 
 [node name="Grill" parent="Furnature" unique_id=1864087979 instance=ExtResource("4_r2utj")]
 transform = Transform3D(-1.4998727, 0, 0.019546553, 0, 1.2703583, 0, -0.019546553, 0, -1.4998727, -2.5204406, 0.03046751, -8.059319)
@@ -226,7 +231,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.7076688, 0.030467987, 6.708
 
 [node name="Box2" parent="Furnature" unique_id=1340486912 instance=ExtResource("4_wl1ng")]
 transform = Transform3D(-6.556708e-08, 0, 1.4999999, 0, 1.2703583, 0, -1.4999999, 0, -6.556708e-08, 1.1627413, 1.6411815, -3.8710022)
-item = ExtResource("14_nycbd")
+item = Array[PackedScene]([])
 
 [node name="stackofplates" parent="Furnature/Box2" unique_id=334221210 instance=ExtResource("4_6cgg5")]
 
