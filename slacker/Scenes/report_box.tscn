@@ -21,7 +21,7 @@ size = Vector2(0.25, 0.5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_nbe6a"]
 size = Vector3(1, 0.68078613, 1)
 
-[node name="StaticBody3D" type="StaticBody3D" unique_id=1958575001 node_paths=PackedStringArray("interactableComponent", "highlightComponent", "model")]
+[node name="Report Box" type="StaticBody3D" unique_id=1958575001 node_paths=PackedStringArray("interactableComponent", "highlightComponent", "model")]
 script = ExtResource("1_b6aji")
 interactableComponent = NodePath("InteractableComponent")
 highlightComponent = NodePath("HighlightComponent")

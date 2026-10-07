@@ -7,16 +7,16 @@ extends StaticBody3D
 
 
 func _ready() -> void:
-	interactableComponent.GetInteractSignal().connect(RetrieveItem)
-	#interactableComponent.GetHoveredSignal().connect(highlight)
+	interactableComponent.GetInteractSignal().connect(OpenVoteUI)
+	interactableComponent.GetHoveredSignal().connect(highlight)
 	
 	#highlightComponent.SetShader(model.material.next_pass)
 	
 	
 
-func RetrieveItem(interactor: Player) -> void:
+func OpenVoteUI(interactor: Player) -> void:
 	print("Interacted")
 	interactor.ShowUI()
 
-#func highlight(interactor: Player, highlighted: bool):
-	#highlightComponent.highlight(interactor, highlighted)
+func highlight(interactor: Player, highlighted: bool):
+	highlightComponent.highlight(interactor, highlighted)
