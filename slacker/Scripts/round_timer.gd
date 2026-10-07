@@ -3,9 +3,6 @@ extends Node
 # Dear future Aidan, or future programmer,
 #		Please do a state machine for the rounds instead
 #		- xoxo pookie bear aidan
-#		
-#		We also should be starting the timer on the server then it gets pushed to clients
-#		-Zeon
 
 @onready var clock = $"../ClockUI/Clock"
 @onready var round_title = $"../Round Title"
@@ -17,10 +14,24 @@ extends Node
 @export var round_time = [120,480]
 
 var round_num = 0
+var game_started := false
 
 func _ready():
-	set_next_round()
+	timer.stop()
+	add_to_group("RoundTimer")
+	#if multiplayer.is_server():
+		#set_next_round()
+
+func start_game() -> void:
+	if game_started:
+		print("Game already started")
+		return
 	
+	#if not multiplayer.is_server():
+		#return
+	game_started = true
+	set_next_round()
+
 func remaining_time():
 	var time_left = timer.time_left
 	var minute = floor(time_left / 60)
@@ -35,7 +46,12 @@ func get_round_name():
 	
 func set_next_round():
 	#set_round_name(round_name[round_num])
+	if not multiplayer.is_server():
+		return
+	
 	timer.start(round_time[round_num])
+	sync_round.rpc(round_num, round_time[round_num])
+	
 	if round_num == 1:
 		OrderSpawner.StartSpawningOrder()
 		prep_sign.hide()
@@ -43,8 +59,17 @@ func set_next_round():
 	round_num += 1
 
 func _process(_delta):
+	if not game_started:
+		return
+	
 	clock.text = "%02d:%02d" % remaining_time()
-	if remaining_time() == [0.0, 00]:
+	if multiplayer.is_server() and timer.time_left <= 0:
 		timer.stop()
 		#GameManager.assign_roles()
 		set_next_round()
+
+@rpc("authority", "call_local", "reliable")
+func sync_round(round: int, time_left: float) -> void:
+	game_started = true
+	round_num = round
+	timer.start(time_left)
