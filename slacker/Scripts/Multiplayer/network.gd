@@ -32,7 +32,7 @@ func join_server() -> void:
 func on_connected_to_server() -> void:
 	print("Connected to server!")
 	print("My Peer ID: " + str(multiplayer.get_unique_id()))
-	rpc_id(1, "fetch_server_time", Time.get_datetime_dict_from_system())
+	#rpc_id(1, "fetch_server_time", Time.get_datetime_dict_from_system())
 
 func fetch_server_time(client_time) -> void:
 	var player_id = get_tree().get_rpc_sender_id()

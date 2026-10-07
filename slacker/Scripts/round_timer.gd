@@ -69,7 +69,7 @@ func _process(_delta):
 		set_next_round()
 
 @rpc("authority", "call_local", "reliable")
-func sync_round(round: int, time_left: float) -> void:
+func sync_round(round_int: int, time_left: float) -> void:
 	game_started = true
-	round_num = round
+	round_num = round_int
 	timer.start(time_left)
