@@ -42,6 +42,28 @@ func _ready() -> void:
 	camera.current = true
 	print("Player Auth: " + str(get_multiplayer_authority()))
 	print("Player clientNo: " + str(clientNo))
+	
+	if role == "Manager":
+		hat.show()
+		var material = StandardMaterial3D.new()
+		material.albedo_color = Color.WHITE
+		if player_mesh != null:
+			player_mesh.material_override = material
+		
+	if role == "Cook":
+		hat.hide()
+		#var material = StandardMaterial3D.new()
+		#material.albedo_color = Color.BLUE
+		if player_mesh != null:
+			#player_mesh.material_override = material
+			updateMaterialColor(Color.BLUE)
+		
+	if role == "Slacker":
+		hat.hide()
+		#var material = StandardMaterial3D.new()
+		#material.albedo_color = Color.RED
+		if player_mesh != null:
+			updateMaterialColor(Color.RED)
 
 func _input(event: InputEvent):
 	if !is_multiplayer_authority():
@@ -65,27 +87,27 @@ func _physics_process(delta: float) -> void:
 	if !is_multiplayer_authority():
 		return
 	
-	if role == "Manager":
-		hat.show()
-		var material = StandardMaterial3D.new()
-		material.albedo_color = Color.WHITE
-		if player_mesh != null:
-			player_mesh.material_override = material
-		
-	if role == "Cook":
-		hat.hide()
+	#if role == "Manager":
+		#hat.show()
+		#var material = StandardMaterial3D.new()
+		#material.albedo_color = Color.WHITE
+		#if player_mesh != null:
+			#player_mesh.material_override = material
+		#
+	#if role == "Cook":
+		#hat.hide()
 		#var material = StandardMaterial3D.new()
 		#material.albedo_color = Color.BLUE
-		if player_mesh != null:
+		#if player_mesh != null:
 			#player_mesh.material_override = material
-			updateMaterialColor(Color.BLUE)
-		
-	if role == "Slacker":
-		hat.hide()
+			#updateMaterialColor(Color.BLUE)
+		#
+	#if role == "Slacker":
+		#hat.hide()
 		#var material = StandardMaterial3D.new()
 		#material.albedo_color = Color.RED
-		if player_mesh != null:
-			updateMaterialColor(Color.RED)
+		#if player_mesh != null:
+			#updateMaterialColor(Color.RED)
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -133,7 +155,11 @@ func updateMaterialColor(col: Color) -> void:
 	var color_mesh = find_child("PlayerMesh") as MeshInstance3D
 	if not color_mesh: return
 	
+	if color_mesh.get_active_material(0).albedo_color == col:
+		return
+	
 	var dupe_mat = color_mesh.get_active_material(0).duplicate()
 	dupe_mat.albedo_color = col
 	
 	color_mesh.material_override = dupe_mat
+	print("color update tried with ", )
