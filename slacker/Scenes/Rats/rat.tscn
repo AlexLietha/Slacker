@@ -5,7 +5,7 @@
 [sub_resource type="Curve3D" id="Curve3D_mm47e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ikeu"]
-albedo_color = Color(0.3403163, 0.15804243, 0.023865417, 1)
+albedo_color = Color(0.2578125, 0.2578125, 0.2578125, 1)
 
 [node name="Rat" type="Path3D" unique_id=942978980]
 curve = SubResource("Curve3D_mm47e")
@@ -14,6 +14,7 @@ script = ExtResource("1_mm47e")
 [node name="PathFollow3D" type="PathFollow3D" parent="." unique_id=2058111536]
 
 [node name="Model" type="Node3D" parent="PathFollow3D" unique_id=1911062531]
+transform = Transform3D(-3.595, 0, -3.1428488e-07, 0, 3.595, 0, 3.1428488e-07, 0, -3.595, 0, 0, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="PathFollow3D/Model" unique_id=966449151]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.043368317, -0.013720702)

@@ -1,7 +1,16 @@
 [gd_scene format=3 uid="uid://cebd3unkxr7n"]
 
+[ext_resource type="PackedScene" uid="uid://dkqm4ek4nd2ng" path="res://Scenes/Rats/rats.tscn" id="1_mln5q"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_67pc7"]
-albedo_color = Color(0, 0, 0, 1)
+albedo_color = Color(0.17708331, 0.087158196, 0.087158196, 1)
+
+[sub_resource type="Sky" id="Sky_mln5q"]
+
+[sub_resource type="Environment" id="Environment_6ikeu"]
+sky = SubResource("Sky_mln5q")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
 
 [node name="Node3D" type="Node3D" unique_id=682855474]
 
@@ -12,5 +21,9 @@ material = SubResource("StandardMaterial3D_67pc7")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2084602271]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4.777085, 0)
+current = true
 
-[node name="Paths" type="Node3D" parent="." unique_id=534238961]
+[node name="Rats" parent="." unique_id=1560344490 instance=ExtResource("1_mln5q")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1943379777]
+environment = SubResource("Environment_6ikeu")
