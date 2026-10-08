@@ -2,14 +2,19 @@ extends Node
 
 const PLAYER = preload("res://Scenes/player.tscn")
 const TIMER = preload("res://UI/TimerUI.tscn")
+const WORLD = preload("res://Scenes/FunctionalKitchen_multi.tscn")
 
 var enet_peer = ENetMultiplayerPeer.new()
 var server_time: float = 0.0
 var game_started:= false
+var if_server_open := false
+var wifi_port = false
 
-const PORT = 1515
-const IP_ADDRESS = "127.0.0.1"
+@export var PORT = 1515
+@export var IP_ADDRESS = "127.0.0.1"
 const MAX_CLIENTS = 3
+
+var new_ip = "0.0.0.0" #need to import new ip when wifi box is connected
 
 func _process(delta: float) -> void:
 	if multiplayer.is_server():
@@ -17,11 +22,15 @@ func _process(delta: float) -> void:
 	pass
 
 func start_server() -> void:
+	enet_peer.set_bind_ip(new_ip)
 	enet_peer.create_server(PORT, MAX_CLIENTS)
 	multiplayer.multiplayer_peer = enet_peer
 	multiplayer.peer_connected.connect(add_player)
 	multiplayer.peer_disconnected.connect(remove_player)
+	#join_server()
 	print("Server started")
+	if_server_open = true
+	add_world_rpc()
 
 func join_server() -> void:
 	enet_peer.create_client(IP_ADDRESS, PORT)
@@ -99,3 +108,9 @@ func request_start_game() -> void:
 		return
 	
 	game_started_rpc()
+
+@rpc("authority", "call_local", "reliable")
+func add_world_rpc() -> void:
+	var new_world = WORLD.instantiate()
+	get_tree().current_scene.add_child.call_deferred(new_world)
+	print("World added network")
