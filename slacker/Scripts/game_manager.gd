@@ -1,6 +1,6 @@
 extends Node
 
-var player_roles = ["Slacker", "Manager", "Cook"]
+var player_roles = ["Slacker", "Cook"]
 var players = []
 
 func _ready() -> void:
@@ -11,7 +11,7 @@ func assign_roles():
 	players.shuffle()
 	
 	for i in range(0, players.size()):
-		if i < 2: 
+		if i < 1: 
 			players[i].role = player_roles[i] # assigns slacker and manager
 		else:
 			players[i].role = player_roles[2] # assigns cooks

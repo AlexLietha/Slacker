@@ -5,6 +5,7 @@ class_name Player
 @export var jumpVelocity := 5
 @export var mouseSensitivity := 0.004
 @export var role = "Cook"
+@export var player_name = ""
 
 @onready var camera = $Camera3D
 @onready var hat := $Hat
@@ -23,14 +24,12 @@ func _ready() -> void:
 	
 
 func _physics_process(delta: float) -> void:
-	
-		
-	if role == "Manager":
-		hat.show()
-		var material = StandardMaterial3D.new()
-		material.albedo_color = Color.WHITE
-		if player_mesh != null:
-			player_mesh.material_override = material
+	#if role == "Manager":
+		#hat.show()
+		#var material = StandardMaterial3D.new()
+		#material.albedo_color = Color.WHITE
+		#if player_mesh != null:
+			#player_mesh.material_override = material
 		
 	if role == "Cook":
 		hat.hide()
