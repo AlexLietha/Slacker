@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dkqm4ek4nd2ng"]
+
+[ext_resource type="Script" uid="uid://c6755mj6ylwtp" path="res://Scripts/Rats/rats.gd" id="1_3myus"]
+
+[node name="Rats" type="Node3D" unique_id=682855474]
+script = ExtResource("1_3myus")

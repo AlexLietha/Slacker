@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://5l0uutfybxou" path="res://environmentmodelscenes/pan.tscn" id="20_mdggh"]
 [ext_resource type="PackedScene" uid="uid://c6wolbp1jdqht" path="res://Scenes/order_board.tscn" id="27_cakj8"]
 [ext_resource type="PackedScene" uid="uid://ddnsnlj6myhdd" path="res://Scenes/npc.tscn" id="27_kssx3"]
+[ext_resource type="PackedScene" uid="uid://w1hcy6j1i0vj" path="res://Scenes/player.tscn" id="28_kssx3"]
 [ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Scenes/IDComponent.gd" id="28_wur46"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vg308"]
@@ -227,7 +228,6 @@ item = ExtResource("14_nycbd")
 [node name="stackofplates" parent="Furnature/Box2" unique_id=334221210 instance=ExtResource("4_6cgg5")]
 
 [node name="Misc" type="Node3D" parent="." unique_id=2039875476]
-visible = false
 
 [node name="Spatula_BenMusser_V1" parent="Misc" unique_id=35149750 instance=ExtResource("12_sn54c")]
 transform = Transform3D(0.08814636, 0, -0.08862968, 0, 0.125, 0, 0.08862968, 0, 0.08814636, 3.515165, 1.8393247, -8.317997)
@@ -288,3 +288,6 @@ transform = Transform3D(-1.4999833, 0, 0.007076583, 0, 1.5, 0, -0.007076583, 0, 
 
 [node name="StaticBody3D" parent="." unique_id=1958575001 instance=ExtResource("14_kssx3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0681834, 2.1542432, -8.6701765)
+
+[node name="Player" parent="." unique_id=1090027167 instance=ExtResource("28_kssx3")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, -3.2550092, 0.030467033, 3.4116273)
