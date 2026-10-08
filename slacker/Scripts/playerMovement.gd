@@ -47,6 +47,9 @@ func _physics_process(delta: float) -> void:
 		material.albedo_color = Color.RED
 		if player_mesh != null:
 			player_mesh.material_override = material
+			
+	if role == "Rat":
+		pass
 	
 	# Add the gravity.
 	if not is_on_floor():
