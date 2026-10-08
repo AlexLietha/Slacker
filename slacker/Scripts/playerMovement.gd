@@ -15,13 +15,16 @@ class_name Player
 @export var interactionRayCast : RayCast3D
 @export var grabbedItem : Node3D
 var counter: int = 0;
+var name_generator = preload("res://Scripts/NameGenerator.gd").new()
 
 func _ready() -> void:
 	add_to_group("players")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	vote_UI.visible = false
 	
-	
+func set_player_name():
+	player_name = name_generator.pick_random_name()
+	print(player_name)
 
 func _physics_process(delta: float) -> void:
 	#if role == "Manager":
@@ -109,5 +112,4 @@ func ShowUI() -> void:
 func HideUI() -> void:
 	vote_UI.visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)	
-
-		
+	
