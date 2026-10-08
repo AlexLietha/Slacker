@@ -1,5 +1,7 @@
 extends Node
 
+# This file is UI only
+
 # Dear future Aidan, or future programmer,
 #		Please do a state machine for the rounds instead
 #		- xoxo pookie bear aidan
@@ -11,7 +13,7 @@ extends Node
 @onready var open_sign = $"../OpenSign"
 
 @export var round_name = ["Prep Time!", "Get to Work!"]
-@export var round_time = [10,480] # these values are in seconds!!!
+@export var round_time = [120, 480] # these values are in seconds!!!
 
 var round_num = 0
 
