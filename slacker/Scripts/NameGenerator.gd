@@ -8,8 +8,5 @@ var possible_name = ["Bread Pitt", "Giggle Gumbo", "Sunny Souper",
 func _ready() -> void:
 	pass
 	
-func pick_random_name() -> String:
-	# Picks a random name from the list of possible names and returns it
-	var i = 0
-	i = randi() % possible_name.size()
-	return possible_name[i]
+func pick_random_name() -> String:	# Picks a random name from the list of possible names and returns it
+	return possible_name.pick_random()
