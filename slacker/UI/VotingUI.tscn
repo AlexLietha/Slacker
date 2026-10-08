@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dnjyd8o3ullia" path="res://UI/red_x.png" id="3_7rrvv"]
 [ext_resource type="Texture2D" uid="uid://d0267cede3qju" path="res://UI/greyed_x.png" id="3_yb1uu"]
 [ext_resource type="PackedScene" uid="uid://k4fnwb75lfgu" path="res://UI/PlayerVoteIcon.tscn" id="5_7rrvv"]
+[ext_resource type="Script" uid="uid://byl8cqdg3squ3" path="res://Scripts/CloseVote.gd" id="6_b5i3x"]
 
 [node name="Control" type="Control" unique_id=1031466018]
 layout_mode = 3
@@ -151,4 +152,16 @@ offset_top = 182.0
 offset_right = 864.5
 offset_bottom = 289.5
 
+[node name="CloseButton" type="TextureButton" parent="." unique_id=342339927]
+layout_mode = 0
+offset_left = 891.0
+offset_top = 99.0
+offset_right = 966.0
+offset_bottom = 174.0
+texture_normal = ExtResource("3_7rrvv")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("6_b5i3x")
+
 [connection signal="pressed" from="PlayerIcon1" to="PlayerIcon1" method="_on_pressed"]
+[connection signal="pressed" from="CloseButton" to="CloseButton" method="_on_pressed"]

@@ -13,7 +13,7 @@ class_name Player
 
 @export var interactionRayCast : RayCast3D
 @export var grabbedItem : Node3D
-var counter: int = 0;
+#var counter: int = 0;
 
 func _ready() -> void:
 	add_to_group("players")
@@ -66,12 +66,12 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
 
-	if(Input.is_action_just_pressed("Click e")&&counter%2==0):
-		ShowUI()
-		counter = counter +1
-	elif(Input.is_action_just_pressed("Click e")&&counter%2==1):
-		HideUI()
-		counter= counter + 1
+	#if(Input.is_action_just_pressed("Click e")&&counter%2==0):
+		#ShowUI()
+		#counter = counter +1
+	#elif(Input.is_action_just_pressed("Click e")&&counter%2==1):
+		#HideUI()
+		#counter= counter + 1
 
 	move_and_slide()
 
