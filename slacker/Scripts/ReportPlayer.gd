@@ -10,7 +10,7 @@ func _ready() -> void:
 	interactableComponent.GetInteractSignal().connect(OpenVoteUI)
 	interactableComponent.GetHoveredSignal().connect(highlight)
 	
-	#highlightComponent.SetShader(model.material.next_pass)
+	highlightComponent.SetShader(model.material.next_pass)
 	
 	
 
