@@ -13,34 +13,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ClockUI" type="TextureRect" parent="." unique_id=1047014232]
+[node name="PrepSign" type="TextureRect" parent="." unique_id=125862960]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -42.0
-offset_top = 78.0
-offset_right = 43.0
-offset_bottom = 118.0
+offset_left = 258.0
+offset_top = 94.0
+offset_right = 343.0
+offset_bottom = 179.0
 grow_horizontal = 2
-texture = ExtResource("1_unr6p")
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("3_eaqiy")
 expand_mode = 1
 stretch_mode = 4
-
-[node name="Clock" type="Label" parent="ClockUI" unique_id=791024713]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -21.5
-offset_top = 7.0
-offset_right = 20.5
-offset_bottom = 30.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0.2784314, 0.105882354, 0.06666667, 1)
-text = "00:00"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Timer" type="Timer" parent="." unique_id=1553168828]
 script = ExtResource("1_e887x")
@@ -63,23 +49,57 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -42.5
-offset_right = 42.5
-offset_bottom = 85.0
+offset_left = 258.0
+offset_top = 94.0
+offset_right = 343.0
+offset_bottom = 179.0
 grow_horizontal = 2
+scale = Vector2(1.6, 1.6)
 texture = ExtResource("2_qr5el")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="PrepSign" type="TextureRect" parent="." unique_id=125862960]
+[node name="Sign- CHANGE LATER" type="TextureRect" parent="." unique_id=1568850521]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -42.5
-offset_right = 42.5
-offset_bottom = 85.0
+offset_left = 404.0
+offset_top = 94.0
+offset_right = 489.0
+offset_bottom = 179.0
 grow_horizontal = 2
-texture = ExtResource("3_eaqiy")
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("2_qr5el")
 expand_mode = 1
 stretch_mode = 4
+
+[node name="ClockUI" type="TextureRect" parent="." unique_id=1047014232]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 403.0
+offset_top = 156.0
+offset_right = 488.0
+offset_bottom = 196.0
+grow_horizontal = 2
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("1_unr6p")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Clock" type="Label" parent="ClockUI" unique_id=791024713]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.5
+offset_top = 7.0
+offset_right = 20.5
+offset_bottom = 30.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.2784314, 0.105882354, 0.06666667, 1)
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1

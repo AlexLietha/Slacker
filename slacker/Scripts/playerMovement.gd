@@ -1,10 +1,11 @@
 extends CharacterBody3D
 class_name Player
-# added random comment to fix Riley's bad push to main 💢
+
 @export var speed := 5.0
 @export var jumpVelocity := 5
 @export var mouseSensitivity := 0.004
 @export var role = "Cook"
+@export var player_name = ""
 
 @onready var camera = $Camera3D
 @onready var hat := $Hat
@@ -14,23 +15,25 @@ class_name Player
 @export var interactionRayCast : RayCast3D
 @export var grabbedItem : Node3D
 #var counter: int = 0;
+var counter: int = 0;
+var name_generator = preload("res://Scripts/NameGenerator.gd").new()
 
 func _ready() -> void:
 	add_to_group("players")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	vote_UI.visible = false
 	
-	
+func set_player_name():
+	player_name = name_generator.pick_random_name()
+	print(player_name)
 
 func _physics_process(delta: float) -> void:
-	
-		
-	if role == "Manager":
-		hat.show()
-		var material = StandardMaterial3D.new()
-		material.albedo_color = Color.WHITE
-		if player_mesh != null:
-			player_mesh.material_override = material
+	#if role == "Manager":
+		#hat.show()
+		#var material = StandardMaterial3D.new()
+		#material.albedo_color = Color.WHITE
+		#if player_mesh != null:
+			#player_mesh.material_override = material
 		
 	if role == "Cook":
 		hat.hide()
@@ -82,10 +85,10 @@ func _input(event):
 		rotate_y(-event.relative.x * mouseSensitivity)
 		camera.rotate_x(-event.relative.y * mouseSensitivity)
 		camera.rotation.x = clamp(camera.rotation.x,deg_to_rad(-89),deg_to_rad(89))
-	
-	if Input.is_action_just_pressed("reassignRoles"):
-		print("reassignRoles called")
-		GameManager.assign_roles()
+		
+	#if Input.is_action_just_pressed("reassignRoles"):
+		#print("reassignRoles called")
+		#GameManager.assign_roles()
 	
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
@@ -110,5 +113,4 @@ func ShowUI() -> void:
 func HideUI() -> void:
 	vote_UI.visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)	
-
-		
+	

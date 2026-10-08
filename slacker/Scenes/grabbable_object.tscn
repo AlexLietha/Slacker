@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ddlch850wo3no" path="res://Scripts/grabbable_object.gd" id="1_g5dvv"]
 [ext_resource type="Script" uid="uid://8hid0kygyi71" path="res://Scripts/interactible_component.gd" id="2_74iel"]
 [ext_resource type="Script" uid="uid://6fa7wffcrtgs" path="res://Scripts/grabbable_component.gd" id="3_3vkii"]
-[ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Scenes/IDComponent.gd" id="4_74iel"]
+[ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Scripts/IDComponent.gd" id="4_74iel"]
 [ext_resource type="Script" uid="uid://dakevjuf8svg" path="res://Scripts/HighlightComponent.gd" id="5_3vkii"]
 
 [node name="grabbableObject" type="RigidBody3D" unique_id=844689755 node_paths=PackedStringArray("interactableComponent", "grabbableComponent", "highlightComponent", "idComponent", "model")]

@@ -27,8 +27,8 @@ func Update(_order : Order) -> void:
 		0.5
 	)
 	
-	print(score)
-	print(gradient.sample(score/100))
+	#print(score)
+	#print(gradient.sample(score/100))
 	
 	create_tween().tween_property(
 		self,
