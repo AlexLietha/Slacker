@@ -1,11 +1,18 @@
 [gd_scene format=3 uid="uid://cf37ilrn8pexl"]
 
 [ext_resource type="PackedScene" uid="uid://h2dvqypij643" path="res://models/environment assets/Bowl_BenMusser_V1.fbx" id="1_knyj5"]
+[ext_resource type="Script" uid="uid://dwoo80fnd7syh" path="res://environmentmodelscenes/bowl.gd" id="2_dyht8"]
+[ext_resource type="Script" uid="uid://8hid0kygyi71" path="res://Scripts/interactible_component.gd" id="3_p56nr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8pala"]
 albedo_color = Color(0.4455164, 0.48288602, 0.5296854, 1)
 
 [node name="Bowl_BenMusser_V1" unique_id=82048025 instance=ExtResource("1_knyj5")]
+script = ExtResource("2_dyht8")
 
-[node name="bowl" parent="." index="0" unique_id=895779869]
+[node name="bowl" parent="." index="0" unique_id=1885691369]
 material_override = SubResource("StandardMaterial3D_8pala")
+
+[node name="InteractableComponent" type="Node" parent="." index="2" unique_id=1228792849]
+script = ExtResource("3_p56nr")
+metadata/_custom_type_script = "uid://8hid0kygyi71"
