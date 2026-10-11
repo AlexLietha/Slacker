@@ -5,15 +5,16 @@ class_name Player
 @export var jumpVelocity := 5
 @export var mouseSensitivity := 0.004
 @export var role = "Cook"
-@export var player_name = ""
+@export var player_name = "PlayerName" # temp name
 
 @onready var camera = $Camera3D
-@onready var hat := $Hat
 @onready var player_mesh := $PlayerMesh
 @onready var vote_UI := $VotingBoard
+@onready var player_overhead_name = $PlayerName
 
 @export var interactionRayCast : RayCast3D
 @export var grabbedItem : Node3D
+
 var counter: int = 0;
 var name_generator = preload("res://Scripts/NameGenerator.gd").new()
 
@@ -24,25 +25,17 @@ func _ready() -> void:
 	
 func set_player_name():
 	player_name = name_generator.pick_random_name()
+	player_overhead_name.text = player_name
 	print(player_name)
-
-func _physics_process(delta: float) -> void:
-	#if role == "Manager":
-		#hat.show()
-		#var material = StandardMaterial3D.new()
-		#material.albedo_color = Color.WHITE
-		#if player_mesh != null:
-			#player_mesh.material_override = material
-		
+	
+func set_player_role():
 	if role == "Cook":
-		hat.hide()
 		var material = StandardMaterial3D.new()
 		material.albedo_color = Color.BLUE
 		if player_mesh != null:
 			player_mesh.material_override = material
 		
 	if role == "Slacker":
-		hat.hide()
 		var material = StandardMaterial3D.new()
 		material.albedo_color = Color.RED
 		if player_mesh != null:
@@ -50,7 +43,8 @@ func _physics_process(delta: float) -> void:
 			
 	if role == "Rat":
 		pass
-	
+
+func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -62,23 +56,21 @@ func _physics_process(delta: float) -> void:
 	var input_dir := Input.get_vector("moveLeft", "moveRight", "moveForward", "moveBack")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 		
 	else:
-		
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
 
+	move_and_slide()
+
 	if(Input.is_action_just_pressed("Click e")&&counter%2==0):
 		ShowUI()
-		counter = counter +1
+		counter = counter + 1
 	elif(Input.is_action_just_pressed("Click e")&&counter%2==1):
 		HideUI()
-		counter= counter + 1
-
-	move_and_slide()
+		counter = counter + 1
 
 
 func _input(event):
@@ -87,11 +79,12 @@ func _input(event):
 		rotate_y(-event.relative.x * mouseSensitivity)
 		camera.rotate_x(-event.relative.y * mouseSensitivity)
 		camera.rotation.x = clamp(camera.rotation.x,deg_to_rad(-89),deg_to_rad(89))
-		
+
+	# debug tool to reassign roles after pressing the ` key
 	#if Input.is_action_just_pressed("reassignRoles"):
 		#print("reassignRoles called")
 		#GameManager.assign_roles()
-	
+
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
 		
@@ -100,19 +93,22 @@ func _input(event):
 			getGrabbedItem().drop()
 		pass
 
+
 func getGrabbedItem() -> GrabbableObject:
 	if not HasGrabbedItem():
 		return null
 	return grabbedItem.get_child(0)
-	
+
+
 func HasGrabbedItem() -> bool:
 	return grabbedItem.get_child_count() == 1
-	
+
+
 func ShowUI() -> void:
 	vote_UI.visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
+
+
 func HideUI() -> void:
 	vote_UI.visible = false
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)	
-	
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

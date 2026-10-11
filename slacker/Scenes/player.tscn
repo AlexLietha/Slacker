@@ -29,6 +29,13 @@ script = ExtResource("1_g2els")
 interactionRayCast = NodePath("Camera3D/Interaction Range")
 grabbedItem = NodePath("GrabbedObjectPosition")
 
+[node name="PlayerName" type="Label3D" parent="." unique_id=1511028602]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1.1939532, 0)
+billboard = 1
+text = "PlayerName"
+font_size = 20
+outline_size = 8
+
 [node name="PlayerCollision" type="CollisionShape3D" parent="." unique_id=2098379967]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_vgqql")
