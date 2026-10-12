@@ -34,4 +34,3 @@ func RetrieveItem(interactor: Player) -> void:
 
 func highlight(interactor: Player, highlighted: bool):
 	highlightComponent.highlight(interactor, highlighted)
-	
