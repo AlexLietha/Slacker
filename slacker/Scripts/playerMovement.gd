@@ -162,4 +162,4 @@ func updateMaterialColor(col: Color) -> void:
 	dupe_mat.albedo_color = col
 	
 	color_mesh.material_override = dupe_mat
-	print("color update tried with ", )
+	print("color update tried")

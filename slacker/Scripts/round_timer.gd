@@ -21,6 +21,9 @@ func _ready():
 	add_to_group("RoundTimer")
 	#if multiplayer.is_server():
 		#set_next_round()
+	#print("Timer node: ", get_path())
+	#print("Clock label: ", clock.get_path())
+	#print("Clock instance ID: ", clock.get_instance_id())
 
 func start_game() -> void:
 	if game_started:
@@ -31,6 +34,7 @@ func start_game() -> void:
 		#return
 	game_started = true
 	set_next_round()
+	print("Timer: game started")
 
 func remaining_time():
 	var time_left = timer.time_left
@@ -47,10 +51,12 @@ func get_round_name():
 func set_next_round():
 	#set_round_name(round_name[round_num])
 	if not multiplayer.is_server():
+		print("timer failed")
 		return
 	
 	timer.start(round_time[round_num])
 	sync_round.rpc(round_num, round_time[round_num])
+	print("Timer not failed")
 	
 	if round_num == 1:
 		OrderSpawner.StartSpawningOrder()
@@ -63,6 +69,8 @@ func _process(_delta):
 		return
 	
 	clock.text = "%02d:%02d" % remaining_time()
+	#print("Clock text: ", clock.text)
+	
 	if multiplayer.is_server() and timer.time_left <= 0:
 		timer.stop()
 		#GameManager.assign_roles()
@@ -73,3 +81,8 @@ func sync_round(round_int: int, time_left: float) -> void:
 	game_started = true
 	round_num = round_int
 	timer.start(time_left)
+	print("Timer rpc called")
+	#print("Timer running: ", not timer.is_stopped())
+	#print("Timer remaining: ", timer.time_left)
+	#print("Clock node: ", clock)
+	#print("Clock visible: ", clock.is_visible_in_tree())

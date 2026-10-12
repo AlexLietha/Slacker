@@ -14,7 +14,9 @@ var wifi_port = false
 @export var IP_ADDRESS = "127.0.0.1"
 const MAX_CLIENTS = 3
 
-var new_ip = "0.0.0.0" #need to import new ip when wifi box is connected
+#This will be set to your computers IP address
+#You will get it when it's attacheted to the wifi box
+var new_ip = "0.0.0.0" 
 
 func _process(delta: float) -> void:
 	if multiplayer.is_server():
@@ -23,14 +25,21 @@ func _process(delta: float) -> void:
 
 func start_server() -> void:
 	enet_peer.set_bind_ip(new_ip)
-	enet_peer.create_server(PORT, MAX_CLIENTS)
+	
+	var error = enet_peer.create_server(PORT, MAX_CLIENTS)
+	if error != OK:
+		print("Server failed to start")
+		return
+	
 	multiplayer.multiplayer_peer = enet_peer
 	multiplayer.peer_connected.connect(add_player)
 	multiplayer.peer_disconnected.connect(remove_player)
+	
 	#join_server()
 	print("Server started")
 	if_server_open = true
-	add_world_rpc()
+	
+	spawn_player.rpc(multiplayer.get_unique_id())
 
 func join_server() -> void:
 	enet_peer.create_client(IP_ADDRESS, PORT)
