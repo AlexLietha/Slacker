@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ctarhqxq1eohu" path="res://AidanMultiplayer/Scenes/HighLevelUI.tscn" id="1_8h6j0"]
 [ext_resource type="Script" uid="uid://kpty3a287g1t" path="res://AidanMultiplayer/Scripts/high_multiplayer_spawner.gd" id="2_7op2d"]
-[ext_resource type="PackedScene" uid="uid://d22fn703npu4r" path="res://Scenes/UI/TimerUI.tscn" id="2_krlw3"]
+[ext_resource type="PackedScene" uid="uid://d22fn703npu4r" path="res://Scenes/UI/RoundUI.tscn" id="2_krlw3"]
 [ext_resource type="PackedScene" uid="uid://w1hcy6j1i0vj" path="res://Scenes/player.tscn" id="3_7op2d"]
 [ext_resource type="PackedScene" uid="uid://ti5pak1fauih" path="res://environmentmodelscenes/bigworktable.tscn" id="4_aqnjn"]
 [ext_resource type="PackedScene" uid="uid://mrbh1vscglx7" path="res://environmentmodelscenes/shelf.tscn" id="5_3hrei"]

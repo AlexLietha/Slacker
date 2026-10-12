@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://desibxehcwrhm"]
 
-[ext_resource type="PackedScene" uid="uid://d22fn703npu4r" path="res://Scenes/UI/TimerUI.tscn" id="1_fuavd"]
+[ext_resource type="PackedScene" uid="uid://d22fn703npu4r" path="res://Scenes/UI/RoundUI.tscn" id="1_fuavd"]
 [ext_resource type="PackedScene" uid="uid://w1hcy6j1i0vj" path="res://Scenes/player.tscn" id="2_kgise"]
 [ext_resource type="PackedScene" uid="uid://ti5pak1fauih" path="res://environmentmodelscenes/bigworktable.tscn" id="3_xd5bs"]
 [ext_resource type="PackedScene" uid="uid://mrbh1vscglx7" path="res://environmentmodelscenes/shelf.tscn" id="4_h0fgc"]
