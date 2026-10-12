@@ -28,6 +28,10 @@ func on_create() -> void:
 
 func on_join() -> void:	
 	#if not Network.if_server_open:
+		#print("No game instance joinable")
+		#return
+	
+	#if not Network.if_server_open:
 		#Network.start_server()
 		#add_world()
 		#await get_tree().process_frame
