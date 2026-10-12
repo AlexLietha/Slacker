@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://j05yn7d2mkdc"]
+
+[ext_resource type="Script" uid="uid://bp8k4jp0oby0m" path="res://Scripts/playerFreeCam.gd" id="1_10xna"]
+[ext_resource type="Script" uid="uid://3i2b3c7mfewl" path="res://Scripts/Orders/UI/order_list.gd" id="3_ckwq0"]
+[ext_resource type="Texture2D" uid="uid://dwexlgu75s2hg" path="res://UI/Satisfaction Rating/sad_bar_v1.png" id="4_wrkot"]
+[ext_resource type="Script" uid="uid://dxlxaqlecxydr" path="res://Scripts/Orders/UI/CustomerSatisfactionUI.gd" id="5_0j8bp"]
+[ext_resource type="Gradient" uid="uid://by4yofdsthluw" path="res://UI/RatingBarGradient.tres" id="6_15qjh"]
+[ext_resource type="PackedScene" uid="uid://nsk45ymwt1wc" path="res://Scenes/UI/VotingUI.tscn" id="7_t4gtn"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g0k8k"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_3smsa"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="FreeCam" type="CharacterBody3D" unique_id=1090027167]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0, 0)
+script = ExtResource("1_10xna")
+
+[node name="PlayerName" type="Label3D" parent="." unique_id=1511028602]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.35341075, 0)
+billboard = 1
+text = "PlayerName"
+font_size = 20
+outline_size = 8
+
+[node name="CamCollision" type="CollisionShape3D" parent="." unique_id=2098379967]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_g0k8k")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1067204491]
+transform = Transform3D(0.2857143, 0, 0, 0, 0.2857143, 0, 0, 0, 0.2857143, 0, 0, -0.23725963)
+current = true
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=762339402]
+
+[node name="CrossHair" type="Label" parent="UI" unique_id=1229928161]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Order List" type="VBoxContainer" parent="UI" unique_id=871812656]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 165.0
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("3_ckwq0")
+
+[node name="Label" type="Label" parent="UI" unique_id=1266910109]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Rating: 0"
+
+[node name="BoxContainer" type="BoxContainer" parent="UI" unique_id=829327521]
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="EmptyBarV1" type="Sprite2D" parent="UI" unique_id=1853725782]
+position = Vector2(980.2, 60.800003)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_wrkot")
+
+[node name="ColorRect" type="ColorRect" parent="UI" unique_id=1595570702 node_paths=PackedStringArray("barSprite")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -223.79999
+offset_top = 41.299995
+offset_right = 32.19995
+offset_bottom = 96.299995
+grow_horizontal = 0
+scale = Vector2(0.7866877, 0.80439)
+script = ExtResource("5_0j8bp")
+gradient = ExtResource("6_15qjh")
+barSprite = NodePath("../EmptyBarV1")
+metadata/_edit_use_anchors_ = true
+
+[node name="GrabbedObjectPosition" type="Node3D" parent="." unique_id=1229670346]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46514714, -0.45139253)
+
+[node name="VotingBoard" parent="." unique_id=1031466018 instance=ExtResource("7_t4gtn")]
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1713669159]
+replication_config = SubResource("SceneReplicationConfig_3smsa")
