@@ -28,7 +28,6 @@
 [ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Scripts/IDComponent.gd" id="26_dwwmq"]
 [ext_resource type="PackedScene" uid="uid://c6wolbp1jdqht" path="res://Scenes/order_board.tscn" id="27_444lh"]
 [ext_resource type="PackedScene" uid="uid://w0g2043ktub6" path="res://Scenes/report_box.tscn" id="28_ygxli"]
-[ext_resource type="PackedScene" uid="uid://j05yn7d2mkdc" path="res://Scenes/playerFreeCam.tscn" id="29_wur46"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vg308"]
 
@@ -293,6 +292,3 @@ transform = Transform3D(-1.4999833, 0, 0.007076583, 0, 1.5, 0, -0.007076583, 0, 
 
 [node name="StaticBody3D" parent="." unique_id=1958575001 instance=ExtResource("28_ygxli")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0681834, 2.1542432, -8.6701765)
-
-[node name="FreeCam" parent="." unique_id=743072399 instance=ExtResource("29_wur46")]
-transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 1.1113958, 1.7678499, 5.0669355)
