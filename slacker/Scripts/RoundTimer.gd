@@ -6,7 +6,7 @@ extends Node
 #		Please do a state machine for the rounds instead
 #		- xoxo pookie bear aidan
 
-@onready var clock = $"../ClockUI/Clock"
+@onready var clock = $"../Clock"
 @onready var round_title = $"../Round Title"
 @onready var timer = $"."
 @onready var prep_sign = $"../PrepSign"

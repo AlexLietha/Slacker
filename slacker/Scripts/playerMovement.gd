@@ -4,6 +4,7 @@ class_name Player
 @export var speed := 5.0
 @export var jumpVelocity := 5
 @export var mouseSensitivity := 0.004
+@export var joypadSensitivity := 5
 @export var role = "Cook"
 @export var player_name = "PlayerName" # temp name
 
@@ -44,6 +45,14 @@ func set_player_role():
 	if role == "Rat":
 		pass
 
+func _process(delta: float) -> void:
+	var horizontal_look: float = Input.get_axis("lookLeft", "lookRight")
+	rotate_y(-horizontal_look * joypadSensitivity * delta)
+
+	var vertical_look: float = Input.get_axis("lookUp", "lookDown")
+	camera.rotate_x(-vertical_look * joypadSensitivity * delta)
+	camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-89), deg_to_rad(89))
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -58,20 +67,18 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
-		
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
 
 	move_and_slide()
 
-	if(Input.is_action_just_pressed("Click e")&&counter%2==0):
+	if(Input.is_action_just_pressed("clickE")&&counter%2==0):
 		ShowUI()
 		counter = counter + 1
-	elif(Input.is_action_just_pressed("Click e")&&counter%2==1):
+	elif(Input.is_action_just_pressed("clickE")&&counter%2==1):
 		HideUI()
 		counter = counter + 1
-
 
 func _input(event):
 	# Camera Controls
@@ -93,21 +100,17 @@ func _input(event):
 			getGrabbedItem().drop()
 		pass
 
-
 func getGrabbedItem() -> GrabbableObject:
 	if not HasGrabbedItem():
 		return null
 	return grabbedItem.get_child(0)
 
-
 func HasGrabbedItem() -> bool:
 	return grabbedItem.get_child_count() == 1
-
 
 func ShowUI() -> void:
 	vote_UI.visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
 
 func HideUI() -> void:
 	vote_UI.visible = false

@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://3i2b3c7mfewl" path="res://Scripts/Orders/UI/order_list.gd" id="3_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://dwexlgu75s2hg" path="res://UI/Satisfaction Rating/sad_bar_v1.png" id="4_fkybt"]
 [ext_resource type="Script" uid="uid://dxlxaqlecxydr" path="res://Scripts/Orders/UI/CustomerSatisfactionUI.gd" id="4_vgqql"]
-[ext_resource type="PackedScene" uid="uid://nsk45ymwt1wc" path="res://UI/VotingUI.tscn" id="5_fkybt"]
+[ext_resource type="PackedScene" uid="uid://nsk45ymwt1wc" path="res://Scenes/UI/VotingUI.tscn" id="5_fkybt"]
 [ext_resource type="Gradient" uid="uid://by4yofdsthluw" path="res://UI/RatingBarGradient.tres" id="6_3smsa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vgqql"]
@@ -50,7 +50,7 @@ visible = false
 mesh = SubResource("CylinderMesh_fkybt")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1067204491]
-transform = Transform3D(0.2857143, 0, 0, 0, 0.2857143, 0, 0, 0, 0.2857143, 0, 0.77671343, -0.33256498)
+transform = Transform3D(0.2857143, 0, 0, 0, 0.2857143, 0, 0, 0, 0.2857143, 0, 0.77700007, -0.33300003)
 current = true
 
 [node name="Interaction Range" type="RayCast3D" parent="Camera3D" unique_id=1386856921]
@@ -95,19 +95,20 @@ offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
 [node name="EmptyBarV1" type="Sprite2D" parent="UI" unique_id=1853725782]
-position = Vector2(938, 78.5)
+position = Vector2(980.2, 60.800003)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_fkybt")
 
 [node name="ColorRect" type="ColorRect" parent="UI" unique_id=1595570702 node_paths=PackedStringArray("barSprite")]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -282.00006
-offset_top = 53.0
-offset_right = -26.0
-offset_bottom = 108.0
+offset_left = -223.79999
+offset_top = 41.299995
+offset_right = 32.19995
+offset_bottom = 96.299995
 grow_horizontal = 0
-scale = Vector2(0.9911316, 1.0214492)
+scale = Vector2(0.7866877, 0.80439)
 script = ExtResource("4_vgqql")
 gradient = ExtResource("6_3smsa")
 barSprite = NodePath("../EmptyBarV1")
