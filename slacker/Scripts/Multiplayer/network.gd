@@ -4,6 +4,9 @@ const PLAYER = preload("res://Scenes/player.tscn")
 const TIMER = preload("res://UI/TimerUI.tscn")
 const WORLD = preload("res://Scenes/FunctionalKitchen_multi.tscn")
 
+## takes request_id : int and spawn_args : Disctionary
+var validate_spawn_callable : Callable
+
 var enet_peer = ENetMultiplayerPeer.new()
 var server_time: float = 0.0
 var game_started:= false
@@ -16,6 +19,7 @@ const MAX_CLIENTS = 3
 
 #This will be set to your computers IP address
 #You will get it when it's attacheted to the wifi box
+#the implementation for this will happen when we get access to the box
 var new_ip = "0.0.0.0" 
 
 func _process(delta: float) -> void:
@@ -55,12 +59,6 @@ func on_connected_to_server() -> void:
 func fetch_server_time(client_time) -> void:
 	var player_id = get_tree().get_rpc_sender_id()
 	rpc_id(player_id, "return_server_time", Time.get_datetime_dict_from_system(), client_time)
-
-func return_server_time() -> void:
-	pass
-
-func return_latency() -> void:
-	pass
 
 func add_player(peer_id: int) -> void:
 	print("=== ADDING PLAYER ===")
@@ -118,8 +116,50 @@ func request_start_game() -> void:
 	
 	game_started_rpc()
 
+#this is currently not being called so it is not needed
 @rpc("authority", "call_local", "reliable")
 func add_world_rpc() -> void:
 	var new_world = WORLD.instantiate()
 	get_tree().current_scene.add_child.call_deferred(new_world)
 	print("World added network")
+
+@rpc("any_peer", "call_local", "reliable")
+func request_spawn_object(spawn_args: Dictionary) -> void:
+	var request_id = multiplayer.get_remote_sender_id()
+	
+	if not spawn_args.has("resource_path"):
+		print("No recourse given to spawn")
+		return
+	
+	var resource_path = spawn_args["resource_path"]
+	
+	if resource_path is not String:
+		print("Resource is not of correct type")
+		return
+	
+	if !ResourceLoader.exists(resource_path) || !resource_path.begins_with("res://"):
+		print("Invalid recourse")
+		return
+	
+	if validate_spawn_callable:
+		if validate_spawn_callable.call(request_id, spawn_args):
+			spawn_object_rpc.rpc()
+	else:
+		spawn_object_rpc.rpc()
+
+@rpc("authority", "call_local", "reliable")
+func spawn_object_rpc(owner_id: int, object: String) -> void:
+	var itemScene = load(object) as PackedScene
+	if itemScene == null:
+		print("Network: Item was null")
+		return
+	
+	var owner: Player = get_tree().current_scene.find_child(str(owner_id))
+	if owner == null:
+		print("Network: Player was null: ", str(owner_id))
+		return
+	
+	var newItem = itemScene.instantiate()
+	get_tree().current_scene.add_child(newItem, true)
+	newItem.Grab(owner)
+	pass

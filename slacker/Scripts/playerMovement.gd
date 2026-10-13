@@ -163,3 +163,8 @@ func updateMaterialColor(col: Color) -> void:
 	
 	color_mesh.material_override = dupe_mat
 	print("color update tried")
+
+func get_id() -> int:
+	if is_multiplayer_authority():
+		return clientNo
+	return 0

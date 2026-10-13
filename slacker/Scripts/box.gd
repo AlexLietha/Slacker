@@ -9,6 +9,7 @@ extends StaticBody3D
 @export var item: PackedScene
 
 @export var burger =  preload("res://Scenes/Grabbable Objects/burger_patty.tscn")
+var burger_path: String = "res://Scenes/Grabbable Objects/burger_patty.tscn"
 
 func _ready() -> void:
 	interactableComponent.GetInteractSignal().connect(RetrieveItem)
@@ -17,7 +18,9 @@ func _ready() -> void:
 	highlightComponent.SetShader(model.material.next_pass)
 
 func spawnBurger() -> void:
-	var newBurger = burger.instantiate()
+	Network.request_spawn_object(burger)
+	#var newBurger = burger.instantiate()
+	print("Box: burger spawned")
 
 func RetrieveItem(interactor: Player) -> void:
 	print("AHH")
@@ -27,9 +30,10 @@ func RetrieveItem(interactor: Player) -> void:
 		
 	print("BAHH")
 
-	var newItem = item.instantiate()
-	add_child(newItem)
-	newItem.Grab(interactor)
+	#var newItem = item.instantiate()
+	Network.spawn_object_rpc(int(interactor.name), burger_path)
+	#add_child(newItem)
+	#newItem.Grab(interactor)
 	pass
 
 func highlight(interactor: Player, highlighted: bool):

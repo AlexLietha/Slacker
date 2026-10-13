@@ -23,18 +23,14 @@ func Grab(grabber : Player):
 	print("1")
 	if not grabbableComponent.Grabbable:
 		return
-		
 	if grabber.HasGrabbedItem():
-		
 		return
 	if plate:
 		plate.RemoveItem(self)
 		plate = null
 	
-	
-		
 	print(grabber)
-
+	
 	reparent(grabber.grabbedItem)
 	position = Vector3.ZERO
 	freeze = true
