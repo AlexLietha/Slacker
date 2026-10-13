@@ -15,8 +15,9 @@ class_name Player
 
 @export var interactionRayCast : RayCast3D
 @export var grabbedItem : Node3D
+@export var vote_pop_up_ui = Control
 
-var counter: int = 0;
+var counter: int = 0
 var name_generator = preload("uid://dleg4tpvbkn2q").new()
 
 func _ready() -> void:
@@ -73,10 +74,10 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-	if(Input.is_action_just_pressed("clickE")&&counter%2==0):
+	if(Input.is_action_just_pressed("usePhone")&&counter%2==0):
 		ShowUI()
 		counter = counter + 1
-	elif(Input.is_action_just_pressed("clickE")&&counter%2==1):
+	elif(Input.is_action_just_pressed("usePhone")&&counter%2==1):
 		HideUI()
 		counter = counter + 1
 
@@ -88,9 +89,13 @@ func _input(event):
 		camera.rotation.x = clamp(camera.rotation.x,deg_to_rad(-89),deg_to_rad(89))
 
 	# debug tool to reassign roles after pressing the ` key
-	#if Input.is_action_just_pressed("reassignRoles"):
+	#if Input.is_action_just_pressed("debugKey"):
 		#print("reassignRoles called")
 		#GameManager.assign_roles()
+	
+	if Input.is_action_just_pressed("debugKey"):
+		print("debug key called")
+		vote_pop_up_ui.has_been_voted()
 
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
