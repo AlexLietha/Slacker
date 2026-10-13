@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dwexlgu75s2hg" path="res://UI/Satisfaction Rating/sad_bar_v1.png" id="4_wrkot"]
 [ext_resource type="Script" uid="uid://dxlxaqlecxydr" path="res://Scripts/Orders/UI/customer_satisfaction_UI.gd" id="5_0j8bp"]
 [ext_resource type="Gradient" uid="uid://by4yofdsthluw" path="res://UI/RatingBarGradient.tres" id="6_15qjh"]
-[ext_resource type="PackedScene" uid="uid://nsk45ymwt1wc" path="res://Scenes/UI/VotingUI.tscn" id="7_t4gtn"]
+[ext_resource type="PackedScene" uid="uid://nsk45ymwt1wc" path="res://Scenes/UI/voting_ui.tscn" id="7_t4gtn"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g0k8k"]
 
