@@ -18,6 +18,7 @@ func _ready() -> void:
 		var new_rat = rat_scene.instantiate() as rat
 		add_child(new_rat)
 		rats.append(new_rat)
+		await get_tree().create_timer(.1).timeout
 
 		
 
