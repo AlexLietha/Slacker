@@ -2,7 +2,7 @@ extends Node
 
 var player_roles = ["Slacker", "Cook", "Rat"]
 var players = []
-var Player = preload("res://Scripts/playerMovement.gd").new()
+var Player = preload("res://Scripts/player_movement.gd").new()
 
 @export var number_of_slackers = 1
 

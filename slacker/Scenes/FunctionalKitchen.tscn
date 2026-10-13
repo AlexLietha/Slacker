@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://dtljkiukx76jj" path="res://environmentmodelscenes/toaster.tscn" id="23_xlgjq"]
 [ext_resource type="PackedScene" uid="uid://dmh7nnfrnbb7v" path="res://environmentmodelscenes/bread.tscn" id="24_185ci"]
 [ext_resource type="PackedScene" uid="uid://ddnsnlj6myhdd" path="res://Scenes/npc.tscn" id="25_esfd0"]
-[ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Scripts/IDComponent.gd" id="26_dwwmq"]
+[ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Scripts/ID_component.gd" id="26_dwwmq"]
 [ext_resource type="PackedScene" uid="uid://c6wolbp1jdqht" path="res://Scenes/order_board.tscn" id="27_444lh"]
 [ext_resource type="PackedScene" uid="uid://w0g2043ktub6" path="res://Scenes/report_box.tscn" id="28_ygxli"]
 

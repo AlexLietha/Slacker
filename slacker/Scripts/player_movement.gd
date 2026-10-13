@@ -17,7 +17,7 @@ class_name Player
 @export var grabbedItem : Node3D
 
 var counter: int = 0;
-var name_generator = preload("res://Scripts/NameGenerator.gd").new()
+var name_generator = preload("res://Scripts/name_generator.gd").new()
 
 func _ready() -> void:
 	add_to_group("players")

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://w0g2043ktub6"]
 
-[ext_resource type="Script" uid="uid://c0ev0xxgy87r5" path="res://Scripts/ReportPlayer.gd" id="1_b6aji"]
+[ext_resource type="Script" uid="uid://c0ev0xxgy87r5" path="res://Scripts/report_player.gd" id="1_b6aji"]
 [ext_resource type="Script" uid="uid://8hid0kygyi71" path="res://Scripts/interactible_component.gd" id="1_k06tl"]
-[ext_resource type="Script" uid="uid://dakevjuf8svg" path="res://Scripts/HighlightComponent.gd" id="3_r507p"]
+[ext_resource type="Script" uid="uid://dakevjuf8svg" path="res://Scripts/highlight_componet.gd" id="3_r507p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h0q4h"]
 albedo_color = Color(1, 0.16078432, 0, 1)
