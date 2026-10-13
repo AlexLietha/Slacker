@@ -1,58 +1,86 @@
 [gd_scene format=3 uid="uid://dk6cu2cs85urb"]
 
 [ext_resource type="Script" uid="uid://8hid0kygyi71" path="res://Scripts/interactible_component.gd" id="1_1u1jf"]
+[ext_resource type="Script" uid="uid://bk5rxhuimtnpk" path="res://Scripts/broom.gd" id="1_aafg3"]
 [ext_resource type="Script" uid="uid://6fa7wffcrtgs" path="res://Scripts/grabbable_component.gd" id="2_7ybyt"]
 [ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Scripts/ID_component.gd" id="3_8hjgy"]
 [ext_resource type="Script" uid="uid://dakevjuf8svg" path="res://Scripts/highlight_componet.gd" id="4_tkjt1"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_spkg8"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_xi4ws"]
+size = Vector3(1.0299072, 0.51416016, 0.10644531)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c5n3c"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4idou"]
+height = 2.1643066
+radius = 0.04736328
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_uvv04"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_qje4b"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_wotmb"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_evjlq"]
+albedo_color = Color(1, 0, 0, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nky1f"]
-albedo_color = Color(0.49101734, 0.21463042, 0.14752123, 1)
+[sub_resource type="CylinderMesh" id="CylinderMesh_2mf6r"]
+height = 1.0615234
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_u2l3f"]
-size = Vector3(1, 2, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vc1g7"]
+albedo_color = Color(1, 0, 0, 1)
 
-[node name="Broom2" type="RigidBody3D" unique_id=1768105010]
+[sub_resource type="BoxMesh" id="BoxMesh_l4udn"]
+size = Vector3(1.0341797, 0.51660156, 0.46289063)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1212269279]
-transform = Transform3D(0.5088354, 0, 0, 0, 0.32188588, 0, 0, 0, 0.022432882, 0, 0.16393557, 0)
-mesh = SubResource("BoxMesh_spkg8")
-surface_material_override/0 = SubResource("StandardMaterial3D_c5n3c")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_npuij"]
+albedo_color = Color(0.315172, 0.31517205, 0.31517205, 1)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=780231213]
-transform = Transform3D(0.5088354, 0, 0, 0, 0.32188588, 0, 0, 0, 0.022432882, 0, 0.16393557, 0)
-shape = SubResource("BoxShape3D_uvv04")
+[sub_resource type="CylinderMesh" id="CylinderMesh_22gfe"]
+top_radius = 0.03564453
+bottom_radius = 0.03564453
+height = 0.3611145
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=88484579]
-transform = Transform3D(-2.303107e-09, -0.26602212, 0, 0.052688945, -1.1628194e-08, 0, 0, 0, 0.050244164, 0, 0.3272374, 0)
-mesh = SubResource("CylinderMesh_wotmb")
-surface_material_override/0 = SubResource("StandardMaterial3D_nky1f")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yk77r"]
+albedo_color = Color(0.20208687, 0.20208687, 0.20208687, 1)
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1285345500]
-transform = Transform3D(-0.052688945, 4.8625697e-08, 0, -4.606214e-09, -0.5562132, 0, 0, 0, 0.050244164, 0, 0.87251484, 0)
-mesh = SubResource("CylinderMesh_wotmb")
-surface_material_override/0 = SubResource("StandardMaterial3D_nky1f")
+[node name="Broom2" type="RigidBody3D" unique_id=848189937 node_paths=PackedStringArray("interactableComponent", "highlightComponent")]
+script = ExtResource("1_aafg3")
+interactableComponent = NodePath("InteractableComponent")
+highlightComponent = NodePath("HighlightComponent")
+metadata/_custom_type_script = "uid://ddlch850wo3no"
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=881313097]
-transform = Transform3D(-0.052688945, 4.8625697e-08, 0, -4.606214e-09, -0.5562132, 0, 0, 0, 0.050244164, 0, 0.87251484, 0)
-shape = SubResource("BoxShape3D_u2l3f")
-
-[node name="InteractableComponent" type="Node" parent="." unique_id=1137662575]
+[node name="InteractableComponent" type="Node" parent="." unique_id=380632836]
 script = ExtResource("1_1u1jf")
 
-[node name="GrabbableComponent" type="Node" parent="." unique_id=2042955910]
+[node name="GrabbableComponent" type="Node" parent="." unique_id=375415790]
 script = ExtResource("2_7ybyt")
 
-[node name="IDComponent" type="Node" parent="." unique_id=853458740]
+[node name="IDComponent" type="Node" parent="." unique_id=1792401168]
 script = ExtResource("3_8hjgy")
-ID = "RBP"
+ID = "null"
 
-[node name="HighlightComponent" type="Node" parent="." unique_id=1627251443]
+[node name="HighlightComponent" type="Node" parent="." unique_id=54551637]
 script = ExtResource("4_tkjt1")
+
+[node name="BottomCollider" type="CollisionShape3D" parent="." unique_id=79102351]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26024172, 0)
+shape = SubResource("BoxShape3D_xi4ws")
+
+[node name="HandleCollider" type="CollisionShape3D" parent="." unique_id=2076125365]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5499915, 0)
+shape = SubResource("CylinderShape3D_4idou")
+
+[node name="Handle" type="MeshInstance3D" parent="." unique_id=754606109]
+transform = Transform3D(0.06999997, 0, 0, 0, 1, 0, 0, 0, 0.06999997, 0, 1.4980066, 0)
+mesh = SubResource("CylinderMesh_qje4b")
+surface_material_override/0 = SubResource("StandardMaterial3D_evjlq")
+
+[node name="That one part" type="MeshInstance3D" parent="." unique_id=1019112807]
+transform = Transform3D(-4.3711372e-09, 0.99999994, 0, -0.099999964, -4.3711385e-08, 0, 0, 0, 0.099999964, 0, 0.46431983, 0)
+mesh = SubResource("CylinderMesh_2mf6r")
+surface_material_override/0 = SubResource("StandardMaterial3D_vc1g7")
+
+[node name="Bristles" type="MeshInstance3D" parent="." unique_id=1608825433]
+transform = Transform3D(1, 0, 0, 0, 0.7891801, 0, 0, 0, 0.061281428, 0, 0.22266805, 0)
+mesh = SubResource("BoxMesh_l4udn")
+surface_material_override/0 = SubResource("StandardMaterial3D_npuij")
+
+[node name="Grip" type="MeshInstance3D" parent="." unique_id=1058932036]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4359438, 0)
+mesh = SubResource("CylinderMesh_22gfe")
+surface_material_override/0 = SubResource("StandardMaterial3D_yk77r")

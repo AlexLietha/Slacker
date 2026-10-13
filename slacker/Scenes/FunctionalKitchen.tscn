@@ -5,12 +5,14 @@
 [ext_resource type="PackedScene" uid="uid://ti5pak1fauih" path="res://environmentmodelscenes/bigworktable.tscn" id="3_xd5bs"]
 [ext_resource type="PackedScene" uid="uid://mrbh1vscglx7" path="res://environmentmodelscenes/shelf.tscn" id="4_h0fgc"]
 [ext_resource type="PackedScene" uid="uid://betf2qehtbsgn" path="res://Scenes/box.tscn" id="5_602ew"]
+[ext_resource type="PackedScene" uid="uid://2riwns1moyus" path="res://Scenes/Grabbable Objects/burger_patty.tscn" id="5_wl1ng"]
 [ext_resource type="PackedScene" uid="uid://csl4s4fsyxjxk" path="res://Scenes/grill.tscn" id="7_a1j1q"]
 [ext_resource type="PackedScene" uid="uid://dg5uqe6etd04k" path="res://environmentmodelscenes/table.tscn" id="8_s4xgr"]
 [ext_resource type="PackedScene" uid="uid://b1eaqrt0hvugc" path="res://models/environment assets/oven vent.fbx" id="9_07ak1"]
 [ext_resource type="PackedScene" uid="uid://bwbxe6tcv6484" path="res://environmentmodelscenes/trashcan.tscn" id="10_7lvvp"]
 [ext_resource type="PackedScene" uid="uid://db6apnfy65ake" path="res://environmentmodelscenes/fridge.tscn" id="11_t33t8"]
 [ext_resource type="PackedScene" uid="uid://cxmigh00e0xws" path="res://environmentmodelscenes/stackofplates.tscn" id="13_2c62q"]
+[ext_resource type="PackedScene" uid="uid://bgu1pls1ejp2t" path="res://Scenes/Grabbable Objects/plate.tscn" id="14_nycbd"]
 [ext_resource type="PackedScene" uid="uid://clkyi1xaaf5mp" path="res://environmentmodelscenes/spatula.tscn" id="14_pkf3i"]
 [ext_resource type="PackedScene" uid="uid://b6tfnde32xqur" path="res://environmentmodelscenes/pancakestack.tscn" id="15_stgjg"]
 [ext_resource type="PackedScene" uid="uid://bg8qlsnubpuc6" path="res://environmentmodelscenes/waffle.tscn" id="16_ro5s3"]
@@ -25,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://ddnsnlj6myhdd" path="res://Scenes/npc.tscn" id="25_esfd0"]
 [ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Scripts/ID_component.gd" id="26_dwwmq"]
 [ext_resource type="PackedScene" uid="uid://c6wolbp1jdqht" path="res://Scenes/order_board.tscn" id="27_444lh"]
+[ext_resource type="PackedScene" uid="uid://dk6cu2cs85urb" path="res://Scenes/Grabbable Objects/broom.tscn" id="27_cakj8"]
 [ext_resource type="PackedScene" uid="uid://w0g2043ktub6" path="res://Scenes/report_box.tscn" id="28_ygxli"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vg308"]
@@ -59,7 +62,7 @@ light_energy = 2.626
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.349741, 4.04204, -2.8010726)
 
 [node name="Player" parent="." unique_id=1090027167 instance=ExtResource("2_kgise")]
-transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0.5726423, 2.5748045)
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0.22812986, 0.057038188, 3.9954114)
 
 [node name="Walls" type="Node3D" parent="." unique_id=131895973]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6749945, 1.8434739, -4.420146)
@@ -193,7 +196,7 @@ transform = Transform3D(-1.4982167, 0, -0.07311364, 0, 1.7860185, 0, 0.07311364,
 
 [node name="Box" parent="Furnature" unique_id=421201296 instance=ExtResource("5_602ew")]
 transform = Transform3D(-6.556708e-08, 0, 1.4999999, 0, 1.2703583, 0, -1.4999999, 0, -6.556708e-08, -5.350129, 1.3633451, -8.551566)
-item = Array[PackedScene]([])
+item = Array[PackedScene]([ExtResource("5_wl1ng")])
 
 [node name="Grill" parent="Furnature" unique_id=1864087979 instance=ExtResource("7_a1j1q")]
 transform = Transform3D(-1.4998727, 0, 0.019546553, 0, 1.2703583, 0, -0.019546553, 0, -1.4998727, -2.5204406, 0.03046751, -8.059319)
@@ -224,9 +227,10 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.7076688, 0.030467987, 6.708
 
 [node name="Box2" parent="Furnature" unique_id=1340486912 instance=ExtResource("5_602ew")]
 transform = Transform3D(-6.556708e-08, 0, 1.4999999, 0, 1.2703583, 0, -1.4999999, 0, -6.556708e-08, 1.1627413, 1.6411815, -3.8710022)
-item = Array[PackedScene]([])
+item = Array[PackedScene]([ExtResource("14_nycbd")])
 
 [node name="stackofplates" parent="Furnature/Box2" unique_id=334221210 instance=ExtResource("13_2c62q")]
+transform = Transform3D(0.9999999, 0, 7.1054274e-15, 0, 1, 0, -7.1054274e-15, 0, 0.9999999, 0, 0.1895541, 0)
 
 [node name="Misc" type="Node3D" parent="." unique_id=2039875476]
 visible = false
@@ -290,3 +294,6 @@ transform = Transform3D(-1.4999833, 0, 0.007076583, 0, 1.5, 0, -0.007076583, 0, 
 
 [node name="StaticBody3D" parent="." unique_id=1958575001 instance=ExtResource("28_ygxli")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0681834, 2.1542432, -8.6701765)
+
+[node name="Broom2" parent="." unique_id=36527813 instance=ExtResource("27_cakj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.334447, 0.030467749, 1.466491)
