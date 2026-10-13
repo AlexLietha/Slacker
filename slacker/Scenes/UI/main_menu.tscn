@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://wt71gr6cep6k"]
+
+[ext_resource type="Script" uid="uid://bknt60s4hks44" path="res://Scenes/UI/main_menu.gd" id="1_5wsvm"]
+
+[node name="MainMenu" type="CanvasLayer" unique_id=1602906196]
+script = ExtResource("1_5wsvm")
+
+[node name="Control" type="Control" parent="." unique_id=63941016]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Center" type="PanelContainer" parent="Control" unique_id=701993608]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Center" unique_id=1685361932]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Center/MarginContainer" unique_id=1574027237]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Center/MarginContainer/VBoxContainer" unique_id=1491900927]
+layout_mode = 2
+text = "Slacker"
+
+[node name="ButtonJoin" type="Button" parent="Control/Center/MarginContainer/VBoxContainer" unique_id=476192815]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Join
+"
+
+[node name="ButtonQuit" type="Button" parent="Control/Center/MarginContainer/VBoxContainer" unique_id=1223453994]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit
+"

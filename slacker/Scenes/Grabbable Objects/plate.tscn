@@ -38,7 +38,7 @@ next_pass = SubResource("ShaderMaterial_757ny")
 
 [node name="plate" unique_id=844689755 node_paths=PackedStringArray("itemStack", "model") instance=ExtResource("1_o75va")]
 script = ExtResource("2_n3fn0")
-itemStack = NodePath("Item Position")
+itemStack = NodePath("Item Stack")
 model = NodePath("CSGCylinder3D")
 
 [node name="IDComponent" parent="." index="2" unique_id=1670629019]
@@ -52,6 +52,6 @@ radius = 0.3
 height = 0.02
 material = SubResource("StandardMaterial3D_o75va")
 
-[node name="Item Position" type="Node3D" parent="." index="6" unique_id=563391623]
+[node name="Item Stack" type="Node3D" parent="." index="6" unique_id=563391623]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.031581223, 0)
 script = ExtResource("2_jppsr")

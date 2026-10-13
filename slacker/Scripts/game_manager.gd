@@ -2,7 +2,7 @@ extends Node
 
 var player_roles = ["Slacker", "Cook", "Rat"]
 var players = []
-var Player = preload("res://Scripts/player_movement.gd").new()
+var Player = preload("uid://dqpaw7ty68pbe").new()
 
 @export var number_of_slackers = 1
 
@@ -12,7 +12,7 @@ func _ready() -> void:
 	for player in get_tree().get_nodes_in_group("players"):
 		player.set_player_name()
 
-func assign_roles():
+func assign_roles() -> void:
 	players.shuffle()
 	for i in range(0, players.size()):
 		if i >= (number_of_slackers - 1): # give a slacker role to a player for the number of slackers requested
