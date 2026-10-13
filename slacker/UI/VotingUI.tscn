@@ -7,13 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://k4fnwb75lfgu" path="res://UI/PlayerVoteIcon.tscn" id="5_7rrvv"]
 [ext_resource type="Script" uid="uid://byl8cqdg3squ3" path="res://Scripts/CloseVote.gd" id="6_b5i3x"]
 
-[node name="Control" type="Control" unique_id=1031466018]
+[node name="VoteUIControl" type="Control" unique_id=1031466018]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("6_b5i3x")
 
 [node name="background" type="TextureRect" parent="." unique_id=1780050751]
 layout_mode = 1
@@ -161,7 +162,6 @@ offset_bottom = 174.0
 texture_normal = ExtResource("3_7rrvv")
 ignore_texture_size = true
 stretch_mode = 4
-script = ExtResource("6_b5i3x")
 
 [connection signal="pressed" from="PlayerIcon1" to="PlayerIcon1" method="_on_pressed"]
-[connection signal="pressed" from="CloseButton" to="CloseButton" method="_on_pressed"]
+[connection signal="pressed" from="CloseButton" to="." method="Close_Button_Pressed"]

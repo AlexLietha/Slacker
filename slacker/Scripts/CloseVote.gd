@@ -1,4 +1,4 @@
-extends TextureButton
+extends Control
 class_name CloseButton
 signal closeUI()
 
@@ -11,12 +11,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
-func _on_pressed() -> void:
+func Close_Button_Pressed() -> void:
 	closeUI.emit()
-	
-#func SetClose(con : bool) -> void:
-	#Int = con
-	
-func GetCloseSignal() -> Signal:
-	return closeUI
