@@ -77,7 +77,7 @@ func _physics_process(delta: float) -> void:
 	if(Input.is_action_just_pressed("usePhone")&&counter%2==0):
 		ShowUI()
 		counter = counter + 1
-	elif(Input.is_action_just_pressed("usePhone")&&counter%2==1):
+	elif((Input.is_action_just_pressed("usePhone") || Input.is_action_just_pressed("controllerXboxB"))&&counter%2==1):
 		HideUI()
 		counter = counter + 1
 
