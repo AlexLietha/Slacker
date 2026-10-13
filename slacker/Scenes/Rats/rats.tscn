@@ -2,17 +2,5 @@
 
 [ext_resource type="Script" uid="uid://c6755mj6ylwtp" path="res://Scripts/Rats/rats.gd" id="1_3myus"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_6ikeu"]
-size = Vector3(0.1, 0.1, 0.1)
-
-[node name="Rats" type="Node3D" unique_id=682855474 node_paths=PackedStringArray("collision_checker")]
+[node name="Rats" type="Node3D" unique_id=682855474]
 script = ExtResource("1_3myus")
-collision_checker = NodePath("Area3D")
-
-[node name="Area3D" type="Area3D" parent="." unique_id=751128100]
-input_ray_pickable = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=302700959]
-shape = SubResource("BoxShape3D_6ikeu")
-
-[connection signal="area_entered" from="Area3D" to="." method="_collision_checker_entered"]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cebd3unkxr7n"]
 
 [ext_resource type="MeshLibrary" uid="uid://csg8nl3jtx12x" path="res://Scenes/Rats/pathfindingmeshes.tres" id="1_k1ucv"]
-[ext_resource type="PackedScene" uid="uid://b8hneupbcyrxf" path="res://Scenes/Rats/rat.tscn" id="2_tftla"]
+[ext_resource type="PackedScene" uid="uid://dkqm4ek4nd2ng" path="res://Scenes/Rats/rats.tscn" id="2_k1ucv"]
 
 [sub_resource type="Sky" id="Sky_mln5q"]
 
@@ -34,23 +34,4 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, -2, 0)
 
-[node name="Rat" parent="." unique_id=1360517736 instance=ExtResource("2_tftla")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.223667, -0.5124482, 0.015611172)
-
-[node name="Rat2" parent="." unique_id=1664450168 instance=ExtResource("2_tftla")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1607459, -0.5124482, 0.015611172)
-
-[node name="Rat3" parent="." unique_id=35437126 instance=ExtResource("2_tftla")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.50753045, -0.5124482, -1.5249729)
-
-[node name="Rat4" parent="." unique_id=472829425 instance=ExtResource("2_tftla")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3495364, -0.5124482, -3.1362932)
-
-[node name="Rat5" parent="." unique_id=1394496152 instance=ExtResource("2_tftla")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.90933, -0.5124482, -1.5184519)
-
-[node name="Rat6" parent="." unique_id=716552991 instance=ExtResource("2_tftla")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32918167, -0.5124482, 1.4656014)
-
-[node name="Rat7" parent="." unique_id=415816598 instance=ExtResource("2_tftla")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7219658, -0.5124482, 0.015611172)
+[node name="Rats" parent="." unique_id=1663465543 instance=ExtResource("2_k1ucv")]

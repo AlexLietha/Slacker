@@ -3,8 +3,6 @@ class_name rat
 
 const SPEED := 5
 
-#@onready var path_follower = $PathFollow3D
-signal finished_path(rat)
 
 #States
 enum State{
@@ -41,12 +39,13 @@ func _physics_process(delta: float) -> void:
 			idle()
 		State.MOVING:
 			move()
-	#
+	move_and_slide()
+
 #func add_point(new_position : Vector3):
 	#curve.add_point(new_position)
 	
 func idle():
-	print("idle")
+	#print("idle")
 	velocity = Vector3.ZERO
 	var target_position = get_new_target_location()
 	
@@ -61,18 +60,23 @@ func idle():
 	state = State.MOVING
 	
 func move():
-	print("Moving")
+	#print("Moving")
 	var current_position = position
 	var next_position = navigation_agent_3d.get_next_path_position()
 	direction = (next_position - current_position).normalized()
-	velocity = direction * SPEED
-	move_and_slide()
+	navigation_agent_3d.velocity = direction * SPEED
 
 func get_new_target_location() -> Vector3:
 	return position + Vector3(randf_range(-10, 10), 0, randf_range(-10, 10))
 
-	
 
 func _on_navigation_agent_3d_target_reached() -> void:
-	print("reached area")
+	#print("reached area")
 	state = State.IDLE
+	
+
+
+
+func _on_navigation_agent_3d_velocity_computed(safe_velocity: Vector3) -> void:
+	velocity = safe_velocity
+	pass # Replace with function body.

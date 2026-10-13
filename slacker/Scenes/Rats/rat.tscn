@@ -18,6 +18,8 @@ height = 0.125
 script = ExtResource("1_mm47e")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1037872287]
+avoidance_enabled = true
+max_neighbors = 20
 debug_enabled = true
 debug_path_custom_color = Color(0, 1, 1, 1)
 
@@ -32,3 +34,4 @@ surface_material_override/0 = SubResource("StandardMaterial3D_mm47e")
 shape = SubResource("CylinderShape3D_6ikeu")
 
 [connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_target_reached"]
+[connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]
