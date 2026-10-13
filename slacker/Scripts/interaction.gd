@@ -7,7 +7,6 @@ var interactor: Player
 func _ready() -> void:
 	interactor = get_parent().get_parent()
 	
-	
 func _process(_delta: float) -> void:
 	if lastHovered:
 		lastHovered.Hover(interactor, false)
