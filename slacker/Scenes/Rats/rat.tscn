@@ -18,6 +18,7 @@ height = 0.125
 script = ExtResource("1_mm47e")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1037872287]
+path_max_distance = 10.01
 avoidance_enabled = true
 max_neighbors = 20
 debug_enabled = true
