@@ -1,21 +1,23 @@
 extends Node
 
-var player_roles = ["Slacker", "Manager", "Cook"]
+var player_roles = ["Slacker", "Cook", "Rat"]
 var players = []
+var Player = preload("res://Scripts/player_movement.gd").new()
+
+@export var number_of_slackers = 1
 
 func _ready() -> void:
+	# waiting for all players to be loaded, then assign the names
 	await get_tree().process_frame
-	players = get_tree().get_nodes_in_group("players")
+	for player in get_tree().get_nodes_in_group("players"):
+		player.set_player_name()
 
 func assign_roles() -> void:
 	players.shuffle()
-	
 	for i in range(0, players.size()):
-		if i < 2: 
-			players[i].role = player_roles[i] # assigns slacker and manager
-		else:
-			players[i].role = player_roles[2] # assigns cooks
+		if i >= (number_of_slackers - 1): # give a slacker role to a player for the number of slackers requested
+			players[i].role = player_roles[0]
+		else: # everyone else is a cook
+			players[i].role = player_roles[1]
 	
-	print("Roles assigned")
-	for player in players:
-		print(player.name + " is a " + player.role)
+	Player.set_player_role()

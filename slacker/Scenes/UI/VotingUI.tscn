@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cn3emvwfnr4s3" path="res://UI/timer_v1.png" id="1_rccwp"]
 [ext_resource type="Texture2D" uid="uid://b0gvpbgyld0dt" path="res://UI/nostrikes_p1_v1.png" id="2_yb1uu"]
 [ext_resource type="Texture2D" uid="uid://dnjyd8o3ullia" path="res://UI/red_x.png" id="3_7rrvv"]
-[ext_resource type="Script" uid="uid://df557047m1w27" path="res://Scripts/ReportButton.gd" id="3_b5i3x"]
+[ext_resource type="Script" uid="uid://df557047m1w27" path="res://Scripts/report_button.gd" id="3_b5i3x"]
 [ext_resource type="Texture2D" uid="uid://d0267cede3qju" path="res://UI/greyed_x.png" id="3_yb1uu"]
 
 [node name="Control" type="Control" unique_id=1031466018]

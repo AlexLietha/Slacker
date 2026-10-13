@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://8hid0kygyi71" path="res://Scripts/interactible_component.gd" id="2_y6vpp"]
 [ext_resource type="PackedScene" uid="uid://be2lpldotxs4g" path="res://Scenes/grabbable_object.tscn" id="2_y7274"]
 [ext_resource type="Shader" uid="uid://b6n4gbowvtsg7" path="res://Shaders/Outline.gdshader" id="3_4pvdy"]
-[ext_resource type="Script" uid="uid://dakevjuf8svg" path="res://Scripts/HighlightComponent.gd" id="3_y7274"]
+[ext_resource type="Script" uid="uid://dakevjuf8svg" path="res://Scripts/highlight_componet.gd" id="3_y7274"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y6vpp"]
 render_priority = 0
