@@ -2,18 +2,15 @@ extends Control
 class_name CloseButton
 signal closeUI
 @onready var timer = $Timer
-@onready var Vote1: PlayerIcon = $PlayerIcon2
-@onready var Vote2: PlayerIcon = $PlayerIcon3
-@onready var Vote3: PlayerIcon = $PlayerIcon4
-@onready var Vote4: PlayerIcon = $PlayerIcon5
+@export var PlayerIcons: Array[PlayerIcon]
+
 
 var canVote:bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Vote1.buttonPressed.connect(VoteForPlayer.bind(Vote1))
-	Vote2.buttonPressed.connect(VoteForPlayer.bind(Vote2))
-	Vote3.buttonPressed.connect(VoteForPlayer.bind(Vote3))
-	Vote4.buttonPressed.connect(VoteForPlayer.bind(Vote4))
+	for icon in PlayerIcons:
+		icon.buttonPressed.connect(VoteForPlayer)
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,7 +20,7 @@ func _process(delta: float) -> void:
 func Close_Button_Pressed() -> void:
 	closeUI.emit()
 	
-func VoteForPlayer(id: String,counter: int,X: Array[TextureRect],VoteSlot: PlayerIcon)-> void:
+func VoteForPlayer(counter: int,X: Array[TextureRect],VoteSlot: PlayerIcon)-> void:
 	print("Voting")
 	if(canVote):
 		print(counter)
