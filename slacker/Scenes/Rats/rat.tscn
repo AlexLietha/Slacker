@@ -1,8 +1,21 @@
 [gd_scene format=3 uid="uid://b8hneupbcyrxf"]
 
 [ext_resource type="Script" uid="uid://dkwmh4dj8y3vf" path="res://Scenes/Rats/rat.gd" id="1_mm47e"]
+[ext_resource type="Script" uid="uid://8hid0kygyi71" path="res://Scripts/interactible_component.gd" id="2_spgx1"]
+[ext_resource type="Script" uid="uid://dakevjuf8svg" path="res://Scripts/highlight_componet.gd" id="3_7sghj"]
+[ext_resource type="Shader" uid="uid://b6n4gbowvtsg7" path="res://Shaders/Outline.gdshader" id="4_7sghj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o46uo"]
+render_priority = 0
+shader = ExtResource("4_7sghj")
+shader_parameter/color = Color(1, 0.90625, 0, 1)
+shader_parameter/thickness = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wfmva"]
+next_pass = SubResource("ShaderMaterial_o46uo")
 
 [sub_resource type="TorusMesh" id="TorusMesh_6ikeu"]
+material = SubResource("StandardMaterial3D_wfmva")
 inner_radius = 0.3
 outer_radius = 0.23
 rings = 256
@@ -15,8 +28,21 @@ albedo_color = Color(0.4382773, 0.43827733, 0.4382773, 1)
 height = 0.125
 radius = 0.3
 
-[node name="Rat" type="CharacterBody3D" unique_id=1360517736]
+[node name="Rat" type="CharacterBody3D" unique_id=1360517736 node_paths=PackedStringArray("interactableComponent", "highlightComponent", "model")]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_mm47e")
+interactableComponent = NodePath("InteractableComponent")
+highlightComponent = NodePath("HighlightComponent")
+model = NodePath("Model/MeshInstance3D")
+
+[node name="InteractableComponent" type="Node" parent="." unique_id=1455037509]
+script = ExtResource("2_spgx1")
+metadata/_custom_type_script = "uid://8hid0kygyi71"
+
+[node name="HighlightComponent" type="Node" parent="." unique_id=1109730400]
+script = ExtResource("3_7sghj")
+metadata/_custom_type_script = "uid://dakevjuf8svg"
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1037872287]
 path_desired_distance = 2.0
