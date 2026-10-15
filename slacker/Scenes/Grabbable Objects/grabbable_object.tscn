@@ -6,14 +6,13 @@
 [ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Scripts/ID_component.gd" id="4_74iel"]
 [ext_resource type="Script" uid="uid://dakevjuf8svg" path="res://Scripts/highlight_componet.gd" id="5_3vkii"]
 
-[node name="grabbableObject" type="RigidBody3D" unique_id=844689755 node_paths=PackedStringArray("interactableComponent", "grabbableComponent", "highlightComponent", "idComponent", "model")]
+[node name="grabbableObject" type="RigidBody3D" unique_id=844689755 node_paths=PackedStringArray("interactableComponent", "grabbableComponent", "highlightComponent", "idComponent")]
 collision_layer = 3
 script = ExtResource("1_g5dvv")
 interactableComponent = NodePath("InteractableComponent")
 grabbableComponent = NodePath("GrabbableComponent")
 highlightComponent = NodePath("HighlightComponent")
 idComponent = NodePath("IDComponent")
-model = NodePath("")
 
 [node name="InteractableComponent" type="Node" parent="." unique_id=56224242]
 script = ExtResource("2_74iel")
