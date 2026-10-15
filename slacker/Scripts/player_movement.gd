@@ -102,12 +102,11 @@ func _input(event):
 		
 	if(Input.is_action_just_pressed("usePhone") && !use_phone):
 		show_vote_ui()
-		use_phone = true
 		
 	elif((Input.is_action_just_pressed("usePhone") || Input.is_action_just_pressed("controllerXboxB")) && use_phone):
 		hide_vote_ui()
-		await get_tree().process_frame
-		use_phone = false
+		
+		
 
 
 func getGrabbedItem() -> GrabbableObject:
@@ -120,8 +119,11 @@ func HasGrabbedItem() -> bool:
 
 func show_vote_ui() -> void:
 	vote_ui.visible = true
+	use_phone = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func hide_vote_ui() -> void:
 	vote_ui.visible = false
+	use_phone = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	await get_tree().process_frame
