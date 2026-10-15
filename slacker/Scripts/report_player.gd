@@ -15,13 +15,14 @@ func _ready() -> void:
 	
 func ToggleVoteUI(interactor: Player) -> void:
 	#if(!VoteToggle):
-	interactor.ShowUI()
+	interactor.show_vote_ui()
+	interactor.use_phone = true
 		#VoteToggle = true
 	#else:
-		#interactor.HideUI()
+		#interactor.hide_vote_ui
 		#VoteToggle = false
 		
 func highlight(interactor: Player, highlighted: bool):
 	highlightComponent.highlight(interactor, highlighted)
 func CloseVoteUI(interactor: Player) -> void:
-	interactor.HideUI()
+	interactor.hide_vote_ui()

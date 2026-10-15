@@ -10,21 +10,21 @@ class_name Player
 
 @onready var camera = $Camera3D
 @onready var player_mesh := $PlayerMesh
-@onready var vote_UI := $VotingBoard
+@onready var vote_ui := $VotingBoard
 @onready var player_overhead_name = $PlayerName
 
 @export var interactionRayCast : RayCast3D
 @export var grabbedItem : Node3D
 @export var vote_pop_up_ui = Control
 
-var counter: int = 0
+var use_phone : bool = false
 var name_generator = preload("uid://dleg4tpvbkn2q").new()
 
 func _ready() -> void:
 	add_to_group("players")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	vote_UI.visible = false
-	vote_UI.closeUI.connect(hideVoteUI)
+	vote_ui.visible = false
+	vote_ui.closeUI.connect(hide_vote_ui)
 	
 func set_player_name():
 	player_name = name_generator.pick_random_name()
@@ -75,13 +75,6 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-	if(Input.is_action_just_pressed("usePhone")&&counter%2==0):
-		showVoteUI()
-		counter = counter + 1
-	elif(Input.is_action_just_pressed("usePhone")&&counter%2==1):
-		hideVoteUI()
-		counter = counter + 1
-
 
 func _input(event):
 	# Camera Controls
@@ -107,12 +100,14 @@ func _input(event):
 			getGrabbedItem().drop()
 		pass
 		
-	if(Input.is_action_just_pressed("usePhone")&&counter%2==0):
-		showVoteUI()
-		counter = counter + 1
-	elif((Input.is_action_just_pressed("usePhone") || Input.is_action_just_pressed("controllerXboxB"))&&counter%2==1):
-		hideVoteUI()
-		counter = counter + 1
+	if(Input.is_action_just_pressed("usePhone") && !use_phone):
+		show_vote_ui()
+		use_phone = true
+		
+	elif((Input.is_action_just_pressed("usePhone") || Input.is_action_just_pressed("controllerXboxB")) && use_phone):
+		hide_vote_ui()
+		await get_tree().process_frame
+		use_phone = false
 
 
 func getGrabbedItem() -> GrabbableObject:
@@ -123,10 +118,10 @@ func getGrabbedItem() -> GrabbableObject:
 func HasGrabbedItem() -> bool:
 	return grabbedItem.get_child_count() == 1
 
-func showVoteUI() -> void:
-	vote_UI.visible = true
+func show_vote_ui() -> void:
+	vote_ui.visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-func hideVoteUI() -> void:
-	vote_UI.visible = false
+func hide_vote_ui() -> void:
+	vote_ui.visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
