@@ -15,7 +15,7 @@ class_name PlayerFreeCam
 @export var grabbedItem : Node3D
 
 var counter: int = 0;
-var name_generator = preload("res://Scripts/NameGenerator.gd").new()
+var name_generator = preload("uid://dleg4tpvbkn2q").new()
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
