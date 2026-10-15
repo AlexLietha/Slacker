@@ -11,5 +11,6 @@ func GiveFood(player: Player):
 		return
 	
 	OrderManager
-	player.getGrabbedItem().queue_free()
+	if player.getGrabbedItem().GetName() != "broom":
+		player.getGrabbedItem().queue_free()
 		#OrderManager.ReportEvent("Deliver", "waitress", 1)
