@@ -24,7 +24,7 @@ func _ready() -> void:
 	add_to_group("players")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	vote_UI.visible = false
-	vote_UI.closeUI.connect(HideUI)
+	vote_UI.closeUI.connect(hideVoteUI)
 	
 func set_player_name():
 	player_name = name_generator.pick_random_name()
@@ -76,10 +76,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 	if(Input.is_action_just_pressed("usePhone")&&counter%2==0):
-		ShowUI()
+		showVoteUI()
 		counter = counter + 1
 	elif(Input.is_action_just_pressed("usePhone")&&counter%2==1):
-		HideUI()
+		hideVoteUI()
 		counter = counter + 1
 
 
