@@ -15,7 +15,6 @@ func _ready() -> void:
 	interactableComponent.GetInteractSignal().connect(Grab)
 	interactableComponent.GetHoveredSignal().connect(highlightComponent.highlight)
 	
-	
 	highlightComponent.SetShader(model.material.next_pass)
 
 

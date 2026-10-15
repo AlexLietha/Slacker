@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bgu1pls1ejp2t"]
 
-[ext_resource type="PackedScene" uid="uid://be2lpldotxs4g" path="res://Scenes/grabbable_object.tscn" id="1_o75va"]
+[ext_resource type="PackedScene" uid="uid://be2lpldotxs4g" path="res://Scenes/Grabbable Objects/grabbable_object.tscn" id="1_o75va"]
 [ext_resource type="Script" uid="uid://cmdgx6riwx1ya" path="res://Scripts/Orders/item_stack.gd" id="2_jppsr"]
 [ext_resource type="Script" uid="uid://b5df7w2p6no8v" path="res://Scripts/Orders/plate.gd" id="2_n3fn0"]
 

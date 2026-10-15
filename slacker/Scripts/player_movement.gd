@@ -15,8 +15,9 @@ class_name Player
 
 @export var interactionRayCast : RayCast3D
 @export var grabbedItem : Node3D
+@export var vote_pop_up_ui = Control
 
-var counter: int = 0;
+var counter: int = 0
 var name_generator = preload("uid://dleg4tpvbkn2q").new()
 
 func _ready() -> void:
@@ -81,6 +82,7 @@ func _physics_process(delta: float) -> void:
 		HideUI()
 		counter = counter + 1
 
+
 func _input(event):
 	# Camera Controls
 	if event is InputEventMouseMotion and Input.mouse_mode != Input.MOUSE_MODE_VISIBLE:
@@ -89,9 +91,13 @@ func _input(event):
 		camera.rotation.x = clamp(camera.rotation.x,deg_to_rad(-89),deg_to_rad(89))
 
 	# debug tool to reassign roles after pressing the ` key
-	#if Input.is_action_just_pressed("reassignRoles"):
+	#if Input.is_action_just_pressed("debugKey"):
 		#print("reassignRoles called")
 		#GameManager.assign_roles()
+	
+	if Input.is_action_just_pressed("debugKey"):
+		print("debug key called")
+		vote_pop_up_ui.has_been_voted()
 
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
@@ -100,6 +106,14 @@ func _input(event):
 		if HasGrabbedItem():
 			getGrabbedItem().drop()
 		pass
+		
+	if(Input.is_action_just_pressed("usePhone")&&counter%2==0):
+		showVoteUI()
+		counter = counter + 1
+	elif((Input.is_action_just_pressed("usePhone") || Input.is_action_just_pressed("controllerXboxB"))&&counter%2==1):
+		hideVoteUI()
+		counter = counter + 1
+
 
 func getGrabbedItem() -> GrabbableObject:
 	if not HasGrabbedItem():
@@ -109,10 +123,10 @@ func getGrabbedItem() -> GrabbableObject:
 func HasGrabbedItem() -> bool:
 	return grabbedItem.get_child_count() == 1
 
-func ShowUI() -> void:
+func showVoteUI() -> void:
 	vote_UI.visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-func HideUI() -> void:
+func hideVoteUI() -> void:
 	vote_UI.visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
