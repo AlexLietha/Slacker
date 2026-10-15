@@ -20,10 +20,10 @@ config/icon="res://icon.svg"
 OrderManager="*uid://cpir08gy7664s"
 OrderSpawner="*uid://bw2xmgt2xt2a2"
 Lobby="uid://ds1bxgm00myy7"
-GameManager="*uid://dku586hv4gr23"
 CustomerSatisfactionManager="*uid://dpeslsidvkfva"
 HighLevelNetworkHandler="*uid://2a3imjoiiv3b"
 Network="*uid://br1hls1w8kr6n"
+GameManager="*uid://7ajmsd2a5eiw"
 
 [display]
 

@@ -37,6 +37,14 @@ func drop() -> void:
 	
 	collision_layer = original_collision_layer
 	collision_mask = original_collision_mask
+	
+func sweep() -> void:
+	# play a sweeping animation, maybe even sweep away rats
+	pass
+	
+func cleanMess() -> void:
+	# clean a spill or other dirty area
+	pass
 
 func highlight(interactor: Player, highlighted: bool):
 	highlightComponent.highlight(interactor, highlighted)

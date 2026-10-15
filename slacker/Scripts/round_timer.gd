@@ -35,6 +35,7 @@ func get_round_name():
 func set_next_round():
 	#set_round_name(round_name[round_num])
 	timer.start(round_time[round_num])
+	print(round_num)
 	if round_num == 1:
 		OrderSpawner.StartSpawningOrder()
 		prep_sign.hide()

@@ -74,12 +74,7 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-	if(Input.is_action_just_pressed("usePhone")&&counter%2==0):
-		ShowUI()
-		counter = counter + 1
-	elif((Input.is_action_just_pressed("usePhone") || Input.is_action_just_pressed("controllerXboxB"))&&counter%2==1):
-		HideUI()
-		counter = counter + 1
+
 
 func _input(event):
 	# Camera Controls
@@ -104,6 +99,14 @@ func _input(event):
 		if HasGrabbedItem():
 			getGrabbedItem().drop()
 		pass
+		
+	if(Input.is_action_just_pressed("usePhone")&&counter%2==0):
+		showVoteUI()
+		counter = counter + 1
+	elif((Input.is_action_just_pressed("usePhone") || Input.is_action_just_pressed("controllerXboxB"))&&counter%2==1):
+		hideVoteUI()
+		counter = counter + 1
+
 
 func getGrabbedItem() -> GrabbableObject:
 	if not HasGrabbedItem():
@@ -113,10 +116,10 @@ func getGrabbedItem() -> GrabbableObject:
 func HasGrabbedItem() -> bool:
 	return grabbedItem.get_child_count() == 1
 
-func ShowUI() -> void:
+func showVoteUI() -> void:
 	vote_UI.visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-func HideUI() -> void:
+func hideVoteUI() -> void:
 	vote_UI.visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

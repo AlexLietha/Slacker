@@ -25,7 +25,6 @@
 [ext_resource type="PackedScene" uid="uid://dtljkiukx76jj" path="res://environmentmodelscenes/toaster.tscn" id="23_xlgjq"]
 [ext_resource type="PackedScene" uid="uid://dmh7nnfrnbb7v" path="res://environmentmodelscenes/bread.tscn" id="24_185ci"]
 [ext_resource type="PackedScene" uid="uid://ddnsnlj6myhdd" path="res://Scenes/npc.tscn" id="25_esfd0"]
-[ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Scripts/ID_component.gd" id="26_dwwmq"]
 [ext_resource type="PackedScene" uid="uid://c6wolbp1jdqht" path="res://Scenes/order_board.tscn" id="27_444lh"]
 [ext_resource type="PackedScene" uid="uid://w0g2043ktub6" path="res://Scenes/report_box.tscn" id="28_ygxli"]
 [ext_resource type="PackedScene" uid="uid://18oqbpl2tmol" path="res://Scenes/broom.tscn" id="29_wur46"]
@@ -280,12 +279,6 @@ transform = Transform3D(-2.535396e-08, -0.58003104, -0.47546187, 0.75, -3.278354
 [node name="stackofplates" parent="Misc" unique_id=831239000 instance=ExtResource("13_2c62q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.058153, -8.817998)
 
-[node name="NPC1" parent="." unique_id=190551831 instance=ExtResource("25_esfd0")]
-transform = Transform3D(2.4372742, 0, 2.5119107, 0, 3.5, 0, -2.5119107, 0, 2.4372742, 10.243175, -0.012005806, 5.419688)
-
-[node name="IDComponent2" type="Node" parent="NPC1" unique_id=944265514]
-script = ExtResource("26_dwwmq")
-
 [node name="OrderBoard" parent="." unique_id=598548473 instance=ExtResource("27_444lh")]
 transform = Transform3D(-1.4999833, 0, 0.007076583, 0, 1.5, 0, -0.007076583, 0, -1.4999833, 10.257169, 0.92690086, -0.0410856)
 
@@ -293,7 +286,10 @@ transform = Transform3D(-1.4999833, 0, 0.007076583, 0, 1.5, 0, -0.007076583, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0681834, 2.1542432, -8.6701765)
 
 [node name="Player" parent="." unique_id=1090027167 instance=ExtResource("2_kgise")]
-transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 1.206419, 0.030467987, 3.4351084)
+transform = Transform3D(1.7422566, 0, -3.0355463, 0, 3.5, 0, 3.0355463, 0, 1.7422566, 1.206419, 0.030467987, 3.4351084)
 
 [node name="broom" parent="." unique_id=844689755 instance=ExtResource("29_wur46")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.5374775, 0, 1)
+
+[node name="NPC1" parent="." unique_id=190551831 instance=ExtResource("25_esfd0")]
+transform = Transform3D(-1.8750002, 0, -3.2475953, 0, 3.75, 0, 3.2475953, 0, -1.8750002, 9.976641, 0.004679501, 5.9490075)
