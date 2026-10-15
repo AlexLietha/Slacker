@@ -2,7 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cshr5pv7hh688" path="res://Scenes/rat_kitchen.tscn" id="1_k1ucv"]
 [ext_resource type="PackedScene" uid="uid://dkqm4ek4nd2ng" path="res://Scenes/Rats/rats.tscn" id="2_k1ucv"]
-[ext_resource type="PackedScene" uid="uid://j05yn7d2mkdc" path="res://Scenes/playerFreeCam.tscn" id="3_tftla"]
+[ext_resource type="PackedScene" uid="uid://18oqbpl2tmol" path="res://Scenes/broom.tscn" id="3_xuyd7"]
+[ext_resource type="PackedScene" uid="uid://w1hcy6j1i0vj" path="res://Scenes/player.tscn" id="4_k43gy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k1ucv"]
 
@@ -37,6 +38,10 @@ navigation_mesh = SubResource("NavigationMesh_6ikeu")
 
 [node name="Rats" parent="." unique_id=1663465543 instance=ExtResource("2_k1ucv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7080717, 0.17484546, 3.5475063)
-num_of_rats = 10
+num_of_rats = 5
 
-[node name="FreeCam" parent="." unique_id=1090027167 instance=ExtResource("3_tftla")]
+[node name="broom" parent="." unique_id=844689755 instance=ExtResource("3_xuyd7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8045316, -0.32014084, 0.33168054)
+
+[node name="Player" parent="." unique_id=1090027167 instance=ExtResource("4_k43gy")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, -5.012764, -0.32013988, 3.736261)
