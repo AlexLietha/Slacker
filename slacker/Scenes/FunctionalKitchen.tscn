@@ -27,8 +27,8 @@
 [ext_resource type="PackedScene" uid="uid://ddnsnlj6myhdd" path="res://Scenes/npc.tscn" id="25_esfd0"]
 [ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Scripts/ID_component.gd" id="26_dwwmq"]
 [ext_resource type="PackedScene" uid="uid://c6wolbp1jdqht" path="res://Scenes/order_board.tscn" id="27_444lh"]
-[ext_resource type="PackedScene" uid="uid://dk6cu2cs85urb" path="res://Scenes/Grabbable Objects/broom.tscn" id="27_cakj8"]
 [ext_resource type="PackedScene" uid="uid://w0g2043ktub6" path="res://Scenes/report_box.tscn" id="28_ygxli"]
+[ext_resource type="PackedScene" uid="uid://18oqbpl2tmol" path="res://Scenes/broom.tscn" id="29_wur46"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vg308"]
 
@@ -39,8 +39,8 @@ sky_material = SubResource("ProceduralSkyMaterial_vg308")
 background_mode = 2
 sky = SubResource("Sky_qh5db")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pb1w8"]
-albedo_color = Color(0.71, 0.6792333, 0.63899994, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wur46"]
+albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oyfun"]
 albedo_color = Color(0.8313384, 0.77674156, 0.7195819, 1)
@@ -61,15 +61,12 @@ light_energy = 2.626
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1804830780]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.349741, 4.04204, -2.8010726)
 
-[node name="Player" parent="." unique_id=1090027167 instance=ExtResource("2_kgise")]
-transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0.22812986, 0.057038188, 3.9954114)
-
 [node name="Walls" type="Node3D" parent="." unique_id=131895973]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6749945, 1.8434739, -4.420146)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Walls" unique_id=939446901]
-transform = Transform3D(105.20344, 0, 0, 0, 0.04943044, 0, 0, 0, 101.18373, 2.6662724, -1.8377213, 2.495718)
-material_override = SubResource("StandardMaterial3D_pb1w8")
+transform = Transform3D(105.20344, 0, 0, 0, 1.5784589, 0, 0, 0, 101.18373, 2.6662724, -2.6244173, 2.495718)
+material_override = SubResource("StandardMaterial3D_wur46")
 use_collision = true
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Walls" unique_id=1193137444]
@@ -295,5 +292,8 @@ transform = Transform3D(-1.4999833, 0, 0.007076583, 0, 1.5, 0, -0.007076583, 0, 
 [node name="StaticBody3D" parent="." unique_id=1958575001 instance=ExtResource("28_ygxli")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0681834, 2.1542432, -8.6701765)
 
-[node name="Broom2" parent="." unique_id=36527813 instance=ExtResource("27_cakj8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.334447, 0.030467749, 1.466491)
+[node name="Player" parent="." unique_id=1090027167 instance=ExtResource("2_kgise")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 1.206419, 0.030467987, 3.4351084)
+
+[node name="broom" parent="." unique_id=844689755 instance=ExtResource("29_wur46")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 1)
