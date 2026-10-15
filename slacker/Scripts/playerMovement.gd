@@ -27,6 +27,7 @@ func _enter_tree() -> void:
 	print("Authroity: " + str(get_multiplayer_authority()))
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	add_to_group("Players")
 	#nameplate.text = name
@@ -53,7 +54,8 @@ func _input(event: InputEvent):
 		camera.rotate_x(-event.relative.y * mouseSensitivity)
 		camera.rotation.x = clamp(camera.rotation.x,deg_to_rad(-89),deg_to_rad(89))
 		
-	#if Input.is_action_just_pressed("quit"):
+	if Input.is_action_just_pressed("quit"):
+		get_tree().quit()
 		#Network.leave_server()
 		
 	if Input.is_action_just_pressed("drop"):
