@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://daoeojhdxrwf4"]
 
+[ext_resource type="PackedScene" uid="uid://wt71gr6cep6k" path="res://Scenes/UI/main_menu.tscn" id="1_ml2d4"]
 [ext_resource type="PackedScene" uid="uid://d22fn703npu4r" path="res://UI/TimerUI.tscn" id="1_woada"]
 [ext_resource type="PackedScene" uid="uid://ti5pak1fauih" path="res://environmentmodelscenes/bigworktable.tscn" id="2_u8hng"]
 [ext_resource type="PackedScene" uid="uid://mrbh1vscglx7" path="res://environmentmodelscenes/shelf.tscn" id="3_ml2d4"]
@@ -27,6 +28,8 @@
 [ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Scenes/IDComponent.gd" id="25_ux1j6"]
 [ext_resource type="PackedScene" uid="uid://c6wolbp1jdqht" path="res://Scenes/order_board.tscn" id="26_jal4r"]
 [ext_resource type="PackedScene" uid="uid://w0g2043ktub6" path="res://Scenes/report_box.tscn" id="27_lwgs3"]
+[ext_resource type="Script" uid="uid://bv0hj256bkmvp" path="res://Scenes/high_level_multi_spawner.gd" id="28_u8hng"]
+[ext_resource type="PackedScene" uid="uid://bsfetotgxde5a" path="res://Scenes/Player/player.tscn" id="30_slkek"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vg308"]
 
@@ -46,7 +49,10 @@ uv1_triplanar_sharpness = 0.9659363
 
 [node name="Kitchen" type="Node3D" unique_id=615167998]
 
+[node name="MainMenu" parent="." unique_id=1602906196 instance=ExtResource("1_ml2d4")]
+
 [node name="TimerUI" parent="." unique_id=1773043747 instance=ExtResource("1_woada")]
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1340738998]
 environment = SubResource("Environment_oyfun")
@@ -288,3 +294,11 @@ transform = Transform3D(-1.4999833, 0, 0.007076583, 0, 1.5, 0, -0.007076583, 0, 
 
 [node name="StaticBody3D" parent="." unique_id=1958575001 instance=ExtResource("27_lwgs3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0681834, 2.1542432, -8.6701765)
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=298877986 node_paths=PackedStringArray("players_container")]
+spawn_path = NodePath("../Players")
+script = ExtResource("28_u8hng")
+network_player = ExtResource("30_slkek")
+players_container = NodePath("../Players")
+
+[node name="Players" type="Node3D" parent="." unique_id=1756109927]

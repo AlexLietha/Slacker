@@ -25,6 +25,7 @@ class_name Player
 func _enter_tree() -> void:
 	print("Player enter tree " + name)
 	print("Authroity: " + str(get_multiplayer_authority()))
+	set_multiplayer_authority(name.to_int())
 
 func _ready() -> void:
 	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -66,8 +67,7 @@ func _ready() -> void:
 			updateMaterialColor(Color.RED)
 
 func _input(event: InputEvent):
-	if !is_multiplayer_authority():
-		return
+	if !is_multiplayer_authority(): return
 	
 	# Camera Controls
 	if event is InputEventMouseMotion: #and Input.mouse_mode != Input.MOUSE_MODE_VISIBLE:
@@ -84,8 +84,7 @@ func _input(event: InputEvent):
 		pass
 
 func _physics_process(delta: float) -> void:
-	if !is_multiplayer_authority():
-		return
+	if !is_multiplayer_authority(): return
 	
 	#if role == "Manager":
 		#hat.show()
