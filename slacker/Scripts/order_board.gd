@@ -2,7 +2,7 @@ extends Node3D
 class_name Order_Board
 
 @export var OrderSpots: Array[Node3D]
-var ticket_scene : PackedScene = preload("res://Scenes/order_ticket.tscn")
+var ticket_scene : PackedScene = preload("uid://dv3flcatigubx")
 var spawnSpot: int = 0
 
 # Called when the node enters the scene tree for the first time.

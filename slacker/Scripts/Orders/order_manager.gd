@@ -10,9 +10,9 @@ signal CompletedOrder(order: Order)
 var orderInt := 0
 
 func _ready() -> void:
-	OrderSpawner.GetNewOrderSignal().connect(StartOrder)
+	OrderSpawner.GetNewOrderSignal().connect(start_order)
 	
-func StartOrder(order: Order) -> Order:
+func start_order(order: Order) -> Order:
 	orderInt += 1
 	
 	order.SetOrderID(orderInt)

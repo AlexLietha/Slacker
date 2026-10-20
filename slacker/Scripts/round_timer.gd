@@ -1,17 +1,19 @@
 extends Node
 
+# This file is UI only
+
 # Dear future Aidan, or future programmer,
 #		Please do a state machine for the rounds instead
 #		- xoxo pookie bear aidan
 
-@onready var clock = $"../ClockUI/Clock"
+@onready var clock = $"../Clock"
 @onready var round_title = $"../Round Title"
 @onready var timer = $"."
 @onready var prep_sign = $"../PrepSign"
 @onready var open_sign = $"../OpenSign"
 
 @export var round_name = ["Prep Time!", "Get to Work!"]
-@export var round_time = [120,480]
+@export var round_time = [120, 480] # these values are in seconds!!!
 
 var round_num = 0
 var game_started := false
@@ -58,6 +60,7 @@ func set_next_round():
 	sync_round.rpc(round_num, round_time[round_num])
 	print("Timer not failed")
 	
+	print(round_num)
 	if round_num == 1:
 		OrderSpawner.StartSpawningOrder()
 		prep_sign.hide()

@@ -14,9 +14,10 @@ func Interact(interactor : Player):
 func Hover(interactor : Player, hovering: bool):
 	if not canHighlight:
 		return
-		
-	hovered.emit(interactor, hovering)
-	isHovered = hovering
+	
+	if isHovered != hovering:
+		hovered.emit(interactor, hovering)
+		isHovered = hovering
 	
 func SetInteractible(con : bool) -> void:
 	Interactable = con
