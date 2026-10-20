@@ -6,7 +6,9 @@ extends StaticBody3D
 @export var model: CSGBox3D
 @export var icon: Node3D
 
-@export var item: PackedScene
+@export var item: Array[PackedScene]
+
+var counter = 0
 
 @export var burger =  preload("res://Scenes/Grabbable Objects/burger_patty.tscn")
 var burger_path: String = "res://Scenes/Grabbable Objects/burger_patty.tscn"

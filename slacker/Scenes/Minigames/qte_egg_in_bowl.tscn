@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bkx14828xhwax"]
+
+[ext_resource type="Script" uid="uid://caqxrthm7usut" path="res://Scripts/Minigames/qte_egg_in_bowl.gd" id="1_5v2c7"]
+[ext_resource type="Texture2D" uid="uid://d0j0qninxm4s3" path="res://Assets/Minigames/meter.png" id="2_7kn62"]
+[ext_resource type="Texture2D" uid="uid://d3gya16u6rmaf" path="res://Assets/Minigames/slider.png" id="3_ulqv5"]
+
+[node name="QTE_egg_in_bowl" type="Control" unique_id=655503366]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5v2c7")
+
+[node name="Meter" type="TextureRect" parent="." unique_id=1775668383]
+layout_mode = 0
+offset_left = -510.00006
+offset_top = -197.99998
+offset_right = 1135.0
+offset_bottom = 187.00002
+rotation = -0.3577925
+scale = Vector2(0.2, 0.2)
+pivot_offset = Vector2(850, 400)
+texture = ExtResource("2_7kn62")
+
+[node name="Slider" type="TextureRect" parent="Meter" unique_id=1533780275]
+layout_mode = 0
+offset_left = 775.00024
+offset_top = -80.0
+offset_right = 899.00024
+offset_bottom = 472.0
+texture = ExtResource("3_ulqv5")
+
+[node name="left" type="Marker2D" parent="Meter" unique_id=599201324]
+position = Vector2(0, 219.99988)
+scale = Vector2(4.9999995, 4.9999995)
+
+[node name="right" type="Marker2D" parent="Meter" unique_id=1956021992]
+position = Vector2(1645, 219.99988)
+scale = Vector2(4.9999995, 4.9999995)
+
+[node name="safe_left" type="Marker2D" parent="Meter" unique_id=1037303200]
+position = Vector2(650, 219.99988)
+scale = Vector2(4.9999995, 4.9999995)
+
+[node name="safe_right" type="Marker2D" parent="Meter" unique_id=1657638193]
+position = Vector2(1005, 219.99988)
+scale = Vector2(4.9999995, 4.9999995)

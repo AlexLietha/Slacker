@@ -1,9 +1,9 @@
 extends TextureButton
+class_name PlayerIcon
 
 var counter: int = 0
-@export var X1: TextureRect
-@export var X2: TextureRect
-@export var X3: TextureRect
+signal buttonPressed(counter: int,Xs:Array[TextureRect],PlayerIcon)
+@export var Xs: Array[TextureRect]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -15,12 +15,11 @@ func _process(_delta: float) -> void:
 
 
 func _on_pressed() -> void:
-	if(counter == 0):
-		X1.visible = true
-	elif(counter == 1):
-		X2.visible = true
-	else:
-		X3.visible = true
+	#var id = get_instance_id()
+	print("emit")
+	buttonPressed.emit(counter,Xs,self)
+	print("emitted")
 	
-	counter = counter + 1;
+func CounterSetter(newCounter: int)->void :
+	counter = newCounter
 	
