@@ -5,10 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://csl4s4fsyxjxk" path="res://Scenes/grill.tscn" id="3_qc4db"]
 [ext_resource type="PackedScene" uid="uid://ddnsnlj6myhdd" path="res://Scenes/npc.tscn" id="4_ys1qc"]
 [ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Scripts/ID_component.gd" id="5_35xla"]
-[ext_resource type="PackedScene" uid="uid://2riwns1moyus" path="res://Scenes/Grabbable Objects/burger_patty.tscn" id="6_5wyu1"]
 [ext_resource type="PackedScene" uid="uid://betf2qehtbsgn" path="res://Scenes/box.tscn" id="6_i3aeo"]
-[ext_resource type="PackedScene" uid="uid://bgu1pls1ejp2t" path="res://Scenes/Grabbable Objects/plate.tscn" id="7_5wyu1"]
-[ext_resource type="PackedScene" uid="uid://dk6cu2cs85urb" path="res://Scenes/Grabbable Objects/broom.tscn" id="9_2cgwh"]
 
 [sub_resource type="Environment" id="Environment_7jh4o"]
 ambient_light_color = Color(1, 1, 1, 1)
@@ -68,11 +65,11 @@ script = ExtResource("5_35xla")
 
 [node name="Box" parent="." unique_id=2093325880 instance=ExtResource("6_i3aeo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.99491143, 0.26859087, -1.8903922)
-item = ExtResource("6_5wyu1")
+item = Array[PackedScene]([])
 
 [node name="Box2" parent="." unique_id=421201296 instance=ExtResource("6_i3aeo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1216536, 0.2187069, -4.579122)
-item = ExtResource("7_5wyu1")
+item = Array[PackedScene]([])
 
 [node name="Players" type="Node" parent="." unique_id=929891748]
 
@@ -90,6 +87,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.25, 4)
 
 [node name="Player6" parent="Players" unique_id=1204273178 instance=ExtResource("1_lc1oi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.25, 4)
-
-[node name="Broom2" parent="." unique_id=1768105010 instance=ExtResource("9_2cgwh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0358286, 0, -1.0531983)
