@@ -62,8 +62,10 @@ func on_create() -> void:
 		MAX_PLAYERS
 	)
 	
-	$Control.hide()
+	$".".hide()
 	$"../TimerUI".show()
+	if multiplayer.is_server():
+		$"../StartMenu".show()
 	
 	#Network.start_server()
 	#add_world()
@@ -77,6 +79,12 @@ func on_lobby_created(result: int, lobby_id: int) -> void:
 	
 	#Create 4 digit join code
 	join_code = str(randi_range(0, 9999)).pad_zeros(JOIN_CODE_LENGTH)
+	
+	var data_set: bool = Steam.setLobbyData(
+		lobby_id,
+		"join_code",
+		join_code
+	)
 	
 	#create host multi peer
 	peer = SteamMultiplayerPeer.new()
@@ -93,10 +101,10 @@ func on_lobby_created(result: int, lobby_id: int) -> void:
 	print("Is server: ", multiplayer.is_server())
 	
 	##Need to uncomment after implementing player spawner
-	#player_spawner.spawn_host()
-	#print("Lobby created successfully")
-	#print("Lobby ID: ", lobby_id)
-	#print("Join code: ", join_code)
+	$"../MultiplayerSpawner".spawn_host()
+	print("Lobby created successfully")
+	print("Lobby ID: ", lobby_id)
+	print("Join code: ", join_code)
 
 # ----------------------
 # JOINGING
@@ -127,9 +135,10 @@ func on_join_pressed() -> void:
 	print("Searching for lobby with code: ", join_code)
 	
 	is_joining = true
+	print("Joining set true -> On_join_pressed()")
 	Steam.requestLobbyList()
 	
-	$Control.hide()
+	$".".hide()
 	$"../TimerUI".show()
 	
 	#add_world()
@@ -141,15 +150,21 @@ func check_lobby_code(lobbies: Array) -> void:
 	for lobby_id in lobbies:
 		var code: String = Steam.getLobbyData(
 			lobby_id,
-            "join_code"
+			"join_code"
 		)
-
+		
+		if code.is_empty():
+			continue
+		
 		if code == join_code:
 			print("Found lobby: ", lobby_id)
 			Steam.joinLobby(lobby_id)
 			return
-
+		
+		print("Lobby found with: ", code)
+	
 	is_joining = false
+	print("Joining set false -> check_lobby_code()")
 	push_warning("No lobby found with that join code.")
 
 # ----------------------
@@ -172,39 +187,41 @@ func on_join_lobby(
 	response: int
 ) -> void:
 	if not is_joining:
+		print("Menu: player is not joining")
 		return
-
+	
 	if response != 1:
 		is_joining = false
 		push_error("Failed to enter Steam lobby. Response: %s" % response)
+		print("Failed to enter steam lobby")
 		return
-
+	
 	# Find the lobby owner's Steam ID.
 	var host_id: int = Steam.getLobbyOwner(lobby_id)
-
-	# Create the client's multiplayer peer.
+	
 	# Create the client's multiplayer peer.
 	peer = SteamMultiplayerPeer.new()
 	peer.server_relay = true
-
+	
 	print("Creating Steam multiplayer client for host: ", host_id)
-
+	
 	var error = peer.create_client(host_id, 0)
-
+	
 	if error != OK:
 		push_error("Failed to create Steam client: %s" % error)
 		is_joining = false
+		print("Joinging set false -> join_lobby fail to create client")
 		return
-
+	
 	multiplayer.multiplayer_peer = peer
-
+	
 	print("Client peer assigned.")
 	print("Unique peer ID: ", multiplayer.get_unique_id())
 	print("Is server: ", multiplayer.is_server())
-
-
+	
 	is_joining = false
-
+	print("Joinging set false -> join_lobby joined lobby")
+	
 	print("Joined lobby: ", lobby_id)
 	print("Connecting to lobby owner: ", host_id)
 	print("Waiting for the host to spawn this player's character.")

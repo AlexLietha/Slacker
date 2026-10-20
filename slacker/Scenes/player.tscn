@@ -24,6 +24,12 @@ properties/1/replication_mode = 1
 [node name="Player" type="CharacterBody3D" unique_id=1090027167 node_paths=PackedStringArray("interactionRayCast", "grabbedItem", "vote_pop_up_ui")]
 transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0, 0)
 script = ExtResource("1_g2els")
+speed = null
+jumpVelocity = null
+mouseSensitivity = null
+joypadSensitivity = null
+role = null
+player_name = null
 interactionRayCast = NodePath("Camera3D/Interaction Range")
 grabbedItem = NodePath("GrabbedObjectPosition")
 vote_pop_up_ui = NodePath("VotePopUp")

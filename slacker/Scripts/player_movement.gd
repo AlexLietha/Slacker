@@ -20,6 +20,11 @@ class_name Player
 var use_phone : bool = false
 var name_generator = preload("uid://dleg4tpvbkn2q").new()
 
+func _enter_tree() -> void:
+	print("Player enter tree " + name)
+	print("Authroity: " + str(get_multiplayer_authority()))
+	set_multiplayer_authority(name.to_int())
+
 func _ready() -> void:
 	add_to_group("players")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -125,3 +130,8 @@ func show_vote_ui() -> void:
 func hide_vote_ui() -> void:
 	vote_ui.visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+#func get_id() -> int:
+	#if is_multiplayer_authority():
+		#return clientNo
+	#return 0

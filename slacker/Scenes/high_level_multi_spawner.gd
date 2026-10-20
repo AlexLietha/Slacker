@@ -1,4 +1,3 @@
-
 extends MultiplayerSpawner
 
 @export var network_player: PackedScene

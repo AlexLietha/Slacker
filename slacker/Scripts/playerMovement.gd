@@ -1,5 +1,5 @@
 extends CharacterBody3D
-class_name Player
+class_name MainPlayer
 
 @export var speed := 5.0
 @export var jumpVelocity := 5
