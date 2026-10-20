@@ -1,6 +1,8 @@
 extends Control
-class_name CloseButton
+class_name VoteManager
+
 signal closeUI
+signal killPlayer
 @onready var timer = $Timer
 @export var PlayerIcons: Array[PlayerIcon]
 
@@ -8,8 +10,8 @@ signal closeUI
 var canVote:bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for icon in PlayerIcons:
-		icon.buttonPressed.connect(vote_for_player)
+	for i in range(1, PlayerIcons.size()):
+		PlayerIcons[i].buttonPressed.connect(vote_for_player)
 	
 
 
@@ -28,6 +30,8 @@ func vote_for_player(counter: int,X: Array[TextureRect],VoteSlot: PlayerIcon)-> 
 		if(counter <= 2):
 			X[counter].visible = true
 			VoteSlot.CounterSetter(counter+1)
+			if(counter == 2):
+				killPlayer.emit()
 		cool_down()
 	else:
 		print("you need to wait")
@@ -36,3 +40,10 @@ func cool_down() -> void:
 	canVote = false
 	await get_tree().create_timer(1).timeout
 	canVote = true
+	
+func setup_nameplates(Name:String) -> void:
+	print("Working")
+	for icon in PlayerIcons:
+		print("I want to work")
+		icon.setPlayerNametag(Name)
+		print(icon.getPlayerNametag())

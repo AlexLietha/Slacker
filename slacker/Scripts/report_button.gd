@@ -4,6 +4,8 @@ class_name PlayerIcon
 var counter: int = 0
 signal buttonPressed(counter: int,Xs:Array[TextureRect],PlayerIcon)
 @export var Xs: Array[TextureRect]
+@export var NamePlate: Label
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -22,4 +24,10 @@ func _on_pressed() -> void:
 	
 func CounterSetter(newCounter: int)->void :
 	counter = newCounter
+	
+func getPlayerNametag()-> String:
+	return NamePlate.text
+	
+func setPlayerNametag(name: String)-> void:
+	NamePlate.text = name
 	

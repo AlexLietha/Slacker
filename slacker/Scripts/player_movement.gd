@@ -6,7 +6,7 @@ class_name Player
 @export var mouseSensitivity := 0.004
 @export var joypadSensitivity := 5
 @export var role = "Cook"
-@export var player_name = "PlayerName" # temp name
+@export var player_name:String = "PlayerName" # temp name
 
 @onready var camera = $Camera3D
 @onready var player_mesh := $PlayerMesh
@@ -25,11 +25,13 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	vote_ui.visible = false
 	vote_ui.closeUI.connect(hide_vote_ui)
+	vote_ui.killPlayer.connect(kill_player)
 	
 func set_player_name():
 	player_name = name_generator.pick_random_name()
 	player_overhead_name.text = player_name
 	print(player_name)
+	vote_ui.setup_nameplates(player_name)
 	
 func set_player_role():
 	if role == "Cook":
@@ -127,3 +129,7 @@ func hide_vote_ui() -> void:
 	use_phone = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	await get_tree().process_frame
+	
+func kill_player()->void:
+	#self.queue_free()
+	print("I rat now")

@@ -2,6 +2,7 @@ extends Node
 
 var player_roles = ["Slacker", "Cook", "Rat"]
 var players = []
+#var player_names:Array[String]
 var player = preload("uid://dqpaw7ty68pbe").new()
 
 @export var number_of_slackers = 1
@@ -11,6 +12,7 @@ func _ready() -> void:
 	await get_tree().process_frame
 	for p in get_tree().get_nodes_in_group("players"):
 		p.set_player_name()
+		#player_names.push_back("hello")
 
 func assign_roles() -> void:
 	players.shuffle()
