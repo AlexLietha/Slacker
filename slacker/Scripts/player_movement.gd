@@ -20,12 +20,26 @@ class_name Player
 var use_phone : bool = false
 var name_generator = preload("uid://dleg4tpvbkn2q").new()
 
+func _enter_tree() -> void:
+	print("Player enter tree " + name)
+	print("Authroity: " + str(get_multiplayer_authority()))
+	set_multiplayer_authority(name.to_int())
+
 func _ready() -> void:
 	add_to_group("players")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	vote_ui.visible = false
 	vote_ui.closeUI.connect(hide_vote_ui)
 	
+	if !is_multiplayer_authority():
+		set_process(false)
+		set_physics_process(false)
+		camera.current = false
+		return
+	
+	camera.current = true
+	print("Player Auth: " + str(get_multiplayer_authority()))
+
 func set_player_name():
 	player_name = name_generator.pick_random_name()
 	player_overhead_name.text = player_name
@@ -56,6 +70,8 @@ func _process(delta: float) -> void:
 	camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-89), deg_to_rad(89))
 
 func _physics_process(delta: float) -> void:
+	if !is_multiplayer_authority(): return
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -77,6 +93,8 @@ func _physics_process(delta: float) -> void:
 
 
 func _input(event):
+	if !is_multiplayer_authority(): return
+	
 	# Camera Controls
 	if event is InputEventMouseMotion and Input.mouse_mode != Input.MOUSE_MODE_VISIBLE:
 		rotate_y(-event.relative.x * mouseSensitivity)
