@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cpnky28pa0wvk"]
+
+[ext_resource type="PackedScene" uid="uid://bwelaj4bo4vme" path="res://Entities/Objects/Interactible/CookingLocations/Grill/stove_a.fbx" id="1_aicwx"]
+[ext_resource type="Material" uid="uid://7g1p7xighxpe" path="res://Assets/Materials/work_table_base_material.tres" id="2_8brob"]
+
+[node name="stove_a" unique_id=705825056 instance=ExtResource("1_aicwx")]
+
+[node name="stove_001" parent="stove" parent_id_path=PackedInt32Array(2017109817) index="0" unique_id=461231352]
+material_override = ExtResource("2_8brob")

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://mrbh1vscglx7"]
+
+[ext_resource type="PackedScene" uid="uid://dj300s48akkxb" path="res://Entities/Objects/Interactible/IngredientLocations/Shelf/shelf_a.fbx" id="1_pj5l3"]
+[ext_resource type="Material" uid="uid://7g1p7xighxpe" path="res://Assets/Materials/work_table_base_material.tres" id="2_6rx2y"]
+[ext_resource type="Material" uid="uid://b4lk6dw40se6f" path="res://Assets/Materials/base_white.tres" id="3_kp0jx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cx7oh"]
+
+[node name="shelf_a" unique_id=249047160 instance=ExtResource("1_pj5l3")]
+
+[node name="storage shelf" parent="." index="0" unique_id=220275531]
+material_override = ExtResource("2_6rx2y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="storage shelf" index="0" unique_id=217357504]
+transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0.0013366336, 0.0058399606)
+shape = SubResource("BoxShape3D_cx7oh")
+
+[node name="Cube_009" parent="storage shelf" index="1" unique_id=2109431588]
+material_override = ExtResource("2_6rx2y")
+
+[node name="Cube_010" parent="storage shelf" index="2" unique_id=1832610449]
+material_override = ExtResource("2_6rx2y")
+
+[node name="Cube_011" parent="storage shelf" index="3" unique_id=2047268223]
+material_override = ExtResource("2_6rx2y")
+
+[node name="Cube_012" parent="storage shelf" index="4" unique_id=702311561]
+material_override = ExtResource("2_6rx2y")
+
+[node name="Cylinder_008" parent="storage shelf" index="5" unique_id=336634862]
+material_override = ExtResource("3_kp0jx")
+
+[node name="Cylinder_009" parent="storage shelf" index="6" unique_id=1980117880]
+material_override = ExtResource("3_kp0jx")
+
+[node name="Cylinder_010" parent="storage shelf" index="7" unique_id=1037366783]
+material_override = ExtResource("3_kp0jx")
+
+[node name="Cylinder_011" parent="storage shelf" index="8" unique_id=1094452924]
+material_override = ExtResource("3_kp0jx")

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cebd3unkxr7n"]
+
+[ext_resource type="PackedScene" uid="uid://cshr5pv7hh688" path="res://Entities/Rats/Scenes/rat_kitchen.tscn" id="1_k1ucv"]
+[ext_resource type="PackedScene" uid="uid://dkqm4ek4nd2ng" path="res://Entities/Rats/Scenes/rat_spawner.tscn" id="2_k1ucv"]
+[ext_resource type="PackedScene" uid="uid://18oqbpl2tmol" path="res://Entities/Objects/Grabbable/Equipment/Broom/broom.tscn" id="3_xuyd7"]
+[ext_resource type="PackedScene" uid="uid://w1hcy6j1i0vj" path="res://Entities/Player/Scenes/player.tscn" id="4_k43gy"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k1ucv"]
+
+[sub_resource type="Sky" id="Sky_k1ucv"]
+sky_material = SubResource("ProceduralSkyMaterial_k1ucv")
+
+[sub_resource type="Environment" id="Environment_6ikeu"]
+sky = SubResource("Sky_k1ucv")
+ambient_light_source = 3
+ambient_light_color = Color(0.37483722, 0.5329717, 0.8567708, 1)
+reflected_light_source = 2
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_6ikeu"]
+vertices = PackedVector3Array(-1.2521048, 0.16182518, -18.558008, 1.7478952, 0.16182518, -19.058008, 1.7478952, 0.16182518, -22.058008, -8.252105, 0.16182518, -22.058008, 1.7478952, 0.16182518, -10.558008, 1.7478952, 0.16182518, -17.058008, -0.75210476, 0.16182518, -17.058008, -7.7521048, 0.16182518, -10.558008, 3.7478952, 0.16182518, -22.058008, 3.7478952, 0.16182518, -19.058008, 13.247895, 0.16182518, -19.058008, 13.247895, 0.16182518, -22.058008, -3.7521048, 0.16182518, 7.441992, -4.2521048, 0.16182518, 8.441992, -2.7521048, 0.16182518, 8.441992, -2.2521048, 0.16182518, 5.941992, 8.747895, 0.16182518, -5.058008, 8.747895, 0.16182518, -3.5580082, 9.747895, 0.16182518, -3.5580082, 9.747895, 0.16182518, -5.558008, -5.2521048, 0.16182518, 6.941992, 0.24789524, 0.16182518, 0.9419918, -4.2521048, 0.16182518, 0.4419918, -6.2521048, 0.16182518, 0.4419918, -7.7521048, 0.16182518, 0.9419918, 7.7478952, 0.16182518, -16.058008, 8.247895, 0.16182518, -17.058008, 6.2478952, 0.16182518, -17.058008, 6.2478952, 0.16182518, -15.558008, 8.747895, 0.16182518, -7.058008, 6.7478952, 0.16182518, -8.558008, 5.7478952, 0.16182518, -7.058008, 7.7478952, 0.16182518, -5.558008, 11.747895, 0.16182518, -3.5580082, 10.747895, 0.16182518, -3.0580082, 13.247895, 0.16182518, -2.0580082, 12.747895, 0.16182518, -13.558008, 13.247895, 0.16182518, -15.058008, 11.247895, 0.16182518, -15.058008, 10.747895, 0.16182518, -13.558008, 0.24789524, 0.16182518, 5.941992, 10.747895, 0.16182518, -17.058008, 9.747895, 0.16182518, -17.058008, 9.247895, 0.16182518, -15.558008, 11.247895, 0.16182518, -6.058008, 13.247895, 0.16182518, -8.558008, -7.7521048, 0.16182518, 8.441992, -5.2521048, 0.16182518, 8.441992, 10.747895, 0.16182518, -8.558008, 4.2478952, 0.16182518, -16.058008, 3.7478952, 0.16182518, -14.558008, 5.7478952, 0.16182518, -14.058008, 10.247895, 0.16182518, -10.058008, 8.747895, 0.16182518, -11.558008, 5.2478952, 0.16182518, -10.558008, 7.2478952, 0.16182518, -10.558008, 7.2478952, 0.16182518, -12.058008, 4.7478952, 0.16182518, -3.0580082, 7.7478952, 0.16182518, -3.0580082, 2.7478952, 0.16182518, -5.558008, 10.747895, 0.16182518, -12.558008, -4.2521048, 0.16182518, -6.558008, -5.2521048, 0.16182518, -8.558008, -6.2521048, 0.16182518, -8.558008, -3.7521048, 0.16182518, -5.058008, 13.247895, 0.16182518, -11.058008, 12.747895, 0.16182518, -12.558008, 11.747895, 0.16182518, 7.441992, 12.247895, 0.16182518, 8.941992, 13.747895, 0.16182518, 8.941992, 9.247895, 0.16182518, 6.441992, 9.747895, 0.16182518, 8.441992, 4.2478952, 0.16182518, -1.5580082, 3.2478952, 0.16182518, -1.5580082, 2.7478952, 0.16182518, 0.9419918, -1.2521048, 5.161825, 6.941992, -1.2521048, 5.161825, 8.441992, 5.2478952, 5.161825, 8.441992, 5.2478952, 5.161825, 6.941992)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(6, 5, 4), PackedInt32Array(4, 7, 6), PackedInt32Array(6, 7, 3), PackedInt32Array(3, 0, 6), PackedInt32Array(11, 10, 8), PackedInt32Array(8, 10, 9), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 15), PackedInt32Array(17, 16, 18), PackedInt32Array(18, 16, 19), PackedInt32Array(12, 20, 15), PackedInt32Array(15, 20, 21), PackedInt32Array(21, 20, 22), PackedInt32Array(22, 20, 23), PackedInt32Array(23, 20, 24), PackedInt32Array(28, 27, 25), PackedInt32Array(25, 27, 26), PackedInt32Array(32, 31, 29), PackedInt32Array(29, 31, 30), PackedInt32Array(19, 16, 32), PackedInt32Array(33, 35, 34), PackedInt32Array(39, 38, 36), PackedInt32Array(36, 38, 37), PackedInt32Array(21, 40, 15), PackedInt32Array(42, 41, 43), PackedInt32Array(43, 41, 38), PackedInt32Array(43, 38, 39), PackedInt32Array(33, 44, 35), PackedInt32Array(35, 44, 45), PackedInt32Array(47, 46, 20), PackedInt32Array(20, 46, 24), PackedInt32Array(32, 29, 19), PackedInt32Array(19, 29, 44), PackedInt32Array(44, 29, 48), PackedInt32Array(44, 48, 45), PackedInt32Array(28, 51, 49), PackedInt32Array(49, 51, 50), PackedInt32Array(52, 48, 53), PackedInt32Array(53, 48, 29), PackedInt32Array(55, 54, 56), PackedInt32Array(56, 54, 51), PackedInt32Array(58, 57, 32), PackedInt32Array(32, 57, 31), PackedInt32Array(31, 57, 59), PackedInt32Array(28, 25, 51), PackedInt32Array(51, 25, 43), PackedInt32Array(51, 43, 56), PackedInt32Array(56, 43, 53), PackedInt32Array(53, 43, 39), PackedInt32Array(53, 39, 60), PackedInt32Array(62, 61, 63), PackedInt32Array(63, 61, 64), PackedInt32Array(63, 64, 22), PackedInt32Array(63, 22, 23), PackedInt32Array(66, 65, 60), PackedInt32Array(60, 65, 52), PackedInt32Array(60, 52, 53), PackedInt32Array(64, 61, 59), PackedInt32Array(59, 61, 31), PackedInt32Array(18, 34, 17), PackedInt32Array(17, 34, 58), PackedInt32Array(68, 67, 69), PackedInt32Array(69, 67, 35), PackedInt32Array(67, 71, 70), PackedInt32Array(74, 73, 72), PackedInt32Array(34, 35, 58), PackedInt32Array(58, 35, 72), PackedInt32Array(72, 35, 74), PackedInt32Array(74, 35, 70), PackedInt32Array(70, 35, 67), PackedInt32Array(57, 58, 72), PackedInt32Array(21, 74, 40), PackedInt32Array(40, 74, 70), PackedInt32Array(78, 77, 75), PackedInt32Array(75, 77, 76)]
+cell_size = 0.5
+border_size = 0.5
+agent_height = 0.5
+agent_max_climb = 0.0
+region_min_size = 4.0
+vertices_per_polygon = 12.0
+
+[node name="Node3D" type="Node3D" unique_id=682855474]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1943379777]
+environment = SubResource("Environment_6ikeu")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1244628336]
+navigation_mesh = SubResource("NavigationMesh_6ikeu")
+
+[node name="Kitchen" parent="NavigationRegion3D" unique_id=615167998 instance=ExtResource("1_k1ucv")]
+
+[node name="Rats" parent="." unique_id=1663465543 instance=ExtResource("2_k1ucv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7080717, 0.17484546, 3.5475063)
+num_of_rats = 5
+
+[node name="broom" parent="." unique_id=844689755 instance=ExtResource("3_xuyd7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8045316, -0.32014084, 0.33168054)
+
+[node name="Player" parent="." unique_id=1090027167 instance=ExtResource("4_k43gy")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, -5.012764, -0.32013988, 3.736261)
