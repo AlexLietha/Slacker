@@ -31,6 +31,9 @@ func set_player_name():
 	player_overhead_name.text = player_name
 	print(player_name)
 	
+func get_player_name():
+	return player_name
+	
 func set_player_role():
 	if role == "Cook":
 		var material = StandardMaterial3D.new()
