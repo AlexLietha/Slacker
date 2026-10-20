@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://d22fn703npu4r"]
+
+[ext_resource type="Texture2D" uid="uid://cmgnxv13cvxy5" path="res://Entities/Player/UI/Round/Assets/prep_sign_v1.png" id="1_avhpw"]
+[ext_resource type="Texture2D" uid="uid://bv4s2xaw7vbhl" path="res://Entities/Player/UI/Round/Assets/open_sign_v1.png" id="2_dpsm5"]
+[ext_resource type="Texture2D" uid="uid://cn3emvwfnr4s3" path="res://Entities/Player/UI/Round/Assets/timer_v1.png" id="3_yiv6o"]
+
+[node name="TimerUI" type="Control" unique_id=1773043747]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PrepSign" type="TextureRect" parent="." unique_id=125862960]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 258.0
+offset_top = 94.0
+offset_right = 343.0
+offset_bottom = 179.0
+grow_horizontal = 2
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("1_avhpw")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Timer" type="Timer" parent="." unique_id=1553168828]
+
+[node name="Round Title" type="Label" parent="." unique_id=513478503]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Round Name"
+horizontal_alignment = 1
+
+[node name="OpenSign" type="TextureRect" parent="." unique_id=1376146018]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 258.0
+offset_top = 94.0
+offset_right = 343.0
+offset_bottom = 179.0
+grow_horizontal = 2
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("2_dpsm5")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Sign- CHANGE LATER" type="TextureRect" parent="." unique_id=1568850521]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 404.0
+offset_top = 94.0
+offset_right = 489.0
+offset_bottom = 179.0
+grow_horizontal = 2
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("2_dpsm5")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ClockUI" type="TextureRect" parent="." unique_id=1047014232]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 403.0
+offset_top = 156.0
+offset_right = 488.0
+offset_bottom = 196.0
+grow_horizontal = 2
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("3_yiv6o")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Clock" type="Label" parent="ClockUI" unique_id=791024713]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.5
+offset_top = 7.0
+offset_right = 20.5
+offset_bottom = 30.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.2784314, 0.105882354, 0.06666667, 1)
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1

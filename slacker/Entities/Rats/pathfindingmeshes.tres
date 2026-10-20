@@ -1,0 +1,30 @@
+[gd_resource type="MeshLibrary" format=3 uid="uid://csg8nl3jtx12x"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ga1qw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_42a2d"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ga1qw"]
+
+[resource]
+item/0/name = "blok"
+item/0/mesh = SubResource("BoxMesh_ga1qw")
+item/0/mesh_transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+item/0/mesh_cast_shadow = 1
+item/0/shapes = []
+item/0/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/0/navigation_layers = 1
+item/1/name = ""
+item/1/mesh = SubResource("BoxMesh_42a2d")
+item/1/mesh_transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 4, 0, 0, 2)
+item/1/mesh_cast_shadow = 1
+item/1/shapes = []
+item/1/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/1/navigation_layers = 1
+item/2/name = ""
+item/2/mesh = SubResource("ArrayMesh_ga1qw")
+item/2/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/2/mesh_cast_shadow = 1
+item/2/shapes = []
+item/2/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/2/navigation_layers = 1

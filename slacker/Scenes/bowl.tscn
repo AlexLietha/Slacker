@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://dbnywxtop53j8"]
-
-[ext_resource type="PackedScene" uid="uid://h2dvqypij643" path="res://models/environment assets/Bowl_BenMusser_V1.fbx" id="1_mdowk"]
-[ext_resource type="Script" uid="uid://dwoo80fnd7syh" path="res://Scripts/bowl.gd" id="2_78wkd"]
-
-[node name="Bowl_BenMusser_V1" unique_id=439081671 instance=ExtResource("1_mdowk")]
-script = ExtResource("2_78wkd")
