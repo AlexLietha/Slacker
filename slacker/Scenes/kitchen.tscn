@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://c8kapetowafxw" path="res://environmentmodelscenes/eggcarton.tscn" id="16_hqj0s"]
 [ext_resource type="PackedScene" uid="uid://b0p2q7144nn4s" path="res://environmentmodelscenes/cuttingboard.tscn" id="17_ocwuj"]
 [ext_resource type="PackedScene" uid="uid://pebcxe6mpbhm" path="res://environmentmodelscenes/crate.tscn" id="18_v7v86"]
-[ext_resource type="PackedScene" uid="uid://cf37ilrn8pexl" path="res://environmentmodelscenes/bowl.tscn" id="19_j87t8"]
+[ext_resource type="PackedScene" uid="uid://cf37ilrn8pexl" path="res://Scenes/Grabbable Objects/bowl.tscn" id="19_j87t8"]
 [ext_resource type="PackedScene" uid="uid://5l0uutfybxou" path="res://environmentmodelscenes/pan.tscn" id="20_3287f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vg308"]

@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://c8kapetowafxw" path="res://environmentmodelscenes/eggcarton.tscn" id="18_k5844"]
 [ext_resource type="PackedScene" uid="uid://b0p2q7144nn4s" path="res://environmentmodelscenes/cuttingboard.tscn" id="19_7myxo"]
 [ext_resource type="PackedScene" uid="uid://pebcxe6mpbhm" path="res://environmentmodelscenes/crate.tscn" id="20_bwhmh"]
-[ext_resource type="PackedScene" uid="uid://cf37ilrn8pexl" path="res://environmentmodelscenes/bowl.tscn" id="21_8m40b"]
+[ext_resource type="PackedScene" uid="uid://cf37ilrn8pexl" path="res://Scenes/Grabbable Objects/bowl.tscn" id="21_8m40b"]
 [ext_resource type="PackedScene" uid="uid://5l0uutfybxou" path="res://environmentmodelscenes/pan.tscn" id="22_dmua0"]
 [ext_resource type="PackedScene" uid="uid://dtljkiukx76jj" path="res://environmentmodelscenes/toaster.tscn" id="23_xlgjq"]
 [ext_resource type="PackedScene" uid="uid://dmh7nnfrnbb7v" path="res://environmentmodelscenes/bread.tscn" id="24_185ci"]
