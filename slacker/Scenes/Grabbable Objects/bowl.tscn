@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cf37ilrn8pexl"]
+
+[ext_resource type="PackedScene" uid="uid://h2dvqypij643" path="res://models/environment assets/Bowl_BenMusser_V1.fbx" id="1_p4y4i"]
+[ext_resource type="Script" uid="uid://dwoo80fnd7syh" path="res://Scripts/bowl.gd" id="2_xcekg"]
+[ext_resource type="Script" uid="uid://8hid0kygyi71" path="res://Scripts/interactible_component.gd" id="3_aylwt"]
+[ext_resource type="Material" uid="uid://cg0yhh58u0xgv" path="res://bowl_highlight.tres" id="3_kcs3e"]
+[ext_resource type="Script" uid="uid://dakevjuf8svg" path="res://Scripts/highlight_componet.gd" id="5_4tdaa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8pala"]
+next_pass = ExtResource("3_kcs3e")
+albedo_color = Color(0.4455164, 0.48288602, 0.5296854, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5oqgb"]
+height = 1.0
+radius = 1.0
+
+[node name="Bowl_BenMusser_V2" unique_id=82048025 instance=ExtResource("1_p4y4i")]
+script = ExtResource("2_xcekg")
+
+[node name="bowl" parent="." index="0" unique_id=1885691369]
+material_override = SubResource("StandardMaterial3D_8pala")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="2" unique_id=1244758017]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44981325, 0)
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1254431892]
+transform = Transform3D(1, 0, 0, 0, 1.0070567, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_5oqgb")
+
+[node name="InteractableComponent" type="Node" parent="StaticBody3D" index="1" unique_id=2121586004]
+script = ExtResource("3_aylwt")
+metadata/_custom_type_script = "uid://8hid0kygyi71"
+
+[node name="HighlightComponent" type="Node" parent="." index="3" unique_id=1911378101]
+script = ExtResource("5_4tdaa")
+metadata/_custom_type_script = "uid://dakevjuf8svg"

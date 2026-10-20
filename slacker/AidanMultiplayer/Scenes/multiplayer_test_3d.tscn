@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ctarhqxq1eohu" path="res://AidanMultiplayer/Scenes/HighLevelUI.tscn" id="1_8h6j0"]
 [ext_resource type="Script" uid="uid://kpty3a287g1t" path="res://AidanMultiplayer/Scripts/high_multiplayer_spawner.gd" id="2_7op2d"]
-[ext_resource type="PackedScene" uid="uid://d22fn703npu4r" path="res://Scenes/UI/round_ui.tscn" id="2_krlw3"]
+[ext_resource type="PackedScene" uid="uid://d22fn703npu4r" path="res://Scenes/UI/RoundUI.tscn" id="2_krlw3"]
 [ext_resource type="PackedScene" uid="uid://w1hcy6j1i0vj" path="res://Scenes/player.tscn" id="3_7op2d"]
 [ext_resource type="PackedScene" uid="uid://ti5pak1fauih" path="res://environmentmodelscenes/bigworktable.tscn" id="4_aqnjn"]
 [ext_resource type="PackedScene" uid="uid://mrbh1vscglx7" path="res://environmentmodelscenes/shelf.tscn" id="5_3hrei"]
@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://c8kapetowafxw" path="res://environmentmodelscenes/eggcarton.tscn" id="19_pnyl4"]
 [ext_resource type="PackedScene" uid="uid://b0p2q7144nn4s" path="res://environmentmodelscenes/cuttingboard.tscn" id="20_4x7s3"]
 [ext_resource type="PackedScene" uid="uid://pebcxe6mpbhm" path="res://environmentmodelscenes/crate.tscn" id="21_clu5q"]
-[ext_resource type="PackedScene" uid="uid://cf37ilrn8pexl" path="res://environmentmodelscenes/bowl.tscn" id="22_e6531"]
+[ext_resource type="PackedScene" uid="uid://cf37ilrn8pexl" path="res://Scenes/Grabbable Objects/bowl.tscn" id="22_e6531"]
 [ext_resource type="PackedScene" uid="uid://5l0uutfybxou" path="res://environmentmodelscenes/pan.tscn" id="23_jfdu7"]
 [ext_resource type="PackedScene" uid="uid://dtljkiukx76jj" path="res://environmentmodelscenes/toaster.tscn" id="24_2heut"]
 [ext_resource type="PackedScene" uid="uid://dmh7nnfrnbb7v" path="res://environmentmodelscenes/bread.tscn" id="25_mjxw4"]
