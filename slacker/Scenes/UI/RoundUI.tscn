@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://d22fn703npu4r"]
+[gd_scene format=3 uid="uid://bmennajguxbhb"]
 
 [ext_resource type="Script" uid="uid://cw0gg0ysw8vax" path="res://Scripts/round_timer.gd" id="1_e887x"]
 [ext_resource type="Texture2D" uid="uid://bv4s2xaw7vbhl" path="res://UI/open_sign_v1.png" id="2_qr5el"]

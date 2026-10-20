@@ -118,3 +118,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46514714, -0.45139253)
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1713669159]
 replication_config = SubResource("SceneReplicationConfig_3smsa")
+
+[node name="StartMenu" parent="." unique_id=1272701289 instance=ExtResource("8_8erm5")]

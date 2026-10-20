@@ -10,13 +10,16 @@ extends StaticBody3D
 
 var counter = 0
 
+@export var burger =  preload("res://Scenes/Grabbable Objects/burger_patty.tscn")
+
 func _ready() -> void:
 	interactableComponent.GetInteractSignal().connect(RetrieveItem)
 	interactableComponent.GetHoveredSignal().connect(highlight)
 	
 	highlightComponent.SetShader(model.material.next_pass)
-	
-	
+
+func spawnBurger() -> void:
+	var newBurger = burger.instantiate()
 
 func RetrieveItem(interactor: Player) -> void:
 	print("AHH")

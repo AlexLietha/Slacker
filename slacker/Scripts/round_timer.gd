@@ -16,10 +16,28 @@ extends Node
 @export var round_time = [120, 480] # these values are in seconds!!!
 
 var round_num = 0
+var game_started := false
 
 func _ready():
-	set_next_round()
+	timer.stop()
+	add_to_group("RoundTimer")
+	#if multiplayer.is_server():
+		#set_next_round()
+	#print("Timer node: ", get_path())
+	#print("Clock label: ", clock.get_path())
+	#print("Clock instance ID: ", clock.get_instance_id())
+
+func start_game() -> void:
+	if game_started:
+		print("Game already started")
+		return
 	
+	#if not multiplayer.is_server():
+		#return
+	game_started = true
+	set_next_round()
+	print("Timer: game started")
+
 func remaining_time():
 	var time_left = timer.time_left
 	var minute = floor(time_left / 60)
@@ -28,13 +46,20 @@ func remaining_time():
 
 #func set_round_name(name):
 	#round_title.text = name
-	
+
 func get_round_name():
 	return round_title.text
 	
 func set_next_round():
 	#set_round_name(round_name[round_num])
+	if not multiplayer.is_server():
+		print("timer failed")
+		return
+	
 	timer.start(round_time[round_num])
+	sync_round.rpc(round_num, round_time[round_num])
+	print("Timer not failed")
+	
 	print(round_num)
 	if round_num == 1:
 		OrderSpawner.StartSpawningOrder()
@@ -43,8 +68,24 @@ func set_next_round():
 	round_num += 1
 
 func _process(_delta):
+	if not game_started:
+		return
+	
 	clock.text = "%02d:%02d" % remaining_time()
-	if remaining_time() == [0.0, 00]:
+	#print("Clock text: ", clock.text)
+	
+	if multiplayer.is_server() and timer.time_left <= 0:
 		timer.stop()
 		#GameManager.assign_roles()
 		set_next_round()
+
+@rpc("authority", "call_local", "reliable")
+func sync_round(round_int: int, time_left: float) -> void:
+	game_started = true
+	round_num = round_int
+	timer.start(time_left)
+	print("Timer rpc called")
+	#print("Timer running: ", not timer.is_stopped())
+	#print("Timer remaining: ", timer.time_left)
+	#print("Clock node: ", clock)
+	#print("Clock visible: ", clock.is_visible_in_tree())
