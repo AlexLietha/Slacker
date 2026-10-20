@@ -1,7 +1,7 @@
 extends Node
 
 const PLAYER = preload("uid://w1hcy6j1i0vj")
-const TIMER = preload("uid://d22fn703npu4r")
+const TIMER = preload("uid://bmennajguxbhb")
 const WORLD = preload("uid://daoeojhdxrwf4")
 
 ## takes request_id : int and spawn_args : Disctionary

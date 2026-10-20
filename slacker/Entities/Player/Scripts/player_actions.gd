@@ -1,4 +1,4 @@
-extends Node
+extends Player
 
 @onready var vote_UI := $VotingBoard
 

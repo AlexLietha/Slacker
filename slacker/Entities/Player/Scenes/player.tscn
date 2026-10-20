@@ -8,6 +8,7 @@
 [ext_resource type="Gradient" uid="uid://by4yofdsthluw" path="res://Entities/Player/UI/Satisfaction/Assets/rating_bar_gradient.tres" id="6_owvpp"]
 [ext_resource type="PackedScene" uid="uid://cljq4kv0nq0h0" path="res://Entities/Player/UI/Voting/Scenes/voting_ui.tscn" id="7_xr8lj"]
 [ext_resource type="PackedScene" uid="uid://cufdiu0mtb5e7" path="res://Entities/Player/UI/Voting/Scenes/vote_notification.tscn" id="8_r8fok"]
+[ext_resource type="PackedScene" uid="uid://bmennajguxbhb" path="res://Entities/Player/UI/Round/Scenes/round_ui.tscn" id="9_l85m7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vgqql"]
 
@@ -120,3 +121,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46514714, -0.45139253)
 replication_config = SubResource("SceneReplicationConfig_3smsa")
 
 [node name="StartMenu" parent="." unique_id=1272701289 instance=ExtResource("8_r8fok")]
+
+[node name="RoundUI" parent="." unique_id=1773043747 instance=ExtResource("9_l85m7")]

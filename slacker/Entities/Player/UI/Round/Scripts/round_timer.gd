@@ -7,13 +7,12 @@ extends Node
 #		- xoxo pookie bear aidan
 
 @onready var clock = $"../Clock"
-@onready var round_title = $"../Round Title"
 @onready var timer = $"."
 @onready var prep_sign = $"../PrepSign"
 @onready var open_sign = $"../OpenSign"
 
 @export var round_name = ["Prep Time!", "Get to Work!"]
-@export var round_time = [1, 480] # these values are in seconds!!!
+@export var round_time = [120, 480] # these values are in seconds!!!
 
 var round_num = 0
 var game_started := false
@@ -22,7 +21,7 @@ func _ready():
 	timer.stop()
 	add_to_group("RoundTimer")
 	#if multiplayer.is_server():
-		#set_next_round()
+	set_next_round()
 	#print("Timer node: ", get_path())
 	#print("Clock label: ", clock.get_path())
 	#print("Clock instance ID: ", clock.get_instance_id())
@@ -44,14 +43,8 @@ func remaining_time():
 	var second = int(time_left) % 60
 	return [minute, second]
 
-#func set_round_name(name):
-	#round_title.text = name
-
-func get_round_name():
-	return round_title.text
 	
 func set_next_round():
-	#set_round_name(round_name[round_num])
 	if not multiplayer.is_server():
 		print("timer failed")
 		return
