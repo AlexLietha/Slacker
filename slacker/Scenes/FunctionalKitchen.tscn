@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://ddnsnlj6myhdd" path="res://Scenes/npc.tscn" id="25_esfd0"]
 [ext_resource type="PackedScene" uid="uid://c6wolbp1jdqht" path="res://Scenes/order_board.tscn" id="27_444lh"]
 [ext_resource type="PackedScene" uid="uid://w0g2043ktub6" path="res://Scenes/report_box.tscn" id="28_ygxli"]
-[ext_resource type="PackedScene" uid="uid://18oqbpl2tmol" path="res://Scenes/broom.tscn" id="29_wur46"]
+[ext_resource type="PackedScene" uid="uid://18oqbpl2tmol" path="res://Scenes/Grabbable Objects/broom.tscn" id="29_wur46"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vg308"]
 

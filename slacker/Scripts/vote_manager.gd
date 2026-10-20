@@ -10,12 +10,6 @@ var canVote:bool = true
 func _ready() -> void:
 	for icon in PlayerIcons:
 		icon.buttonPressed.connect(vote_for_player)
-	
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func Close_Button_Pressed() -> void:
 	closeUI.emit()

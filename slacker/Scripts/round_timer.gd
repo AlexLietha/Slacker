@@ -13,7 +13,7 @@ extends Node
 @onready var open_sign = $"../OpenSign"
 
 @export var round_name = ["Prep Time!", "Get to Work!"]
-@export var round_time = [120, 480] # these values are in seconds!!!
+@export var round_time = [1, 480] # these values are in seconds!!!
 
 var round_num = 0
 

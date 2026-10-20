@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b5b42wi08taoe"]
 
 [ext_resource type="PackedScene" uid="uid://d22fn703npu4r" path="res://Scenes/UI/RoundUI.tscn" id="1_femrs"]
-[ext_resource type="PackedScene" uid="uid://18oqbpl2tmol" path="res://Scenes/broom.tscn" id="2_hnbfu"]
+[ext_resource type="PackedScene" uid="uid://18oqbpl2tmol" path="res://Scenes/Grabbable Objects/broom.tscn" id="2_hnbfu"]
 
 [sub_resource type="Environment" id="Environment_7jh4o"]
 ambient_light_color = Color(1, 1, 1, 1)

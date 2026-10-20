@@ -1,7 +1,7 @@
 extends Node
 
-var timeTilNextOrder = 10.0
-var listOfEntres : Array[Entree] = [preload("res://Orders & Tasks/Orders/Burger.tres"), preload("res://Orders & Tasks/Orders/Eggs.tres")]
+@export var timeTilNextOrder = 10.0
+@export var listOfEntres : Array[Entree] = [preload("res://Orders & Tasks/Orders/Burger.tres"), preload("res://Orders & Tasks/Orders/Eggs.tres")]
 var canSpawnNextOrder = true
 signal NewOrder(order: Order)
 var rng = RandomNumberGenerator.new()
@@ -10,7 +10,6 @@ var rng = RandomNumberGenerator.new()
 func CreateOrder():
 	var newOrder = listOfEntres.pick_random()
 	NewOrder.emit(newOrder)
-	
 	OrderManager.start_order(newOrder)
 	pass
 
