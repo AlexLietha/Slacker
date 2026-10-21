@@ -22,6 +22,7 @@ var stuck_distance := 0.01
 
 @export var final_destination : Vector3
 var direction : Vector3
+
 func _ready() -> void:
 	last_position = global_transform.origin
 	

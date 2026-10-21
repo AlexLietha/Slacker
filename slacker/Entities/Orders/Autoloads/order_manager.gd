@@ -11,7 +11,8 @@ var orderInt := 0
 var debug_print_source = "[order_manager.gd] - "
 
 func _ready() -> void:
-	OrderSpawner.get_new_signal_order().connect(start_order)
+	pass
+	#OrderSpawner.get_new_signal_order().connect(start_order)
 	
 func start_order(order: Order) -> Order:
 	orderInt += 1
