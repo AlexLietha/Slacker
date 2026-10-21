@@ -19,7 +19,7 @@ func _ready() -> void:
 	highlightComponent.SetShader(model.material.next_pass)
 
 func spawnBurger() -> void:
-	var newBurger = burger.instantiate()
+	burger.instantiate()
 
 func RetrieveItem(interactor: Player) -> void:
 	print("AHH")

@@ -150,7 +150,8 @@ func on_timer_end() -> void:
 
 func remaining_time():
 	var time_left = int(ceil(timer.time_left))
-	var minute = time_left / 60
+	@warning_ignore("integer_division")
+	var minute = int(time_left / 60)
 	var second = time_left % 60
 	
 	return [minute, second]

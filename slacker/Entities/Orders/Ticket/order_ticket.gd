@@ -4,16 +4,12 @@ class_name OrderTicket
 @export var label3d: Label3D
 var order: Order
 
-# Called when the node enters the scene tree for the first time.
+var debug_print_source = "[order_ticket.gd] - "
+
 func _ready() -> void:
 	set_text("Hello World")
 	position = Vector3(1,10,1)
-	print(position)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+	print(debug_print_source, position)
 	
 func set_text(newText: String) -> void:
 	if label3d:
