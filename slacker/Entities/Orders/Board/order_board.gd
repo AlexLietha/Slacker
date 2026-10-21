@@ -5,36 +5,37 @@ class_name Order_Board
 var ticket_scene : PackedScene = preload("uid://dv3flcatigubx")
 var spawnSpot: int = 0
 
-# Called when the node enters the scene tree for the first time.
+var debug_print_source = "[order_board.gd] - "
+
 func _ready() -> void:
-	pass # Replace with function body.
-	OrderManager.StartedOrder.connect(_spawnTicket)
-	OrderManager.CompletedOrder.connect(_deleteTicket)
+	OrderManager.StartedOrder.connect(spawn_ticket)
+	OrderManager.CompletedOrder.connect(delete_ticket)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-func _spawnTicket(order: Order) -> void:
+func spawn_ticket(order: Order) -> void:
+	print(debug_print_source + "Making Ticket")
 	
-	print("Making Ticket")
+	if order.get_entree() == null:
+		print(debug_print_source + "Order has no entree assigned!")
+		return
+
 	var ticket = ticket_scene.instantiate()
 	add_child(ticket)
-	ticket.Move_Ticket(OrderSpots[spawnSpot%9].position)
+	ticket.move_ticket(OrderSpots[spawnSpot % 9].position)
 	spawnSpot += 1
-	ticket.Set_Owner(order)
-	ticket.Set_Text(order.GetEntree().GetName())
-	print(order.GetEntree().GetName()+" On ticket")
-	print("Ticket Made")
-	print(get_children())
+	
+	ticket.set_order(order)
+	ticket.set_text(order.get_entree().get_name())
+	
+	print(debug_print_source + "Ticket made")
+	print(debug_print_source + order.get_entree().get_name() + " on ticket")
 	#ticket.transform.origin = Vector3.ZERO
 	
-func _deleteTicket(order: Order)-> void:
-	print("start killing")
+func delete_ticket(order: Order)-> void:
+	print(debug_print_source + "Deleting ticket") #😭
 	for child in get_children():
-		if child is OrderTicket&&child.order == order:
+		if child is OrderTicket && child.order == order:
 			child.queue_free()
-			print("Delete complete!")
+			print(debug_print_source + "Delete complete!")
 		else:
 			continue
 			

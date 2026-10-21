@@ -20,6 +20,8 @@ class_name Player
 var use_phone : bool = false
 var name_generator = preload("uid://dleg4tpvbkn2q").new()
 
+var debug_print_source = "[player_movement.gd] - "
+
 # Multiplier stuff. Having this code uncommented when testing breaks the player
 #func _enter_tree() -> void:
 	#print("Player enter tree " + name)
@@ -39,12 +41,12 @@ func _ready() -> void:
 		return
 	
 	camera.current = true
-	print("Player Auth: " + str(get_multiplayer_authority()))
+	print(debug_print_source + "Player Auth: " + str(get_multiplayer_authority()))
 
 func set_player_name():
 	player_name = name_generator.pick_random_name()
 	player_overhead_name.text = player_name
-	print(player_name)
+	print(debug_print_source + player_name)
 	
 func get_player_name():
 	return player_name
@@ -111,7 +113,7 @@ func _input(event):
 		#GameManager.assign_roles()
 	
 	if Input.is_action_just_pressed("debugKey"):
-		print("debug key called")
+		print(debug_print_source + "debug key called")
 		vote_pop_up_ui.has_been_voted()
 
 	if Input.is_action_just_pressed("quit"):

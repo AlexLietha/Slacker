@@ -60,7 +60,6 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="Sign- CHANGE LATER" type="TextureRect" parent="." unique_id=1568850521]
-visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -76,7 +75,6 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="Backing - CHANGE THIS TOO" type="ColorRect" parent="." unique_id=1245765646]
-visible = false
 layout_mode = 0
 offset_left = 1052.9999
 offset_top = 130.0
@@ -86,7 +84,6 @@ scale = Vector2(1.4012083, 0.5487984)
 color = Color(0.9882353, 0.9019608, 0.77254903, 1)
 
 [node name="Clock" type="Label" parent="." unique_id=791024713]
-visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5

@@ -1,14 +1,14 @@
-extends Resource
+extends Order
 class_name Entree
 
 @export var ingredients : Array[String]
 
-#func GetQuality() -> float:
+#func get_quality() -> float:
 	#var qualityTotal = 0
 	#for ingredient in ingredients:
 		#qualityTotal += ingredient.GetQuality()
 	#
 	#return qualityTotal / ingredients.size()
 	#
-#func GetIngredients() -> Array[Ingredient]:
+#func get_ingredients() -> Array[Ingredient]:
 	#return ingredients

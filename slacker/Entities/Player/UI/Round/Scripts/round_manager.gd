@@ -22,7 +22,7 @@ enum RoundState {
 }
 
 # these values are in seconds!!!
-@export var prep_time: float = 120.0
+@export var prep_time: float = 5
 @export var open_time: float = 480.0
 @export var closed_time: float = 15.0
 
@@ -113,7 +113,7 @@ func enter_state(state: RoundState, duration: float) -> void:
 			# during the open phase, roles are assigned and orders should start spawning
 			if multiplayer.is_server():
 				GameManager.assign_roles()
-				OrderSpawner.StartSpawningOrder()
+				OrderSpawner.start_spawning_order()
 				
 			print(debug_print_source + "Open round started")
 			
@@ -131,7 +131,7 @@ func exit_state(state: RoundState) -> void:
 		RoundState.OPEN:
 			# at the end of the open phase, orders should stop spawning
 			if multiplayer.is_server():
-				OrderSpawner.StopSpawningOrder()
+				OrderSpawner.stop_spawning_order()
 			print(debug_print_source + "Open round ended")
 			
 func on_timer_end() -> void:

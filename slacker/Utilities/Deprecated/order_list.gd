@@ -4,15 +4,15 @@ class_name OrderList
 #signal makeTicket
 
 func _ready() -> void:
-	OrderManager.StartedOrder.connect(AddOrder)
-	OrderManager.CompletedOrder.connect(DeleteOrder)
+	OrderManager.StartedOrder.connect(add_order)
+	OrderManager.CompletedOrder.connect(delete_order)
 
-func AddOrder(order: Order) -> void:
+func add_order(order: Order) -> void:
 	var _label: String
 	var _board = Order_Board.new()
-	_label = "ORDER \n---------\n" + order.GetEntree().GetName() + "\n---------"
+	_label = "ORDER \n---------\n" + order.get_entree().get_name() + "\n---------"
 
-func UpdateOrder(order: Order) -> void:
+func update_order(order: Order) -> void:
 	print("Updating Order UI")
 	for child in get_children():
 		if child is not OrderElement:
@@ -22,7 +22,7 @@ func UpdateOrder(order: Order) -> void:
 			child.text = "ORDER \n------\n" + order.get_current_step().description + "------"
 	pass
 
-func DeleteOrder(order: Order) -> void:
+func delete_order(order: Order) -> void:
 	for child in get_children():
 		if child is not OrderElement:
 			return

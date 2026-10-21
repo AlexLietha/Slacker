@@ -1,25 +1,24 @@
 extends Resource
 class_name Order
 
-
 var orderID: int
 var entres: Entree
 var score: int = 0
 
-func SetEntree(entree : Entree) -> void:
+func set_entree(entree : Entree) -> void:
 	entres = entree
 	
-func GetEntree() -> Entree:
+func get_entree() -> Entree:
 	return entres
 	
-func SetOrderID(id : int) -> void:
+func set_order_ID(id : int) -> void:
 	orderID = id
 	
-func GetOrderID() -> int:
+func get_order_ID() -> int:
 	return orderID
 	
-func SetScore(_score :int) -> void:
+func set_score(_score :int) -> void:
 	score = _score
 	
-func GetScore() -> int:
+func get_score() -> int:
 	return score

@@ -6,7 +6,7 @@ var order: Order
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Set_Text("Press E To Start")
+	set_text("Hello World")
 	position = Vector3(1,10,1)
 	print(position)
 
@@ -15,11 +15,12 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 	
-func Set_Text(newText: String) -> void:
+func set_text(newText: String) -> void:
 	if label3d:
 		label3d.text = newText
 		
-func Set_Owner(orderName: Order) -> void:
+func set_order(orderName: Order) -> void:
 	order = orderName
-func Move_Ticket(pos: Vector3)-> void:
+	
+func move_ticket(pos: Vector3)-> void:
 	position = pos

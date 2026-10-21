@@ -1,6 +1,5 @@
 extends Node
 
-
 var activeOrders: Array[Order] = []
 var completedOrders: Array[Order] = []
 
@@ -10,29 +9,25 @@ signal CompletedOrder(order: Order)
 var orderInt := 0
 
 func _ready() -> void:
-	OrderSpawner.GetNewOrderSignal().connect(start_order)
+	OrderSpawner.get_new_signal_order().connect(start_order)
 	
 func start_order(order: Order) -> Order:
 	orderInt += 1
 	
-	order.SetOrderID(orderInt)
+	order.set_order_ID(orderInt)
 	activeOrders.append(order)
 	
 	StartedOrder.emit(order)
-
-
+	
 	return order
 
-
-
-
-func GetOrder(id: int) -> Order:
+func get_order(id: int) -> Order:
 	for order : Order in activeOrders:
 		if order.GetOrderID() == id:
 			return order
 	return null
 
-func GetActiveOrders() -> Array:
+func get_active_orders() -> Array:
 	return activeOrders
 
 #func FindClosestOrder(plate: Plate) -> Order:
@@ -40,8 +35,7 @@ func GetActiveOrders() -> Array:
 		#pass
 	#pass
 
-
-func CompleteOrder(plate : Plate) -> bool:
+func complete_order(plate : Plate) -> bool:
 	var plateEntree = plate.GetItem()
 	
 	for order : Order in activeOrders:
