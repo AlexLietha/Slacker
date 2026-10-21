@@ -20,6 +20,7 @@ class_name Player
 var use_phone : bool = false
 var name_generator = preload("uid://dleg4tpvbkn2q").new()
 
+# Multiplier stuff. Having this code uncommented when testing breaks the player
 #func _enter_tree() -> void:
 	#print("Player enter tree " + name)
 	#print("Authroity: " + str(get_multiplayer_authority()))

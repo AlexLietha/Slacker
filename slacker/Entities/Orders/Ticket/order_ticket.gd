@@ -9,7 +9,6 @@ func _ready() -> void:
 	Set_Text("Press E To Start")
 	position = Vector3(1,10,1)
 	print(position)
-	#OrderList.AddOrder()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
