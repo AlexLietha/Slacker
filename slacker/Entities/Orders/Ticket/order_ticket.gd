@@ -1,0 +1,26 @@
+extends Area3D
+class_name OrderTicket
+
+@export var label3d: Label3D
+var order: Order
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	set_text("Hello World")
+	position = Vector3(1,10,1)
+	print(position)
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	pass
+	
+func set_text(newText: String) -> void:
+	if label3d:
+		label3d.text = newText
+		
+func set_order(orderName: Order) -> void:
+	order = orderName
+	
+func move_ticket(pos: Vector3)-> void:
+	position = pos

@@ -1,0 +1,24 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cg0yhh58u0xgv"]
+
+[sub_resource type="Shader" id="Shader_3vkii"]
+code = "// https://godotshaders.com/shader/the-simplest-outline-shader-improved/
+shader_type spatial;
+render_mode cull_front, unshaded;
+
+uniform vec3 color : source_color = vec3(0,0,0);
+uniform float thickness : hint_range(0.0, 1.0, 0.001) = 0.05;
+
+void vertex() {
+	VERTEX += thickness*NORMAL;
+}
+
+void fragment() {
+	ALBEDO = color;
+}"
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_3vkii")
+shader_parameter/color = Color(0.9764706, 0, 0, 1)
+shader_parameter/thickness = 0.0050000002375

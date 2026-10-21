@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Entree" format=3 uid="uid://djbrti3q0enq"]
+
+[ext_resource type="Script" uid="uid://cxfkcjplx3xal" path="res://Entities/Orders/entrée.gd" id="1_s7mum"]
+
+[resource]
+resource_name = "Burger"
+script = ExtResource("1_s7mum")
+metadata/_custom_type_script = "uid://cxfkcjplx3xal"

@@ -1,0 +1,260 @@
+[gd_scene format=3 uid="uid://b5b42wi08taoe"]
+
+[ext_resource type="PackedScene" uid="uid://d22fn703npu4r" path="res://Entities/Player/UI/Round/Scenes/timer_ui.tscn" id="1_mx0li"]
+[ext_resource type="PackedScene" uid="uid://18oqbpl2tmol" path="res://Entities/Objects/Grabbable/Equipment/Broom/broom.tscn" id="2_vuwnu"]
+
+[sub_resource type="Environment" id="Environment_7jh4o"]
+ambient_light_color = Color(1, 1, 1, 1)
+
+[node name="Node3D" type="Node3D" unique_id=464850409]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=183577224]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6066332, 6.830401)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1984504968]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="TimerUI" parent="." unique_id=1227973388 instance=ExtResource("1_mx0li")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1246626760]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+use_collision = true
+size = Vector3(20, 0.2, 20)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1428211414]
+environment = SubResource("Environment_7jh4o")
+
+[node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=723669126]
+transform = Transform3D(1, 0, 0, 0, -0.4942699, 0.8693086, 0, -0.8693086, -0.4942699, 0, 4.6637616, -4.4582157)
+light_energy = 16.0
+area_range = 30.0
+area_size = Vector2(10, 10)
+
+[node name="broom" parent="." unique_id=844689755 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="broom58" parent="." unique_id=1865355194 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.25, 0, 0)
+
+[node name="broom59" parent="." unique_id=1055561322 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.25, 0, 0)
+
+[node name="broom60" parent="." unique_id=2077711803 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.25, 0, 0)
+
+[node name="broom61" parent="." unique_id=1325357047 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.25, 0, 0)
+
+[node name="broom62" parent="." unique_id=241526491 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.25, 0, 0)
+
+[node name="broom63" parent="." unique_id=151842258 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.25, 0, 0)
+
+[node name="broom64" parent="." unique_id=1263120949 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.25, 0, 0)
+
+[node name="broom65" parent="." unique_id=965361718 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.25, 0, 0)
+
+[node name="broom66" parent="." unique_id=6417580 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.25, 0, 0)
+
+[node name="broom67" parent="." unique_id=2011320619 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.75, 0, 0)
+
+[node name="broom68" parent="." unique_id=1905649045 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.75, 0, 0)
+
+[node name="broom69" parent="." unique_id=1174069758 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.75, 0, 0)
+
+[node name="broom70" parent="." unique_id=6554786 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.75, 0, 0)
+
+[node name="broom71" parent="." unique_id=718872951 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.75, 0, 0)
+
+[node name="broom72" parent="." unique_id=476921385 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.75, 0, 0)
+
+[node name="broom73" parent="." unique_id=121304830 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.75, 0, 0)
+
+[node name="broom74" parent="." unique_id=1604513463 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.75, 0, 0)
+
+[node name="broom75" parent="." unique_id=617581898 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.75, 0, 0)
+
+[node name="broom76" parent="." unique_id=472009181 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.3370722e-08, -0.12460427, 0.9922065, -5.4466254e-09, 0.9922065, 0.12460427, -1, 3.20906e-16, -4.3711392e-08, 9.782478, 3.2158208, 0)
+
+[node name="broom39" parent="." unique_id=1545536415 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.25, 0, 0)
+
+[node name="broom49" parent="." unique_id=623259924 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.75, 0, 0)
+
+[node name="broom50" parent="." unique_id=1448332813 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.75, 0, 0)
+
+[node name="broom51" parent="." unique_id=949257738 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.75, 0, 0)
+
+[node name="broom52" parent="." unique_id=165569879 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.75, 0, 0)
+
+[node name="broom53" parent="." unique_id=1724627903 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.75, 0, 0)
+
+[node name="broom54" parent="." unique_id=937832816 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.75, 0, 0)
+
+[node name="broom55" parent="." unique_id=264404962 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.75, 0, 0)
+
+[node name="broom56" parent="." unique_id=1473922685 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.75, 0, 0)
+
+[node name="broom57" parent="." unique_id=1724464292 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.75, 0, 0)
+
+[node name="broom40" parent="." unique_id=2024214297 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.25, 0, 0)
+
+[node name="broom41" parent="." unique_id=1940130669 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.25, 0, 0)
+
+[node name="broom42" parent="." unique_id=964647542 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.25, 0, 0)
+
+[node name="broom43" parent="." unique_id=1911846 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.25, 0, 0)
+
+[node name="broom44" parent="." unique_id=1547995466 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.25, 0, 0)
+
+[node name="broom45" parent="." unique_id=1663819865 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.25, 0, 0)
+
+[node name="broom46" parent="." unique_id=1017690806 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.25, 0, 0)
+
+[node name="broom47" parent="." unique_id=1601445436 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.25, 0, 0)
+
+[node name="broom48" parent="." unique_id=554846713 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.25, 0, 0)
+
+[node name="broom20" parent="." unique_id=261558493 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.5, 0, 0)
+
+[node name="broom21" parent="." unique_id=2066154397 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5, 0, 0)
+
+[node name="broom22" parent="." unique_id=411174518 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.5, 0, 0)
+
+[node name="broom23" parent="." unique_id=553802609 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.5, 0, 0)
+
+[node name="broom24" parent="." unique_id=728927636 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.5, 0, 0)
+
+[node name="broom25" parent="." unique_id=1562313162 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.5, 0, 0)
+
+[node name="broom26" parent="." unique_id=1642279018 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.5, 0, 0)
+
+[node name="broom27" parent="." unique_id=416110872 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.5, 0, 0)
+
+[node name="broom28" parent="." unique_id=1731833948 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.5, 0, 0)
+
+[node name="broom29" parent="." unique_id=1374767060 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.5, 0, 0)
+
+[node name="broom30" parent="." unique_id=1446494603 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.5, 0, 0)
+
+[node name="broom31" parent="." unique_id=1478496090 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.5, 0, 0)
+
+[node name="broom32" parent="." unique_id=2077658052 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.5, 0, 0)
+
+[node name="broom33" parent="." unique_id=1903631118 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.5, 0, 0)
+
+[node name="broom34" parent="." unique_id=176641926 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.5, 0, 0)
+
+[node name="broom35" parent="." unique_id=1122105488 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.5, 0, 0)
+
+[node name="broom36" parent="." unique_id=432285596 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.5, 0, 0)
+
+[node name="broom37" parent="." unique_id=1002315595 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.5, 0, 0)
+
+[node name="broom38" parent="." unique_id=1523081934 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.5, 0, 0)
+
+[node name="broom2" parent="." unique_id=777869126 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 0, 0)
+
+[node name="broom3" parent="." unique_id=834258199 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1, 0, 0)
+
+[node name="broom4" parent="." unique_id=2085692654 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0, 0)
+
+[node name="broom5" parent="." unique_id=1496754642 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3, 0, 0)
+
+[node name="broom6" parent="." unique_id=1225277444 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 0, 0)
+
+[node name="broom7" parent="." unique_id=340317207 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 0, 0)
+
+[node name="broom8" parent="." unique_id=1689126659 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6, 0, 0)
+
+[node name="broom9" parent="." unique_id=2074192378 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7, 0, 0)
+
+[node name="broom10" parent="." unique_id=1643239616 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8, 0, 0)
+
+[node name="broom11" parent="." unique_id=1542963892 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9, 0, 0)
+
+[node name="broom12" parent="." unique_id=1271479003 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2, 0, 0)
+
+[node name="broom13" parent="." unique_id=1751198335 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3, 0, 0)
+
+[node name="broom14" parent="." unique_id=756022446 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4, 0, 0)
+
+[node name="broom15" parent="." unique_id=1471957441 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, 0, 0)
+
+[node name="broom16" parent="." unique_id=1866612257 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6, 0, 0)
+
+[node name="broom17" parent="." unique_id=496964487 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7, 0, 0)
+
+[node name="broom18" parent="." unique_id=1773243801 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8, 0, 0)
+
+[node name="broom19" parent="." unique_id=1432055987 instance=ExtResource("2_vuwnu")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9, 0, 0)
