@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cufdiu0mtb5e7"]
 
-[ext_resource type="Script" uid="uid://rgy2xos60d8x" path="res://Entities/Player/UI/Voting/Scripts/vote_pop_up.gd" id="1_yppai"]
+[ext_resource type="Script" uid="uid://rgy2xos60d8x" path="res://Entities/Player/UI/Voting/Scripts/vote_notification.gd" id="1_yppai"]
 [ext_resource type="Texture2D" uid="uid://d0267cede3qju" path="res://Entities/Player/UI/Voting/Assets/greyed_x.png" id="2_gc6r7"]
 [ext_resource type="Texture2D" uid="uid://dnjyd8o3ullia" path="res://Entities/Player/UI/Voting/Assets/red_x.png" id="3_010hf"]
 [ext_resource type="Texture2D" uid="uid://dvgctae5j8d8j" path="res://Entities/Player/UI/Voting/Assets/1strike-_p1_v1.png" id="4_5gq0s"]
