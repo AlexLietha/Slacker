@@ -5,12 +5,12 @@ var score : float = 0
 var ordersCompleted : int = 0
 
 func _ready() -> void:
-	OrderManager.CompletedOrder.connect(UpdateScore)
+	OrderManager.CompletedOrder.connect(update_score)
 	
 	
-func UpdateScore(order : Order) -> void:
+func update_score(order : Order) -> void:
 		ordersCompleted += 1
-		score += order.GetScore()
+		score += order.get_score()
 		
-func GetScore() -> float:
+func get_score() -> float:
 	return score / ordersCompleted

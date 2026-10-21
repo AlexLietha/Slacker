@@ -10,7 +10,7 @@ extends StaticBody3D
 func _ready() -> void:
 	interactableComponent.GetInteractSignal().connect(ToggleVoteUI)
 	interactableComponent.GetHoveredSignal().connect(highlight)
-	highlightComponent.SetShader(model.material.next_pass)
+	highlightComponent.set_shader(model.material.next_pass)
 	
 	
 func ToggleVoteUI(interactor: Player) -> void:

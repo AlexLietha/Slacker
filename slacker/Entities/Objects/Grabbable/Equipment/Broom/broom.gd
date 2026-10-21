@@ -7,7 +7,7 @@ var original_collision_mask: int
 @onready var grabPoint : Marker3D = $GrabPoint
 
 func _ready() -> void:
-	interactableComponent.GetInteractSignal().connect(Grab)
+	interactableComponent.GetInteractSignal().connect(grab)
 	
 	original_collision_layer = collision_layer
 	original_collision_mask = collision_mask
@@ -15,9 +15,9 @@ func _ready() -> void:
 	# Highlighting temporarily disabled
 	# interactableComponent.GetHoveredSignal().connect(highlight)
 	
-func Grab(grabber: Player) -> void:
+func grab(grabber: Player) -> void:
 	print("time for witch craft")
-	super.Grab(grabber)
+	super.grab(grabber)
 	
 	if get_parent() != grabber.grabbedItem:
 		return
@@ -42,7 +42,7 @@ func sweep() -> void:
 	# play a sweeping animation, maybe even sweep away rats
 	pass
 	
-func cleanMess() -> void:
+func clean_mess() -> void:
 	# clean a spill or other dirty area
 	pass
 

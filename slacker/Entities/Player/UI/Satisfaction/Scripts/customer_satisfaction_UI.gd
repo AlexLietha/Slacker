@@ -13,11 +13,11 @@ var targetThreshold = 75
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
-	OrderManager.CompletedOrder.connect(Update)
-	Update(null)
+	OrderManager.CompletedOrder.connect(update)
+	update(null)
 	
-func Update(_order : Order) -> void:
-	var score = CustomerSatisfactionManager.GetScore()
+func update(_order : Order) -> void:
+	var score = CustomerSatisfactionManager.get_score()
 	var barSize = score * sizeScale
 	
 	create_tween().tween_property(

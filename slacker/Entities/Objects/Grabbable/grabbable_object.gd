@@ -12,22 +12,22 @@ var plate : Plate
 
 
 func _ready() -> void:
-	interactableComponent.GetInteractSignal().connect(Grab)
+	interactableComponent.GetInteractSignal().connect(grab)
 	interactableComponent.GetHoveredSignal().connect(highlightComponent.highlight)
 	
-	highlightComponent.SetShader(model.material.next_pass)
+	highlightComponent.set_shader(model.material.next_pass)
 
 
-func Grab(grabber : Player):
+func grab(grabber : Player):
 	print("1")
 	if not grabbableComponent.Grabbable:
 		return
 		
-	if grabber.HasGrabbedItem():
+	if grabber.has_grabbed_item():
 		
 		return
 	if plate:
-		plate.RemoveItem(self)
+		plate.remove_item(self)
 		plate = null
 	
 	
@@ -42,7 +42,7 @@ func Grab(grabber : Player):
 	#grabber.get_child(0).get_child(0).canInteract = false
 	set_collision_layer_value(2, false)
 
-func Place(newPosition: Node3D):
+func place(newPosition: Node3D):
 	self.reparent(newPosition)
 	self.position = Vector3(0, .01, 0)
 	self.freeze = true
@@ -57,15 +57,15 @@ func drop():
 	
 
 	
-func GetName() -> String:
+func _get_name() -> String:
 	return idComponent.GetID()
 	
-func SetName(id: String) -> void:
+func _set_name(id: String) -> void:
 	idComponent.SetID(id)
 	
 #func AddItem(item: GrabbableObject) -> void:
 	#item.Place(stackPos)
 	
-func GetHeight() -> float:
+func get_height() -> float:
 	return model.height
 	
