@@ -17,6 +17,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_pressed() -> void:
+	print("Vote Button Pressed")
 	#var id = get_instance_id()
 	print("emit")
 	buttonPressed.emit(counter,Xs,self)

@@ -20,7 +20,6 @@ class_name Player
 var use_phone : bool = false
 var name_generator = preload("uid://dleg4tpvbkn2q").new()
 
-
 func _ready() -> void:
 	add_to_group("players")
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -120,6 +119,7 @@ func getGrabbedItem() -> GrabbableObject:
 	if not HasGrabbedItem():
 		return null
 	return grabbedItem.get_child(0)
+	
 
 func HasGrabbedItem() -> bool:
 	return grabbedItem.get_child_count() == 1

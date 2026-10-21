@@ -285,4 +285,9 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.5
 transform = Transform3D(-1.8750002, 0, -3.2475953, 0, 3.75, 0, 3.2475953, 0, -1.8750002, 9.976641, 0.004679501, 5.9490075)
 
 [node name="Player" parent="." unique_id=1090027167 instance=ExtResource("2_kgise")]
-transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0, 3.0491982)
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0.9030361, 0, 3.0491982)
+
+[node name="Player2" parent="." unique_id=1386781301 instance=ExtResource("2_kgise")]
+
+[node name="Player3" parent="." unique_id=1098040750 instance=ExtResource("2_kgise")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, -4.5449986, 0, 5.3140855)

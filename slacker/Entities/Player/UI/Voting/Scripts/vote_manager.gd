@@ -21,8 +21,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func Close_Button_Pressed() -> void:
-	closeUI.emit()
 	
 func vote_for_player(counter: int,X: Array[TextureRect],VoteSlot: PlayerIcon)-> void:
 	print("Voting")
@@ -55,3 +53,7 @@ func setup_nameplates(your_name:String) -> void:
 		for i in range(0,new_array.size()):
 			if(i<=4):
 				PlayerIcons[i+1].setPlayerNametag(new_array[i])
+	
+func close_button_pressed() -> void:
+	print("Button pressed")
+	closeUI.emit()

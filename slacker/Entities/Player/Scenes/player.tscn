@@ -111,7 +111,10 @@ gradient = ExtResource("6_owvpp")
 barSprite = NodePath("../EmptyBarV1")
 metadata/_edit_use_anchors_ = true
 
-[node name="VotingBoard" parent="." unique_id=1031466018 instance=ExtResource("7_xr8lj")]
+[node name="RoundUI" parent="." unique_id=1773043747 instance=ExtResource("9_l85m7")]
+
+[node name="VotingBoard" parent="." unique_id=1031466018 node_paths=PackedStringArray("player") instance=ExtResource("7_xr8lj")]
+player = NodePath("..")
 
 [node name="VotePopUp" parent="." unique_id=1746701483 instance=ExtResource("8_r8fok")]
 
@@ -122,5 +125,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46514714, -0.45139253)
 replication_config = SubResource("SceneReplicationConfig_3smsa")
 
 [node name="StartMenu" parent="." unique_id=1272701289 instance=ExtResource("8_r8fok")]
-
-[node name="RoundUI" parent="." unique_id=1773043747 instance=ExtResource("9_l85m7")]

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cljq4kv0nq0h0"]
 
-[ext_resource type="Texture2D" uid="uid://cn3emvwfnr4s3" path="res://UI/timer_v1.png" id="1_rccwp"]
-[ext_resource type="Texture2D" uid="uid://dnjyd8o3ullia" path="res://UI/red_x.png" id="3_7rrvv"]
-[ext_resource type="PackedScene" uid="uid://k4fnwb75lfgu" path="res://UI/PlayerVoteIcon.tscn" id="5_7rrvv"]
-[ext_resource type="Script" uid="uid://byl8cqdg3squ3" path="res://Scripts/vote_manager.gd" id="6_b5i3x"]
+[ext_resource type="Texture2D" uid="uid://cn3emvwfnr4s3" path="res://Entities/Player/UI/Round/Assets/timer_v1.png" id="1_rccwp"]
+[ext_resource type="Texture2D" uid="uid://dnjyd8o3ullia" path="res://Entities/Player/UI/Voting/Assets/red_x.png" id="3_7rrvv"]
+[ext_resource type="PackedScene" uid="uid://k4fnwb75lfgu" path="res://Entities/Player/UI/Voting/Scenes/player_vote_icon.tscn" id="5_7rrvv"]
+[ext_resource type="Script" uid="uid://byl8cqdg3squ3" path="res://Entities/Player/UI/Voting/Scripts/vote_manager.gd" id="6_b5i3x"]
 
 [node name="VoteUIControl" type="Control" unique_id=1031466018 node_paths=PackedStringArray("PlayerIcons")]
 top_level = true
@@ -33,10 +33,10 @@ texture = ExtResource("1_rccwp")
 
 [node name="CloseButton" type="TextureButton" parent="." unique_id=342339927]
 layout_mode = 0
-offset_left = 891.0
-offset_top = 99.0
-offset_right = 966.0
-offset_bottom = 174.0
+offset_left = 225.0
+offset_top = 82.0
+offset_right = 300.0
+offset_bottom = 157.0
 texture_normal = ExtResource("3_7rrvv")
 ignore_texture_size = true
 stretch_mode = 4
@@ -79,4 +79,4 @@ offset_bottom = 454.5
 
 [node name="Timer" type="Timer" parent="." unique_id=139454590]
 
-[connection signal="pressed" from="CloseButton" to="." method="Close_Button_Pressed"]
+[connection signal="pressed" from="CloseButton" to="." method="close_button_pressed"]
