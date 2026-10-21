@@ -19,10 +19,7 @@ class_name Player
 
 var use_phone : bool = false
 var name_generator = preload("uid://dleg4tpvbkn2q").new()
-var player_names:Array[String]
-var counter = 0
 
-signal addPlayer(player_name:String)
 
 func _ready() -> void:
 	add_to_group("players")
@@ -30,16 +27,16 @@ func _ready() -> void:
 	vote_ui.visible = false
 	vote_ui.closeUI.connect(hide_vote_ui)
 	vote_ui.killPlayer.connect(kill_player)
-	addPlayer.connect(add_player)
-	for i in range(0,5):
-		player_names.push_back("No player selected")
 	
 func set_player_name():
 	player_name = name_generator.pick_random_name()
 	player_overhead_name.text = player_name
 	print(player_name)
-	addPlayer.emit(player_name)
-		
+	await get_tree().process_frame
+	vote_ui.setup_nameplates(player_name)
+
+func get_player_name()->String:
+	return player_name	
 	
 func set_player_role():
 	if role == "Cook":
@@ -138,10 +135,6 @@ func hide_vote_ui() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	await get_tree().process_frame
 	
-func add_player(name:String)->void:
-	player_names[counter] = name
-	vote_ui.setup_nameplates(player_names)
-	counter = counter + 1
 	
 func kill_player()->void:
 	#self.queue_free()

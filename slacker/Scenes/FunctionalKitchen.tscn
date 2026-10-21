@@ -290,6 +290,9 @@ transform = Transform3D(1.7422566, 0, -3.0355463, 0, 3.5, 0, 3.0355463, 0, 1.742
 
 [node name="Player2" parent="." unique_id=605145781 instance=ExtResource("2_kgise")]
 
+[node name="Player3" parent="." unique_id=1403683036 instance=ExtResource("2_kgise")]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 2.6378002, 0, 2.1927128)
+
 [node name="broom" parent="." unique_id=844689755 instance=ExtResource("29_wur46")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.5374775, 0, 1)
 

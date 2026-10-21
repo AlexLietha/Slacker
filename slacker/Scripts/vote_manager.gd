@@ -5,6 +5,8 @@ signal closeUI
 signal killPlayer
 @onready var timer = $Timer
 @export var PlayerIcons: Array[PlayerIcon]
+@export var player:Player
+var player_names : Array[String]
 
 var canVote:bool = true
 
@@ -41,7 +43,15 @@ func cool_down() -> void:
 	await get_tree().create_timer(1).timeout
 	canVote = true
 	
-func setup_nameplates(Name:Array[String]) -> void:
-	for i in range(0,PlayerIcons.size()):
-		print("Player: ",i, " Named: ",Name[i])
-		PlayerIcons[i].setPlayerNametag(Name[i])
+func setup_nameplates(your_name:String) -> void:
+	for p in get_tree().get_nodes_in_group("players"):
+			player_names.push_back(p.get_player_name())
+	var new_array:Array[String]
+	for i in range(0,player_names.size()):
+		if player_names[i]!=your_name:
+			new_array.push_back(player_names[i])
+	PlayerIcons[0].setPlayerNametag(your_name)
+	if(new_array.size()!=0):
+		for i in range(0,new_array.size()):
+			if(i<=4):
+				PlayerIcons[i+1].setPlayerNametag(new_array[i])

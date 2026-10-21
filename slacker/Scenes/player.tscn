@@ -109,7 +109,8 @@ gradient = ExtResource("6_3smsa")
 barSprite = NodePath("../EmptyBarV1")
 metadata/_edit_use_anchors_ = true
 
-[node name="VotingBoard" parent="." unique_id=1031466018 instance=ExtResource("5_fkybt")]
+[node name="VotingBoard" parent="." unique_id=1031466018 node_paths=PackedStringArray("player") instance=ExtResource("5_fkybt")]
+player = NodePath("..")
 
 [node name="VotePopUp" parent="." unique_id=1746701483 instance=ExtResource("8_8erm5")]
 
