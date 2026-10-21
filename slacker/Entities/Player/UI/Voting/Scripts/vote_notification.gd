@@ -4,6 +4,7 @@ class_name VotePopUpUI
 
 var current_tween: Tween
 var vote = 0
+var play_ani = true
 @onready var strike_icons_off = [$Strike1Off, $Strike2Off, $Strike3Off]
 @onready var strike_icons_on = [$Strike1On, $Strike2On, $Strike3On]
 
