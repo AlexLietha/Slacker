@@ -1,6 +1,6 @@
 extends ColorRect
 
-@export var sizeScale = 2.56
+var size_scale = 2.65
 @export var gradient: Gradient
 
 var happyBar = preload("uid://cjg13nwx8uky3")
@@ -12,13 +12,13 @@ var targetThreshold = 75
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	size_scale = size.x/100
+	OrderManager.CompletedOrder.connect(update)
+	update(null)
 	
-	OrderManager.CompletedOrder.connect(Update)
-	Update(null)
-	
-func Update(_order : Order) -> void:
-	var score = CustomerSatisfactionManager.GetScore()
-	var barSize = score * sizeScale
+func update(_order : Order) -> void:
+	var score = CustomerSatisfactionManager.get_score()
+	var barSize = score * size_scale
 	
 	create_tween().tween_property(
 		self,

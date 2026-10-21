@@ -5,8 +5,8 @@ class_name IDComponent
 @export var ID : String
 
 
-func GetID() -> String:
+func get_id() -> String:
 	return ID
 	
-func SetID(id: String):
+func set_id(id: String):
 	ID = id

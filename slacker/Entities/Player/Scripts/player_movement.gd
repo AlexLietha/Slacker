@@ -129,8 +129,8 @@ func _input(event):
 		get_tree().quit()
 		
 	if Input.is_action_just_pressed("drop"):
-		if HasGrabbedItem():
-			getGrabbedItem().drop()
+		if has_grabbed_item():
+			get_grabbed_item().drop()
 		pass
 		
 	if(Input.is_action_just_pressed("usePhone") && !use_phone):
@@ -143,12 +143,12 @@ func _input(event):
 		use_phone = false
 
 
-func getGrabbedItem() -> GrabbableObject:
-	if not HasGrabbedItem():
+func get_grabbed_item() -> GrabbableObject:
+	if not has_grabbed_item():
 		return null
 	return grabbedItem.get_child(0)
 
-func HasGrabbedItem() -> bool:
+func has_grabbed_item() -> bool:
 	return grabbedItem.get_child_count() == 1
 
 func show_vote_ui() -> void:

@@ -37,7 +37,7 @@ navigation_mesh = SubResource("NavigationMesh_6ikeu")
 [node name="Kitchen" parent="NavigationRegion3D" unique_id=615167998 instance=ExtResource("1_k1ucv")]
 
 [node name="Rats" parent="." unique_id=1663465543 instance=ExtResource("2_k1ucv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.055279, 0.17484593, 2.4133582)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.838586, 0.17484641, 7.7224503)
 num_of_rats = 5
 
 [node name="broom" parent="." unique_id=844689755 instance=ExtResource("3_xuyd7")]

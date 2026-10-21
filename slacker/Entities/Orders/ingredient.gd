@@ -9,16 +9,16 @@ var cooked : bool = false
 
 var cooking = false
 
-func GetQuality() -> float:
+func get_quality() -> float:
 	return quality
 	
-func GetName() -> String:
+func _get_name() -> String:
 	return ingredientName
 	
-func SetName(_name : String) -> void:
+func _set_name(_name : String) -> void:
 	ingredientName = _name
 
-func Grab(grabber : Player):
+func grab(grabber : Player):
 	super(grabber)
 	
 	cooking = false
