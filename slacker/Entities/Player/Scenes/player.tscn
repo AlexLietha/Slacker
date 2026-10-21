@@ -91,19 +91,21 @@ offset_right = 40.0
 offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
-[node name="EmptyBarV1" type="Sprite2D" parent="UI" unique_id=1853725782]
-position = Vector2(980.2, 60.800003)
+[node name="CSR" type="Node" parent="UI" unique_id=783876940]
+
+[node name="EmptyBarV1" type="Sprite2D" parent="UI/CSR" unique_id=1853725782]
+position = Vector2(981.99994, 61)
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("4_ap3xn")
 
-[node name="ColorRect" type="ColorRect" parent="UI" unique_id=1595570702 node_paths=PackedStringArray("barSprite")]
+[node name="ColorRect" type="ColorRect" parent="UI/CSR" unique_id=1595570702 node_paths=PackedStringArray("barSprite")]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -223.79999
-offset_top = 41.299995
-offset_right = 32.19995
-offset_bottom = 96.299995
+offset_left = -227.0
+offset_top = 41.0
+offset_right = 38.0
+offset_bottom = 97.0
 grow_horizontal = 0
 scale = Vector2(0.7866877, 0.80439)
 script = ExtResource("5_iplt1")

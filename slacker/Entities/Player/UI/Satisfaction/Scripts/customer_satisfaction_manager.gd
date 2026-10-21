@@ -1,8 +1,8 @@
 extends Node
 class_name SatisfactionManager
 
-var score : float = 0
-var ordersCompleted : int = 0
+var score : float = 75
+var ordersCompleted : int = 1
 
 func _ready() -> void:
 	OrderManager.CompletedOrder.connect(update_score)
