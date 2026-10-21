@@ -51,7 +51,6 @@ simplify_path = true
 avoidance_enabled = true
 radius = 0.3
 max_neighbors = 20
-debug_enabled = true
 debug_path_custom_color = Color(0, 1, 1, 1)
 
 [node name="Model" type="Node3D" parent="." unique_id=1911062531]

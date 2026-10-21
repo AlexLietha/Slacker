@@ -62,7 +62,7 @@ material_override = SubResource("StandardMaterial3D_oyfun")
 size = Vector3(0.13336182, 1, 1)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=398645829]
-transform = Transform3D(22.487871, 0, 0, 0, -19.546534, 0, 0, 0, 0.38976204, -0.008169174, 9.449742, 9.150246)
+transform = Transform3D(26.41022, 0, 0, 0, -19.546534, 0, 0, 0, 0.38976204, -0.008169174, 9.449742, 9.150246)
 material_override = SubResource("StandardMaterial3D_oyfun")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1549514658]
@@ -70,14 +70,14 @@ transform = Transform3D(0.3042264, 0, 0, 0, -19.508104, 0, 0, 0, 36.692284, -8.7
 material_override = SubResource("StandardMaterial3D_oyfun")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="." unique_id=345726063]
-transform = Transform3D(0.3042264, 0, 0, 0, -19.508104, 0, 0, 0, 15.130837, 14.030904, 5.468215, -2.2414904)
+transform = Transform3D(0.3042264, 0, 0, 0, -19.508104, 0, 0, 0, 19.268473, 14.030904, 5.468215, -2.2414904)
 material_override = SubResource("StandardMaterial3D_oyfun")
 size = Vector3(1, 1, 0.96969604)
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="." unique_id=424153448]
-transform = Transform3D(0.3042264, 0, 0, 0, -19.508104, 0, 0, 0, 15.130837, 11.172677, 5.468215, 10.646309)
+transform = Transform3D(-0.3042264, 0, 0, 0, -19.508104, 0, 0, 0, -15.130837, 11.736012, 5.468215, 9.554485)
 material_override = SubResource("StandardMaterial3D_oyfun")
-size = Vector3(1, 1, 0.31488037)
+size = Vector3(1, 1, 0.459198)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="." unique_id=1177064806]
 transform = Transform3D(0.3042264, 0, 0, 0, -32.066006, 0, 0, 0, 15.130837, 2.7009134, 5.468215, -16.99259)
