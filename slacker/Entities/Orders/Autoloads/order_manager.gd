@@ -9,7 +9,8 @@ signal CompletedOrder(order: Order)
 var orderInt := 0
 
 func _ready() -> void:
-	OrderSpawner.get_new_signal_order().connect(start_order)
+	pass
+	#OrderSpawner.get_new_signal_order().connect(start_order)
 	
 func start_order(order: Order) -> Order:
 	orderInt += 1
@@ -36,12 +37,12 @@ func get_active_orders() -> Array:
 	#pass
 
 func complete_order(plate : Plate) -> bool:
-	var plateEntree = plate.GetItem()
+	var plateEntree = plate.get_item()
 	
 	for order : Order in activeOrders:
-		if order.GetEntree().GetName() == plateEntree.GetName():
+		if order.get_entree().get_name() == plateEntree._get_name():
 			if plateEntree.cooked:
-				order.SetScore(100)
+				order.set_score(100)
 			print("Completed Order")
 			CompletedOrder.emit(order)
 			

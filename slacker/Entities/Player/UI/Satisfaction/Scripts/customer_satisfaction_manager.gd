@@ -10,7 +10,9 @@ func _ready() -> void:
 	
 func UpdateScore(order : Order) -> void:
 		ordersCompleted += 1
-		score += order.GetScore()
+		score += order.get_score()
 		
 func GetScore() -> float:
-	return score / ordersCompleted
+	if ordersCompleted != 0: # divide by 0 error
+		return score / ordersCompleted
+	return 75 # yeah. probably change this later

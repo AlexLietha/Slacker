@@ -3,7 +3,7 @@ class_name HighlightComponent
 
 var shader : ShaderMaterial
 
-func SetShader(newShader : ShaderMaterial):
+func set_shader(newShader : ShaderMaterial):
 	shader = newShader
 
 func highlight(_interactor, hovered: bool) -> void:

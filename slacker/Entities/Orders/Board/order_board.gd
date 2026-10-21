@@ -15,7 +15,7 @@ func spawn_ticket(order: Order) -> void:
 	print(debug_print_source + "Making Ticket")
 	
 	if order.get_entree() == null:
-		print(debug_print_source + "Order has no entree assigned!")
+		printerr(debug_print_source + "Order has no entree assigned!")
 		return
 
 	var ticket = ticket_scene.instantiate()

@@ -16,15 +16,15 @@ func _ready() -> void:
 	interactableComponent.GetInteractSignal().connect(RetrieveItem)
 	interactableComponent.GetHoveredSignal().connect(highlight)
 	
-	highlightComponent.SetShader(model.material.next_pass)
+	highlightComponent.set_shader(model.material.next_pass)
 
 func spawnBurger() -> void:
-	var newBurger = burger.instantiate()
+	burger.instantiate()
 
 func RetrieveItem(interactor: Player) -> void:
 	print("AHH")
 	
-	if interactor.HasGrabbedItem():
+	if interactor.has_grabbed_item():
 		return
 		
 	print("BAHH")
@@ -32,7 +32,7 @@ func RetrieveItem(interactor: Player) -> void:
 	var newItem = item[counter%item.size()].instantiate()
 	counter = counter + 1
 	add_child(newItem)
-	newItem.Grab(interactor)
+	newItem.grab(interactor)
 	pass
 
 func highlight(interactor: Player, highlighted: bool):
