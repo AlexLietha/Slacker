@@ -13,4 +13,6 @@ func UpdateScore(order : Order) -> void:
 		score += order.GetScore()
 		
 func GetScore() -> float:
-	return score / ordersCompleted
+	if ordersCompleted != 0: # divide by 0 error
+		return score / ordersCompleted
+	return 75 # yeah. probably change this later
