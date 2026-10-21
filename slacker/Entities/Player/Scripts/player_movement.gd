@@ -115,8 +115,17 @@ func _input(event):
 	if Input.is_action_just_pressed("debugKey"):
 		print(debug_print_source + "debug key called")
 		vote_pop_up_ui.has_been_voted()
+		
+	if Input.is_action_just_pressed("cursorToggle"):
+		print(debug_print_source + "CursorToggle")
+		
+		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 	if Input.is_action_just_pressed("quit"):
+		print(debug_print_source + "Ending process...")
 		get_tree().quit()
 		
 	if Input.is_action_just_pressed("drop"):
