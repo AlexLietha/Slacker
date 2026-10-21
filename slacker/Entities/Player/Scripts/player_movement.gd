@@ -131,6 +131,7 @@ func show_vote_ui() -> void:
 
 func hide_vote_ui() -> void:
 	vote_ui.visible = false
+	await get_tree().process_frame
 	use_phone = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	await get_tree().process_frame
