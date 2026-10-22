@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://doo31ko862sn5"]
+
+[ext_resource type="Script" uid="uid://31nwu3dwj4d2" path="res://Entities/Objects/Grabbable/Equipment/Plate/dirty_component.gd" id="1_c88cq"]
+
+[sub_resource type="Gradient" id="Gradient_p22dd"]
+offsets = PackedFloat32Array(0.18799987, 0.5279999)
+colors = PackedColorArray(0.35382038, 0.15653324, 0.07317493, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_efxv6"]
+noise_type = 2
+seed = 8
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dqxiu"]
+noise = SubResource("FastNoiseLite_efxv6")
+color_ramp = SubResource("Gradient_p22dd")
+
+[node name="DirtyComponent" type="Node3D" unique_id=820498805]
+script = ExtResource("1_c88cq")
+
+[node name="Dirt" type="Decal" parent="." unique_id=96552423]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.023878425, 0)
+layers = 16
+size = Vector3(0.75, 0.75, 0.75)
+texture_albedo = SubResource("NoiseTexture2D_dqxiu")
