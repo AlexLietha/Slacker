@@ -22,7 +22,6 @@ OrderSpawner="*uid://bw2xmgt2xt2a2"
 Lobby="uid://ds1bxgm00myy7"
 GameManager="*uid://7ajmsd2a5eiw"
 CustomerSatisfactionManager="*uid://dpeslsidvkfva"
-HighLevelNetworkHandler="*uid://2a3imjoiiv3b"
 Network="*uid://br1hls1w8kr6n"
 
 [display]
