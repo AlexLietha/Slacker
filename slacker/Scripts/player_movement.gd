@@ -27,7 +27,7 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	add_to_group("players")
-	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	vote_ui.visible = false
 	vote_ui.closeUI.connect(hide_vote_ui)
 	camera.current = is_multiplayer_authority()
