@@ -139,7 +139,7 @@ func on_join_pressed() -> void:
 	Steam.requestLobbyList()
 	
 	$".".hide()
-	$"../TimerUI".show()
+	#$"../TimerUI".show()
 	
 	#add_world()
 	#Network.join_server()
