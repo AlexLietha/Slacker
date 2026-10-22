@@ -10,13 +10,14 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("4_7sghj")
 shader_parameter/color = Color(0, 0, 0, 1)
-shader_parameter/thickness = 0.02000000095
+shader_parameter/thickness = 0.010000000475
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wfmva"]
 resource_local_to_scene = true
 next_pass = SubResource("ShaderMaterial_o46uo")
 
 [sub_resource type="TorusMesh" id="TorusMesh_6ikeu"]
+resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_wfmva")
 inner_radius = 0.3
 outer_radius = 0.23

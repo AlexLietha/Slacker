@@ -29,7 +29,7 @@ func _ready() -> void:
 	interactableComponent.GetInteractSignal().connect(interact)
 	interactableComponent.GetHoveredSignal().connect(highlight)
 	
-	highlightComponent.SetShader(model.mesh.material.next_pass)
+	highlightComponent.set_shader(model.mesh.material.next_pass)
 	
 	
 	
@@ -120,9 +120,9 @@ func _on_navigation_agent_3d_velocity_computed(safe_velocity: Vector3) -> void:
 	pass # Replace with function body.
 
 func interact(interactor: Player):
-	if !interactor.HasGrabbedItem():
+	if !interactor.has_grabbed_item():
 		return
-	if interactor.getGrabbedItem() is Broom:
+	if interactor.get_grabbed_item() is Broom:
 		print("rat swooped")
 		swoop()
 	
