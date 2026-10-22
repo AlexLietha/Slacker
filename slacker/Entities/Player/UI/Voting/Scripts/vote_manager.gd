@@ -5,6 +5,7 @@ signal closeUI
 signal killPlayer
 @onready var timer = $Timer
 @export var PlayerIcons: Array[PlayerIcon]
+@export var faces: Array[CompressedTexture2D]
 @export var player:Player
 var player_names : Array[String]
 
@@ -28,9 +29,12 @@ func vote_for_player(counter: int,X: Array[TextureRect],VoteSlot: PlayerIcon)-> 
 		print(counter)
 		#change this to something changable
 		if(counter <= 2):
+			if(counter == 0):
+				VoteSlot.texture_normal = faces[counter]
 			X[counter].visible = true
 			VoteSlot.CounterSetter(counter+1)
 			if(counter == 2):
+				VoteSlot.texture_normal = faces[counter-1]
 				killPlayer.emit()
 		cool_down()
 	else:

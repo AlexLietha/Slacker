@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://cljq4kv0nq0h0"]
 
 [ext_resource type="Texture2D" uid="uid://cn3emvwfnr4s3" path="res://Entities/Player/UI/Round/Assets/timer_v1.png" id="1_rccwp"]
+[ext_resource type="Texture2D" uid="uid://dvgctae5j8d8j" path="res://Entities/Player/UI/Voting/Assets/1strike-_p1_v1.png" id="2_lfm6w"]
 [ext_resource type="Texture2D" uid="uid://dnjyd8o3ullia" path="res://Entities/Player/UI/Voting/Assets/red_x.png" id="3_7rrvv"]
+[ext_resource type="Texture2D" uid="uid://b24oxntvegbb8" path="res://Entities/Player/UI/Voting/Assets/3strikes_p1_v1.png" id="3_pbg18"]
 [ext_resource type="PackedScene" uid="uid://k4fnwb75lfgu" path="res://Entities/Player/UI/Voting/Scenes/player_vote_icon.tscn" id="5_7rrvv"]
 [ext_resource type="Script" uid="uid://byl8cqdg3squ3" path="res://Entities/Player/UI/Voting/Scripts/vote_manager.gd" id="6_b5i3x"]
 
@@ -15,6 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_b5i3x")
 PlayerIcons = [NodePath("YourPlayerIcon"), NodePath("PlayerIcon2"), NodePath("PlayerIcon3"), NodePath("PlayerIcon4"), NodePath("PlayerIcon5")]
+faces = Array[CompressedTexture2D]([ExtResource("2_lfm6w"), ExtResource("3_pbg18")])
 
 [node name="background" type="TextureRect" parent="." unique_id=1780050751]
 layout_mode = 1
