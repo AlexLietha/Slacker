@@ -46,7 +46,7 @@ func _ready() -> void:
 func set_player_name():
 	player_name = name_generator.pick_random_name()
 	player_overhead_name.text = player_name
-	print(debug_print_source + player_name)
+	print(debug_print_source + "Player Name: " + player_name)
 	
 func get_player_name():
 	return player_name

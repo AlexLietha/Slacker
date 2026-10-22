@@ -17,7 +17,7 @@ func _ready() -> void:
 	update(null)
 	
 func update(_order : Order) -> void:
-	var score = CustomerSatisfactionManager.get_score()
+	var score = CustomerSatisfactionManager.GetScore()
 	var barSize = score * size_scale
 	
 	create_tween().tween_property(

@@ -9,6 +9,7 @@ var canSpawnNextOrder = true
 #signal NewOrder(order: Order)
 var rng = RandomNumberGenerator.new()
 
+var debug_print_source = "[order_spawner.gd] - "
 
 func create_order():
 	var selected_entree: Entree = listOfEntres.pick_random()
@@ -22,6 +23,7 @@ func create_order():
 	#return NewOrder
 	
 func spawn_orders():
+	print(debug_print_source + "Spawn order called")
 	await get_tree().create_timer(timeTilNextOrder).timeout
 	timeTilNextOrder = rng.randf_range(minOrderWaitTime, maxOrderWaitTime)
 	

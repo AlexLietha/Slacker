@@ -1,16 +1,18 @@
 extends Node
 class_name SatisfactionManager
 
-var score : float = 75
-var ordersCompleted : int = 1
+var score : float = 0
+var ordersCompleted : int = 0
 
 func _ready() -> void:
-	OrderManager.CompletedOrder.connect(update_score)
+	OrderManager.CompletedOrder.connect(UpdateScore)
 	
 	
-func update_score(order : Order) -> void:
+func UpdateScore(order : Order) -> void:
 		ordersCompleted += 1
 		score += order.get_score()
 		
-func get_score() -> float:
-	return score / ordersCompleted
+func GetScore() -> float:
+	if ordersCompleted != 0: # divide by 0 error
+		return score / ordersCompleted
+	return 75 # yeah. probably change this later
