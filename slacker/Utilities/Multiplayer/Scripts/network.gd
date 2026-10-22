@@ -1,8 +1,8 @@
 extends Node
 
-const PLAYER = preload("res://Scenes/player.tscn")
-const TIMER = preload("res://UI/TimerUI.tscn")
-const WORLD = preload("res://Scenes/FunctionalKitchen_multi.tscn")
+const PLAYER = preload("res://Entities/Player/Scenes/player.tscn")
+#const TIMER = preload("res://UI/TimerUI.tscn")
+const WORLD = preload("res://Utilities/Multiplayer/Scenes/FunctionalKitchen_multi.tscn")
 
 ## takes request_id : int and spawn_args : Disctionary
 var validate_spawn_callable : Callable

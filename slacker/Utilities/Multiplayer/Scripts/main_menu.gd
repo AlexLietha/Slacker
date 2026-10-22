@@ -3,8 +3,8 @@ extends CanvasLayer
 const STEAM_APP_ID: int = 480
 const MAX_PLAYERS: int = 6
 const JOIN_CODE_LENGTH: int = 4
-const WORLD = preload("res://Scenes/FunctionalKitchen_multi.tscn")
-const PLAYER = preload("res://Scenes/player.tscn")
+const WORLD = preload("res://Utilities/Multiplayer/Scenes/FunctionalKitchen_multi.tscn")
+const PLAYER = preload("res://Entities/Player/Scenes/player.tscn")
 
 @onready var button_create: Button = %ButtonCreate
 @onready var button_join: Button = %ButtonJoin
@@ -63,7 +63,7 @@ func on_create() -> void:
 	)
 	
 	$".".hide()
-	$"../TimerUI".show()
+	#$"../TimerUI".show()
 	if multiplayer.is_server():
 		$"../StartMenu".show()
 	

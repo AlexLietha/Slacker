@@ -10,4 +10,4 @@ func _ready() -> void:
 	button_start.visible = multiplayer.is_server()
 	button_start.pressed.connect(Network.start_game)
 	var _player = PLAYER.new()
-	button_slacker.pressed.connect(_player.updateMaterialColor)
+	#button_slacker.pressed.connect(_player.updateMaterialColor)
