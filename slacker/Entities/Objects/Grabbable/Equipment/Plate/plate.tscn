@@ -59,3 +59,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.031581223, 0)
 script = ExtResource("2_jppsr")
 
 [node name="DirtyComponent" parent="." index="7" unique_id=820498805 instance=ExtResource("4_65832")]
+is_dirty = true

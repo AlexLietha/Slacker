@@ -18,7 +18,7 @@ color_ramp = SubResource("Gradient_p22dd")
 script = ExtResource("1_c88cq")
 
 [node name="Dirt" type="Decal" parent="." unique_id=96552423]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.023878425, 0)
 layers = 16
-size = Vector3(0.75, 0.75, 0.75)
+size = Vector3(0.75, 0.25, 0.75)
 texture_albedo = SubResource("NoiseTexture2D_dqxiu")
+cull_mask = 1047568

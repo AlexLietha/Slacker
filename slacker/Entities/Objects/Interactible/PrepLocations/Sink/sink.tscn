@@ -4,154 +4,166 @@
 [ext_resource type="Material" uid="uid://rxkvg86q5xie" path="res://Assets/Materials/placeholder_water_blue.tres" id="2_cd3ge"]
 [ext_resource type="Material" uid="uid://b4lk6dw40se6f" path="res://Assets/Materials/base_white.tres" id="3_lfada"]
 [ext_resource type="Script" uid="uid://8hid0kygyi71" path="res://Entities/Objects/Interactible/interactible_component.gd" id="4_rpjjs"]
+[ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Utilities/Deprecated/ID_component.gd" id="5_cd3ge"]
+[ext_resource type="Script" uid="uid://cu05e16ym3rvo" path="res://Entities/Objects/Interactible/PrepLocations/Sink/sink_minigame.gd" id="6_lfada"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_dqxiu"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_tcuxl"]
 size = Vector3(3, 1.5, 1.5)
 
-[node name="Sink" type="StaticBody3D" unique_id=370843346 node_paths=PackedStringArray("interactableComponent", "plate_placement")]
+[node name="SinkTest" type="StaticBody3D" unique_id=190551831 node_paths=PackedStringArray("interactableComponent", "minigame")]
 collision_layer = 3
 script = ExtResource("1_r6nrb")
-interactableComponent = NodePath("InteractibleComponent")
-plate_placement = NodePath("PlatePlacement")
+interactableComponent = NodePath("InteractableComponent")
+minigame = NodePath("Minigame")
 
-[node name="Model" type="CSGCombiner3D" parent="." unique_id=1178393955]
+[node name="InteractableComponent" type="Node" parent="." unique_id=872500535]
+script = ExtResource("4_rpjjs")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Model" unique_id=2006611595]
+[node name="IDComponent" type="Node" parent="." unique_id=658960265]
+script = ExtResource("5_cd3ge")
+
+[node name="Colision" type="CollisionShape3D" parent="." unique_id=1485652563]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.75, 0)
+shape = SubResource("BoxShape3D_tcuxl")
+
+[node name="Model" type="CSGCombiner3D" parent="." unique_id=529717609]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Model" unique_id=1938020175]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 size = Vector3(3, 1.5, 1.5)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="Model" unique_id=1979166773]
+[node name="CSGBox3D4" type="CSGBox3D" parent="Model" unique_id=1900468322]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.312701, 0)
 operation = 2
 size = Vector3(2.75, 0.48062885, 1.25)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="Model" unique_id=555919283]
+[node name="CSGBox3D5" type="CSGBox3D" parent="Model" unique_id=1673023633]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1837547, 0)
 size = Vector3(2.75, 0.2227363, 1.25)
 material = ExtResource("2_cd3ge")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Model" unique_id=1384757903]
+[node name="CSGBox3D2" type="CSGBox3D" parent="Model" unique_id=207357335]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.103, 0)
 operation = 2
 size = Vector3(2.5, 0.25, 1.5)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="Model" unique_id=757972822]
+[node name="CSGBox3D3" type="CSGBox3D" parent="Model" unique_id=1682163225]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012430668, 0.103, 0)
 operation = 2
 size = Vector3(3.0249434, 0.25, 1)
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="Model" unique_id=1647554262]
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Model" unique_id=1427951192]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2487253, 1.3994933, 0.26752096)
 radius = 0.2
 material = ExtResource("3_lfada")
 
-[node name="CSGSphere3D2" type="CSGSphere3D" parent="Model" unique_id=1938874845]
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="Model" unique_id=957888190]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1466241, 1.3994933, 0.5339076)
 radius = 0.2
 material = ExtResource("3_lfada")
 
-[node name="CSGSphere3D3" type="CSGSphere3D" parent="Model" unique_id=1464714314]
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="Model" unique_id=2105552490]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7365517, 1.3994933, 0.44651127)
 radius = 0.2
 material = ExtResource("3_lfada")
 
-[node name="CSGSphere3D4" type="CSGSphere3D" parent="Model" unique_id=1675874112]
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="Model" unique_id=631665303]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9866735, 1.4970368, 0.40845704)
 radius = 0.2
 material = ExtResource("3_lfada")
 
-[node name="CSGSphere3D5" type="CSGSphere3D" parent="Model" unique_id=121692039]
+[node name="CSGSphere3D5" type="CSGSphere3D" parent="Model" unique_id=892014868]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1976104, 1.305168, -0.42903256)
 radius = 0.2
 material = ExtResource("3_lfada")
 
-[node name="CSGSphere3D6" type="CSGSphere3D" parent="Model" unique_id=1350455799]
+[node name="CSGSphere3D6" type="CSGSphere3D" parent="Model" unique_id=712569788]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.905028, 1.282859, -0.36882716)
 radius = 0.2
 material = ExtResource("3_lfada")
 
-[node name="CSGSphere3D7" type="CSGSphere3D" parent="Model" unique_id=767713789]
+[node name="CSGSphere3D7" type="CSGSphere3D" parent="Model" unique_id=335455867]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2302167, 1.4093482, -0.16316372)
 radius = 0.2
 material = ExtResource("3_lfada")
 
-[node name="CSGSphere3D8" type="CSGSphere3D" parent="Model" unique_id=1826442977]
+[node name="CSGSphere3D8" type="CSGSphere3D" parent="Model" unique_id=1914616258]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.71238303, 1.4093484, 0.5299204)
 radius = 0.2
 material = ExtResource("3_lfada")
 
-[node name="CSGSphere3D9" type="CSGSphere3D" parent="Model" unique_id=194542398]
+[node name="CSGSphere3D9" type="CSGSphere3D" parent="Model" unique_id=305847369]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.97069573, 1.4093484, 0.28231636)
 radius = 0.2
 material = ExtResource("3_lfada")
 
-[node name="CSGSphere3D10" type="CSGSphere3D" parent="Model" unique_id=1252836597]
+[node name="CSGSphere3D10" type="CSGSphere3D" parent="Model" unique_id=1175370696]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1898768, 1.5280805, 0.50478834)
 radius = 0.2
 material = ExtResource("3_lfada")
 
-[node name="CSGSphere3D11" type="CSGSphere3D" parent="Model" unique_id=1382358600]
+[node name="CSGSphere3D11" type="CSGSphere3D" parent="Model" unique_id=1139046212]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2136116, 1.4359901, 0.2379522)
 radius = 0.2
 material = ExtResource("3_lfada")
 
-[node name="CSGSphere3D12" type="CSGSphere3D" parent="Model" unique_id=2106378742]
+[node name="CSGSphere3D12" type="CSGSphere3D" parent="Model" unique_id=1360669662]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2756606, 1.3061006, -0.47253135)
 radius = 0.2
 material = ExtResource("3_lfada")
 
-[node name="CSGSphere3D13" type="CSGSphere3D" parent="Model" unique_id=1449036242]
+[node name="CSGSphere3D13" type="CSGSphere3D" parent="Model" unique_id=444047974]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3015594, 1.2220258, -0.24415585)
 radius = 0.2
 material = ExtResource("3_lfada")
 
-[node name="CSGSphere3D14" type="CSGSphere3D" parent="Model" unique_id=525166088]
+[node name="CSGSphere3D14" type="CSGSphere3D" parent="Model" unique_id=914775200]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8619772, 1.2220258, -0.47586128)
 radius = 0.2
 material = ExtResource("3_lfada")
 
-[node name="CSGSphere3D15" type="CSGSphere3D" parent="Model" unique_id=2049078930]
+[node name="CSGSphere3D15" type="CSGSphere3D" parent="Model" unique_id=1532663772]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44156015, 1.1749018, 0.4730014)
 radius = 0.2
 material = ExtResource("3_lfada")
 
-[node name="CSGSphere3D16" type="CSGSphere3D" parent="Model" unique_id=2118807159]
+[node name="CSGSphere3D16" type="CSGSphere3D" parent="Model" unique_id=634754975]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0691438, 1.1749018, 0.0002491176)
 radius = 0.2
 material = ExtResource("3_lfada")
 
-[node name="CSGSphere3D17" type="CSGSphere3D" parent="Model" unique_id=618300270]
+[node name="CSGSphere3D17" type="CSGSphere3D" parent="Model" unique_id=410719682]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.922457, 1.1749018, 0.18840715)
 radius = 0.2
 material = ExtResource("3_lfada")
 
-[node name="CSGSphere3D18" type="CSGSphere3D" parent="Model" unique_id=620888368]
+[node name="CSGSphere3D18" type="CSGSphere3D" parent="Model" unique_id=897462208]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4745741, 1.1749018, 0.46938834)
 radius = 0.2
 material = ExtResource("3_lfada")
 
-[node name="CSGSphere3D19" type="CSGSphere3D" parent="Model" unique_id=1104654828]
+[node name="CSGSphere3D19" type="CSGSphere3D" parent="Model" unique_id=216588225]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6351067, 1.1749018, -0.52869165)
 radius = 0.2
 material = ExtResource("3_lfada")
 
-[node name="CSGSphere3D20" type="CSGSphere3D" parent="Model" unique_id=811872160]
+[node name="CSGSphere3D20" type="CSGSphere3D" parent="Model" unique_id=277029765]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55973554, 1.1749018, -0.16252387)
 radius = 0.2
 material = ExtResource("3_lfada")
 
-[node name="CSGSphere3D21" type="CSGSphere3D" parent="Model" unique_id=330839405]
+[node name="CSGSphere3D21" type="CSGSphere3D" parent="Model" unique_id=1399558066]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4700346, 1.1416885, -0.093801886)
 radius = 0.2
 material = ExtResource("3_lfada")
 
-[node name="Collision" type="CollisionShape3D" parent="." unique_id=675544958]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
-shape = SubResource("BoxShape3D_dqxiu")
+[node name="Minigame" type="Node3D" parent="." unique_id=1943608109 node_paths=PackedStringArray("initial_placement", "finished_placement")]
+script = ExtResource("6_lfada")
+initial_placement = NodePath("InitialPlacement")
+finished_placement = NodePath("FinishedPlacement")
 
-[node name="InteractibleComponent" type="Node" parent="." unique_id=201953872]
-script = ExtResource("4_rpjjs")
-canHighlight = false
+[node name="InitialPlacement" type="Node3D" parent="Minigame" unique_id=1267036054]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 1.7173054, 0)
 
-[node name="PlatePlacement" type="Node3D" parent="." unique_id=394852693]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 1.5799797, 0)
+[node name="FinishedPlacement" type="Node3D" parent="Minigame" unique_id=1949914602]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 1.4986489, 1.5429835, 0)
