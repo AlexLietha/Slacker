@@ -24,8 +24,8 @@ var debug_print_source = "[player_movement.gd] - "
 
 # Multiplier stuff. Having this code uncommented when testing breaks the player
 #func _enter_tree() -> void:
-	#print("Player enter tree " + name)
-	#print("Authroity: " + str(get_multiplayer_authority()))
+	#print(debug_print_source + "Player enter tree " + name)
+	#print(debug_print_source + "Authroity: " + str(get_multiplayer_authority()))
 	#set_multiplayer_authority(name.to_int())
 
 func _ready() -> void:

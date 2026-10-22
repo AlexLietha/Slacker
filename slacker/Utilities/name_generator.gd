@@ -9,8 +9,11 @@ var professor_names = [
 	"Seth Blueberrier",		# Seth Berrier
 	"Scott Turnip",			# Scott Turner
 	"Andrew Grill-iams",	# Andrew Williams
-	"Kim", 					# Kim Loken
-	"Kaelie Tetzloaf" 		# Kaelie Tetzlaff
+	"Kimchi Loken", 		# Kim Loken
+	"Kaelie Tetzloaf", 		# Kaelie Tetzlaff
+	"Dave Beckfast",		# Dave Beck
+	"Karl Cookie",			# Karl Koehle 
+	"Cody Rye-Bread"		# Cody Reimer
 ]
 
 func _ready() -> void:
