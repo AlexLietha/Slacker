@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://be2lpldotxs4g"]
+
+[ext_resource type="Script" uid="uid://ddlch850wo3no" path="res://Entities/Objects/Grabbable/grabbable_object.gd" id="1_g5dvv"]
+[ext_resource type="Script" uid="uid://8hid0kygyi71" path="res://Entities/Objects/Interactible/interactible_component.gd" id="2_74iel"]
+[ext_resource type="Script" uid="uid://6fa7wffcrtgs" path="res://Entities/Objects/Grabbable/grabbable_component.gd" id="3_3vkii"]
+[ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Utilities/Deprecated/ID_component.gd" id="4_74iel"]
+[ext_resource type="Script" uid="uid://dakevjuf8svg" path="res://Entities/Objects/highlight_componet.gd" id="5_3vkii"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_3vkii"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("CSGCylinder3D:visible")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="grabbableObject" type="RigidBody3D" unique_id=844689755 node_paths=PackedStringArray("interactableComponent", "grabbableComponent", "highlightComponent", "idComponent")]
+collision_layer = 3
+script = ExtResource("1_g5dvv")
+interactableComponent = NodePath("InteractableComponent")
+grabbableComponent = NodePath("GrabbableComponent")
+highlightComponent = NodePath("HighlightComponent")
+idComponent = NodePath("IDComponent")
+
+[node name="InteractableComponent" type="Node" parent="." unique_id=56224242]
+script = ExtResource("2_74iel")
+
+[node name="GrabbableComponent" type="Node" parent="." unique_id=1603987229]
+script = ExtResource("3_3vkii")
+
+[node name="IDComponent" type="Node" parent="." unique_id=1670629019]
+script = ExtResource("4_74iel")
+ID = "null"
+
+[node name="HighlightComponent" type="Node" parent="." unique_id=698930704]
+script = ExtResource("5_3vkii")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=861874698]
+replication_config = SubResource("SceneReplicationConfig_3vkii")

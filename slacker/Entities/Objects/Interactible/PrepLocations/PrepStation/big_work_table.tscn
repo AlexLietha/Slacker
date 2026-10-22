@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://ti5pak1fauih"]
+
+[ext_resource type="PackedScene" uid="uid://bmrxgqa0a21nn" path="res://Entities/Objects/Interactible/PrepLocations/PrepStation/bigworktable_a.fbx" id="1_w6qym"]
+[ext_resource type="Material" uid="uid://7g1p7xighxpe" path="res://Assets/Materials/work_table_base_material.tres" id="2_fmo3q"]
+[ext_resource type="Material" uid="uid://b4lk6dw40se6f" path="res://Assets/Materials/base_white.tres" id="3_st02v"]
+
+[node name="bigworktable_a" unique_id=927063855 instance=ExtResource("1_w6qym")]
+
+[node name="worktable with drawers and shelf" parent="." index="0" unique_id=933087770]
+material_override = ExtResource("2_fmo3q")
+
+[node name="Cube_017" parent="worktable with drawers and shelf" index="0" unique_id=652411807]
+material_override = ExtResource("2_fmo3q")
+
+[node name="Cube_018" parent="worktable with drawers and shelf" index="1" unique_id=85443996]
+material_override = ExtResource("3_st02v")
+
+[node name="Cube_020" parent="worktable with drawers and shelf" index="2" unique_id=573829806]
+material_override = ExtResource("3_st02v")
+
+[node name="Cube_021" parent="worktable with drawers and shelf" index="3" unique_id=1649690323]
+material_override = ExtResource("3_st02v")
+
+[node name="Cube_022" parent="worktable with drawers and shelf" index="4" unique_id=1630204470]
+material_override = ExtResource("3_st02v")
+
+[node name="Cube_023" parent="worktable with drawers and shelf" index="5" unique_id=1005050396]
+material_override = ExtResource("3_st02v")
+
+[node name="Cube_024" parent="worktable with drawers and shelf" index="6" unique_id=1122857723]
+material_override = ExtResource("3_st02v")
+
+[node name="Cylinder_016" parent="worktable with drawers and shelf" index="7" unique_id=891966416]
+material_override = ExtResource("3_st02v")
+
+[node name="Cylinder_017" parent="worktable with drawers and shelf" index="8" unique_id=1571167982]
+material_override = ExtResource("3_st02v")
+
+[node name="Cylinder_018" parent="worktable with drawers and shelf" index="9" unique_id=1031604930]
+material_override = ExtResource("3_st02v")
+
+[node name="Cylinder_019" parent="worktable with drawers and shelf" index="10" unique_id=1272439269]
+material_override = ExtResource("3_st02v")
