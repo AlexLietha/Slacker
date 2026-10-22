@@ -94,7 +94,7 @@ func _spawn_custom_player(data: Variant) -> Node:
 	var player: Node = network_player.instantiate()
 
 	player.name = str(player_id)
-	player.set_multiplayer_authority(player_id)
+	player.set_multiplayer_authority(player_id, true)
 
 	print("Created player instance for peer: ", player_id)
 	return player
