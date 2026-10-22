@@ -36,10 +36,7 @@ func set_player_name():
 
 func get_player_name()->String:
 	return player_name	
-	print(debug_print_source + "Player Name: " + player_name)
-	
-func get_player_name():
-	return player_name
+	#print(debug_print_source + "Player Name: " + player_name)
 	
 func set_player_role():
 	if role == "Cook":

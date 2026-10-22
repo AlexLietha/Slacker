@@ -10,7 +10,7 @@ extends StaticBody3D
 
 var counter = 0
 
-@export var burger =  preload("uid://2riwns1moyus")
+@export var ingredient =  preload("uid://2riwns1moyus")
 
 func _ready() -> void:
 	interactableComponent.GetInteractSignal().connect(RetrieveItem)
@@ -18,8 +18,8 @@ func _ready() -> void:
 	
 	highlightComponent.set_shader(model.material.next_pass)
 
-func spawnBurger() -> void:
-	burger.instantiate()
+func spawn_ingredient() -> void:
+	ingredient.instantiate()
 
 func RetrieveItem(interactor: Player) -> void:
 	print("AHH")
