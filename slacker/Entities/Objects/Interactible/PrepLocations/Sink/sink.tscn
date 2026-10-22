@@ -10,9 +10,14 @@ size = Vector3(3, 1.5, 1.5)
 
 [node name="Sink" type="StaticBody3D" unique_id=370843346 node_paths=PackedStringArray("interactableComponent", "plate_placement")]
 collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_r6nrb")
 interactableComponent = NodePath("InteractibleComponent")
 plate_placement = NodePath("PlatePlacement")
+
+[node name="InteractibleComponent" type="Node" parent="." unique_id=201953872]
+script = ExtResource("4_rpjjs")
+canHighlight = false
 
 [node name="Model" type="CSGCombiner3D" parent="." unique_id=1178393955]
 
@@ -148,10 +153,6 @@ material = ExtResource("3_lfada")
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=675544958]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("BoxShape3D_dqxiu")
-
-[node name="InteractibleComponent" type="Node" parent="." unique_id=201953872]
-script = ExtResource("4_rpjjs")
-canHighlight = false
 
 [node name="PlatePlacement" type="Node3D" parent="." unique_id=394852693]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 1.5799797, 0)
