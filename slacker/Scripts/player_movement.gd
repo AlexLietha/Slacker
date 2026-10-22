@@ -89,8 +89,8 @@ func _physics_process(delta: float) -> void:
 
 
 func _input(event):
-	if not is_multiplayer_authority():
-		return
+	#if not is_multiplayer_authority():
+		#return
 	
 	# Camera Controls
 	if event is InputEventMouseMotion and Input.mouse_mode != Input.MOUSE_MODE_VISIBLE:
