@@ -70,7 +70,7 @@ func change_state(new_state: RoundState) -> void:
 		RoundState.CLOSED:
 			duration = closed_time
 			
-	sync_state.rpc(new_state, duration)
+	#sync_state.rpc(new_state, duration) ## UNCOMMENT ##
 
 # idk what @rpc does, but i based the state machine around what was done earlier:
 	# @rpc("authority", "call_local", "reliable")
@@ -84,12 +84,12 @@ func change_state(new_state: RoundState) -> void:
 		#print("Clock node: ", clock)
 		#print("Clock visible: ", clock.is_visible_in_tree())
 
-#@rpc("authority", "call_local", "reliable")
-#func sync_state(new_state: RoundState, duration: float) -> void:
-	#exit_state(current_state)
-	#current_state = new_state
-	#enter_state(current_state, duration)
-	
+@rpc("authority", "call_local", "reliable")
+func sync_state(new_state: RoundState, duration: float) -> void:
+	exit_state(current_state)
+	current_state = new_state
+	enter_state(current_state, duration)
+
 func enter_state(state: RoundState, duration: float) -> void:
 	timer.stop()
 	
