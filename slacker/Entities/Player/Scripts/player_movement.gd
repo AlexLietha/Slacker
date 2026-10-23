@@ -23,9 +23,9 @@ var name_generator = preload("uid://dleg4tpvbkn2q").new()
 var debug_print_source = "[player_movement.gd] - "
 
 # Multiplier stuff. Having this code uncommented when testing breaks the player
-#func _enter_tree() -> void:
-	#print("Player enter tree " + name)
-	#print("Authroity: " + str(get_multiplayer_authority()))
+func _enter_tree() -> void:
+	print(debug_print_source + "Player enter tree " + name)
+	#print(debug_print_source + "Authroity: " + str(get_multiplayer_authority()))
 	#set_multiplayer_authority(name.to_int())
 
 func _ready() -> void:
@@ -68,6 +68,9 @@ func set_player_role():
 		pass
 
 func _process(delta: float) -> void:
+	if not is_multiplayer_authority():
+		return
+	
 	var horizontal_look: float = Input.get_axis("lookLeft", "lookRight")
 	rotate_y(-horizontal_look * joypadSensitivity * delta)
 
@@ -158,3 +161,8 @@ func show_vote_ui() -> void:
 func hide_vote_ui() -> void:
 	vote_ui.visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+#func get_id() -> int:
+	#if is_multiplayer_authority():
+		#return clientNo
+	#return 0

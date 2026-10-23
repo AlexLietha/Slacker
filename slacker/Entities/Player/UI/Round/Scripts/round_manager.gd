@@ -38,6 +38,8 @@ func _ready():
 	
 	if multiplayer.is_server():
 		start_game()
+	#else:
+		#sync_timer(timer.time_left)
 	
 	#print("Timer node: ", get_path())
 	#print("Clock label: ", clock.get_path())
@@ -70,26 +72,24 @@ func change_state(new_state: RoundState) -> void:
 		RoundState.CLOSED:
 			duration = closed_time
 			
-	sync_state.rpc(new_state, duration)
+	sync_state.rpc(new_state, duration) ## UNCOMMENT ##
 
 # idk what @rpc does, but i based the state machine around what was done earlier:
-	# @rpc("authority", "call_local", "reliable")
-	# func sync_round(round_int: int, time_left: float) -> void:
-		#game_started = true
-		#round_num = round_int
-		#timer.start(time_left)
-		#print("Timer rpc called")
-		#print("Timer running: ", not timer.is_stopped())
-		#print("Timer remaining: ", timer.time_left)
-		#print("Clock node: ", clock)
-		#print("Clock visible: ", clock.is_visible_in_tree())
+@rpc("authority", "call_local", "reliable")
+func sync_timer(time_left: float) -> void:
+	timer.start(time_left)
+	print("Timer rpc called")
+	print("Timer running: ", not timer.is_stopped())
+	print("Timer remaining: ", timer.time_left)
+	print("Clock node: ", clock)
+	print("Clock visible: ", clock.is_visible_in_tree())
 
 @rpc("authority", "call_local", "reliable")
 func sync_state(new_state: RoundState, duration: float) -> void:
 	exit_state(current_state)
 	current_state = new_state
 	enter_state(current_state, duration)
-	
+
 func enter_state(state: RoundState, duration: float) -> void:
 	timer.stop()
 	

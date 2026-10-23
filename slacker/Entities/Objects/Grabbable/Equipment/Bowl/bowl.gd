@@ -21,7 +21,7 @@ func _ready() -> void:
 		var highlight_shader = material.next_pass
 
 		if highlight_shader is ShaderMaterial:
-			$HighlightComponent.SetShader(highlight_shader)
+			#$HighlightComponent.SetShader(highlight_shader)
 			print("Bowl highlight shader assigned!")
 		else:
 			print("Bowl Next Pass has no ShaderMaterial")

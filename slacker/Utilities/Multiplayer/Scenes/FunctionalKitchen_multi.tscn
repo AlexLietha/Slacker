@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://daoeojhdxrwf4"]
 
+[ext_resource type="PackedScene" uid="uid://wt71gr6cep6k" path="res://Utilities/Multiplayer/Scenes/main_menu.tscn" id="1_ml2d4"]
 [ext_resource type="PackedScene" uid="uid://ti5pak1fauih" path="res://Entities/Objects/Interactible/PrepLocations/PrepStation/big_work_table.tscn" id="2_u8hng"]
 [ext_resource type="PackedScene" uid="uid://mrbh1vscglx7" path="res://Entities/Objects/Interactible/IngredientLocations/Shelf/shelf.tscn" id="3_ml2d4"]
+[ext_resource type="PackedScene" uid="uid://fa5expjgbjq3" path="res://Utilities/Multiplayer/Scenes/StartGameMenu.tscn" id="3_slkek"]
 [ext_resource type="PackedScene" uid="uid://betf2qehtbsgn" path="res://Entities/Objects/Interactible/IngredientLocations/Box/box.tscn" id="4_slkek"]
 [ext_resource type="PackedScene" uid="uid://csl4s4fsyxjxk" path="res://Entities/Objects/Interactible/CookingLocations/Grill/grill.tscn" id="6_dgasm"]
 [ext_resource type="PackedScene" uid="uid://dg5uqe6etd04k" path="res://Entities/Objects/Interactible/PrepLocations/Table/table.tscn" id="7_onfof"]
@@ -16,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://c8kapetowafxw" path="res://Entities/Objects/Interactible/IngredientLocations/EggCarton/egg_carton.tscn" id="17_hvrgw"]
 [ext_resource type="PackedScene" uid="uid://b0p2q7144nn4s" path="res://Entities/Objects/Interactible/PrepLocations/CuttingBoard/cutting_board.tscn" id="18_ddrti"]
 [ext_resource type="PackedScene" uid="uid://pebcxe6mpbhm" path="res://Entities/Objects/Interactible/IngredientLocations/Crate/crate.tscn" id="19_nwsh6"]
+[ext_resource type="PackedScene" uid="uid://cf37ilrn8pexl" path="res://Entities/Objects/Grabbable/Equipment/Bowl/bowl.tscn" id="20_d5cme"]
 [ext_resource type="PackedScene" uid="uid://5l0uutfybxou" path="res://Entities/Objects/Grabbable/Equipment/FryingPan/pan.tscn" id="21_puxet"]
 [ext_resource type="PackedScene" uid="uid://dtljkiukx76jj" path="res://Entities/Objects/Interactible/CookingLocations/Toaster/toaster.tscn" id="22_btuuf"]
 [ext_resource type="PackedScene" uid="uid://dmh7nnfrnbb7v" path="res://Entities/Objects/Grabbable/Ingredients/Bread/bread.tscn" id="23_m7i15"]
@@ -23,6 +26,8 @@
 [ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Utilities/Deprecated/ID_component.gd" id="25_ux1j6"]
 [ext_resource type="PackedScene" uid="uid://c6wolbp1jdqht" path="res://Entities/Orders/Board/order_board.tscn" id="26_jal4r"]
 [ext_resource type="PackedScene" uid="uid://w0g2043ktub6" path="res://Entities/Objects/Interactible/ReportBox/report_box.tscn" id="27_lwgs3"]
+[ext_resource type="PackedScene" uid="uid://w1hcy6j1i0vj" path="res://Entities/Player/Scenes/player.tscn" id="28_ml2d4"]
+[ext_resource type="Script" uid="uid://bv0hj256bkmvp" path="res://Utilities/Multiplayer/Scenes/high_level_multi_spawner.gd" id="28_u8hng"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vg308"]
 
@@ -41,6 +46,11 @@ albedo_color = Color(0.8313384, 0.77674156, 0.7195819, 1)
 uv1_triplanar_sharpness = 0.9659363
 
 [node name="Kitchen" type="Node3D" unique_id=615167998]
+
+[node name="MainMenu" parent="." unique_id=1602906196 instance=ExtResource("1_ml2d4")]
+
+[node name="StartMenu" parent="." unique_id=1272701289 instance=ExtResource("3_slkek")]
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1340738998]
 environment = SubResource("Environment_oyfun")
@@ -244,6 +254,9 @@ transform = Transform3D(0.0010248983, 0, 0.12599583, 0, 0.126, 0, -0.12599583, 0
 [node name="PlasticCrate_BenMusser_V1" parent="Misc" unique_id=1335992761 instance=ExtResource("19_nwsh6")]
 transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, -6.1662226, 3.0279143, -8.624132)
 
+[node name="Bowl_BenMusser_V1" parent="Misc" unique_id=82048025 instance=ExtResource("20_d5cme")]
+transform = Transform3D(0.37111163, 0, 0, 0, 0.37111163, 0, 0, 0, 0.37111163, 0.66270614, 1.8575443, -4.1564984)
+
 [node name="Pan_BenMusser_V1" parent="Misc" unique_id=1577090424 instance=ExtResource("21_puxet")]
 transform = Transform3D(0.117519535, 0, -0.04259294, 0, 0.125, 0, 0.04259294, 0, 0.117519535, -1.7377412, 1.8922246, -7.7229853)
 
@@ -279,3 +292,12 @@ transform = Transform3D(-1.4999833, 0, 0.007076583, 0, 1.5, 0, -0.007076583, 0, 
 
 [node name="StaticBody3D" parent="." unique_id=1958575001 instance=ExtResource("27_lwgs3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0681834, 2.1542432, -8.6701765)
+script = null
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=298877986 node_paths=PackedStringArray("players_container")]
+spawn_path = NodePath("../Players")
+script = ExtResource("28_u8hng")
+network_player = ExtResource("28_ml2d4")
+players_container = NodePath("../Players")
+
+[node name="Players" type="Node3D" parent="." unique_id=1756109927]
