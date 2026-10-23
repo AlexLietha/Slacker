@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://5m614u8gghwl"]
+
+[ext_resource type="PackedScene" uid="uid://w1hcy6j1i0vj" path="res://Entities/Player/Scenes/player.tscn" id="1_dl8hg"]
+[ext_resource type="PackedScene" uid="uid://18oqbpl2tmol" path="res://Entities/Objects/Grabbable/Equipment/Broom/broom.tscn" id="2_t8oow"]
+
+[node name="Node3D" type="Node3D" unique_id=1791088860]
+
+[node name="Player" parent="." unique_id=1090027167 instance=ExtResource("1_dl8hg")]
+transform = Transform3D(3.3481615, 0.73692906, -0.7048044, -0.8321882, 3.3727233, -0.42684555, 0.5893016, 0.57590795, 3.4016252, 0.19468875, 10.088254, -14.180062)
+
+[node name="broom" parent="." unique_id=844689755 instance=ExtResource("2_t8oow")]
+transform = Transform3D(0.4115591, 0.32492334, 0.8803776, -0.9109205, 0.19401503, 0.38997772, -0.029031329, -1.4814005, 0.24417217, -0.19468875, 9.852439, -12.300794)
