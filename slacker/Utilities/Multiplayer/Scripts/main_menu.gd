@@ -64,8 +64,8 @@ func on_create() -> void:
 	
 	$".".hide()
 	#$"../TimerUI".show()
-	if multiplayer.is_server():
-		$"../StartMenu".show()
+	#if multiplayer.is_server():
+		#$"../StartMenu".show()
 	
 	#Network.start_server()
 	#add_world()
