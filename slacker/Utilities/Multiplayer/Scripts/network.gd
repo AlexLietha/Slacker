@@ -154,8 +154,8 @@ func spawn_object_rpc(owner_id: int, object: String) -> void:
 		print("Network: Item was null")
 		return
 	
-	var owner: Player = get_tree().current_scene.find_child(str(owner_id))
-	if owner == null:
+	#var owner: Player = get_tree().current_scene.find_child(str(owner_id))
+	if get_tree().current_scene.find_child(str(owner_id)) == null:
 		print("Network: Player was null: ", str(owner_id))
 		return
 	

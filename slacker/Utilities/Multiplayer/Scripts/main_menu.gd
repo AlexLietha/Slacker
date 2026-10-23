@@ -47,7 +47,7 @@ func _ready() -> void:
 		#add_world()
 		#hide()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	Steam.run_callbacks()
 
 # ----------------------
@@ -171,14 +171,14 @@ func check_lobby_code(lobbies: Array) -> void:
 # CONNECTING
 # ----------------------
 
-func add_world() -> void:
-	if get_tree().current_scene.has_node("FunctionalKitchen_multi"):
-		return
-	
-	var new_world = WORLD.instantiate()
-	new_world.name = "FunctionalKitchen_multi"
-	get_tree().current_scene.add_child.call_deferred(new_world)
-	print("World added")
+#func add_world() -> void: #depricated
+	#if get_tree().current_scene.has_node("FunctionalKitchen_multi"):
+		#return
+	#
+	#var new_world = WORLD.instantiate()
+	#new_world.name = "FunctionalKitchen_multi"
+	#get_tree().current_scene.add_child.call_deferred(new_world)
+	#print("World added")
 
 func on_join_lobby(
 	lobby_id: int,
