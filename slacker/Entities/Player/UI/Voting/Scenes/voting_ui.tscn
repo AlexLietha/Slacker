@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://k4fnwb75lfgu" path="res://Entities/Player/UI/Voting/Scenes/player_vote_icon.tscn" id="5_7rrvv"]
 [ext_resource type="Script" uid="uid://byl8cqdg3squ3" path="res://Entities/Player/UI/Voting/Scripts/vote_manager.gd" id="6_b5i3x"]
 
-[node name="VoteUIControl" type="Control" unique_id=1031466018 node_paths=PackedStringArray("PlayerIcons")]
+[node name="VoteUIControl" type="Control" unique_id=1031466018 node_paths=PackedStringArray("PlayerIcons", "voted_by_name")]
 top_level = true
 layout_mode = 3
 anchors_preset = 15
@@ -18,6 +18,7 @@ grow_vertical = 2
 script = ExtResource("6_b5i3x")
 PlayerIcons = [NodePath("YourPlayerIcon"), NodePath("PlayerIcon2"), NodePath("PlayerIcon3"), NodePath("PlayerIcon4"), NodePath("PlayerIcon5")]
 faces = Array[CompressedTexture2D]([ExtResource("2_lfm6w"), ExtResource("3_pbg18")])
+voted_by_name = [NodePath("VotedBy1"), NodePath("VotedBy2"), NodePath("VotedBy3")]
 
 [node name="background" type="TextureRect" parent="." unique_id=1780050751]
 layout_mode = 1
@@ -81,5 +82,32 @@ offset_right = 864.5
 offset_bottom = 454.5
 
 [node name="Timer" type="Timer" parent="." unique_id=139454590]
+
+[node name="VotedBy1" type="Label" parent="." unique_id=2094392952]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 490.0
+offset_right = 342.0
+offset_bottom = 555.0
+theme_override_colors/font_color = Color(0.011764706, 0.011764706, 0.011764706, 1)
+text = "1"
+
+[node name="VotedBy2" type="Label" parent="." unique_id=695787959]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 490.0
+offset_right = 429.0
+offset_bottom = 558.0
+theme_override_colors/font_color = Color(0.011764706, 0.011764706, 0.011764706, 1)
+text = "2"
+
+[node name="VotedBy3" type="Label" parent="." unique_id=236457981]
+layout_mode = 0
+offset_left = 443.0
+offset_top = 490.0
+offset_right = 516.0
+offset_bottom = 562.0
+theme_override_colors/font_color = Color(0.011764706, 0.011764706, 0.011764706, 1)
+text = "3"
 
 [connection signal="pressed" from="CloseButton" to="." method="close_button_pressed"]

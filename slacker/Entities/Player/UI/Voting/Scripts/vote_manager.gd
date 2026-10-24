@@ -3,9 +3,11 @@ class_name VoteManager
 
 signal closeUI
 signal killPlayer
+#signal votedBy(name:String)
 @onready var timer = $Timer
 @export var PlayerIcons: Array[PlayerIcon]
 @export var faces: Array[CompressedTexture2D]
+@export var voted_by_name: Array[Label]
 @export var player:Player
 var player_names : Array[String]
 
@@ -25,10 +27,13 @@ func _process(delta: float) -> void:
 	
 func vote_for_player(counter: int,X: Array[TextureRect],VoteSlot: PlayerIcon)-> void:
 	print("Voting")
+	#votedBy.emit(VoteSlot.getPlayerNametag())
 	if(canVote):
 		print(counter)
 		#change this to something changable
 		if(counter <= 2):
+			print(VoteSlot.getPlayerNametag())
+			voted_by_name[counter].text = VoteSlot.getPlayerNametag()
 			if(counter == 0):
 				VoteSlot.texture_normal = faces[counter]
 			X[counter].visible = true
