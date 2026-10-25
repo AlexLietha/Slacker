@@ -1,56 +1,134 @@
 extends CharacterBody3D
-class_name Player
+class_name PlayerMovement
 
-@export var speed := 5.0
-@export var jumpVelocity := 5
-@export var mouseSensitivity := 0.004
-@export var joypadSensitivity := 5
-@export var role = "Cook"
-@export var player_name = "PlayerName" # temp name
-
-@onready var camera = $Camera3D
-@onready var player_mesh := $PlayerMesh
-@onready var vote_ui := $VotingBoard
-@onready var player_overhead_name = $PlayerName
-
-@export var interactionRayCast : RayCast3D
-@export var grabbedItem : Node3D
-@export var vote_pop_up_ui = Control
-
-var use_phone : bool = false
-var name_generator = preload("uid://dleg4tpvbkn2q").new()
-
+var speed : float = 5.0
+var direction := Vector3.ZERO
+var headbob_freq : float = 4.0
+var headbob_amp : float = 0.02
+var headbob_time : float = 0.0
+var mouse_sensitivity : float = 0.4
+var joypad_sensitivity : float = 5.0
+var lerp_speed : float = 10.0
+var using_phone : bool = false
+var in_minigame : bool = false
 var debug_print_source = "[player_movement.gd] - "
 
-# Multiplier stuff. Having this code uncommented when testing breaks the player
-func _enter_tree() -> void:
-	print(debug_print_source + "Player enter tree " + name)
-	#print(debug_print_source + "Authroity: " + str(get_multiplayer_authority()))
-	#set_multiplayer_authority(name.to_int())
+@onready var neck: Node3D = $PlayerNeckPivot
+@onready var camera: Camera3D = $PlayerNeckPivot/Camera
+@onready var player_mesh : MeshInstance3D= $PlayerMesh ## to be removed
+
 
 func _ready() -> void:
-	add_to_group("players")
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	vote_ui.visible = false
-	vote_ui.closeUI.connect(hide_vote_ui)
-	
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
+func _physics_process(delta: float) -> void:
 	if !is_multiplayer_authority():
-		set_process(false)
-		set_physics_process(false)
-		camera.current = false
 		return
 	
-	camera.current = true
-	print(debug_print_source + "Player Auth: " + str(get_multiplayer_authority()))
+	# Add the gravity.
+	if !is_on_floor():
+		velocity += get_gravity() * delta * 2
+	
+	# Get the input direction and handle the movement/deceleration.
+	if !using_phone && !in_minigame:
+		var input_dir := Input.get_vector("moveLeft", "moveRight", 
+				"moveForward", "moveBack")
+		movement(input_dir, delta)
 
-func set_player_name():
-	player_name = name_generator.pick_random_name()
-	player_overhead_name.text = player_name
-	print(debug_print_source + "Player Name: " + player_name)
+
+func _input(event: InputEvent) -> void:
+	if !is_multiplayer_authority():
+		return
 	
-func get_player_name():
-	return player_name
+	# hides and unhides the mouse cursor
+	if event.is_action_pressed("cursorToggle"):
+		print(debug_print_source + "CursorToggle")
+		
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
+	# if you click on the window after pressing esc you can continue controlling the camera
+	if event is InputEventMouseButton && Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	if event.is_action_pressed("quit"):
+		print(debug_print_source + "Ending process...")
+		get_tree().quit()
+	
+	# debug tool to reassign roles after pressing the ` key
+	#if Input.is_action_just_pressed("debugKey"):
+		#print("reassignRoles called")
+		#GameManager.assign_roles()
+	
+	# when the mouse is captured move the camera via the mouse or joystick
+	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		var x : float
+		var y : float
+		if event is InputEventMouseMotion:
+			x = deg_to_rad(-event.relative.y * mouse_sensitivity)
+			y = deg_to_rad(-event.relative.x * mouse_sensitivity)
+			rotate_camera(x, y)
+			
+		elif event is InputEventJoypadMotion:
+			var horizontal_look: float = Input.get_axis("lookLeft", "lookRight")
+			var vertical_look: float = Input.get_axis("lookUp", "lookDown")
+			x = -vertical_look * joypad_sensitivity
+			y = -horizontal_look * joypad_sensitivity
+			rotate_camera(x, y)
+
+
+# inputs rotate the camera around that axis
+# i.e. x is up and down, and y is left and right
+func rotate_camera(x_axis_rotation: float, y_axis_rotation) -> void:
+	rotate_y(y_axis_rotation)
+	neck.rotate_x(x_axis_rotation)
+	neck.rotation.x = clamp(neck.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+
+
+func headbob(_headbob_time: float) -> Vector3:
+	# uses sin and cos functions to calculate the new position of the camera 
+	var headbob_pos = Vector3.ZERO
+	headbob_pos.y = sin(_headbob_time * headbob_freq) * headbob_amp
+	headbob_pos.x = cos(_headbob_time * headbob_freq/2) * headbob_amp
+	return headbob_pos
+
+
+func movement(input_dir: Vector2, delta: float ):
+	# lerps the initial movement so its smoother going from a stand still 
+	# to moving and vice versa
+	direction = lerp(
+			direction, 
+			(global_basis * Vector3(input_dir.x, 0, input_dir.y)).normalized(), 
+			delta * lerp_speed
+			)
+	
+	# sets velocity based on direction
+	if direction:
+		velocity.x = direction.x * speed
+		velocity.z = direction.z * speed
+	else:
+		velocity.x = move_toward(velocity.x, 0, speed)
+		velocity.z = move_toward(velocity.z, 0, speed)
+	move_and_slide()
+	
+	if velocity.length() > 0.00001:
+		# if player is moving adjust the camera position based on the headbob
+		headbob_time += delta * velocity.length()
+		camera.transform.origin = headbob(headbob_time)
+	else:
+		# else lerp the camera back to the zero position
+		camera.transform.origin = lerp(camera.transform.origin, Vector3.ZERO, delta)
+
+
+func on_voting_board_toggled(_is_visible: bool) -> void:
+	using_phone = _is_visible
+
+
+## leave for now but should be removed/reworked and put in role system
+@export var role = "Cook" ## make into its own resource/object w/ enums
 func set_player_role():
 	if role == "Cook":
 		var material = StandardMaterial3D.new()
@@ -67,100 +145,6 @@ func set_player_role():
 	if role == "Rat":
 		pass
 
-func _process(delta: float) -> void:
-	if not is_multiplayer_authority():
-		return
-	
-	var horizontal_look: float = Input.get_axis("lookLeft", "lookRight")
-	rotate_y(-horizontal_look * joypadSensitivity * delta)
-
-	var vertical_look: float = Input.get_axis("lookUp", "lookDown")
-	camera.rotate_x(-vertical_look * joypadSensitivity * delta)
-	camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-89), deg_to_rad(89))
-
-func _physics_process(delta: float) -> void:
-	if !is_multiplayer_authority(): return
-	
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump.
-	#if Input.is_action_just_pressed("jump") and is_on_floor():
-		#velocity.y = jumpVelocity
-
-	var input_dir := Input.get_vector("moveLeft", "moveRight", "moveForward", "moveBack")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * speed
-		velocity.z = direction.z * speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
-		velocity.z = move_toward(velocity.z, 0, speed)
-
-	move_and_slide()
-
-
-func _input(event):
-	if !is_multiplayer_authority(): return
-	
-	# Camera Controls
-	if event is InputEventMouseMotion and Input.mouse_mode != Input.MOUSE_MODE_VISIBLE:
-		rotate_y(-event.relative.x * mouseSensitivity)
-		camera.rotate_x(-event.relative.y * mouseSensitivity)
-		camera.rotation.x = clamp(camera.rotation.x,deg_to_rad(-89),deg_to_rad(89))
-
-	# debug tool to reassign roles after pressing the ` key
-	#if Input.is_action_just_pressed("debugKey"):
-		#print("reassignRoles called")
-		#GameManager.assign_roles()
-	
-	if Input.is_action_just_pressed("debugKey"):
-		print(debug_print_source + "debug key called")
-		vote_pop_up_ui.has_been_voted()
-		
-	if Input.is_action_just_pressed("cursorToggle"):
-		print(debug_print_source + "CursorToggle")
-		
-		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		else:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
-	if Input.is_action_just_pressed("quit"):
-		print(debug_print_source + "Ending process...")
-		get_tree().quit()
-		
-	if Input.is_action_just_pressed("drop"):
-		if has_grabbed_item():
-			get_grabbed_item().drop()
-		pass
-		
-	if(Input.is_action_just_pressed("usePhone") && !use_phone):
-		show_vote_ui()
-		use_phone = true
-		
-	elif((Input.is_action_just_pressed("usePhone") || Input.is_action_just_pressed("controllerXboxB")) && use_phone):
-		hide_vote_ui()
-		await get_tree().process_frame
-		use_phone = false
-
-
-func get_grabbed_item() -> GrabbableObject:
-	if not has_grabbed_item():
-		return null
-	return grabbedItem.get_child(0)
-
-func has_grabbed_item() -> bool:
-	return grabbedItem.get_child_count() == 1
-
-func show_vote_ui() -> void:
-	vote_ui.visible = true
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
-func hide_vote_ui() -> void:
-	vote_ui.visible = false
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 #func get_id() -> int:
 	#if is_multiplayer_authority():
