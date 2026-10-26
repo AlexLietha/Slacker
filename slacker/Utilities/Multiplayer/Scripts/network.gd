@@ -1,8 +1,8 @@
 extends Node
 
-const PLAYER = preload("uid://w1hcy6j1i0vj")
-const TIMER = preload("uid://bmennajguxbhb")
-const WORLD = preload("uid://daoeojhdxrwf4")
+const PLAYER = preload("res://Entities/Player/Scenes/player.tscn")
+#const TIMER = preload("res://UI/TimerUI.tscn")
+const WORLD = preload("res://Utilities/Multiplayer/Scenes/FunctionalKitchen_multi.tscn")
 
 ## takes request_id : int and spawn_args : Disctionary
 var validate_spawn_callable : Callable
@@ -137,7 +137,7 @@ func request_spawn_object(spawn_args: Dictionary) -> void:
 		print("Resource is not of correct type")
 		return
 	
-	if !ResourceLoader.exists(resource_path) || !resource_path.begins_with("uid://"):
+	if !ResourceLoader.exists(resource_path) || !resource_path.begins_with("res://"):
 		print("Invalid recourse")
 		return
 	
@@ -154,9 +154,8 @@ func spawn_object_rpc(owner_id: int, object: String) -> void:
 		print("Network: Item was null")
 		return
 	
-	@warning_ignore("shadowed_variable_base_class")
-	var owner: Player = get_tree().current_scene.find_child(str(owner_id))
-	if owner == null:
+	#var owner: Player = get_tree().current_scene.find_child(str(owner_id))
+	if get_tree().current_scene.find_child(str(owner_id)) == null:
 		print("Network: Player was null: ", str(owner_id))
 		return
 	

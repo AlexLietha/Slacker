@@ -53,6 +53,10 @@ layout_mode = 2
 text = "Join
 "
 
+[node name="TextLobbyID" type="LineEdit" parent="Control/Center/MarginContainer/VBoxContainer" unique_id=395416911]
+unique_name_in_owner = true
+layout_mode = 2
+
 [node name="ButtonQuit" type="Button" parent="Control/Center/MarginContainer/VBoxContainer" unique_id=1223453994]
 unique_name_in_owner = true
 layout_mode = 2

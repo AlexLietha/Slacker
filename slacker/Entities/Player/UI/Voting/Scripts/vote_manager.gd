@@ -1,68 +1,58 @@
 extends Control
-class_name VoteManager
+class_name CloseButton
 
-signal closeUI
-signal killPlayer
-#signal votedBy(name:String)
-@onready var timer = $Timer
+signal on_voting_board_toggled(is_visible: bool)
+
 @export var PlayerIcons: Array[PlayerIcon]
-@export var faces: Array[CompressedTexture2D]
-@export var voted_by_name: Array[Label]
-@export var player:Player
-var player_names : Array[String]
 
 var canVote:bool = true
 
-# Called when the node enters the scene tree for the first time.
+@onready var timer = $Timer
+
+
 func _ready() -> void:
-	for i in range(1, PlayerIcons.size()):
-		PlayerIcons[i].buttonPressed.connect(vote_for_player)
+	for icon in PlayerIcons:
+		icon.buttonPressed.connect(vote_for_player)
+	close_button_pressed()
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("usePhone") && !visible:
+		toggle_visiblity(true)
+		on_voting_board_toggled.emit(true)
 	
+	elif((event.is_action_pressed("usePhone") || event.is_action_pressed("controllerXboxB")) 
+			&& visible):
+		close_button_pressed()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func close_button_pressed() -> void:
+	toggle_visiblity(false)
+	on_voting_board_toggled.emit(false)
 
-	
+
 func vote_for_player(counter: int,X: Array[TextureRect],VoteSlot: PlayerIcon)-> void:
 	print("Voting")
-	#votedBy.emit(VoteSlot.getPlayerNametag())
 	if(canVote):
 		print(counter)
 		#change this to something changable
 		if(counter <= 2):
-			print(VoteSlot.getPlayerNametag())
-			voted_by_name[counter].text = VoteSlot.getPlayerNametag()
-			if(counter == 0):
-				VoteSlot.texture_normal = faces[counter]
 			X[counter].visible = true
 			VoteSlot.CounterSetter(counter+1)
-			if(counter == 2):
-				VoteSlot.texture_normal = faces[counter-1]
-				killPlayer.emit()
 		cool_down()
 	else:
 		print("you need to wait")
+
 
 func cool_down() -> void:
 	canVote = false
 	await get_tree().create_timer(1).timeout
 	canVote = true
-	
-func setup_nameplates(your_name:String) -> void:
-	for p in get_tree().get_nodes_in_group("players"):
-			player_names.push_back(p.get_player_name())
-	var new_array:Array[String]
-	for i in range(0,player_names.size()):
-		if player_names[i]!=your_name:
-			new_array.push_back(player_names[i])
-	PlayerIcons[0].setPlayerNametag(your_name)
-	if(new_array.size()!=0):
-		for i in range(0,new_array.size()):
-			if(i<=4):
-				PlayerIcons[i+1].setPlayerNametag(new_array[i])
-	
-func close_button_pressed() -> void:
-	print("Button pressed")
-	closeUI.emit()
+
+
+func toggle_visiblity(_is_visible: bool) -> void:
+	visible = _is_visible
+	if is_visible:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

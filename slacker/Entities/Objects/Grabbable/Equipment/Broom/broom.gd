@@ -16,7 +16,6 @@ func _ready() -> void:
 	# interactableComponent.GetHoveredSignal().connect(highlight)
 	
 func grab(grabber: Player) -> void:
-	print("time for witch craft")
 	super.grab(grabber)
 	
 	if get_parent() != grabber.grabbedItem:
@@ -32,7 +31,6 @@ func grab(grabber: Player) -> void:
 	collision_mask = 0
 	
 func drop() -> void:
-	print("broom dropped")
 	super.drop()
 	
 	collision_layer = original_collision_layer

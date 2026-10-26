@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://cljq4kv0nq0h0"]
 
-[ext_resource type="Texture2D" uid="uid://cn3emvwfnr4s3" path="res://Entities/Player/UI/Round/Assets/timer_v1.png" id="1_rccwp"]
-[ext_resource type="Texture2D" uid="uid://dvgctae5j8d8j" path="res://Entities/Player/UI/Voting/Assets/1strike-_p1_v1.png" id="2_lfm6w"]
-[ext_resource type="Texture2D" uid="uid://dnjyd8o3ullia" path="res://Entities/Player/UI/Voting/Assets/red_x.png" id="3_7rrvv"]
-[ext_resource type="Texture2D" uid="uid://b24oxntvegbb8" path="res://Entities/Player/UI/Voting/Assets/3strikes_p1_v1.png" id="3_pbg18"]
-[ext_resource type="PackedScene" uid="uid://k4fnwb75lfgu" path="res://Entities/Player/UI/Voting/Scenes/player_vote_icon.tscn" id="5_7rrvv"]
-[ext_resource type="Script" uid="uid://byl8cqdg3squ3" path="res://Entities/Player/UI/Voting/Scripts/vote_manager.gd" id="6_b5i3x"]
+[ext_resource type="Script" uid="uid://byl8cqdg3squ3" path="res://Entities/Player/UI/Voting/Scripts/vote_manager.gd" id="1_av0qi"]
+[ext_resource type="Texture2D" uid="uid://cn3emvwfnr4s3" path="res://Entities/Player/UI/Round/Assets/timer_v1.png" id="2_ma31q"]
+[ext_resource type="Texture2D" uid="uid://dnjyd8o3ullia" path="res://Entities/Player/UI/Voting/Assets/red_x.png" id="3_4rl3l"]
+[ext_resource type="Texture2D" uid="uid://b0gvpbgyld0dt" path="res://Entities/Player/UI/Voting/Assets/nostrikes_p1_v1.png" id="4_3iumo"]
+[ext_resource type="Texture2D" uid="uid://d0267cede3qju" path="res://Entities/Player/UI/Voting/Assets/greyed_x.png" id="5_2l44w"]
+[ext_resource type="PackedScene" uid="uid://k4fnwb75lfgu" path="res://Entities/Player/UI/Voting/Scenes/player_vote_icon.tscn" id="6_bx8vr"]
 
-[node name="VoteUIControl" type="Control" unique_id=1031466018 node_paths=PackedStringArray("PlayerIcons", "voted_by_name")]
+[node name="VoteUIControl" type="Control" unique_id=1031466018 node_paths=PackedStringArray("PlayerIcons")]
 top_level = true
 layout_mode = 3
 anchors_preset = 15
@@ -15,10 +15,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("6_b5i3x")
-PlayerIcons = [NodePath("YourPlayerIcon"), NodePath("PlayerIcon2"), NodePath("PlayerIcon3"), NodePath("PlayerIcon4"), NodePath("PlayerIcon5")]
-faces = Array[CompressedTexture2D]([ExtResource("2_lfm6w"), ExtResource("3_pbg18")])
-voted_by_name = [NodePath("VotedBy1"), NodePath("VotedBy2"), NodePath("VotedBy3")]
+script = ExtResource("1_av0qi")
+PlayerIcons = [NodePath("PlayerIcon2"), NodePath("PlayerIcon3"), NodePath("PlayerIcon4"), NodePath("PlayerIcon5")]
 
 [node name="background" type="TextureRect" parent="." unique_id=1780050751]
 layout_mode = 1
@@ -33,48 +31,134 @@ offset_right = 439.5
 offset_bottom = 276.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_rccwp")
+texture = ExtResource("2_ma31q")
 
 [node name="CloseButton" type="TextureButton" parent="." unique_id=342339927]
 layout_mode = 0
-offset_left = 225.0
-offset_top = 82.0
-offset_right = 300.0
-offset_bottom = 157.0
-texture_normal = ExtResource("3_7rrvv")
+offset_left = 891.0
+offset_top = 99.0
+offset_right = 966.0
+offset_bottom = 174.0
+texture_normal = ExtResource("3_4rl3l")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="YourPlayerIcon" parent="." unique_id=1075439868 instance=ExtResource("5_7rrvv")]
+[node name="PlayerIcon1" type="TextureButton" parent="." unique_id=353898756]
 layout_mode = 0
-offset_left = 287.0
-offset_top = 207.0
-offset_right = 394.5
-offset_bottom = 314.5
-scale = Vector2(2, 2)
+offset_left = 257.0
+offset_top = 205.0
+offset_right = 364.5
+offset_bottom = 312.5
+scale = Vector2(1.9200001, 1.9200001)
+texture_normal = ExtResource("4_3iumo")
+ignore_texture_size = true
+stretch_mode = 4
 
-[node name="PlayerIcon2" parent="." unique_id=1843483643 instance=ExtResource("5_7rrvv")]
+[node name="PlayerName" type="Label" parent="PlayerIcon1" unique_id=1019238644]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -31.0
+offset_top = -22.0
+offset_right = 31.0
+offset_bottom = 1.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Your Player"
+
+[node name="Strike1Off" type="TextureRect" parent="PlayerIcon1" unique_id=475471617]
+layout_mode = 0
+offset_left = -7.5
+offset_top = 102.0
+offset_right = 32.5
+offset_bottom = 142.0
+texture = ExtResource("5_2l44w")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Strike1On" type="TextureRect" parent="PlayerIcon1" unique_id=1016154784]
+visible = false
+layout_mode = 0
+offset_left = -7.5
+offset_top = 102.0
+offset_right = 32.5
+offset_bottom = 142.0
+texture = ExtResource("3_4rl3l")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Strike2Off" type="TextureRect" parent="PlayerIcon1" unique_id=297099051]
+layout_mode = 0
+offset_left = 33.75
+offset_top = 102.0
+offset_right = 73.75
+offset_bottom = 142.0
+texture = ExtResource("5_2l44w")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Strike2On" type="TextureRect" parent="PlayerIcon1" unique_id=459229020]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -7.5
+offset_right = 20.0
+offset_bottom = 32.5
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_4rl3l")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Strike3Off" type="TextureRect" parent="PlayerIcon1" unique_id=31136850]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 102.0
+offset_right = 115.0
+offset_bottom = 142.0
+texture = ExtResource("5_2l44w")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Strike3On" type="TextureRect" parent="PlayerIcon1" unique_id=1186383292]
+visible = false
+layout_mode = 0
+offset_left = 75.0
+offset_top = 102.0
+offset_right = 115.0
+offset_bottom = 142.0
+texture = ExtResource("3_4rl3l")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="PlayerIcon2" parent="." unique_id=1075439868 instance=ExtResource("6_bx8vr")]
 layout_mode = 0
 offset_left = 556.0
 offset_top = 182.0
 offset_right = 663.5
 offset_bottom = 289.5
 
-[node name="PlayerIcon3" parent="." unique_id=72742471 instance=ExtResource("5_7rrvv")]
+[node name="PlayerIcon3" parent="." unique_id=72742471 instance=ExtResource("6_bx8vr")]
 layout_mode = 0
 offset_left = 757.0
 offset_top = 182.0
 offset_right = 864.5
 offset_bottom = 289.5
 
-[node name="PlayerIcon4" parent="." unique_id=299474229 instance=ExtResource("5_7rrvv")]
+[node name="PlayerIcon4" parent="." unique_id=299474229 instance=ExtResource("6_bx8vr")]
 layout_mode = 0
 offset_left = 556.0
 offset_top = 347.0
 offset_right = 663.5
 offset_bottom = 454.5
 
-[node name="PlayerIcon5" parent="." unique_id=682814758 instance=ExtResource("5_7rrvv")]
+[node name="PlayerIcon5" parent="." unique_id=682814758 instance=ExtResource("6_bx8vr")]
 layout_mode = 0
 offset_left = 757.0
 offset_top = 347.0
@@ -83,31 +167,5 @@ offset_bottom = 454.5
 
 [node name="Timer" type="Timer" parent="." unique_id=139454590]
 
-[node name="VotedBy1" type="Label" parent="." unique_id=2094392952]
-layout_mode = 0
-offset_left = 269.0
-offset_top = 490.0
-offset_right = 342.0
-offset_bottom = 555.0
-theme_override_colors/font_color = Color(0.011764706, 0.011764706, 0.011764706, 1)
-text = "1"
-
-[node name="VotedBy2" type="Label" parent="." unique_id=695787959]
-layout_mode = 0
-offset_left = 356.0
-offset_top = 490.0
-offset_right = 429.0
-offset_bottom = 558.0
-theme_override_colors/font_color = Color(0.011764706, 0.011764706, 0.011764706, 1)
-text = "2"
-
-[node name="VotedBy3" type="Label" parent="." unique_id=236457981]
-layout_mode = 0
-offset_left = 443.0
-offset_top = 490.0
-offset_right = 516.0
-offset_bottom = 562.0
-theme_override_colors/font_color = Color(0.011764706, 0.011764706, 0.011764706, 1)
-text = "3"
-
 [connection signal="pressed" from="CloseButton" to="." method="close_button_pressed"]
+[connection signal="pressed" from="PlayerIcon1" to="PlayerIcon1" method="_on_pressed"]

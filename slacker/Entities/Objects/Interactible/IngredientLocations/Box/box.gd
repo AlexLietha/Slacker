@@ -22,12 +22,8 @@ func spawn_ingredient() -> void:
 	ingredient.instantiate()
 
 func RetrieveItem(interactor: Player) -> void:
-	print("AHH")
-	
 	if interactor.has_grabbed_item():
 		return
-		
-	print("BAHH")
 
 	var newItem = item[counter%item.size()].instantiate()
 	counter = counter + 1
