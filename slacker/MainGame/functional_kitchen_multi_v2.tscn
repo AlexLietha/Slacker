@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://wt71gr6cep6k" path="res://Utilities/Multiplayer/Scenes/main_menu.tscn" id="1_hehb2"]
 [ext_resource type="PackedScene" uid="uid://mrbh1vscglx7" path="res://Entities/Objects/Interactible/IngredientLocations/Shelf/shelf.tscn" id="2_3tr2g"]
 [ext_resource type="PackedScene" uid="uid://betf2qehtbsgn" path="res://Entities/Objects/Interactible/IngredientLocations/Box/box.tscn" id="3_hehb2"]
-[ext_resource type="PackedScene" uid="uid://2riwns1moyus" path="res://Entities/Objects/Grabbable/Ingredients/BurgerPatty/burger_patty.tscn" id="4_pofqh"]
+[ext_resource type="PackedScene" uid="uid://2riwns1moyus" path="res://Entities/Objects/Grabbable/Foods/Pancakes/pancake.tscn" id="4_pofqh"]
 [ext_resource type="PackedScene" uid="uid://csl4s4fsyxjxk" path="res://Entities/Objects/Interactible/CookingLocations/Grill/grill.tscn" id="5_grpyc"]
 [ext_resource type="PackedScene" uid="uid://dg5uqe6etd04k" path="res://Entities/Objects/Interactible/PrepLocations/Table/table.tscn" id="6_eppj1"]
 [ext_resource type="PackedScene" uid="uid://b1eaqrt0hvugc" path="res://Entities/Objects/Interactible/CookingLocations/Grill/oven_vent.fbx" id="7_rer02"]
