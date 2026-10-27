@@ -4,7 +4,10 @@ extends Node3D
 var dry_mix_added: bool = false
 var water_added: bool = false
 var eggs_added: bool = false
+
+var ingredients_ready: bool = false
 var batter_ready: bool = false
+var pancake_cooked: bool = false
 
 func _ready() -> void:
 	$StaticBody3D/InteractableComponent.interacted.connect(_on_interacted)
@@ -31,6 +34,17 @@ func _ready() -> void:
 func _on_interacted(_interactor: Node3D) -> void:
 	print("Bowl interacted with!")
 
+	if not ingredients_ready:
+		print("Add all ingredients before mixing!")
+		return
+
+	if batter_ready:
+		print("Batter is already mixed!")
+		return
+
+	batter_ready = true
+	print("Pancake batter mixed!")
+
 
 func add_ingredient(ingredient: String) -> void:
 	match ingredient:
@@ -46,8 +60,8 @@ func add_ingredient(ingredient: String) -> void:
 
 func check_batter_ready() -> void:
 	if dry_mix_added && water_added && eggs_added:
-		batter_ready = true
-		print("Pancake batter is ready!")
+		ingredients_ready = true
+		print("All pancake ingredients have been added!")
 
 
 func _on_interactable_component_ready() -> void:

@@ -110,10 +110,8 @@ func enter_state(state: RoundState, duration: float) -> void:
 			open_sign.show()
 			timer.start(duration)
 			
-			# during the open phase, roles are assigned and orders should start spawning
 			if multiplayer.is_server():
-				GameManager.assign_roles()
-				OrderSpawner.start_spawning_order()
+				GameManager.start_round() # start the actual game
 				
 			print(debug_print_source + "Open round started")
 			

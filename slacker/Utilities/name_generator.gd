@@ -1,3 +1,6 @@
+# Aidan Musil
+# Selects a random name for each player
+
 extends Node
 class_name NameGenerator
 
