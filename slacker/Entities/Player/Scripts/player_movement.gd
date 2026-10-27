@@ -58,11 +58,6 @@ func _input(event: InputEvent) -> void:
 		print(debug_print_source + "Ending process...")
 		get_tree().quit()
 	
-	# debug tool to reassign roles after pressing the ` key
-	#if Input.is_action_just_pressed("debugKey"):
-		#print("reassignRoles called")
-		#GameManager.assign_roles()
-	
 	# when the mouse is captured move the camera via the mouse or joystick
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		var x : float
