@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dnjyd8o3ullia" path="res://Entities/Player/UI/Voting/Assets/red_x.png" id="3_010hf"]
 [ext_resource type="Texture2D" uid="uid://dvgctae5j8d8j" path="res://Entities/Player/UI/Voting/Assets/1strike-_p1_v1.png" id="4_5gq0s"]
 
-[node name="VotePopUpUI" type="Control" unique_id=1746701483]
+[node name="VotePopUpUI" type="Control" unique_id=1746701483 node_paths=PackedStringArray("player_icon")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yppai")
+player_icon = NodePath("PlayerIcon")
 
 [node name="Strike1Off" type="TextureRect" parent="." unique_id=2029425035]
 layout_mode = 0
