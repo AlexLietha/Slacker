@@ -13,6 +13,8 @@ var player_names: Array[String]
 signal on_voting_board_toggled(is_visible: bool)
 signal voted(voter:String,voted_for:String)
 
+var debug_print_source = "[vote_manager.gd] - "
+
 func _ready() -> void:
 	for icon in PlayerIcons:
 		icon.buttonPressed.connect(vote_for_player)
@@ -36,23 +38,23 @@ func close_button_pressed() -> void:
 
 
 func vote_for_player(index: int,X: Array[TextureRect],VoteSlot: PlayerIcon)-> void:
-	print(index)
+	print(debug_print_source, index)
 	if(canVote && index <= 2 && player != null):
-		print("You are: ",player.get_player_name()," You voted for: ",VoteSlot.getPlayerNametag())
-		voted.emit(player.get_player_name(),VoteSlot.getPlayerNametag(),index)
+		print(debug_print_source + "You are: ",player.get_player_name()," You voted for: ",VoteSlot.get_player_nametag())
+		voted.emit(player.get_player_name(), VoteSlot.get_player_nametag(),index)
 		if(index == 0):
 			set_faces(1,VoteSlot)
 		elif(index == 2):
 			set_faces(index,VoteSlot)
 			
-		VoteSlot.CounterSetter(index+1)
+		VoteSlot.counter_setter(index+1)
 		X[index].visible = true
 		#print(VoteSlot.getPlayerNametag())
 		#voted_by_name[counter].text = VoteSlot.getPlayerNametag()
 			#killPlayer.emit()
 		cool_down()
 	else:
-		print("you need to wait")
+		print(debug_print_source + "you need to wait")
 
 
 func cool_down() -> void:
@@ -75,15 +77,15 @@ func setup_nameplates(your_name:String) -> void:
 	for i in range(0,player_names.size()):
 		if player_names[i]!=your_name:
 			new_array.push_back(player_names[i])
-	print(your_name)
-	PlayerIcons[0].setPlayerNametag(your_name)
+	print(debug_print_source, your_name)
+	PlayerIcons[0].set_player_nametag(your_name)
 	if(new_array.size()!=0):
 		for i in range(0,new_array.size()):
 			if(i<=4):
-				PlayerIcons[i+1].setPlayerNametag(new_array[i])
+				PlayerIcons[i+1].set_player_nametag(new_array[i])
 
 func set_faces(index:int,VoteSlot:PlayerIcon)->void:
-	VoteSlot.setPlayerFace(index)
+	VoteSlot.set_player_face(index)
 	notify_ui.set_notify_face(VoteSlot.get_player_face())
 
 func toggle_visiblity(_is_visible: bool) -> void:

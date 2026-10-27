@@ -10,6 +10,7 @@ var playerName:String
 
 signal buttonPressed(counter: int,Xs:Array[TextureRect],PlayerIcon)
 
+var debug_print_source = "[vote_icon.gd] - "
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,27 +22,27 @@ func _process(_delta: float) -> void:
 	pass
 
 func _on_pressed() -> void:
-	print("Vote Button Pressed")
+	print(debug_print_source + "Vote Button Pressed")
 	#var id = get_instance_id()
-	print("emit")
+	print(debug_print_source + "emit")
 	buttonPressed.emit(counter,Xs,self)
-	print("emitted")
+	print(debug_print_source + "emitted")
 	
-func CounterSetter(newCounter: int)->void :
+func counter_setter(newCounter: int)->void :
 	counter = newCounter
 	
-func getPlayerNametag()-> String:
+func get_player_nametag()-> String:
 	return NamePlate.text
 	
-func setPlayerNametag(name: String)-> void:
+func set_player_nametag(name: String)-> void:
 	NamePlate.text = name
 
 func get_player_face()->CompressedTexture2D:
 	return self.texture_normal
 	
-func setPlayerFace(index:int)-> void:
+func set_player_face(index:int)-> void:
 	if(index <= faces.size()):
 		self.texture_normal = faces[index]
 	else:
-		print("Index to large for faces array")
+		print(debug_print_source + "Index to large for faces array")
 	
