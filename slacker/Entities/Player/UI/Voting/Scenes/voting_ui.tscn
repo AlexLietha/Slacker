@@ -167,5 +167,5 @@ offset_bottom = 454.5
 
 [node name="Timer" type="Timer" parent="." unique_id=139454590]
 
-[connection signal="pressed" from="CloseButton" to="." method="Close_Button_Pressed"]
+[connection signal="pressed" from="CloseButton" to="." method="close_button_pressed"]
 [connection signal="pressed" from="PlayerIcon1" to="PlayerIcon1" method="_on_pressed"]

@@ -13,6 +13,11 @@ var debug_print_source = "[vote_notification.gd] - "
 func _ready() -> void:
 	hide_vote_pop_up()
 
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("debugKey"):
+		print(debug_print_source + "debug key called")
+		has_been_voted()
+
 func animate_ui() -> void:
 	if current_tween and current_tween.is_running():
 		current_tween.kill()

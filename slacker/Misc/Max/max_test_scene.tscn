@@ -286,7 +286,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.5
 transform = Transform3D(-1.8750002, 0, -3.2475953, 0, 3.75, 0, 3.2475953, 0, -1.8750002, 9.976641, 0.004679501, 5.9490075)
 
 [node name="Player" parent="." unique_id=1090027167 instance=ExtResource("26_p17st")]
-transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0, 3.0491982)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5426128)
 
 [node name="Sink" parent="." unique_id=370843346 instance=ExtResource("27_lhbte")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.757, 0, 4.138)

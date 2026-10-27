@@ -5,7 +5,7 @@ var lastHovered = null
 var interactor: Player
 
 func _ready() -> void:
-	interactor = get_parent().get_parent()
+	interactor = get_parent().get_parent().get_parent().get_parent()
 
 func unhover() -> void:
 	if lastHovered != null:
