@@ -33,6 +33,7 @@ script = ExtResource("1_ad5h5")
 interactionRayCast = NodePath("PlayerMovement/PlayerNeckPivot/Camera/InteractionRange")
 grabbedItem = NodePath("PlayerMovement/GrabbedObjectPosition")
 vote_pop_up_ui = NodePath("VotePopUp")
+metadata/_edit_group_ = true
 
 [node name="PlayerMovement" type="CharacterBody3D" parent="." unique_id=1453958338]
 script = ExtResource("1_7a1se")
@@ -130,13 +131,15 @@ metadata/_edit_use_anchors_ = true
 
 [node name="RoundUI" parent="." unique_id=1773043747 instance=ExtResource("9_l85m7")]
 
-[node name="VotingBoard" parent="." unique_id=1031466018 instance=ExtResource("7_xr8lj")]
-
-[node name="VotePopUp" parent="." unique_id=1746701483 instance=ExtResource("8_r8fok")]
-
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1713669159]
 replication_config = SubResource("SceneReplicationConfig_3smsa")
 
 [node name="StartMenu" parent="." unique_id=1272701289 instance=ExtResource("8_r8fok")]
+
+[node name="VotingBoard" parent="." unique_id=1031466018 node_paths=PackedStringArray("player", "notify_ui") instance=ExtResource("7_xr8lj")]
+player = NodePath("..")
+notify_ui = NodePath("../VotePopUp")
+
+[node name="VotePopUp" parent="." unique_id=1746701483 instance=ExtResource("8_r8fok")]
 
 [connection signal="on_voting_board_toggled" from="VotingBoard" to="PlayerMovement" method="on_voting_board_toggled"]

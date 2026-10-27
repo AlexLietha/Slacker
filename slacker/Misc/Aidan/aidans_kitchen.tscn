@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ti5pak1fauih" path="res://Entities/Objects/Interactible/PrepLocations/PrepStation/big_work_table.tscn" id="1_4ed7v"]
 [ext_resource type="PackedScene" uid="uid://mrbh1vscglx7" path="res://Entities/Objects/Interactible/IngredientLocations/Shelf/shelf.tscn" id="2_4rtl4"]
 [ext_resource type="PackedScene" uid="uid://betf2qehtbsgn" path="res://Entities/Objects/Interactible/IngredientLocations/Box/box.tscn" id="3_048ak"]
-[ext_resource type="PackedScene" uid="uid://2riwns1moyus" path="res://Entities/Objects/Grabbable/Ingredients/BurgerPatty/burger_patty.tscn" id="4_kdmh3"]
+[ext_resource type="PackedScene" uid="uid://2riwns1moyus" path="res://Entities/Objects/Grabbable/Foods/Pancakes/pancake.tscn" id="4_kdmh3"]
 [ext_resource type="PackedScene" uid="uid://csl4s4fsyxjxk" path="res://Entities/Objects/Interactible/CookingLocations/Grill/grill.tscn" id="5_vicky"]
 [ext_resource type="PackedScene" uid="uid://dg5uqe6etd04k" path="res://Entities/Objects/Interactible/PrepLocations/Table/table.tscn" id="6_kscll"]
 [ext_resource type="PackedScene" uid="uid://b1eaqrt0hvugc" path="res://Entities/Objects/Interactible/CookingLocations/Grill/oven_vent.fbx" id="7_0syq1"]

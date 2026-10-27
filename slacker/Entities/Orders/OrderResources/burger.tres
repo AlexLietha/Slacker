@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Entree" format=3 uid="uid://djbrti3q0enq"]
+[gd_resource type="Resource" script_class="Entree" format=3 uid="uid://1kdilo23mp45"]
 
 [ext_resource type="Script" uid="uid://cxfkcjplx3xal" path="res://Entities/Orders/entrée.gd" id="1_s7mum"]
 

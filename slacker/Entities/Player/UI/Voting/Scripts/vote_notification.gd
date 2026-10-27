@@ -7,6 +7,7 @@ var vote = 0
 var play_ani = true
 @onready var strike_icons_off = [$Strike1Off, $Strike2Off, $Strike3Off]
 @onready var strike_icons_on = [$Strike1On, $Strike2On, $Strike3On]
+@export var player_icon: TextureRect
 
 var debug_print_source = "[vote_notification.gd] - "
 
@@ -58,3 +59,6 @@ func add_strike() -> void:
 func hide_vote_pop_up() -> void:
 	visible = false
 	print(debug_print_source + "Vote pop up ui hidden")
+	
+func set_notify_face(face:CompressedTexture2D)->void:
+	player_icon.texture = face

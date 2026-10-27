@@ -1,19 +1,23 @@
 extends Control
-class_name CloseButton
-
-signal on_voting_board_toggled(is_visible: bool)
+class_name VoteManager
 
 @export var PlayerIcons: Array[PlayerIcon]
-
-var canVote:bool = true
-
+@export var votedByLabels: Array[Label]
+@export var player:Player
+@export var notify_ui: VotePopUpUI
 @onready var timer = $Timer
 
+var canVote:bool = true
+var player_names: Array[String]
+
+signal on_voting_board_toggled(is_visible: bool)
+signal voted(voter:String,voted_for:String)
 
 func _ready() -> void:
 	for icon in PlayerIcons:
 		icon.buttonPressed.connect(vote_for_player)
 	close_button_pressed()
+	self.voted.connect(voted_for)
 
 
 func _input(event: InputEvent) -> void:
@@ -31,14 +35,21 @@ func close_button_pressed() -> void:
 	on_voting_board_toggled.emit(false)
 
 
-func vote_for_player(counter: int,X: Array[TextureRect],VoteSlot: PlayerIcon)-> void:
-	print("Voting")
-	if(canVote):
-		print(counter)
-		#change this to something changable
-		if(counter <= 2):
-			X[counter].visible = true
-			VoteSlot.CounterSetter(counter+1)
+func vote_for_player(index: int,X: Array[TextureRect],VoteSlot: PlayerIcon)-> void:
+	print(index)
+	if(canVote && index <= 2 && player != null):
+		print("You are: ",player.get_player_name()," You voted for: ",VoteSlot.getPlayerNametag())
+		voted.emit(player.get_player_name(),VoteSlot.getPlayerNametag(),index)
+		if(index == 0):
+			set_faces(1,VoteSlot)
+		elif(index == 2):
+			set_faces(index,VoteSlot)
+			
+		VoteSlot.CounterSetter(index+1)
+		X[index].visible = true
+		#print(VoteSlot.getPlayerNametag())
+		#voted_by_name[counter].text = VoteSlot.getPlayerNametag()
+			#killPlayer.emit()
 		cool_down()
 	else:
 		print("you need to wait")
@@ -48,7 +59,32 @@ func cool_down() -> void:
 	canVote = false
 	await get_tree().create_timer(1).timeout
 	canVote = true
+	
+func voted_for(voter:String,voted_for:String,index:int)->void:
+	if(voted_for == player.get_player_name()):
+		#notify_ui.set_notify_face(VoteSlot.get_player_face())
+		notify_ui.has_been_voted()
+		PlayerIcons[0].Xs[index].visible=true
+		votedByLabels[index].text = voted_for
+	
+func setup_nameplates(your_name:String) -> void:
+	for p in get_tree().get_nodes_in_group("players"):
+			player_names.push_back(p.get_player_name())
+	print(player_names.size())
+	var new_array:Array[String]
+	for i in range(0,player_names.size()):
+		if player_names[i]!=your_name:
+			new_array.push_back(player_names[i])
+	print(your_name)
+	PlayerIcons[0].setPlayerNametag(your_name)
+	if(new_array.size()!=0):
+		for i in range(0,new_array.size()):
+			if(i<=4):
+				PlayerIcons[i+1].setPlayerNametag(new_array[i])
 
+func set_faces(index:int,VoteSlot:PlayerIcon)->void:
+	VoteSlot.setPlayerFace(index)
+	notify_ui.set_notify_face(VoteSlot.get_player_face())
 
 func toggle_visiblity(_is_visible: bool) -> void:
 	visible = _is_visible

@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://c2dsntpomcf6p"]
 
-[ext_resource type="PackedScene" uid="uid://d22fn703npu4r" path="res://Entities/Player/UI/Round/Scenes/timer_ui.tscn" id="1_iaow0"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/RoundUI.tscn" id="1_iaow0"]
 [ext_resource type="PackedScene" uid="uid://w1hcy6j1i0vj" path="res://Entities/Player/Scenes/player.tscn" id="1_lc1oi"]
 [ext_resource type="PackedScene" uid="uid://csl4s4fsyxjxk" path="res://Entities/Objects/Interactible/CookingLocations/Grill/grill.tscn" id="3_qc4db"]
 [ext_resource type="PackedScene" uid="uid://ddnsnlj6myhdd" path="res://Entities/Objects/Interactible/Waitress/waitress.tscn" id="4_ys1qc"]
 [ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Utilities/Deprecated/ID_component.gd" id="5_35xla"]
-[ext_resource type="PackedScene" uid="uid://2riwns1moyus" path="res://Entities/Objects/Grabbable/Ingredients/BurgerPatty/burger_patty.tscn" id="6_5wyu1"]
+[ext_resource type="PackedScene" uid="uid://2riwns1moyus" path="res://Entities/Objects/Grabbable/Foods/Pancakes/pancake.tscn" id="6_5wyu1"]
 [ext_resource type="PackedScene" uid="uid://betf2qehtbsgn" path="res://Entities/Objects/Interactible/IngredientLocations/Box/box.tscn" id="6_i3aeo"]
 [ext_resource type="PackedScene" uid="uid://cf37ilrn8pexl" path="res://Entities/Objects/Grabbable/Equipment/Bowl/bowl.tscn" id="8_0c07c"]
 [ext_resource type="PackedScene" path="res://Entities/Objects/broom.tscn" id="9_2cgwh"]
