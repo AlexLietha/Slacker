@@ -4,7 +4,7 @@ extends Node
 @export var maxOrderWaitTime := 10.0
 
 var timeTilNextOrder = 1.0
-var listOfEntres : Array[Entree] = [preload("uid://djbrti3q0enq"), preload("uid://du8ppeqhq88dr")]
+var listOfEntres : Array[Entree] = [preload("uid://b5lqncooei2xk"), preload("uid://du8ppeqhq88dr")]
 var canSpawnNextOrder = true
 #signal NewOrder(order: Order)
 var rng = RandomNumberGenerator.new()
