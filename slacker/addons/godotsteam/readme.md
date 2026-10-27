@@ -28,11 +28,13 @@ Current Build
 ---
 You can [download pre-compiled versions of this repo here](https://codeberg.org/godotsteam/godotsteam/releases).
 
-**Version 4.22.1 Changes**
+**Version 4.23.2 Changes**
 
-- Added: link to GodotSteam site in in-editor docs, ***thanks to RTalaro***
-- Fixed: missing ! in singleton check in MultiplayerPeer close function
-
+- Added: VSCode to .gitignore; thanks to ***docfail***
+- Added: fix for "poisoned client" bug; thanks to ***docfail***
+- Fixed: minor regressions; thanks to ***Saalvage***
+- Fixed: incorrect name of MacOS file in .gdextension file
+- Removed: `set_auto_init()` and `set_embed_callbacks()` as they are useless
 
 [You can read more change-logs here](https://godotsteam.com/changelog/godot4/).
 
