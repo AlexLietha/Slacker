@@ -100,7 +100,6 @@ func on_lobby_created(result: int, lobby_id: int) -> void:
 	print("Host peer created successfully with id: ", multiplayer.get_unique_id())
 	print("Is server: ", multiplayer.is_server())
 	
-	##Need to uncomment after implementing player spawner
 	$"../MultiplayerSpawner".spawn_host()
 	print("Lobby created successfully")
 	print("Lobby ID: ", lobby_id)

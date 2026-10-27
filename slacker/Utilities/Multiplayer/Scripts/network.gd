@@ -1,3 +1,6 @@
+# Zeon Obert
+# Possibly depricated, will find out
+
 extends Node
 
 const PLAYER = preload("res://Entities/Player/Scenes/player.tscn")
