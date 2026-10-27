@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PlayerRole" format=3 uid="uid://c44mkmujarf87"]
+
+[ext_resource type="Script" uid="uid://dhstn6x2iuxbf" path="res://Entities/Player/Scripts/player_role.gd" id="1_57fo0"]
+
+[resource]
+script = ExtResource("1_57fo0")
+type = 2
+display_name = "Cook"
+metadata/_custom_type_script = "uid://dhstn6x2iuxbf"

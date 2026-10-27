@@ -5,6 +5,7 @@ extends Node3D
 @export var interactionRayCast : RayCast3D
 @export var grabbedItem : Node3D
 @export var vote_pop_up_ui : Control
+@export var role : PlayerRole
 
 var name_generator : NameGenerator = preload("uid://dleg4tpvbkn2q").new()
 var debug_print_source = "[player.gd] - "
@@ -16,7 +17,8 @@ var debug_print_source = "[player.gd] - "
 
 # Multiplier stuff. Having this code uncommented when testing breaks the player
 func _enter_tree() -> void:
-	print(debug_print_source + "Player enter tree " + name)
+	add_to_group("players") # NEEDS TO BE HERE TO ADD PLAYER TO PLAYER GROUP
+	print(debug_print_source + "Player enter tree " + player_name)
 	#print(debug_print_source + "Authroity: " + str(get_multiplayer_authority()))
 	#set_multiplayer_authority(name.to_int())
 
@@ -38,7 +40,7 @@ func _input(event: InputEvent) -> void:
 		if has_grabbed_item():
 			get_grabbed_item().drop()
 		pass
-
+		
 
 func set_player_name() -> void:
 	player_name = name_generator.pick_random_name()
@@ -48,6 +50,10 @@ func set_player_name() -> void:
 
 func get_player_name() -> String:
 	return player_name
+	
+func set_player_role(new_role: PlayerRole) -> void:
+	role = new_role
+	print(debug_print_source, player_name + " assigned role: ", role.display_name)
 
 
 ## this can stay now, but should be moved by Alex when he redoes interaction stuff

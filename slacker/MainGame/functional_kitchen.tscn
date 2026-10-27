@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ti5pak1fauih" path="res://Entities/Objects/Interactible/PrepLocations/PrepStation/big_work_table.tscn" id="3_xd5bs"]
 [ext_resource type="PackedScene" uid="uid://mrbh1vscglx7" path="res://Entities/Objects/Interactible/IngredientLocations/Shelf/shelf.tscn" id="4_h0fgc"]
 [ext_resource type="PackedScene" uid="uid://betf2qehtbsgn" path="res://Entities/Objects/Interactible/IngredientLocations/Box/box.tscn" id="5_602ew"]
-[ext_resource type="PackedScene" uid="uid://2riwns1moyus" path="res://Entities/Objects/Grabbable/Ingredients/BurgerPatty/burger_patty.tscn" id="5_wl1ng"]
+[ext_resource type="PackedScene" uid="uid://2riwns1moyus" path="res://Entities/Objects/Grabbable/Foods/Pancakes/pancake.tscn" id="5_wl1ng"]
 [ext_resource type="PackedScene" uid="uid://csl4s4fsyxjxk" path="res://Entities/Objects/Interactible/CookingLocations/Grill/grill.tscn" id="7_a1j1q"]
 [ext_resource type="PackedScene" uid="uid://dg5uqe6etd04k" path="res://Entities/Objects/Interactible/PrepLocations/Table/table.tscn" id="8_s4xgr"]
 [ext_resource type="PackedScene" uid="uid://b1eaqrt0hvugc" path="res://Entities/Objects/Interactible/CookingLocations/Grill/oven_vent.fbx" id="9_07ak1"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://dmh7nnfrnbb7v" path="res://Entities/Objects/Grabbable/Ingredients/Bread/bread.tscn" id="24_185ci"]
 [ext_resource type="PackedScene" uid="uid://ddnsnlj6myhdd" path="res://Entities/Objects/Interactible/Waitress/waitress.tscn" id="25_esfd0"]
 [ext_resource type="PackedScene" uid="uid://c6wolbp1jdqht" path="res://Entities/Orders/Board/order_board.tscn" id="27_444lh"]
+[ext_resource type="Script" uid="uid://dhstn6x2iuxbf" path="res://Entities/Player/Scripts/player_role.gd" id="27_qxsv6"]
 [ext_resource type="PackedScene" uid="uid://w0g2043ktub6" path="res://Entities/Objects/Interactible/ReportBox/report_box.tscn" id="28_ygxli"]
 [ext_resource type="PackedScene" uid="uid://18oqbpl2tmol" path="res://Entities/Objects/Grabbable/Equipment/Broom/broom.tscn" id="29_wur46"]
 
@@ -42,6 +43,10 @@ albedo_color = Color(0, 0, 0, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oyfun"]
 albedo_color = Color(0.8313384, 0.77674156, 0.7195819, 1)
 uv1_triplanar_sharpness = 0.9659363
+
+[sub_resource type="Resource" id="Resource_wagao"]
+script = ExtResource("27_qxsv6")
+metadata/_custom_type_script = "uid://dhstn6x2iuxbf"
 
 [node name="Kitchen2" type="Node3D" unique_id=615167998]
 
@@ -286,3 +291,4 @@ transform = Transform3D(-1.8750002, 0, -3.2475953, 0, 3.75, 0, 3.2475953, 0, -1.
 
 [node name="Player" parent="." unique_id=573455739 instance=ExtResource("2_kgise")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07908821, 0.008285522, 2.6317072)
+role = SubResource("Resource_wagao")

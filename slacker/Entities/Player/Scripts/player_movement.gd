@@ -127,25 +127,6 @@ func on_voting_board_toggled(_is_visible: bool) -> void:
 	using_phone = _is_visible
 
 
-## leave for now but should be removed/reworked and put in role system
-@export var role = "Cook" ## make into its own resource/object w/ enums
-func set_player_role():
-	if role == "Cook":
-		var material = StandardMaterial3D.new()
-		material.albedo_color = Color.BLUE
-		if player_mesh != null:
-			player_mesh.material_override = material
-		
-	if role == "Slacker":
-		var material = StandardMaterial3D.new()
-		material.albedo_color = Color.RED
-		if player_mesh != null:
-			player_mesh.material_override = material
-			
-	if role == "Rat":
-		pass
-
-
 #func get_id() -> int:
 	#if is_multiplayer_authority():
 		#return clientNo
