@@ -2,6 +2,7 @@ class_name SinkMinigame extends Node3D
 
 @export var initial_placement: Node3D
 @export var finished_placement: Node3D
+@export var puddle_spawner: PuddleSpawner
 
 var in_minigame: bool = false
 var item_to_clean
@@ -17,7 +18,11 @@ func _input(event: InputEvent) -> void:
 		dirty_componenent.clean(get_tree().get_root().get_process_delta_time())
 		if !dirty_componenent.is_dirty:
 			in_minigame = false
+			puddle_spawner.stop_spawning()
+			
 			item_to_clean.place(finished_placement)
+			
+			puddle_spawner.spawn_big_splash()
 
 
 func play_minigame(item: GrabbableObject) -> void:
@@ -25,3 +30,5 @@ func play_minigame(item: GrabbableObject) -> void:
 	item_to_clean = item
 	dirty_componenent = item.get_node("DirtyComponent")
 	item.place(initial_placement)
+
+	puddle_spawner.start_spawning()

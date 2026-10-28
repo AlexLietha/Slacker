@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://8hid0kygyi71" path="res://Entities/Objects/Interactible/interactible_component.gd" id="4_rpjjs"]
 [ext_resource type="Script" uid="uid://c051513rs7gnq" path="res://Utilities/Deprecated/ID_component.gd" id="5_cd3ge"]
 [ext_resource type="Script" uid="uid://cu05e16ym3rvo" path="res://Entities/Objects/Interactible/PrepLocations/Sink/sink_minigame.gd" id="6_lfada"]
+[ext_resource type="Script" uid="uid://8pfq5w1hx2mx" path="res://Entities/Hazards/Puddle/puddle_spawner.gd" id="7_n6q3x"]
+[ext_resource type="PackedScene" uid="uid://b5u8x7d80rudx" path="res://Entities/Hazards/Puddle/puddle.tscn" id="8_t0x1n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tcuxl"]
 size = Vector3(3, 1.5, 1.5)
@@ -157,13 +159,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4700346, 1.1416885, -0.093
 radius = 0.2
 material = ExtResource("3_lfada")
 
-[node name="Minigame" type="Node3D" parent="." unique_id=1943608109 node_paths=PackedStringArray("initial_placement", "finished_placement")]
+[node name="Minigame" type="Node3D" parent="." unique_id=1943608109 node_paths=PackedStringArray("initial_placement", "finished_placement", "puddle_spawner")]
 script = ExtResource("6_lfada")
 initial_placement = NodePath("InitialPlacement")
 finished_placement = NodePath("FinishedPlacement")
+puddle_spawner = NodePath("../PuddleSpawner")
 
 [node name="InitialPlacement" type="Node3D" parent="Minigame" unique_id=1267036054]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 1.7173054, 0)
 
 [node name="FinishedPlacement" type="Node3D" parent="Minigame" unique_id=1949914602]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 1.4986489, 1.5429835, 0)
+
+[node name="PuddleSpawner" type="Node3D" parent="." unique_id=169176198]
+script = ExtResource("7_n6q3x")
+puddle_scene = ExtResource("8_t0x1n")

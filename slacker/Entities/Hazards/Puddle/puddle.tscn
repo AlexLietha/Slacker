@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b5u8x7d80rudx"]
+
+[ext_resource type="Script" uid="uid://bps02aay8orf6" path="res://Entities/Hazards/Puddle/puddle.gd" id="1_1jvyi"]
+[ext_resource type="Texture2D" uid="uid://dcy8kegm2y5iu" path="res://Misc/Max/best_friends.png" id="2_uh784"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_67xdv"]
+albedo_color = Color(0, 0.35256132, 0.8675372, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hwy5s"]
+material = SubResource("StandardMaterial3D_67xdv")
+height = 0.11193848
+
+[node name="Puddle" type="Node3D" unique_id=1952981582]
+script = ExtResource("1_1jvyi")
+
+[node name="PuddleTexture" type="Sprite3D" parent="." unique_id=471886870]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.16449714, 0)
+visible = false
+texture = ExtResource("2_uh784")
+
+[node name="TempPuddle" type="MeshInstance3D" parent="." unique_id=134054152]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.059901595, 0)
+mesh = SubResource("CylinderMesh_hwy5s")
+
+[node name="TempPuddle2" type="MeshInstance3D" parent="." unique_id=1970487042]
+transform = Transform3D(0.79372585, 0, 0, 0, 1, 0, 0, 0, 0.7712942, -0.2441678, 0.059920818, -0.40448314)
+mesh = SubResource("CylinderMesh_hwy5s")
+
+[node name="TempPuddle3" type="MeshInstance3D" parent="." unique_id=917783755]
+transform = Transform3D(0.70237863, 0, 0, 0, 1, 0, 0, 0, 0.4136187, 0.5172727, 0.059920818, -0.40448314)
+mesh = SubResource("CylinderMesh_hwy5s")
