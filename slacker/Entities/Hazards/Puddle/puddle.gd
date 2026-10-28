@@ -5,5 +5,5 @@ extends Node3D
 class_name Puddle
 
 func spawn_puddle() -> void:
-	print("Splish Splash (Puddle Spawned)")
+	print("[puddle.gd] - Splish Splash (Puddle Spawned)")
 	

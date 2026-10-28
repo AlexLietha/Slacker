@@ -10,6 +10,7 @@ class_name PuddleSpawner
 @export var min_spawn_time: float = 1.0
 @export var max_spawn_time: float = 3.0
 
+# For big ol splash when "taking the plate out of the sink"
 @export var min_final_puddles: int = 3
 @export var max_final_puddles: int = 5
 
