@@ -24,13 +24,11 @@ func grab(grabber : Player):
 	cooking = false
 	
 func cook():
-	print("cooking")
 	while true:
 		await get_tree().create_timer(10).timeout
 		if cooking:
 			model.material.albedo_color = Color(0.293, 0.18, 0.146, 1.0)
 			cooked = true
-			print(cooked)
 		else:
 			return
 		

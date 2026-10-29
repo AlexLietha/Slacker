@@ -45,17 +45,33 @@ func _on_interacted(_interactor: Node3D) -> void:
 	batter_ready = true
 	print("Pancake batter mixed!")
 
+	if not ingredients_ready:
+		print("Add all ingredients before mixing!")
+		return
+
+	if batter_ready:
+		print("Batter is already mixed!")
+		return
+
+	batter_ready = true
+	print("Pancake batter mixed!")
+
 
 func add_ingredient(ingredient: String) -> void:
-	match ingredient:
-		"dry_mix":
-			dry_mix_added = true
-		"water":
-			water_added = true
-		"eggs":
-			eggs_added = true
+		match ingredient:
+			"dry_mix":
+				dry_mix_added = true
+				print("Dry mix added to bowl!")
 
-	check_batter_ready()
+			"water":
+				water_added = true
+				print("Water added to bowl!")
+
+			"eggs":
+				eggs_added = true
+				print("Eggs added to bowl!")
+
+		check_batter_ready()
 
 
 func check_batter_ready() -> void:

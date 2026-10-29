@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://du64bu5k36ulg"]
+
+[ext_resource type="PackedScene" uid="uid://be2lpldotxs4g" path="res://Entities/Objects/Grabbable/grabbable_object.tscn" id="1_suqqi"]
+[ext_resource type="Script" uid="uid://d3tox3ob0w1tc" path="res://Entities/Orders/ingredient.gd" id="2_quag6"]
+
+[node name="DryMix" unique_id=844689755 instance=ExtResource("1_suqqi")]
+script = ExtResource("2_quag6")
+ingredientName = "Ingredient"
