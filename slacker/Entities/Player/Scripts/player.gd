@@ -46,6 +46,7 @@ func set_player_name() -> void:
 	player_name = name_generator.pick_random_name()
 	player_overhead_name.text = player_name
 	#print(debug_print_source + "Player Name: " + player_name)
+	await get_tree().process_frame
 	vote_ui.setup_nameplates(player_name)
 
 func get_player_name() -> String:
