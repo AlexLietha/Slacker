@@ -2,6 +2,7 @@ extends CharacterBody3D
 class_name PlayerMovement
 
 var speed : float = 5.0
+var slow_multiplier : float = 0.35 #decreasing this value slows the player more
 var direction := Vector3.ZERO
 var headbob_freq : float = 4.0
 var headbob_amp : float = 0.02
@@ -58,11 +59,6 @@ func _input(event: InputEvent) -> void:
 		print(debug_print_source + "Ending process...")
 		get_tree().quit()
 	
-	# debug tool to reassign roles after pressing the ` key
-	#if Input.is_action_just_pressed("debugKey"):
-		#print("reassignRoles called")
-		#GameManager.assign_roles()
-	
 	# when the mouse is captured move the camera via the mouse or joystick
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		var x : float
@@ -109,6 +105,9 @@ func movement(input_dir: Vector2, delta: float ):
 	if direction:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
+		if Input.is_action_pressed("slowDown"):
+			velocity.x *= slow_multiplier
+			velocity.z *= slow_multiplier
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		velocity.z = move_toward(velocity.z, 0, speed)
