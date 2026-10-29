@@ -292,3 +292,7 @@ transform = Transform3D(-1.8750002, 0, -3.2475953, 0, 3.75, 0, 3.2475953, 0, -1.
 [node name="Player" parent="." unique_id=573455739 instance=ExtResource("2_kgise")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07908821, 0.008285522, 2.6317072)
 role = SubResource("Resource_wagao")
+
+[node name="Player2" parent="." unique_id=954328614 instance=ExtResource("2_kgise")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6079054, 0.008285522, 2.6317072)
+role = SubResource("Resource_wagao")

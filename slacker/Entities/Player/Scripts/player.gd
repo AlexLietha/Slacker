@@ -18,7 +18,7 @@ var debug_print_source = "[player.gd] - "
 # Multiplier stuff. Having this code uncommented when testing breaks the player
 func _enter_tree() -> void:
 	add_to_group("players") # NEEDS TO BE HERE TO ADD PLAYER TO PLAYER GROUP
-	print(debug_print_source + "Player enter tree " + player_name)
+	#print(debug_print_source + "Player enter tree " + player_name)
 	#print(debug_print_source + "Authroity: " + str(get_multiplayer_authority()))
 	#set_multiplayer_authority(name.to_int())
 
@@ -32,7 +32,7 @@ func _ready() -> void:
 		return
 	
 	camera.current = true
-	print(debug_print_source + "Player Auth: " + str(get_multiplayer_authority()))
+	#print(debug_print_source + "Player Auth: " + str(get_multiplayer_authority()))
 
 
 func _input(event: InputEvent) -> void:
@@ -45,7 +45,7 @@ func _input(event: InputEvent) -> void:
 func set_player_name() -> void:
 	player_name = name_generator.pick_random_name()
 	player_overhead_name.text = player_name
-	print(debug_print_source + "Player Name: " + player_name)
+	#print(debug_print_source + "Player Name: " + player_name)
 	vote_ui.setup_nameplates(player_name)
 
 func get_player_name() -> String:
@@ -53,7 +53,7 @@ func get_player_name() -> String:
 	
 func set_player_role(new_role: PlayerRole) -> void:
 	role = new_role
-	print(debug_print_source, player_name + " assigned role: ", role.display_name)
+	#print(debug_print_source, player_name + " assigned role: ", role.display_name)
 
 
 ## this can stay now, but should be moved by Alex when he redoes interaction stuff

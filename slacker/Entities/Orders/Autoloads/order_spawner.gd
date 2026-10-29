@@ -23,7 +23,7 @@ func create_order():
 	#return NewOrder
 	
 func spawn_orders():
-	print(debug_print_source + "Spawn order called")
+	#print(debug_print_source + "Spawn order called")
 	await get_tree().create_timer(timeTilNextOrder).timeout
 	timeTilNextOrder = rng.randf_range(minOrderWaitTime, maxOrderWaitTime)
 	

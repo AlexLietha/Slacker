@@ -40,7 +40,7 @@ func close_button_pressed() -> void:
 func vote_for_player(index: int,X: Array[TextureRect],VoteSlot: PlayerIcon)-> void:
 	print(debug_print_source, index)
 	if(canVote && index <= 2 && player != null):
-		print(debug_print_source + "You are: ",player.get_player_name()," You voted for: ",VoteSlot.get_player_nametag())
+		print(debug_print_source + "You are: ",player.get_player_name(),", You voted for: ",VoteSlot.get_player_nametag())
 		voted.emit(player.get_player_name(), VoteSlot.get_player_nametag(),index)
 		if(index == 0):
 			set_faces(1,VoteSlot)
@@ -53,8 +53,8 @@ func vote_for_player(index: int,X: Array[TextureRect],VoteSlot: PlayerIcon)-> vo
 		#voted_by_name[counter].text = VoteSlot.getPlayerNametag()
 			#killPlayer.emit()
 		cool_down()
-	else:
-		print(debug_print_source + "you need to wait")
+	#else:
+		#print(debug_print_source + "you need to wait")
 
 
 func cool_down() -> void:
@@ -63,7 +63,10 @@ func cool_down() -> void:
 	canVote = true
 	
 func voted_for(voter:String,voted_for:String,index:int)->void:
+	print("the voteaning has begun")
+	print(player.get_player_name())
 	if(voted_for == player.get_player_name()):
+		print("the target has been locked down")
 		#notify_ui.set_notify_face(VoteSlot.get_player_face())
 		notify_ui.has_been_voted()
 		PlayerIcons[0].Xs[index].visible=true
@@ -71,13 +74,15 @@ func voted_for(voter:String,voted_for:String,index:int)->void:
 	
 func setup_nameplates(your_name:String) -> void:
 	for p in get_tree().get_nodes_in_group("players"):
-			player_names.push_back(p.get_player_name())
+		print(p.get_player_name())
+		player_names.push_back(p.get_player_name())
 	print(player_names.size())
+	
 	var new_array:Array[String]
 	for i in range(0,player_names.size()):
 		if player_names[i]!=your_name:
 			new_array.push_back(player_names[i])
-	print(debug_print_source, your_name)
+	#print(debug_print_source, your_name)
 	PlayerIcons[0].set_player_nametag(your_name)
 	if(new_array.size()!=0):
 		for i in range(0,new_array.size()):
