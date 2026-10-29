@@ -9,6 +9,7 @@ extends StaticBody3D
 @export var item: Array[PackedScene]
 
 var counter = 0
+@onready var spawner = $MultiplayerSpawner
 
 @export var ingredient =  preload("uid://2riwns1moyus")
 
@@ -19,7 +20,9 @@ func _ready() -> void:
 	highlightComponent.set_shader(model.material.next_pass)
 
 func spawn_ingredient() -> void:
-	ingredient.instantiate()
+	spawner.spawn(ingredient)
+	
+	#ingredient.instantiate()
 
 func RetrieveItem(interactor: Player) -> void:
 	if interactor.has_grabbed_item():

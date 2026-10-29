@@ -42,3 +42,5 @@ metadata/_custom_type_script = "uid://dakevjuf8svg"
 shape = SubResource("BoxShape3D_4pvdy")
 
 [node name="Icon" type="Node3D" parent="." unique_id=1074943053]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=632224662]
