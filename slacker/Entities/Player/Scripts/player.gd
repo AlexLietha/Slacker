@@ -31,6 +31,8 @@ func _ready() -> void:
 		camera.current = false
 		return
 	
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
 	camera.current = true
 	#print(debug_print_source + "Player Auth: " + str(get_multiplayer_authority()))
 
